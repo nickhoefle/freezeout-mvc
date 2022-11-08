@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="container">
+
+<header th:replace="fragments :: header"></header>
+
+<form method="post">
+    <div class="form-group">
+        <label>Name
+            <input th:field="${song.songName}" class="form-control">
+        </label>
+        <p class="error" th:errors="${song.songName}"></p>
+    </div>
+    <div class="form-group">
+        <label>Original Artist
+            <input class="form-control" th:field="${song.songDetails.originalArtist}">
+        </label>
+        <p class="error" th:errors="${song.songDetails.originalArtist}"></p>
+    </div>
+    <div class="form-group">
+        <label>Year
+            <input class="form-control" th:field="${song.songDetails.year}">
+        </label>
+        <p class="error" th:errors="${song.songDetails.year}"></p>
+    </div>
+    <div class="form-group">
+        <label>Key
+            <input class="form-control" th:field="${song.songDetails.songKey}">
+        </label>
+        <p class="error" th:errors="${song.songDetails.songKey}"></p>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Create" class="btn btn-success">
+    </div>
+</form>
+
+</body>
+</html>

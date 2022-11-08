@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="container">
+
+<header th:replace="fragments :: header"></header>
+
+<form method="post">
+
+    <th:block th:each="song : ${songs}">
+        <div class="form-group">
+        <label>
+            <span th:text="${song.songName}"></span>
+            <input type="checkbox" name="songIds" th:value="${song.id}" class="form-control">
+        </label>
+        </div>
+    </th:block>
+
+    <input type="submit" value="Delete" class="btn btn-danger">
+</form>
+
+</body>
+</html>

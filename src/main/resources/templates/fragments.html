@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:fragment="head">
+    <meta charset="UTF-8"/>
+    <title>Freezeout Band</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{../CSS/index.css}">
+    <link rel="stylesheet" th:href="@{/images}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="script.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <style>@import url('https://fonts.cdnfonts.com/css/snowtop-caps')</style>
+
+</head>
+<body>
+
+<header th:fragment="header">
+    <h1 id="titleHeaderFragment">Freezeout Band</h1>
+    <ul class="nav">
+        <li class="nav-item"><a class="nav-link" href="/songs">All Songs</a></li>
+        <li class="nav-item"><a class="nav-link" href="/songs/create">Create Song</a></li>
+        <li class="nav-item"><a class="nav-link" href="/songs/delete">Delete Songs</a></li>
+    </ul>
+</header>
+
+</body>
+</html>

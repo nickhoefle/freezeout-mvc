@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="container">
+
+<header th:replace="fragments :: header"></header>
+
+<table class="table table-striped" id="myTable">
+    <thead>
+        <tr>
+            <th onclick="sortTable()">Song</th>
+            <th onclick="sortTable()">Original Artist</th>
+            <th onclick="sortTable()">Year</th>
+            <th onclick="sortTable()">Key</th>
+        </tr>
+    </thead>
+    <tr th:each="song : ${songs}">
+        <td th:text="${song.songName}"></td>
+        <td th:text="${song.songDetails.originalArtist}"></td>
+        <td th:text="${song.songDetails.year}"></td>
+        <td th:text="${song.songDetails.songKey}"></td>
+    </tr>
+</table>
+
+</body>
+</html>
