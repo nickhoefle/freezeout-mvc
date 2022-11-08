@@ -27,3 +27,17 @@ body {
     font-family: 'Snowtop Caps', sans-serif;
 }
 
+#titleHeaderFragment {
+    font-size: 20pt;
+}
+
+.instrumentsAndNamesContainer {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
+
+.instrumentsAndNames {
+  text-align: center;
+}
+
