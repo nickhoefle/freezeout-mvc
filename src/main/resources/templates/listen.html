@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+
+<body class="container">
+
+<header th:replace="fragments :: header"></header>
+
+<div class="table table-striped">
+    <div id="audioPlayerBorder">
+        <th:block  th:each="song : ${setList}">
+            <div th:if="${song.songUploadFileName != null}">
+                <h3 id="songTitle" th:text="${song.songName} + ' - ' + ${song.songDetails.originalArtist}"></h3>
+            </div>
+
+            <div class="audioTrack" th:if="${song.songUploadFileName != null}">
+                <audio id="player"  class="audioPlayerHTML" controls>
+                    <source id="currentSong" th:src="@{${'http://freezeoutband.com:8080/' + song.songUploadFileName}}" type="audio/wav">
+                </audio>
+            </div>
+        </th:block>
+    </div>
+</div>
+
+</body>
+</html>

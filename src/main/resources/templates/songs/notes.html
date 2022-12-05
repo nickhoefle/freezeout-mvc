@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<header th:replace="fragments :: header"></header>
+
+<body class="container">
+
+<h2 th:text="${song.songName + ' Notes'}"></h2><hr>
+<a th:href="@{http://freezeoutband.com:8080/{name}(name=${song.songSheetMusic})}"/><button>🎼 Sheet Music</button></a>
+
+<table class="table table-striped" id="songNotesTable">
+    <thead>
+        <tr>
+            <th>Note</th>
+            <th>From</th>
+            <th>Date</th>
+        </tr>
+    </thead>
+    <tr th:each="note : ${songNotesCollection}">
+        <td th:text="${note.noteText}"></td>
+        <td th:text="${note.addedBy}"></td>
+        <td th:text="${note.timestamp}"></td>
+    </tr>
+</table>
+
+<a th:href="@{./add-notes/}">Add Note</a>
+
+</body>
+</html>

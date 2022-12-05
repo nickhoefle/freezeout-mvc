@@ -6,22 +6,30 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" th:href="@{../CSS/index.css}">
-    <link rel="stylesheet" th:href="@{/images}">
+    <link rel="stylesheet" th:href="@{../CSS/listen.css}">
+    <link rel="stylesheet" th:href="@{../CSS/songs.css}">
+    <link rel="stylesheet" th:href="@{../images}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="script.js"></script>
+    <script src="script.js"></script>
+    <script type="text/javascript" th:src="@{../JavaScript/create.js}"></script>
+    <script type="text/javascript" th:src="@{../JavaScript/songs.js}"></script>
+    <script type="text/javascript" th:src="@{../JavaScript/delete.js}"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-    <style>@import url('https://fonts.cdnfonts.com/css/snowtop-caps')</style>
+
 
 </head>
 <body>
 
-<header th:fragment="header">
-    <a id="titleHeaderFragment" href="/">Freezeout Band</a>
+<header th:fragment="header" style="font-family: 'Snowtop Caps', sans-serif;">
+    <a id="titleHeaderFragment" href="/" style="font-size: 32pt">Freezeout Band</a>
     <ul class="nav">
         <li class="nav-item"><a class="nav-link" href="/songs">All Songs</a></li>
+        <li class="nav-item"><a class="nav-link" href="/listen">Listen</a></li>
         <li class="nav-item"><a class="nav-link" href="/songs/create">Create Song</a></li>
+        <li class="nav-item"><a class="nav-link" href="/upload/sheet-music">Upload Files</a></li>
         <li class="nav-item"><a class="nav-link" href="/songs/delete">Delete Songs</a></li>
     </ul>
 </header>

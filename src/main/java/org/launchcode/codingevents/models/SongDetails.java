@@ -8,9 +8,6 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
-/**
- * Created by Chris Bay
- */
 @Entity
 public class SongDetails extends AbstractEntity {
 
@@ -22,13 +19,15 @@ public class SongDetails extends AbstractEntity {
 
     private String songKey;
 
+    private String songPath;
+
+    public SongDetails() {}
+
     public SongDetails(String originalArtist, String year, String songKey) {
         this.originalArtist = originalArtist;
         this.year = year;
         this.songKey = songKey;
     }
-
-    public SongDetails() {}
 
     public String getOriginalArtist() {
         return originalArtist;
@@ -52,5 +51,13 @@ public class SongDetails extends AbstractEntity {
 
     public void setSongKey(String songKey) {
         this.songKey = songKey;
+    }
+
+    public String getSongPath() {
+        return songPath;
+    }
+
+    public void setSongPath(String songPath) {
+        this.songPath = songPath;
     }
 }
