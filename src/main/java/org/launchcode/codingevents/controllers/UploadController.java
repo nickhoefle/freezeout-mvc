@@ -30,16 +30,19 @@ public class UploadController {
     private SongRepository songRepository;
 
     public final List<Song> findSongsWithoutAudioFile() {
-        List<Song> songsWithoutAudioFile = new ArrayList<>();
+        List<Song> allSongsList = new ArrayList<>();
         Iterable<Song> allSongs = songRepository.findAll();
         for (Song song : allSongs){
-            if (song.getSongUploadFileName() == null) {
-                songsWithoutAudioFile.add(song);
-            }
+                allSongsList.add(song);
         }
-        Collections.reverse(songsWithoutAudioFile);
-        return songsWithoutAudioFile;
+        Collections.sort(allSongsList, new Comparator<Song>() {
+            public int compare(Song song1, Song song2) {
+                return song1.getSongName().compareTo(song2.getSongName());
+            }
+        });
+        return allSongsList;
     }
+
 
     public final List<Song> findSongsWithoutSheetMusic() {
         List<Song> songsWithoutSheetMusic = new ArrayList<>();

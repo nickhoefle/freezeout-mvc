@@ -5,7 +5,7 @@
 
 <body class="container">
 
-<table class="table table-striped" id="myTable">
+<table class="table" id="myTable">
     <thead>
         <tr>
             <th class="songTableHeader" onclick="sortTable(0)">Song</th>
@@ -15,12 +15,13 @@
             <th>Notes</th>
         </tr>
     </thead>
+
     <tr th:each="song : ${songs}">
         <td th:text="${song.songName}"></td>
         <td th:text="${song.songDetails.originalArtist}"></td>
         <td th:text="${song.songDetails.year}"></td>
-        <td th:if="${song.songSheetMusic == null}"><a th:href="@{/upload/sheet-music}"><button>➕ Add</button></a></td>
-        <td th:if="${song.songSheetMusic != null}"><a th:href="@{uploads/{name}(name=${song.songSheetMusic})}"/>🎼</a></td>
+        <td th:if="${song.songSheetMusic == null}">&nbsp;&nbsp;&nbsp;<a th:href="@{/upload/sheet-music}"><button>➕ Add</button></a></td>
+        <td th:if="${song.songSheetMusic != null}"><a th:href="@{uploads/{name}(name=${song.songSheetMusic})}"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;🎼</a></td>
         <td><a style="color:inherit;" th:href="@{/songs/notes/{songId}/(songId=${song.id})}"><button>Notes</button></a></td>
     </tr>
 </table>

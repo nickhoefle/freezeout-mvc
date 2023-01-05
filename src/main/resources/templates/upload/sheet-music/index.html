@@ -13,7 +13,7 @@
         <h2>Upload Sheet Music (.pdf)</h2>
         <p th:text="${message}" th:if="${message ne null}" class="alert alert-primary"></p>
         <form method="post" th:action="@{/upload/sheet-music}" enctype="multipart/form-data">
-          <hr>
+          <hr style="border: 0; height: 3px; background-color: black;">
           <h3>Select Song:</h3>
           <select class="form-control" name="sheetId" id="sheetId">
             <option th:each="option : ${songsForDropdown}"  th:text="${option.songName}" th:value="${option.id}" ></option>
