@@ -16,7 +16,7 @@
 
             <div class="audioTrack" th:if="${song.songUploadFileName != null}">
                 <audio id="player"  class="audioPlayerHTML" controls>
-                    <source id="currentSong" th:src="@{${'src/main/resources/static/uploads/' + song.songUploadFileName}}" type="audio/wav">
+                    <source id="currentSong" th:src="@{${'/uploads/' + song.songUploadFileName}}" type="audio/wav">
                 </audio>
             </div>
         </th:block>
