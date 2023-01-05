@@ -6,7 +6,7 @@
 <body class="container">
 
 <h2 th:text="${song.songName + ' Notes'}"></h2><hr>
-<a th:href="@{http://freezeoutband.com:8080/{name}(name=${song.songSheetMusic})}"/><button>🎼 Sheet Music</button></a>
+<a th:href="@{/uploads/{name}(name=${song.songSheetMusic})}"/><button>🎼 Sheet Music</button></a>
 
 <table class="table table-striped" id="songNotesTable">
     <thead>
