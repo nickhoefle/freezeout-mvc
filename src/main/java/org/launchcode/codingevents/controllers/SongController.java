@@ -28,14 +28,13 @@ import java.util.Optional;
 @RequestMapping("songs")
 public class SongController {
 
-    private final String UPLOAD_DIR = "/var/www/html";
+    private final String UPLOAD_DIR = "src/main/resources/static/uploads/";
 
     @Autowired
     private SongRepository songRepository;
 
     @Autowired
     private SongNoteRepository songNoteRepository;
-
 
     @GetMapping
     public String displaySongs(Model model) {
@@ -44,7 +43,6 @@ public class SongController {
         return "songs/index";
     }
 
-
     @GetMapping("create")
     public String displayCreateSongForm(Model model) {
         model.addAttribute("title", "Create Song");
@@ -52,17 +50,15 @@ public class SongController {
         return "songs/create";
     }
 
-
     @PostMapping("create")
     public String processCreateSongForm(@ModelAttribute @Valid Song newSong, Errors errors, Model model) {
-         if (errors.hasErrors()) {
+        if (errors.hasErrors()) {
             model.addAttribute("title", "Create Event");
             return "songs/create";
-         }
+        }
         songRepository.save(newSong);
         return "redirect:/upload/sheet-music";
     }
-
 
     @GetMapping("delete")
     public String displayDeleteEventForm(Model model) {
@@ -70,7 +66,6 @@ public class SongController {
         model.addAttribute("songs", songRepository.findAll());
         return "songs/delete";
     }
-
 
     @PostMapping("delete")
     public String processDeleteEventsForm(@RequestParam(required = false) int[] songIds) {
@@ -81,7 +76,6 @@ public class SongController {
         }
         return "redirect:";
     }
-
 
     @GetMapping("notes/{songId}")
     public String displayNotes (Model model, @PathVariable int songId) {

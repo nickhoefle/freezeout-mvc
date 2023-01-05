@@ -24,17 +24,17 @@ import java.util.*;
 @RequestMapping("upload")
 public class UploadController {
 
-    private final String UPLOAD_DIR = "/var/www/html/";
+    private final String UPLOAD_DIR = "src/main/resources/static/uploads/";
 
     @Autowired
     private SongRepository songRepository;
 
     public final List<Song> findSongsWithoutAudioFile() {
-        Iterable<Song> allSongs = songRepository.findAll();
         List<Song> songsWithoutAudioFile = new ArrayList<>();
-        for (Song eachSong : allSongs){
-            if (eachSong.getSongUploadFileName() == null) {
-                songsWithoutAudioFile.add(eachSong);
+        Iterable<Song> allSongs = songRepository.findAll();
+        for (Song song : allSongs){
+            if (song.getSongUploadFileName() == null) {
+                songsWithoutAudioFile.add(song);
             }
         }
         Collections.reverse(songsWithoutAudioFile);
@@ -42,11 +42,11 @@ public class UploadController {
     }
 
     public final List<Song> findSongsWithoutSheetMusic() {
-        Iterable<Song> allSongs = songRepository.findAll();
         List<Song> songsWithoutSheetMusic = new ArrayList<>();
-        for (Song eachSong : allSongs){
-            if (eachSong.getSongSheetMusic() == null) {
-                songsWithoutSheetMusic.add(eachSong);
+        Iterable<Song> allSongs = songRepository.findAll();
+        for (Song song : allSongs){
+            if (song.getSongSheetMusic() == null) {
+                songsWithoutSheetMusic.add(song);
             }
         }
         Collections.reverse(songsWithoutSheetMusic);
@@ -55,8 +55,7 @@ public class UploadController {
 
 
     @PostMapping("sheet-music")
-    public String uploadSheetMusic(@RequestParam("file") MultipartFile file, RedirectAttributes attributes,
-                                   @RequestParam int sheetId, Model model) {
+    public String uploadSheetMusic(@RequestParam("file") MultipartFile file, RedirectAttributes attributes, @RequestParam int sheetId, Model model) {
 
         // check if file is empty
         if (file.isEmpty()) {
