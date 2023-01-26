@@ -1,8 +1,10 @@
 package org.launchcode.codingevents.controllers;
 
+import org.launchcode.codingevents.data.SongChordsRepository;
 import org.launchcode.codingevents.data.SongNoteRepository;
 import org.launchcode.codingevents.data.SongRepository;
 import org.launchcode.codingevents.models.Song;
+import org.launchcode.codingevents.models.SongChords;
 import org.launchcode.codingevents.models.SongNote;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -35,6 +37,9 @@ public class SongController {
 
     @Autowired
     private SongNoteRepository songNoteRepository;
+
+    @Autowired
+    private SongChordsRepository songChordsRepository;
 
     @GetMapping
     public String displaySongs(Model model) {
@@ -77,15 +82,42 @@ public class SongController {
         return "redirect:";
     }
 
-    @GetMapping("notes/{songId}")
-    public String displayNotes (Model model, @PathVariable int songId) {
-        model.addAttribute(new SongNote());
+    @GetMapping("notes/{songId}/change-url")
+    public String renderYoutubeUrl(@PathVariable int songId) {
+        return "songs/change-url";
+    }
+
+    @PostMapping("/notes/{songId}/change-url")
+    public String changeYoutubeUrl(@PathVariable int songId, @RequestParam("value") String youtubeUrl) {
         Optional optSong = songRepository.findById(songId);
         if (optSong.isPresent()) {
             Song song = (Song) optSong.get();
+            song.getSongDetails().setYoutubeURL(youtubeUrl);
+            songRepository.save(song);  // save the modified song object
+        }
+        return "redirect:";
+    }
+
+    @GetMapping("notes/{songId}")
+    public String displayNotesAndChords (Model model, @PathVariable int songId) {
+        model.addAttribute(new SongNote());
+        model.addAttribute(new SongChords());
+        Optional optSong = songRepository.findById(songId);
+
+        if (optSong.isPresent()) {
+            Song song = (Song) optSong.get();
             model.addAttribute("song", song);
+            String youtubeEmbedHTML = song.getSongDetails().getYoutubeURL();
+            model.addAttribute("youtubeEmbedHTML", youtubeEmbedHTML);
             List<SongNote> songNoteList = song.getSongNotes();
             model.addAttribute("songNotesCollection", songNoteList);
+        }
+
+        if (optSong.isPresent()) {
+            Song song = (Song) optSong.get();
+            model.addAttribute("song", song);
+            List<SongChords> songChordsList = song.getSongChords();
+            model.addAttribute("songChordsCollection", songChordsList);
         }
         return "songs/notes";
     }
@@ -116,6 +148,31 @@ public class SongController {
         return "redirect:../";
     }
 
+    @PostMapping("notes/{songId}/add-chords")
+    public String processChords (@ModelAttribute @Valid SongChords newSongChords, @PathVariable int songId, Errors errors, Model model) {
+        if (errors.hasErrors()) {
+            model.addAttribute("title", "Create Chord Page");
+            return "songs/notes";
+        }
+        Optional optSong = songRepository.findById(songId);
+        if (optSong.isPresent()) {
+            Song song = (Song) optSong.get();
+            model.addAttribute("song", song);
+            List<SongChords> songChordsCollection = song.getSongChords();
+            for (SongChords songChords : songChordsCollection) {
+                String currentNoteText = songChords.getChordsText();
+                String cleanedNoteText = currentNoteText.replace(',', ' ');
+                songChords.setChordsText(cleanedNoteText);
+            }
+            model.addAttribute("songChordsCollection", songChordsCollection);
+            newSongChords.setSong(song);
+            newSongChords.setTimestamp(new Timestamp(System.currentTimeMillis()));
+            songChordsRepository.save(newSongChords);
+            return "redirect:../";
+        }
+        return "redirect:../";
+    }
+
 
     @GetMapping("notes/{songId}/add-notes")
     public String displayAddNotesPage (Model model, @PathVariable int songId) {
@@ -126,6 +183,17 @@ public class SongController {
             model.addAttribute("song", song);
         }
         return "songs/add-notes";
+    }
+
+    @GetMapping("notes/{songId}/add-chords")
+    public String displayAddChordsPage (Model model, @PathVariable int songId) {
+        model.addAttribute(new SongChords());
+        Optional optSong = songRepository.findById(songId);
+        if (optSong.isPresent()) {
+            Song song = (Song) optSong.get();
+            model.addAttribute("song", song);
+        }
+        return "songs/add-chords";
     }
 
 

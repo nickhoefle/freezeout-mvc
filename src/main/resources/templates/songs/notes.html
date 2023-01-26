@@ -3,12 +3,37 @@
 <head th:replace="fragments :: head"></head>
 <header th:replace="fragments :: header"></header>
 
+<script>function toggleNotesChordPage() {
+
+    notesDiv = document.getElementById("notesDiv");
+    chordsDiv = document.getElementById("chordsDiv");
+    if (notesDiv.style.display === "" ) {
+        notesDiv.style.display = "none";
+        chordsDiv.style.display = "";
+    } else {
+        notesDiv.style.display = "";
+        chordsDiv.style.display = "none";
+    }
+
+}</script>
 <body class="container">
 
 <h2 th:text="${song.songName + ' Notes'}"></h2><hr>
-<a th:href="@{/uploads/{name}(name=${song.songSheetMusic})}"/><button>🎼 Sheet Music</button></a>
+<h3>Youtube Video:</h3><br>
+<div id="youtubeEmbedDiv" th:utext="${youtubeEmbedHTML}"></div>
+<form method="post" th:action="@{/songs/notes/{songId}/change-url(songId=${song.id})}">
+    <label for="value">Enter a new YouTube URL:</label><br>
+    <input type="text" id="value" name="value"><br>
+    <input type="submit" value="Submit">
+</form>
 
-<table class="table table-striped" id="songNotesTable">
+<a th:href="@{/uploads/{name}(name=${song.songSheetMusic})}"/><button>🎼 Sheet Music</button></a>
+<br>
+<button onclick="toggleNotesChordPage()">Notes</button>
+<button onclick="toggleNotesChordPage()">Chord Page</button>
+
+<div id="notesDiv" style="display:"";">
+<table style="width:100%" class="table table-striped" id="songNotesTable">
     <thead>
         <tr>
             <th>Note</th>
@@ -24,6 +49,40 @@
 </table>
 
 <a th:href="@{./add-notes/}">Add Note</a>
+</div>
 
+<div id="chordsDiv" style="display:none;">
+    <table style="width:100%" class="table table-striped" id="chordsTable">
+        <thead>
+        <tr>
+            <th>Chord</th>
+            <th>From</th>
+            <th>Date</th>
+        </tr>
+        </thead>
+        <tr th:each="songChords : ${songChordsCollection}">
+            <td>
+                <input type="button" value="Print" onclick="printText()" />
+                <pre id="myText" th:utext="${songChords.chordsText}"></pre>
+            </td>
+            <td th:text="${songChords.addedBy}"></td>
+            <td th:text="${songChords.timestamp}"></td>
+        </tr>
+    </table>
+
+    <a th:href="@{./add-chords/}">Add Chords</a>
+</div>
 </body>
+
+
+<script>
+  function printText() {
+    var text = document.getElementById("myText").innerHTML;
+    var w = window.open();
+    w.document.write('<div style="white-space: pre-wrap">' + text + '</div>');
+    w.print();
+    w.close();
+  }
+</script>
+
 </html>

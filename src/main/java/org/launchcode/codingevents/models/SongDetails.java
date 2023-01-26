@@ -3,6 +3,7 @@ package org.launchcode.codingevents.models;
 import org.springframework.beans.factory.annotation.Required;
 import org.springframework.beans.factory.annotation.Value;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -21,12 +22,16 @@ public class SongDetails extends AbstractEntity {
 
     private String songPath;
 
+    @Column(length = 2000)
+    private String youtubeURL;
+
     public SongDetails() {}
 
-    public SongDetails(String originalArtist, String year, String songKey) {
+    public SongDetails(String originalArtist, String year, String songKey, String youtubeURL) {
         this.originalArtist = originalArtist;
         this.year = year;
         this.songKey = songKey;
+        this.youtubeURL = youtubeURL;
     }
 
     public String getOriginalArtist() {
@@ -59,5 +64,16 @@ public class SongDetails extends AbstractEntity {
 
     public void setSongPath(String songPath) {
         this.songPath = songPath;
+    }
+
+    public String getYoutubeURL() {
+        return youtubeURL;
+    }
+
+    public void setYoutubeURL(String youtubeURL) {
+        String[] splitEquals = youtubeURL.split("=");
+        String[] splitAndSign = splitEquals[1].split("&");
+        String videoID = splitAndSign[0];
+        this.youtubeURL = "<iframe width=\"560\" height=\"175\" src=\"https://www.youtube.com/embed/" + videoID.concat("\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe>");
     }
 }
