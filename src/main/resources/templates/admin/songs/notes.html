@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
-<header th:replace="fragments :: header"></header>
+<header th:replace="fragments :: header-admin"></header>
 
 <script>function toggleNotesChordPage() {
 
@@ -21,7 +21,7 @@
 <h2 th:text="${song.songName + ' Notes'}"></h2><hr>
 <h3>Youtube Video:</h3><br>
 <div id="youtubeEmbedDiv" th:utext="${youtubeEmbedHTML}"></div>
-<form method="post" th:action="@{/songs/notes/{songId}/change-url(songId=${song.id})}">
+<form method="post" th:action="@{/admin/songs/notes/{songId}/change-url(songId=${song.id})}">
     <label for="value">Enter a new YouTube URL:</label><br>
     <input type="text" id="value" name="value"><br>
     <input type="submit" value="Submit">
@@ -48,7 +48,7 @@
     </tr>
 </table>
 
-<a th:href="@{./add-notes/}">Add Note</a>
+<a th:href="@{./{songId}/add-notes(songId=${song.id})}">Add Note</a>
 </div>
 
 <div id="chordsDiv" style="display:none;">
@@ -70,7 +70,7 @@
         </tr>
     </table>
 
-    <a th:href="@{./add-chords/}">Add Chords</a>
+    <a th:href="@{./{songId}/add-chords(songId=${song.id})}">Add Chords</a>
 </div>
 </body>
 
