@@ -1,9 +1,7 @@
 package org.launchcode.codingevents.controllers;
 
-
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
-
 import jakarta.validation.Valid;
 import org.launchcode.codingevents.data.UserRepository;
 import org.launchcode.codingevents.models.User;
@@ -17,8 +15,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-
 import java.util.Optional;
 
 @Controller
@@ -41,7 +37,6 @@ public class AuthenticationController {
         if (user.isEmpty()) {
             return null;
         }
-
         return user.get();
     }
 
@@ -57,9 +52,7 @@ public class AuthenticationController {
     }
 
     @PostMapping("/register")
-    public String processRegistrationForm(@ModelAttribute @Valid RegisterFormDTO registerFormDTO,
-                                          Errors errors, HttpServletRequest request,
-                                          Model model) {
+    public String processRegistrationForm(@ModelAttribute @Valid RegisterFormDTO registerFormDTO, Errors errors, HttpServletRequest request, Model model) {
 
         if (errors.hasErrors()) {
             model.addAttribute("title", "Register");
@@ -98,9 +91,7 @@ public class AuthenticationController {
     }
 
     @PostMapping("/login")
-    public String processLoginForm(@ModelAttribute @Valid LoginFormDTO loginFormDTO,
-                                   Errors errors, HttpServletRequest request,
-                                   Model model) {
+    public String processLoginForm(@ModelAttribute @Valid LoginFormDTO loginFormDTO, Errors errors, HttpServletRequest request, Model model) {
 
         if (errors.hasErrors()) {
             model.addAttribute("title", "Log In");
@@ -126,7 +117,7 @@ public class AuthenticationController {
         model.addAttribute("userId", theUser.getId());
         setUserInSession(request.getSession(), theUser);
 
-        return "login";
+        return "redirect:/admin/songs";
     }
 
     @GetMapping("/logout")

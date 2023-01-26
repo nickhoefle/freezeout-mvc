@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
-<header th:replace="fragments :: header"></header>
+<header th:replace="fragments :: header-admin"></header>
 
 <body class="container">
 
@@ -12,7 +12,7 @@
         <h2>Upload Audio File (.wav)</h2>
         <hr>
         <p th:text="${message}" th:if="${message ne null}" class="alert alert-primary"></p>
-        <form method="post" th:action="@{/upload/audio-file}" enctype="multipart/form-data">
+        <form method="post" th:action="@{/admin/upload/audio-file}" enctype="multipart/form-data">
           <h3>Select Song:</h3>
           <select class="form-control" name="songId" id="songId">
             <option th:each="option : ${songsForDropdown}"  th:text="${option.songName}" th:value="${option.id}" ></option>

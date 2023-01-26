@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
+
 <head th:fragment="head">
     <meta charset="UTF-8"/>
     <title>Freezeout Band</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link href='https://fonts.googleapis.com/css?family=Snowtop+Caps' rel='stylesheet'>
-    <link rel="stylesheet" th:href="@{../CSS/index.css}">
-    <link rel="stylesheet" th:href="@{../CSS/listen.css}">
-    <link rel="stylesheet" th:href="@{../CSS/songs.css}">
-    <link rel="stylesheet" th:href="@{../CSS/fragments.css}">
+    <link rel="stylesheet" th:href="@{../../CSS/index.css}">
+    <link rel="stylesheet" th:href="@{../../CSS/listen.css}">
+    <link rel="stylesheet" th:href="@{../../CSS/songs.css}">
+    <link rel="stylesheet" th:href="@{../../CSS/fragments.css}">
+    <link rel="stylesheet" th:href="@{../../CSS/fragments.css}">
+    <link rel="stylesheet" th:href="@{../../../../CSS/fragments.css}">
     <link rel="stylesheet" th:href="@{../images}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script type="text/javascript" th:src="@{../JavaScript/create.js}"></script>
@@ -23,15 +26,23 @@
 
 <body>
 
-<header th:fragment="header">
-    <a id="titleHeaderFragment" href="/" style="font-size: 32pt">Freezeout Band</a>
+<header th:fragment="header-reg">
+    <a class="titleHeaderFragment" href="/" style="font-size: 32pt">Freezeout Band</a>
     <ul class="nav">
-        <li class="nav-item"><a class="nav-link" href="/songs">All Songs</a></li>
         <li class="nav-item"><a class="nav-link" href="/listen">Listen</a></li>
-        <li class="nav-item"><a class="nav-link" href="/songs/create">Create Song</a></li>
-        <li class="nav-item"><a class="nav-link" href="/upload/sheet-music">Upload Files</a></li>
-        <li class="nav-item"><a class="nav-link" href="/songs/delete">Delete Songs</a></li>
         <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+    </ul>
+</header>
+
+<header th:fragment="header-admin">
+    <a class="titleHeaderFragment" href="/" style="font-size: 32pt">Freezeout Band</a>
+    <ul class="nav">
+        <li class="nav-item"><a class="nav-link" href="/listen">Listen</a></li>
+        <li class="nav-item"><a class="nav-link" href="/admin/songs">All Songs</a></li>
+        <li class="nav-item"><a class="nav-link" href="/admin/songs/create">Create Song</a></li>
+        <li class="nav-item"><a class="nav-link" href="/admin/upload/sheet-music">Upload Files</a></li>
+        <li class="nav-item"><a class="nav-link" href="/admin/songs/delete">Delete Songs</a></li>
+        <li class="nav-item"><a class="nav-link" href="/admin/login">Login</a></li>
     </ul>
 </header>
 

@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
+
 <head th:replace="fragments :: head"></head>
-<header th:replace="fragments :: header"></header>
+<header th:replace="fragments :: header-admin"></header>
 
 <body class="container">
 
@@ -12,7 +13,7 @@
 
         <h2>Upload Sheet Music (.pdf)</h2>
         <p th:text="${message}" th:if="${message ne null}" class="alert alert-primary"></p>
-        <form method="post" th:action="@{/upload/sheet-music}" enctype="multipart/form-data">
+        <form method="post" th:action="@{/admin/upload/sheet-music}" enctype="multipart/form-data">
           <hr style="border: 0; height: 3px; background-color: black;">
           <h3>Select Song:</h3>
           <select class="form-control" name="sheetId" id="sheetId">
@@ -24,7 +25,7 @@
             <input type="file" name="file" class="form-control-file">
           </div>
           <button type="submit" class="btn btn-primary">Upload File</button>
-          <button> <a class="btn secondary" href="/upload/audio-file">Skip</a> </button>
+          <button> <a class="btn secondary" href="/admin/upload/audio-file">Skip</a> </button>
         </form>
       </div>
     </div>

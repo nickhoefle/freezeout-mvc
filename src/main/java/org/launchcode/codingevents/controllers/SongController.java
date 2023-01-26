@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Controller
-@RequestMapping("songs")
+@RequestMapping("admin/songs")
 public class SongController {
 
     private final String UPLOAD_DIR = "src/main/resources/static/uploads/";
@@ -35,14 +35,14 @@ public class SongController {
     public String displaySongs(Model model) {
         model.addAttribute("title", "All Songs");
         model.addAttribute("songs", songRepository.findAll());
-        return "songs/index";
+        return "admin/songs/index";
     }
 
     @GetMapping("create")
     public String displayCreateSongForm(Model model) {
         model.addAttribute("title", "Create Song");
         model.addAttribute(new Song());
-        return "songs/create";
+        return "admin/songs/create";
     }
 
     @PostMapping("create")
@@ -52,14 +52,14 @@ public class SongController {
             return "songs/create";
         }
         songRepository.save(newSong);
-        return "redirect:/upload/sheet-music";
+        return "redirect:admin/upload/sheet-music";
     }
 
     @GetMapping("delete")
     public String displayDeleteEventForm(Model model) {
         model.addAttribute("title", "Delete Songs");
         model.addAttribute("songs", songRepository.findAll());
-        return "songs/delete";
+        return "admin/songs/delete";
     }
 
     @PostMapping("delete")
@@ -85,7 +85,7 @@ public class SongController {
             song.getSongDetails().setYoutubeURL(youtubeUrl);
             songRepository.save(song);  // save the modified song object
         }
-        return "redirect:";
+        return "redirect:/admin/songs/notes/{songId}";
     }
 
     @GetMapping("notes/{songId}")
@@ -109,7 +109,7 @@ public class SongController {
             List<SongChords> songChordsList = song.getSongChords();
             model.addAttribute("songChordsCollection", songChordsList);
         }
-        return "songs/notes";
+        return "/admin/songs/notes";
     }
 
 
@@ -133,16 +133,16 @@ public class SongController {
             newSongNote.setSong(song);
             newSongNote.setTimestamp(new Timestamp(System.currentTimeMillis()));
             songNoteRepository.save(newSongNote);
-            return "redirect:../";
+            return "redirect:/admin/songs/notes/{songId}";
         }
-        return "redirect:../";
+        return "redirect:/admin/songs/notes/{songId}";
     }
 
     @PostMapping("notes/{songId}/add-chords")
     public String processChords (@ModelAttribute @Valid SongChords newSongChords, @PathVariable int songId, Errors errors, Model model) {
         if (errors.hasErrors()) {
             model.addAttribute("title", "Create Chord Page");
-            return "songs/notes";
+            return "admin/songs/notes";
         }
         Optional optSong = songRepository.findById(songId);
         if (optSong.isPresent()) {
@@ -158,9 +158,9 @@ public class SongController {
             newSongChords.setSong(song);
             newSongChords.setTimestamp(new Timestamp(System.currentTimeMillis()));
             songChordsRepository.save(newSongChords);
-            return "redirect:../";
+            return "redirect:/admin/songs/notes/{songId}";
         }
-        return "redirect:../";
+        return "redirect:/admin/songs/notes/{songId}";
     }
 
 
@@ -172,7 +172,7 @@ public class SongController {
             Song song = (Song) optSong.get();
             model.addAttribute("song", song);
         }
-        return "songs/add-notes";
+        return "admin/songs/add-notes";
     }
 
     @GetMapping("notes/{songId}/add-chords")
@@ -183,7 +183,7 @@ public class SongController {
             Song song = (Song) optSong.get();
             model.addAttribute("song", song);
         }
-        return "songs/add-chords";
+        return "admin/songs/add-chords";
     }
 
 

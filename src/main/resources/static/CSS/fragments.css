@@ -1,16 +1,14 @@
 #titleHeaderFragment {
-    font-family: 'Snowtop Caps', sans-serif;
+    font-family: 'Snowtop Caps', sans-serif !important;
 }
 
-#titleHeaderFragment:hover {
+.titleHeaderFragment:hover {
     color: white;
 }
 
 a {
     color: black;
 }
-
-
 
 h1, h2, h3, h4 {
     color: black;

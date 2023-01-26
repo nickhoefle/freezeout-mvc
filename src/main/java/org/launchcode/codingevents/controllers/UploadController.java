@@ -21,7 +21,7 @@ import java.nio.file.StandardCopyOption;
 import java.util.*;
 
 @Controller
-@RequestMapping("upload")
+@RequestMapping("admin/upload")
 public class UploadController {
 
     private final String UPLOAD_DIR = "src/main/resources/static/uploads/";
@@ -63,7 +63,7 @@ public class UploadController {
         // check if file is empty
         if (file.isEmpty()) {
             attributes.addFlashAttribute("message", "Please select a file to upload.");
-            return "redirect:upload/sheet-music";
+            return "redirect:/admin/upload/sheet-music";
         }
 
         // normalize the file path
@@ -82,25 +82,24 @@ public class UploadController {
 
         // return success response
         attributes.addFlashAttribute("message", "You successfully uploaded " + fileName + '!');
-        return "redirect:/upload/audio-file";
+        return "redirect:/admin/upload/audio-file";
     }
 
 
-    @GetMapping("/sheet-music")
+    @GetMapping("sheet-music")
     public String sheetMusicUpload (Model model) {
         model.addAttribute("songsForDropdown", findSongsWithoutSheetMusic());
-        return "upload/sheet-music/index";
+        return "admin/upload/sheet-music/index";
     }
 
 
     @PostMapping("audio-file")
-    public String audioFileUploadHandler (@RequestParam("file") MultipartFile file, RedirectAttributes attributes,
-                                          @RequestParam int songId, Model model) {
+    public String audioFileUploadHandler (@RequestParam("file") MultipartFile file, RedirectAttributes attributes, @RequestParam int songId, Model model) {
 
         // check if file is empty
         if (file.isEmpty()) {
             attributes.addFlashAttribute("message", "Please select a file to upload.");
-            return "redirect:upload/audio-file";
+            return "redirect:/admin/upload/audio-file";
         }
 
         // normalize the file path
@@ -123,10 +122,10 @@ public class UploadController {
     }
 
 
-    @GetMapping("/audio-file")
+    @GetMapping("audio-file")
     public String audioFileUpload(Model model) {
         model.addAttribute("songsForDropdown", findSongsWithoutAudioFile());
-        return "upload/audio-file/index";
+        return "admin/upload/audio-file/index";
     }
 
 }
