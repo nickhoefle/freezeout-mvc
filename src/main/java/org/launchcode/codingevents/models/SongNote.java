@@ -2,9 +2,7 @@ package org.launchcode.codingevents.models;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
-import java.sql.Time;
 import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
 
 @Entity
 public class SongNote extends AbstractEntity {
