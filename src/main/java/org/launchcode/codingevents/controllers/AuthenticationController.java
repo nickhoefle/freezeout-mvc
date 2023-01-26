@@ -1,7 +1,14 @@
 package org.launchcode.codingevents.controllers;
 
 
-import org.apache.catalina.User;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
+
+import jakarta.validation.Valid;
+import org.launchcode.codingevents.data.UserRepository;
+import org.launchcode.codingevents.models.User;
+import org.launchcode.codingevents.models.dto.LoginFormDTO;
+import org.launchcode.codingevents.models.dto.RegisterFormDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,7 +18,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import javax.servlet.http.HttpSession;
+
 import java.util.Optional;
 
 @Controller

@@ -1,7 +1,9 @@
 package org.launchcode.codingevents.models;
 
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToOne;
+
 import java.sql.Timestamp;
 
 @Entity
