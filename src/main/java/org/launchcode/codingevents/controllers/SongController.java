@@ -1,5 +1,6 @@
 package org.launchcode.codingevents.controllers;
 
+
 import jakarta.validation.Valid;
 import org.launchcode.codingevents.data.SongChordsRepository;
 import org.launchcode.codingevents.data.SongNoteRepository;
@@ -12,6 +13,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
+
+
+
 import java.sql.Timestamp;
 import java.util.List;
 import java.util.Optional;
@@ -52,7 +56,7 @@ public class SongController {
             return "songs/create";
         }
         songRepository.save(newSong);
-        return "redirect:admin/upload/sheet-music";
+        return "redirect:/admin/upload/sheet-music";
     }
 
     @GetMapping("delete")
