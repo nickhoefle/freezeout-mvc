@@ -24,7 +24,7 @@
                 <input type="text" th:name="songName" th:value="${song.songName}" hidden readonly>
                 <select id="songFileNameDropdown" th:name="newFileName" >
                     <option value="">Pick a new file: </option>
-                    <th:block th:each="file : ${files}">
+                    <th:block th:each="file : ${allFileNames}">
                             <option th:text="${file}" th:value="${file}" ></option>
                     </th:block>
                 </select>

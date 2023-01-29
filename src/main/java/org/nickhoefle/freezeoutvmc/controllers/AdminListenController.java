@@ -24,13 +24,13 @@ public class AdminListenController {
     @GetMapping("")
     public String renderAdminListen(Model model) {
         model.addAttribute("allSongs", songRepository.findAll());
-        List<String> fileNames = new ArrayList<>();
+        List<String> allFileNames = new ArrayList<>();
         File directory = new File("src/main/resources/static/uploads/");
         File[] files = directory.listFiles();
         for (File file : files) {
-            fileNames.add(file.getName());
+            allFileNames.add(file.getName());
         }
-        model.addAttribute("files", fileNames);
+        model.addAttribute("allFileNames", allFileNames);
         return "admin/listen";
     }
 
