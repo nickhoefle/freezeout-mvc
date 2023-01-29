@@ -24,8 +24,7 @@ public class AdminListenController {
 
     @GetMapping("")
     public String listenAdminIndex(Model model) {
-        model.addAttribute("setList", songRepository.findAll());
-
+        model.addAttribute("allSongs", songRepository.findAll());
         List<String> fileNames = new ArrayList<>();
         File directory = new File("src/main/resources/static/uploads/");
         File[] files = directory.listFiles();

@@ -9,7 +9,7 @@
 
 <div class="table table-striped">
     <div id="audioPlayerBorder">
-        <th:block  th:each="song : ${setList}">
+        <th:block  th:each="song : ${allSongs}">
             <div th:if="${song.songUploadFileName != null}">
                 <h3 id="songTitle" th:text="${song.songName} + ' - ' + ${song.songDetails.originalArtist}"></h3>
             </div>
