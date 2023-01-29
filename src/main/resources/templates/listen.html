@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
-<head th:replace="fragments :: head"></head>
 
+<head th:replace="fragments :: head"></head>
+<header th:replace="fragments :: header-reg"></header>
 
 <body class="container">
-
-<header th:replace="fragments :: header-reg"></header>
 
 <div class="table table-striped">
     <div id="audioPlayerBorder">
@@ -13,7 +12,6 @@
             <div th:if="${song.songUploadFileName != null}">
                 <h3 id="songTitle" th:text="${song.songName} + ' - ' + ${song.songDetails.originalArtist}"></h3>
             </div>
-
             <div class="audioTrack" th:if="${song.songUploadFileName != null}">
                 <audio id="player"  class="audioPlayerHTML" controls>
                     <source id="currentSong" th:src="@{${'/uploads/' + song.songUploadFileName}}" type="audio/wav">
@@ -24,4 +22,5 @@
 </div>
 
 </body>
+
 </html>
