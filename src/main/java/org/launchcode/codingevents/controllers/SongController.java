@@ -56,7 +56,7 @@ public class SongController {
             return "songs/create";
         }
         songRepository.save(newSong);
-        return "redirect:admin/upload/sheet-music";
+        return "redirect:/admin/upload/sheet-music";
     }
 
     @GetMapping("delete")
