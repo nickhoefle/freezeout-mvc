@@ -39,9 +39,6 @@ public class AdminListenController {
         Optional<Song> optSong = songRepository.findBySongName(songName);
         if (optSong.isPresent()) {
             Song song = optSong.get();
-            System.out.println(song.getSongName());
-            System.out.println(song.getSongUploadFileName());
-            System.out.println(newFileName);
             song.setSongUploadFileName(newFileName);
             songRepository.save(song);
         }
