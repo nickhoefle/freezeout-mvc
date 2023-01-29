@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
+
 <head th:replace="fragments :: head"></head>
 <header th:replace="fragments :: header-reg"></header>
 
 <body class="container">
 
 <form method="post">
+    <h1>Band Login!</h1>
     <div class="form-group">
         <label th:for="username">Username
             <input class="form-control" th:field="${loginFormDTO.username}">
@@ -22,7 +24,6 @@
     <input type="submit" class="btn btn-primary" value="Log In" />
 </form>
 
-<p>Don't have an account? <a href="/register">Register for one.</a></p>
 
 <!--Creates a cookie that persists across all pages. Cookie is null if user is logged out-->
 <!--Use: window.location.href = ""; to set where a successful login redirects a user to-->
