@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +22,7 @@ public class AdminListenController {
     private SongRepository songRepository;
 
     @GetMapping("")
-    public String listenAdminIndex(Model model) {
+    public String renderAdminListen(Model model) {
         model.addAttribute("allSongs", songRepository.findAll());
         List<String> fileNames = new ArrayList<>();
         File directory = new File("src/main/resources/static/uploads/");
@@ -36,7 +35,7 @@ public class AdminListenController {
     }
 
     @PostMapping("")
-    public String changeSongFile(@RequestParam("songName") String songName, @RequestParam("newFileName") String newFileName) {
+    public String processAdminListen(@RequestParam("songName") String songName, @RequestParam("newFileName") String newFileName) {
         Optional<Song> optSong = songRepository.findBySongName(songName);
         if (optSong.isPresent()) {
             Song song = optSong.get();
