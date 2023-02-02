@@ -60,17 +60,15 @@
 <div id="chordsDiv" style="display:none;">
     <br>
     <a th:href="@{./{songId}/add-chords(songId=${song.id})}">Add Chords</a>
-    <table id="chordsTable">
-        <tbody>️️
-            <tr th:each="songChords : ${songChordsCollection}" style=>
-                <td>️
-                    <p th:text="'Posted By: ' + ${songChords.addedBy} + ' at ' + ${songChords.timestamp}"></p>
-                    <input class="printButton" onclick="printText(this)" type="button" value="Print"/>
-                    <pre class="chordsText" th:utext="${songChords.chordsText}" ></pre>️
-                    <br>
-                </td>
-            </tr>
-        </tbody>
+    <table id="chordsTable">️
+        <tr th:each="songChords : ${songChordsCollection}" style=>
+            <td>️
+                <p th:text="'Posted By: ' + ${songChords.addedBy} + ' at ' + ${songChords.timestamp}"></p>
+                <input class="printButton" onclick="printText(this)" type="button" value="Print"/>
+                <pre class="chordsText" th:utext="${songChords.chordsText}" ></pre>️
+                <br>
+            </td>
+        </tr>
     </table>
 </div>
 
@@ -90,7 +88,6 @@ function printText(input) {
 <script>
 let lastClicked = 'notes';
 function toggleNotesChordPage(clicked) {
-
     let notesDiv = document.getElementById("notesDiv");
     let chordsDiv = document.getElementById("chordsDiv");
 
