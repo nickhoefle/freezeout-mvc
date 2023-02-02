@@ -1,7 +1,6 @@
 package org.nickhoefle.freezeoutvmc.controllers;
 
 
-import jakarta.validation.Valid;
 import org.nickhoefle.freezeoutvmc.data.SongChordsRepository;
 import org.nickhoefle.freezeoutvmc.data.SongNoteRepository;
 import org.nickhoefle.freezeoutvmc.data.SongRepository;
@@ -15,8 +14,9 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
 
-
+import javax.validation.Valid;
 import java.sql.Timestamp;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -97,7 +97,6 @@ public class SongController {
         model.addAttribute(new SongNote());
         model.addAttribute(new SongChords());
         Optional optSong = songRepository.findById(songId);
-
         if (optSong.isPresent()) {
             Song song = (Song) optSong.get();
             model.addAttribute("song", song);
@@ -111,6 +110,7 @@ public class SongController {
             Song song = (Song) optSong.get();
             model.addAttribute("song", song);
             List<SongChords> songChordsList = song.getSongChords();
+            Collections.reverse(songChordsList);
             model.addAttribute("songChordsCollection", songChordsList);
         }
         return "/admin/songs/notes";
