@@ -33,8 +33,8 @@
 <br>
 <hr>
 
-<button onclick="toggleNotesChordPage('notes')">Notes</button>
-<button onclick="toggleNotesChordPage('chords')">Chord Page</button>
+<button id="notesButton" onclick="toggleNotesChordPage('notes')" style="border:5px solid black;">Notes</button>
+<button id="chordsButton" onclick="toggleNotesChordPage('chords')">Chord Page</button>
 
 <div id="notesDiv" style="display:"";">
     <br>
@@ -61,7 +61,7 @@
     <br>
     <a th:href="@{./{songId}/add-chords(songId=${song.id})}">Add Chords</a>
     <table id="chordsTable">️
-        <tr th:each="songChords : ${songChordsCollection}" style=>
+        <tr th:each="songChords : ${songChordsCollection}">
             <td>️
                 <p th:text="'Posted By: ' + ${songChords.addedBy} + ' at ' + ${songChords.timestamp}"></p>
                 <input class="printButton" onclick="printText(this)" type="button" value="Print"/>
@@ -86,29 +86,36 @@ function printText(input) {
 </script>
 
 <script>
-let lastClicked = 'notes';
 function toggleNotesChordPage(clicked) {
     let notesDiv = document.getElementById("notesDiv");
+    let notesButton = document.getElementById("notesButton");
     let chordsDiv = document.getElementById("chordsDiv");
+    let chordsButton = document.getElementById("chordsButton");
 
     if (clicked === 'notes' && notesDiv.style.display === "") {
+        chordsButton.style.border = "none";
         return;
     }
 
     if (clicked === 'notes' && notesDiv.style.display === "none") {
         notesDiv.style.display = "";
+        notesButton.style.border = "5px solid black";
         chordsDiv.style.display = "none";
+        chordsButton.style.border = "none";
         return;
     }
 
     if (clicked === 'chords' && chordsDiv.style.display === "") {
-        lastClicked = 'chords';
+        chordsButton.style.border = "5px solid black";
+        notesButton.style.border = "none";
         return;
     }
 
     if (clicked === 'chords' && chordsDiv.style.display === "none") {
         chordsDiv.style.display = "";
+        chordsButton.style.border = "5px solid black";
         notesDiv.style.display = "none";
+        notesButton.style.border = "none";
         return;
     }
 }
