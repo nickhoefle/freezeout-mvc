@@ -1,0 +1,21 @@
+pre.chordsText {
+    width:13%;
+    max-width:13%;
+}
+
+@media (max-width: 975px) {
+    pre.chordsText {
+        width: 8.5%;
+        max-width: 8.5%;
+    }
+}
+
+.chordSeparatorHr {
+    width:13%;
+}
+
+@media (max-width: 975px) {
+    .chordSeparatorHr {
+        width: 8.5%;
+    }
+}
