@@ -1,34 +1,25 @@
-@import url('https://fonts.cdnfonts.com/css/snowtop-caps')
-
-* {line-height: 17px;}
-* {font-family: 'Snowtop Caps', sans-serif;}
-* {color: black}
-
-/* Hover Effect - Buttons */
-.playerButtons{
-    cursor: pointer;
-
+.audioPlayerHTML {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 0px;
 }
 
 /* Custom Audio Player CSS */
 audio::-webkit-media-controls-current-time-display {
-    font-family: 'Snowtop Caps', sans-serif;
     font-size: 16pt;
     color: black;
     text-shadow: none;
-
 }
 
 audio::-webkit-media-controls-time-remaining-display {
-    font-family: 'Snowtop Caps', sans-serif;
     font-size: 16pt;
     color: black;
     text-shadow: none;
-
 }
 
 audio::-webkit-media-controls-play-button {
-    display:;
     border: 3px solid black;
     text-shadow: none;
 }
@@ -51,67 +42,3 @@ audio::-webkit-media-controls-enclosure {
 audio::-webkit-media-controls-timeline {
     color: black;
 }
-
-/* Custom Audio Player CSS - Mobile */
-@media only screen and (max-width: 800px) {
-    .center {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        width: 66%;
-        position: relative;
-    }
-    audio::-webkit-media-controls-time-remaining-display {
-        display: none;
-    }
-
-    audio::-webkit-media-controls-current-time-display {
-        font-size: 8pt;
-    }
-
-    #playlist {
-        font-size: 8pt;
-    }
-}
-
-
-.audioPage {
-    margin:auto;
-    width: 90%;
-    border: 3pt solid white;
-    padding: 0px;
-}
-
-.audioPlayerHTML {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    padding: 0px;
-}
-
-.playerButtons {
-    display: flex;
-    justify-content: center;
-    font-size: 32pt;
-    border: none;
-}
-
-#download{
-    text-align: center;
-    font-size: 12pt;
-}
-
-#playlistText {
-    cursor: pointer;
-    text-decoration: underline;
-}
-
-.center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-
-}
-
