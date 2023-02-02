@@ -1,6 +1,7 @@
 package org.nickhoefle.freezeoutvmc.controllers;
 
 
+import jakarta.validation.Valid;
 import org.nickhoefle.freezeoutvmc.data.SongChordsRepository;
 import org.nickhoefle.freezeoutvmc.data.SongNoteRepository;
 import org.nickhoefle.freezeoutvmc.data.SongRepository;
@@ -14,7 +15,6 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
 
-import javax.validation.Valid;
 import java.sql.Timestamp;
 import java.util.Collections;
 import java.util.List;

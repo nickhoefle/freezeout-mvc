@@ -19,3 +19,15 @@ pre.chordsText {
         width: 8.5%;
     }
 }
+
+#noteHeader {
+    cursor: pointer;
+}
+
+#fromHeader {
+    cursor: pointer;
+}
+
+#dateHeader {
+    cursor: pointer;
+}
