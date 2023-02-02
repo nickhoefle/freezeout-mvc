@@ -33,8 +33,8 @@
 <br>
 <hr>
 
-<button onclick="toggleNotesChordPage()">Notes</button>
-<button onclick="toggleNotesChordPage()">Chord Page</button>
+<button onclick="toggleNotesChordPage('notes')">Notes</button>
+<button onclick="toggleNotesChordPage('chords')">Chord Page</button>
 
 <div id="notesDiv" style="display:"";">
     <br>
@@ -88,15 +88,31 @@ function printText(input) {
 </script>
 
 <script>
-function toggleNotesChordPage() {
-    notesDiv = document.getElementById("notesDiv");
-    chordsDiv = document.getElementById("chordsDiv");
-    if (notesDiv.style.display === "" ) {
-        notesDiv.style.display = "none";
-        chordsDiv.style.display = "";
-    } else {
+let lastClicked = 'notes';
+function toggleNotesChordPage(clicked) {
+
+    let notesDiv = document.getElementById("notesDiv");
+    let chordsDiv = document.getElementById("chordsDiv");
+
+    if (clicked === 'notes' && notesDiv.style.display === "") {
+        return;
+    }
+
+    if (clicked === 'notes' && notesDiv.style.display === "none") {
         notesDiv.style.display = "";
         chordsDiv.style.display = "none";
+        return;
+    }
+
+    if (clicked === 'chords' && chordsDiv.style.display === "") {
+        lastClicked = 'chords';
+        return;
+    }
+
+    if (clicked === 'chords' && chordsDiv.style.display === "none") {
+        chordsDiv.style.display = "";
+        notesDiv.style.display = "none";
+        return;
     }
 }
 </script>
