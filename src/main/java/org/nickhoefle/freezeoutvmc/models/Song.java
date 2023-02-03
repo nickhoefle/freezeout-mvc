@@ -20,8 +20,7 @@ public class Song extends AbstractEntity {
 
     private String songSheetMusic;
 
-    @OneToMany
-    @JoinColumn(name = "song_id")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "song")
     private List<SongNote> songNotes;
 
     @OneToMany
@@ -85,6 +84,10 @@ public class Song extends AbstractEntity {
 
     public void setSongChords(List<SongChords> songChords) {
         this.songChords = songChords;
+    }
+
+    public void removeSongNote(SongNote songNote){
+        this.songNotes.remove(songNote);
     }
 
     @Override

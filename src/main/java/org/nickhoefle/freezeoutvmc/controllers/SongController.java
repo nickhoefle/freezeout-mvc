@@ -8,6 +8,7 @@ import org.nickhoefle.freezeoutvmc.data.SongRepository;
 import org.nickhoefle.freezeoutvmc.models.Song;
 import org.nickhoefle.freezeoutvmc.models.SongChords;
 import org.nickhoefle.freezeoutvmc.models.SongNote;
+import org.nickhoefle.freezeoutvmc.services.SongNoteCollectionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -34,6 +35,9 @@ public class SongController {
 
     @Autowired
     private SongChordsRepository songChordsRepository;
+
+    @Autowired
+    private SongNoteCollectionService songNoteCollectionService;
 
     @GetMapping
     public String displaySongs(Model model) {
@@ -138,6 +142,23 @@ public class SongController {
             newSongNote.setTimestamp(new Timestamp(System.currentTimeMillis()));
             songNoteRepository.save(newSongNote);
             return "redirect:/admin/songs/notes/{songId}";
+        }
+        return "redirect:/admin/songs/notes/{songId}";
+    }
+
+    @PostMapping("notes/{songId}/delete-note")
+    public String deleteNotes(@PathVariable int songId, @RequestParam int noteId) {
+        System.out.println(songId);
+        System.out.println(noteId);
+        Optional<Song> optSong = songRepository.findById(songId);
+        if (optSong.isPresent()) {
+            Song song = optSong.get();
+            Optional<SongNote> optSongNote = songNoteRepository.findById(noteId);
+            if (optSongNote.isPresent()) {
+                SongNote songNote = optSongNote.get();
+                songNoteCollectionService.removeSongNote(song, songNote);
+                return "redirect:/admin/songs/notes/{songId}";
+            }
         }
         return "redirect:/admin/songs/notes/{songId}";
     }
