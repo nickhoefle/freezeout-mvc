@@ -149,12 +149,37 @@ public class SongController {
 
     @PostMapping("notes/{songId}/delete-chord-page")
     public String deleteChordPage(@PathVariable int songId, @RequestParam int chordPageId) {
-         Optional<SongChords> optSongChords = songChordsRepository.findById(chordPageId);
+        Optional<SongChords> optSongChords = songChordsRepository.findById(chordPageId);
             if (optSongChords.isPresent()) {
                 SongChords songChords = optSongChords.get();
                 songChordsRepository.delete(songChords);
                 return "redirect:/admin/songs/notes/{songId}";
             }
+        return "redirect:/admin/songs/notes/{songId}";
+    }
+
+    @GetMapping("notes/{songId}/edit-note/{noteId}")
+    public String renderEditNotePage(Model model, @PathVariable int songId, @PathVariable int noteId) {
+        model.addAttribute("songId", songId);
+        model.addAttribute("noteId", noteId);
+        Optional<SongNote> optSongNote = songNoteRepository.findById(noteId);
+        if (optSongNote.isPresent()) {
+            SongNote songNote = optSongNote.get();
+            String songNoteText = songNote.getNoteText();
+            model.addAttribute("songNoteText", songNoteText);
+        }
+        return "/admin/songs/edit-note";
+    }
+
+    @PostMapping("notes/{songId}/edit-note/{noteId}")
+    public String processEditNotePage(Model model, @RequestParam String newSongNoteText, @PathVariable int songId, @PathVariable int noteId) {
+        Optional<SongNote> optSongNote = songNoteRepository.findById(noteId);
+        if (optSongNote.isPresent()) {
+            SongNote songNote = optSongNote.get();
+            songNote.setNoteText(newSongNoteText);
+            songNoteRepository.save(songNote);
+            return "redirect:/admin/songs/notes/{songId}";
+        }
         return "redirect:/admin/songs/notes/{songId}";
     }
 
@@ -182,7 +207,6 @@ public class SongController {
         }
         return "redirect:/admin/songs/notes/{songId}";
     }
-
 
     @GetMapping("notes/{songId}/add-notes")
     public String displayAddNotesPage (Model model, @PathVariable int songId) {

@@ -46,6 +46,7 @@
                     <th id="fromColumnHeader" onclick="sortTable(1)">From</th>
                     <th id="dateColumnHeader" onclick="sortTable(2)">Date</th>
                     <th></th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -53,6 +54,13 @@
                     <td th:text="${note.noteText}"></td>
                     <td th:text="${note.addedBy}"></td>
                     <td th:text="${note.timestamp}"></td>
+                    <td>
+                        <a th:href="@{'/admin/songs/notes/' + ${song.id} + '/edit-note/' + ${note.id} }">
+                            <button>
+                                Edit Note
+                            </button>
+                        </a>
+                    </td>
                     <td>
                         <form method="post" th:action="@{/admin/songs/notes/{songId}/delete-note(songId=${song.id})}">
                             <input name="noteId" th:value="${note.id}" hidden>

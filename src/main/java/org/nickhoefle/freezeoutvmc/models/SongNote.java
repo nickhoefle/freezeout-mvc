@@ -1,6 +1,7 @@
 package org.nickhoefle.freezeoutvmc.models;
 
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
 
@@ -8,7 +9,7 @@ import java.sql.Timestamp;
 
 @Entity
 public class SongNote extends AbstractEntity {
-
+    @Column(length = 9999)
     private String noteText;
 
     @ManyToOne
