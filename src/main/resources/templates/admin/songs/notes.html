@@ -72,7 +72,11 @@
             <td>️
                 <h3 th:text="'Posted By: ' + ${songChords.addedBy} + ' at ' + ${songChords.timestamp}"></h3>
                 <input class="printButton" onclick="printText(this)" type="button" value="Print"/>
-                <pre class="chordsText" th:utext="${songChords.chordsText}" ></pre>️
+                <form method="post" th:action="@{/admin/songs/notes/{songId}/delete-chord-page(songId=${song.id})}">
+                    <input name="chordPageId" th:value="${songChords.id}" hidden>
+                    <input type="submit" value="Delete" class="btn-danger">
+                </form>
+                <pre class="chordsText" th:utext="${songChords.chordsText}" ></pre>
                 <br>
             </td>
         </tr>

@@ -10,16 +10,6 @@ pre.chordsText {
     }
 }
 
-.chordSeparatorHr {
-    width:13%;
-}
-
-@media (max-width: 975px) {
-    .chordSeparatorHr {
-        width: 8.5%;
-    }
-}
-
 #noteColumnHeader {
     cursor: pointer;
 }

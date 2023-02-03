@@ -33,7 +33,7 @@ public class UploadController {
         List<Song> allSongsList = new ArrayList<>();
         Iterable<Song> allSongs = songRepository.findAll();
         for (Song song : allSongs){
-                allSongsList.add(song);
+            allSongsList.add(song);
         }
         Collections.sort(allSongsList, new Comparator<Song>() {
             public int compare(Song song1, Song song2) {

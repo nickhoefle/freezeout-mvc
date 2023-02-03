@@ -35,9 +35,6 @@ public class SongController {
     @Autowired
     private SongChordsRepository songChordsRepository;
 
-    @Autowired
-    private SongNoteCollectionService songNoteCollectionService;
-
     @GetMapping("")
     public String displaySongs(Model model) {
         model.addAttribute("title", "All Songs");
@@ -77,11 +74,6 @@ public class SongController {
             }
         }
         return "redirect:";
-    }
-
-    @GetMapping("notes/{songId}/change-url")
-    public String renderYoutubeUrl(@PathVariable int songId) {
-        return "songs/change-url";
     }
 
     @PostMapping("/notes/{songId}/change-url")
@@ -145,19 +137,24 @@ public class SongController {
     }
 
     @PostMapping("notes/{songId}/delete-note")
-    public String deleteNotes(@PathVariable int songId, @RequestParam int noteId) {
-        System.out.println(songId);
-        System.out.println(noteId);
-        Optional<Song> optSong = songRepository.findById(songId);
-        if (optSong.isPresent()) {
-            Song song = optSong.get();
-            Optional<SongNote> optSongNote = songNoteRepository.findById(noteId);
-            if (optSongNote.isPresent()) {
-                SongNote songNote = optSongNote.get();
-                songNoteRepository.delete(songNote);
+    public String deleteNote(@PathVariable int songId, @RequestParam int noteId) {
+        Optional<SongNote> optSongNote = songNoteRepository.findById(noteId);
+        if (optSongNote.isPresent()) {
+            SongNote songNote = optSongNote.get();
+            songNoteRepository.delete(songNote);
+            return "redirect:/admin/songs/notes/{songId}";
+        }
+        return "redirect:/admin/songs/notes/{songId}";
+    }
+
+    @PostMapping("notes/{songId}/delete-chord-page")
+    public String deleteChordPage(@PathVariable int songId, @RequestParam int chordPageId) {
+         Optional<SongChords> optSongChords = songChordsRepository.findById(chordPageId);
+            if (optSongChords.isPresent()) {
+                SongChords songChords = optSongChords.get();
+                songChordsRepository.delete(songChords);
                 return "redirect:/admin/songs/notes/{songId}";
             }
-        }
         return "redirect:/admin/songs/notes/{songId}";
     }
 
