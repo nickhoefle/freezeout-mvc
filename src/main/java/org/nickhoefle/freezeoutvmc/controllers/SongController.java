@@ -15,7 +15,6 @@ import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
-
 import java.sql.Timestamp;
 import java.util.Collections;
 import java.util.List;
@@ -39,7 +38,7 @@ public class SongController {
     @Autowired
     private SongNoteCollectionService songNoteCollectionService;
 
-    @GetMapping
+    @GetMapping("")
     public String displaySongs(Model model) {
         model.addAttribute("title", "All Songs");
         model.addAttribute("songs", songRepository.findAll());
@@ -120,7 +119,6 @@ public class SongController {
         return "/admin/songs/notes";
     }
 
-
     @PostMapping("notes/{songId}/add-notes")
     public String processNotes (@ModelAttribute @Valid SongNote newSongNote, @PathVariable int songId, Errors errors, Model model) {
         if (errors.hasErrors()) {
@@ -156,7 +154,7 @@ public class SongController {
             Optional<SongNote> optSongNote = songNoteRepository.findById(noteId);
             if (optSongNote.isPresent()) {
                 SongNote songNote = optSongNote.get();
-                songNoteCollectionService.removeSongNote(song, songNote);
+                songNoteRepository.delete(songNote);
                 return "redirect:/admin/songs/notes/{songId}";
             }
         }

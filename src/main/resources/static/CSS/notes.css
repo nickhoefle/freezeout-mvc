@@ -20,14 +20,14 @@ pre.chordsText {
     }
 }
 
-#noteHeader {
+#noteColumnHeader {
     cursor: pointer;
 }
 
-#fromHeader {
+#fromColumnHeader {
     cursor: pointer;
 }
 
-#dateHeader {
+#dateColumnHeader {
     cursor: pointer;
 }
