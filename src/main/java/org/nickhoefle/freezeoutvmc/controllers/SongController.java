@@ -183,6 +183,31 @@ public class SongController {
         return "redirect:/admin/songs/notes/{songId}";
     }
 
+    @GetMapping("notes/{songId}/edit-chord-page/{chordPageId}")
+    public String renderEditChordSheetPage(Model model, @PathVariable int songId, @PathVariable int chordPageId) {
+        model.addAttribute("songId", songId);
+        model.addAttribute("chordPageId", chordPageId);
+        Optional<SongChords> optSongChords = songChordsRepository.findById(chordPageId);
+        if (optSongChords.isPresent()) {
+            SongChords songChords = optSongChords.get();
+            String songChordsText = songChords.getChordsText();
+            model.addAttribute("songChordsText", songChordsText);
+        }
+        return "/admin/songs/edit-chord-page";
+    }
+
+    @PostMapping("notes/{songId}/edit-chord-page/{chordPageId}")
+    public String processEditChordSheetPage(Model model, @RequestParam String newSongChordsText, @PathVariable int songId, @PathVariable int chordPageId) {
+        Optional<SongChords> optSongChords = songChordsRepository.findById(chordPageId);
+        if (optSongChords.isPresent()) {
+            SongChords songChords = optSongChords.get();
+            songChords.setChordsText(newSongChordsText);
+            songChordsRepository.save(songChords);
+            return "redirect:/admin/songs/notes/{songId}";
+        }
+        return "redirect:/admin/songs/notes/{songId}";
+    }
+
     @PostMapping("notes/{songId}/add-chords")
     public String processChords (@ModelAttribute @Valid SongChords newSongChords, @PathVariable int songId, Errors errors, Model model) {
         if (errors.hasErrors()) {

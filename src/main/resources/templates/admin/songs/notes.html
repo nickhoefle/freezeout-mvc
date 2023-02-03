@@ -53,7 +53,7 @@
                 <tr th:each="note : ${songNotesCollection}">
                     <td th:text="${note.noteText}"></td>
                     <td th:text="${note.addedBy}"></td>
-                    <td th:text="${note.timestamp}"></td>
+                    <td th:text="${#dates.format(note.timestamp, 'yyyy-MM-dd')}"></td>
                     <td>
                         <a th:href="@{'/admin/songs/notes/' + ${song.id} + '/edit-note/' + ${note.id} }">
                             <button>
@@ -78,12 +78,17 @@
     <table id="chordsTable">️
         <tr th:each="songChords : ${songChordsCollection}">
             <td>️
-                <h3 th:text="'Posted By: ' + ${songChords.addedBy} + ' at ' + ${songChords.timestamp}"></h3>
+                <h3 th:text="'Added by ' + ${songChords.addedBy} + ' on ' + ${#dates.format(songChords.timestamp, 'yyyy-MM-dd')}"></h3>
                 <input class="printButton" onclick="printText(this)" type="button" value="Print"/>
                 <form method="post" th:action="@{/admin/songs/notes/{songId}/delete-chord-page(songId=${song.id})}">
                     <input name="chordPageId" th:value="${songChords.id}" hidden>
                     <input type="submit" value="Delete" class="btn-danger">
                 </form>
+                <a th:href="@{'/admin/songs/notes/' + ${song.id} + '/edit-chord-page/' + ${songChords.id} }">
+                    <button>
+                        Edit Note
+                    </button>
+                </a>
                 <pre class="chordsText" th:utext="${songChords.chordsText}" ></pre>
                 <br>
             </td>
