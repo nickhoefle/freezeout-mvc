@@ -41,18 +41,18 @@ public class SongController {
         return "admin/songs/index";
     }
 
-    @GetMapping("create")
+    @GetMapping("new")
     public String displayCreateSongForm(Model model) {
         model.addAttribute("title", "Create Song");
         model.addAttribute(new Song());
-        return "admin/songs/create";
+        return "admin/songs/new";
     }
 
-    @PostMapping("create")
+    @PostMapping("new")
     public String processCreateSongForm(@ModelAttribute @Valid Song newSong, Errors errors, Model model) {
         if (errors.hasErrors()) {
             model.addAttribute("title", "Create Event");
-            return "songs/create";
+            return "songs/new";
         }
         songRepository.save(newSong);
         return "redirect:/admin/upload/sheet-music";
