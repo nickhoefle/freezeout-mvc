@@ -10,4 +10,5 @@ public class IndexController {
     public String displayIndex () {
         return "index";
     }
+
 }

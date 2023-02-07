@@ -1,21 +1,26 @@
 pre.chordsText {
-    width:13%;
-    max-width:13%;
+    width:99%;
+    max-width:99%;
+    overflow: auto;
 }
 
 @media (max-width: 975px) {
     pre.chordsText {
-        width: 8.5%;
-        max-width: 8.5%;
+        width: 97.5%;
+        max-width: 97.5%;
+        overflow: auto;
     }
 }
 
-.chordSeparatorHr {
-    width:13%;
+#noteColumnHeader {
+    cursor: pointer;
 }
 
-@media (max-width: 975px) {
-    .chordSeparatorHr {
-        width: 8.5%;
-    }
+#fromColumnHeader {
+    cursor: pointer;
 }
+
+#dateColumnHeader {
+    cursor: pointer;
+}
+
