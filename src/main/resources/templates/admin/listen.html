@@ -20,6 +20,7 @@
             <td id="songNameCell" th:text="${song.songName}"></td>
             <td id="originalArtistCell" th:text="${song.songDetails.originalArtist}"></td>
             <td id="audioPlayerCell">
+                <label th:text="${song.songUploadFileName}"></label>
                 <div th:if="${song.songUploadFileName != null}">
                     <audio class="audioPlayerHTML" controls>
                         <source th:src="@{${'/uploads/' + song.songUploadFileName}}" type="audio/wav">
@@ -32,10 +33,11 @@
                     <select th:name="newFileName">
                         <option>Pick a new file:</option>
                         <th:block th:each="file : ${allFileNames}">
-                            <option th:text="${file}" th:value="${file}"></option>
+                            <option id="selectedSong" th:text="${file}" th:value="${file}"></option>
                         </th:block>
                     </select>
                     <button type="submit">Change</button>
+                    <button type="button" id="playBtn">Play</button>
                 </form>
             </td>
         </tr>

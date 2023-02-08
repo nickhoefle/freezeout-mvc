@@ -4,6 +4,7 @@
 
 #songNameCell {
     width: 20%;
+    vertical-align: middle;
 }
 
 #originalArtistHeader {
@@ -11,7 +12,8 @@
 }
 
 #originalArtistCell {
-    width: 20%
+    width: 20%;
+    vertical-align: middle;
 }
 
 #audioPlayerHeader {
@@ -20,6 +22,7 @@
 
 #audioPlayerCell {
     width: 40%;
+    vertical-align: middle;
 }
 
 #changeHeader {
@@ -28,5 +31,6 @@
 
 #changeCell {
     width: 20%;
+    vertical-align: middle;
 }
 

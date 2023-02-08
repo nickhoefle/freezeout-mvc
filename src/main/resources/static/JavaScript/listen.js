@@ -1,3 +1,10 @@
+  document.getElementById("selectedSong").addEventListener("change", function() {
+    document.getElementById("playBtn").href = "/uploads/" + this.value;
+  });
+  document.getElementById("playBtn").addEventListener("click", function() {
+    window.open(this.href, "_blank");
+  });
+
 const currentTrack = 0;
 const currentTrackName = "";
 const playIconContainer = document.getElementById('play-icon');
