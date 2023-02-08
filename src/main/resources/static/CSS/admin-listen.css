@@ -1,0 +1,32 @@
+#songNameHeader {
+    width: 20%;
+}
+
+#songNameCell {
+    width: 20%;
+}
+
+#originalArtistHeader {
+    width: 20%
+}
+
+#originalArtistCell {
+    width: 20%
+}
+
+#audioPlayerHeader {
+    width: 40%;
+}
+
+#audioPlayerCell {
+    width: 40%;
+}
+
+#changeHeader {
+    width: 20%;
+}
+
+#changeCell {
+    width: 20%;
+}
+

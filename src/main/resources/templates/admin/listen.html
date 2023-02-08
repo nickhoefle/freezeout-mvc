@@ -6,30 +6,41 @@
 
 <body class="container">
 
-<div class="table table-striped">
-    <div>
-        <th:block  th:each="song : ${allSongs}">
-            <div>
-                <h3 th:text="${song.songName} + ' - ' + ${song.songDetails.originalArtist}"></h3>
-            </div>
-            <div th:if="${song.songUploadFileName != null}">
-                <audio class="audioPlayerHTML" controls>
-                    <source th:src="@{${'/uploads/' + song.songUploadFileName}}" type="audio/wav">
-                </audio>
-            </div>
-            <form th:action="@{/admin/listen}" th:method="post">
-                <input type="text" th:name="songName" th:value="${song.songName}" hidden readonly>
-                <select th:name="newFileName">
-                    <option>Pick a new file:</option>
-                    <th:block th:each="file : ${allFileNames}">
+<table class="table" id="myTable">
+    <thead>
+    <tr>
+        <th id="songNameHeader">Song</th>
+        <th id="originalArtistHeader">Original Artist</th>
+        <th id="audioPlayerHeader">Current Track</th>
+        <th id="changeHeader"></th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr th:each="song : ${allSongs}">
+            <td id="songNameCell" th:text="${song.songName}"></td>
+            <td id="originalArtistCell" th:text="${song.songDetails.originalArtist}"></td>
+            <td id="audioPlayerCell">
+                <div th:if="${song.songUploadFileName != null}">
+                    <audio class="audioPlayerHTML" controls>
+                        <source th:src="@{${'/uploads/' + song.songUploadFileName}}" type="audio/wav">
+                    </audio>
+                </div>
+            </td>
+            <td id="changeCell">
+                <form th:action="@{/admin/listen}" th:method="post">
+                    <input type="text" th:name="songName" th:value="${song.songName}" hidden readonly>
+                    <select th:name="newFileName">
+                        <option>Pick a new file:</option>
+                        <th:block th:each="file : ${allFileNames}">
                             <option th:text="${file}" th:value="${file}"></option>
-                    </th:block>
-                </select>
-                <button type="submit">Change</button>
-            </form>
-        </th:block>
-    </div>
-</div>
+                        </th:block>
+                    </select>
+                    <button type="submit">Change</button>
+                </form>
+            </td>
+        </tr>
+    </tbody>
+</table>
 
 </body>
 
