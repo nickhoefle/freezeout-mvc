@@ -9,10 +9,10 @@
 <div class="table table-striped">
     <div>
         <th:block  th:each="song : ${allSongs}">
-            <div th:if="${song.songUploadFileName != null}">
+            <div th:if="${song.songUploadFileName != null && song.songUploadFileName != 'Hidden' && song.songUploadFileName != 'images'}">
                 <h3 id="songTitle" th:text="${song.songName} + ' - ' + ${song.songDetails.originalArtist}"></h3>
             </div>
-            <div th:if="${song.songUploadFileName != null}">
+            <div th:if="${song.songUploadFileName != null && song.songUploadFileName != 'Hidden' && song.songUploadFileName != 'images' }">
                 <audio class="audioPlayerHTML" controls>
                     <source th:src="@{${'/uploads/' + song.songUploadFileName}}" type="audio/wav">
                 </audio>
