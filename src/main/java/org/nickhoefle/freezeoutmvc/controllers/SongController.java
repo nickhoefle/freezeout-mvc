@@ -217,6 +217,7 @@ public class SongController {
 
     @GetMapping("/notes/{songId}/add-notes")
     public String displayAddNotesPage (Model model, @PathVariable int songId) {
+        model.addAttribute(new SongNote());
         Optional optSong = songRepository.findById(songId);
         if (optSong.isPresent()) {
             Song song = (Song) optSong.get();
