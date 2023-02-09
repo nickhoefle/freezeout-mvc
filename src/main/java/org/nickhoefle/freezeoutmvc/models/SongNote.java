@@ -1,9 +1,7 @@
 package org.nickhoefle.freezeoutmvc.models;
 
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
-
 import java.sql.Timestamp;
 
 @Entity
