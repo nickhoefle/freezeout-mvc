@@ -8,6 +8,12 @@
 }
 
 /* Custom Audio Player CSS */
+
+audio::-webkit-media-controls-play-button {
+    border: 3px solid black;
+    text-shadow: none;
+}
+
 audio::-webkit-media-controls-current-time-display {
     font-size: 16pt;
     color: black;
@@ -17,11 +23,6 @@ audio::-webkit-media-controls-current-time-display {
 audio::-webkit-media-controls-time-remaining-display {
     font-size: 16pt;
     color: black;
-    text-shadow: none;
-}
-
-audio::-webkit-media-controls-play-button {
-    border: 3px solid black;
     text-shadow: none;
 }
 
