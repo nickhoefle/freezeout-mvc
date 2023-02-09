@@ -1,6 +1,5 @@
 package org.nickhoefle.freezeoutmvc.controllers;
 
-
 import jakarta.validation.Valid;
 import org.nickhoefle.freezeoutmvc.data.SongChordsRepository;
 import org.nickhoefle.freezeoutmvc.data.SongNoteRepository;
@@ -20,7 +19,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Controller
-@RequestMapping("admin/songs")
+@RequestMapping("/admin/songs")
 public class SongController {
 
     private final String UPLOAD_DIR = "src/main/resources/static/uploads/";
@@ -36,43 +35,39 @@ public class SongController {
 
     @GetMapping("")
     public String displaySongs(Model model) {
-        model.addAttribute("title", "All Songs");
         model.addAttribute("songs", songRepository.findAll());
         return "admin/songs/index";
     }
 
-    @GetMapping("new")
-    public String displayCreateSongForm(Model model) {
-        model.addAttribute("title", "Create Song");
+    @GetMapping("/new")
+    public String displayNewSongForm(Model model) {
         model.addAttribute(new Song());
         return "admin/songs/new";
     }
 
-    @PostMapping("new")
-    public String processCreateSongForm(@ModelAttribute @Valid Song newSong, Errors errors, Model model) {
+    @PostMapping("/new")
+    public String processNewSongForm(@ModelAttribute @Valid Song newSong, Errors errors, Model model) {
         if (errors.hasErrors()) {
-            model.addAttribute("title", "Create Event");
             return "songs/new";
         }
         songRepository.save(newSong);
         return "redirect:/admin/upload/sheet-music";
     }
 
-    @GetMapping("delete")
-    public String displayDeleteEventForm(Model model) {
-        model.addAttribute("title", "Delete Songs");
+    @GetMapping("/delete")
+    public String displayDeleteSongsForm(Model model) {
         model.addAttribute("songs", songRepository.findAll());
         return "admin/songs/delete";
     }
 
-    @PostMapping("delete")
+    @PostMapping("/delete")
     public String processDeleteEventsForm(@RequestParam(required = false) int[] songIds) {
-        if (songIds != null) {
+        if (songIds != null && songIds.length > 0) {
             for (int id : songIds) {
                 songRepository.deleteById(id);
             }
         }
-        return "redirect:";
+        return "redirect:/admin/songs/delete";
     }
 
     @PostMapping("/notes/{songId}/change-url")
