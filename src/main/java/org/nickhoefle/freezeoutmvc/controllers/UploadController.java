@@ -55,7 +55,7 @@ public class UploadController {
         return songsWithoutSheetMusic;
     }
 
-    @PostMapping("sheet-music")
+    @PostMapping("/sheet-music")
     public String uploadSheetMusic(@RequestParam("file") MultipartFile file, RedirectAttributes attributes, @RequestParam int sheetId, Model model) {
 
         // check if file is empty
@@ -83,13 +83,13 @@ public class UploadController {
         return "redirect:/admin/upload/audio-file";
     }
 
-    @GetMapping("sheet-music")
+    @GetMapping("/sheet-music")
     public String sheetMusicUpload (Model model) {
         model.addAttribute("songsForDropdown", findSongsWithoutSheetMusic());
         return "admin/upload/sheet-music/index";
     }
 
-    @PostMapping("audio-file")
+    @PostMapping("/audio-file")
     public String audioFileUploadHandler (@RequestParam("file") MultipartFile file, RedirectAttributes attributes, @RequestParam int songId, Model model) {
         // check if file is empty
         if (file.isEmpty()) {
@@ -116,10 +116,10 @@ public class UploadController {
         return "redirect:/";
     }
 
-    @GetMapping("audio-file")
+    @GetMapping("/audio-file")
     public String audioFileUpload(Model model) {
         model.addAttribute("songsForDropdown", findSongsWithoutAudioFile());
-        return "admin/upload/audio-file/index";
+        return "/admin/upload/audio-file/index";
     }
 
 }

@@ -31,7 +31,7 @@ public class AdminListenController {
             allFileNames.add(file.getName());
         }
         model.addAttribute("allFileNames", allFileNames);
-        return "admin/listen";
+        return "/admin/listen";
     }
 
     @PostMapping("")

@@ -36,13 +36,13 @@ public class SongController {
     @GetMapping("")
     public String displaySongs(Model model) {
         model.addAttribute("songs", songRepository.findAll());
-        return "admin/songs/index";
+        return "/admin/songs/index";
     }
 
     @GetMapping("/new")
     public String displayNewSongForm(Model model) {
         model.addAttribute(new Song());
-        return "admin/songs/new";
+        return "/admin/songs/new";
     }
 
     @PostMapping("/new")
@@ -57,7 +57,7 @@ public class SongController {
     @GetMapping("/delete")
     public String displayDeleteSongsForm(Model model) {
         model.addAttribute("songs", songRepository.findAll());
-        return "admin/songs/delete";
+        return "/admin/songs/delete";
     }
 
     @PostMapping("/delete")
@@ -222,10 +222,10 @@ public class SongController {
             Song song = (Song) optSong.get();
             model.addAttribute("song", song);
         }
-        return "admin/songs/add-notes";
+        return "/admin/songs/add-notes";
     }
 
-    @GetMapping("notes/{songId}/add-chords")
+    @GetMapping("/notes/{songId}/add-chords")
     public String displayAddChordsPage (Model model, @PathVariable int songId) {
         model.addAttribute(new SongChords());
         Optional optSong = songRepository.findById(songId);
@@ -233,7 +233,7 @@ public class SongController {
             Song song = (Song) optSong.get();
             model.addAttribute("song", song);
         }
-        return "admin/songs/add-chords";
+        return "/admin/songs/add-chords";
     }
 
 }
