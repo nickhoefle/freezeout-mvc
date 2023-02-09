@@ -1,47 +1,31 @@
+* { }
+
 body {
-  font-size: 14px;
-  background-color: #27303a ;
-}
-
-.error {
-  color: red;
-}
-
-.carousel-inner img {
-  -webkit-filter: grayscale(90%);
-  filter: grayscale(90%); /* make all photos black and white */
-  width: 100%; /* Set width to 100% */
-  margin: auto;
-}
-
-
-@media (max-width: 600px) {
-  .carousel-caption {
-    display: none; /* Hide the carousel text when the screen is less than 600 pixels wide */
-  }
-}
-
-
-* {
-    font-family: 'Snowtop Caps', sans-serif;
+    background-color: #27303a ;
 }
 
 #titleHeaderFragment {
     font-size: 20pt;
 }
 
-.instrumentsAndNamesContainer {
-  margin: auto;
-  width: 50%;
-  padding: 10px;
-}
-
-.instrumentsAndNames {
-  text-align: center;
-  width: 60%;
+.carousel-inner img {
+    -webkit-filter: grayscale(90%);
+    filter: grayscale(90%); /* make all photos black and white */
+    width: 100%;
+    margin: auto;
 }
 
 .carouselPhoto {
     border: 2px solid black;
 }
 
+.instrumentsAndNames {
+    text-align: center;
+    width: 60%;
+}
+
+.instrumentsAndNamesContainer {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+}
