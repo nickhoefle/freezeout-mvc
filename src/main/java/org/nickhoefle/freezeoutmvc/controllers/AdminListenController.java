@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Controller
-@RequestMapping("admin/listen")
+@RequestMapping("/admin/listen")
 public class AdminListenController {
 
     @Autowired
