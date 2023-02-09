@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/" xmlns="http://www.w3.org/1999/html">
+
+<head th:replace="fragments :: head"></head>
+<header th:replace="fragments :: header-admin"></header>
+
+<body class="container">
+
+<h3>Edit Chord Page Text</h3>
+<form method="post" th:action="@{/admin/songs/notes/__${songId}__/edit-chord-page/__${chordPageId}__}">
+  <textarea name="newSongChordsText" th:value="${songChordsText}"/>
+    <th:block th:text="${songChordsText}"/>
+  </textarea>
+  <br>
+  <button type="submit">Confirm</button>
+</form>
+
+</body>
+</html>

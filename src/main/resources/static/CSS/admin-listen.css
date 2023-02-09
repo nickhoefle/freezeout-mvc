@@ -1,0 +1,31 @@
+#songNameHeader {
+    width: 30%;
+    cursor: pointer;
+}
+
+#songNameCell {
+    width: 30%;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+
+#audioPlayerHeader {
+    width: 50%;
+}
+
+#audioPlayerCell {
+    width: 50%;
+    vertical-align: middle;
+}
+
+#changeHeader {
+    width: 20%;
+}
+
+#changeCell {
+    width: 20%;
+    vertical-align: middle;
+    text-align: center;
+}
+

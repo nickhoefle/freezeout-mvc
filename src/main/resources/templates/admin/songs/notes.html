@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+
+<head th:replace="fragments :: head"></head>
+<header th:replace="fragments :: header-admin"></header>
+
+<body class="container">
+
+<h2 th:text="${song.songName} + ' - ' + ${song.songDetails.originalArtist} + ' - ' + ' Notes'"></h2>
+
+<th:block th:if="${song.songSheetMusic != null}">
+    <a th:href="@{/uploads/{name}(name=${song.songSheetMusic})}"/>
+        <button>🎼 View Sheet Music PDF</button>
+    </a><hr>
+</th:block>
+
+<th:block th:if="${song.songSheetMusic == null}">
+    <a th:href="@{/admin/upload/sheet-music}"/>
+    <button>📁 Upload Sheet Music PDF</button>
+    </a><hr>
+</th:block>
+
+<h3>Youtube Video:</h3><br>
+
+<div th:utext="${youtubeEmbedHTML}"></div>
+
+<form method="post" th:action="@{/admin/songs/notes/{songId}/change-url(songId=${song.id})}">
+    <label for="value">Enter a new YouTube URL:</label><br>
+    <input type="text" id="value" name="value">
+    <button type="submit">Submit</button>
+</form>
+
+<br>
+<hr>
+
+<button id="notesButton" onclick="toggleNotesChordPage('notes')" style="border:5px solid black;">Notes</button>
+<button id="chordsButton" onclick="toggleNotesChordPage('chords')">Chord Pages</button>
+
+<div id="notesDiv" style="display:"";">
+    <br>
+    <a th:href="@{./{songId}/add-notes(songId=${song.id})}">Add Note</a>
+        <table id="myTable" class="table table-striped">
+            <thead>
+                <tr>
+                    <th id="noteColumnHeader" onclick="sortTable(0)">Note</th>
+                    <th id="fromColumnHeader" onclick="sortTable(1)">From</th>
+                    <th id="dateColumnHeader" onclick="sortTable(2)">Date</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="note : ${songNotesCollection}">
+                    <td th:text="${note.noteText}"></td>
+                    <td th:text="${note.addedBy}"></td>
+                    <td th:text="${#dates.format(note.timestamp, 'yyyy-MM-dd')}"></td>
+                    <td>
+                        <a th:href="@{'/admin/songs/notes/' + ${song.id} + '/edit-note/' + ${note.id} }">
+                            <button>
+                                Edit Note
+                            </button>
+                        </a>
+                    </td>
+                    <td>
+                        <form method="post" th:action="@{/admin/songs/notes/{songId}/delete-note(songId=${song.id})}">
+                            <input name="noteId" th:value="${note.id}" hidden>
+                            <input type="submit" value="Delete" class="btn btn-danger">
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</div>
+
+<div id="chordsDiv" style="display:none;">
+    <br>
+    <a th:href="@{./{songId}/add-chords(songId=${song.id})}">Add Chords</a>
+    <table id="chordsTable">️
+        <tr th:each="songChords : ${songChordsCollection}">
+            <td>️
+                <h3 th:text="'Added by ' + ${songChords.addedBy} + ' on ' + ${#dates.format(songChords.timestamp, 'yyyy-MM-dd')}"></h3>
+                <input class="printButton" onclick="printText(this)" type="button" value="Print"/>
+                <form method="post" th:action="@{/admin/songs/notes/{songId}/delete-chord-page(songId=${song.id})}">
+                    <input name="chordPageId" th:value="${songChords.id}" hidden>
+                    <input type="submit" value="Delete" class="btn-danger">
+                </form>
+                <a th:href="@{'/admin/songs/notes/' + ${song.id} + '/edit-chord-page/' + ${songChords.id} }">
+                    <button>
+                        Edit Note
+                    </button>
+                </a>
+                <pre class="chordsText" th:utext="${songChords.chordsText}" ></pre>
+                <br>
+            </td>
+        </tr>
+    </table>
+</div>
+
+</body>
+
+<script>
+function printText(input) {
+    let i = Number(`${input.parentNode.parentNode.rowIndex}`);
+    const chordsText = document.getElementsByClassName("chordsText");
+    const w = window.open();
+    w.document.write('<div style="white-space: pre-wrap">' + chordsText[i].innerHTML + '</div>');
+    w.print();
+    w.close();
+}
+</script>
+
+<script>
+function toggleNotesChordPage(clicked) {
+    let notesDiv = document.getElementById("notesDiv");
+    let notesButton = document.getElementById("notesButton");
+    let chordsDiv = document.getElementById("chordsDiv");
+    let chordsButton = document.getElementById("chordsButton");
+
+    if (clicked === 'notes' && notesDiv.style.display === "") {
+        chordsButton.style.border = "none";
+        return;
+    }
+
+    if (clicked === 'notes' && notesDiv.style.display === "none") {
+        notesDiv.style.display = "";
+        notesButton.style.border = "5px solid black";
+        chordsDiv.style.display = "none";
+        chordsButton.style.border = "none";
+        return;
+    }
+
+    if (clicked === 'chords' && chordsDiv.style.display === "") {
+        chordsButton.style.border = "5px solid black";
+        notesButton.style.border = "none";
+        return;
+    }
+
+    if (clicked === 'chords' && chordsDiv.style.display === "none") {
+        chordsDiv.style.display = "";
+        chordsButton.style.border = "5px solid black";
+        notesDiv.style.display = "none";
+        notesButton.style.border = "none";
+        return;
+    }
+}
+</script>
+
+</html>
