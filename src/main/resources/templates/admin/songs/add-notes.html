@@ -2,7 +2,6 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
 <header th:replace="fragments :: header-admin"></header>
-
 <body class="container">
 
 <form method="post">
@@ -10,7 +9,6 @@
       <label>Note:
          <input th:field="${songNote.noteText}" class="form-control">
       </label>
-      <p class="error" th:errors="${songNote.noteText}"></p>
    </div>
    <div class="form-group">
       <label>Added By:
@@ -22,10 +20,10 @@
             <option th:value="AM">AM</option>
             <option th:value="GM">GM</option>
             <option th:value="KM">KM</option>
+         </select>
       </label>
-      <p class="error" th:errors="${songNote.addedBy}"></p>
    </div>
-    <input type="submit" class="btn btn-success">
+   <input type="submit" class="btn btn-success">
 </form>
 
 </body>
