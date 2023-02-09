@@ -1,12 +1,16 @@
-.songTableHeader {
-    cursor: pointer;
-}
-
 td {
     font-size: 15px;
 }
 
 th {
     font-size: 15px;
+}
+
+.songTableHeader {
+    cursor: pointer;
+}
+
+.tdCentered {
+    text-align:center;
 }
 
