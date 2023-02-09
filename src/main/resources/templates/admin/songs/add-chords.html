@@ -2,7 +2,6 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
 <header th:replace="fragments :: header-admin"></header>
-
 <body class="container">
 
 <form method="post">
@@ -10,7 +9,6 @@
       <label>Chords:
          <textarea th:field="${songChords.chordsText}"  class="form-control" cols="500"></textarea>
       </label>
-      <p class="error" th:errors="${songChords.chordsText}"></p>
    </div>
    <div class="form-group">
       <label>Added By:
@@ -22,10 +20,10 @@
             <option th:value="AM">AM</option>
             <option th:value="GM">GM</option>
             <option th:value="KM">KM</option>
+         </select>
       </label>
-      <p class="error" th:errors="${songChords.addedBy}"></p>
    </div>
-    <input type="submit" class="btn btn-success" onclick="history.back()">
+   <input type="submit" class="btn btn-success" onclick="history.back()">
 </form>
 
 </body>
