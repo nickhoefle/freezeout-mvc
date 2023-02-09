@@ -71,7 +71,7 @@ public class SongController {
     }
 
     @PostMapping("/notes/{songId}/change-url")
-    public String changeYoutubeUrl(@PathVariable int songId, @RequestParam("value") String youtubeUrl) {
+    public String changeYoutubeUrl(@PathVariable int songId, @RequestParam("youtubeUrl") String youtubeUrl) {
         Optional optSong = songRepository.findById(songId);
         if (optSong.isPresent()) {
             Song song = (Song) optSong.get();

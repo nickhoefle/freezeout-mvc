@@ -25,8 +25,8 @@
 <div th:utext="${youtubeEmbedHTML}"></div>
 
 <form method="post" th:action="@{/admin/songs/notes/{songId}/change-url(songId=${song.id})}">
-    <label for="value">Enter a new YouTube URL:</label><br>
-    <input type="text" id="value" name="value">
+    <label for="youtubeUrl">Enter a new YouTube URL:</label><br>
+    <input type="text" id="youtubeUrl" name="youtubeUrl">
     <button type="submit">Submit</button>
 </form>
 
@@ -36,7 +36,7 @@
 <button id="notesButton" onclick="toggleNotesChordPage('notes')" style="border:5px solid black;">Notes</button>
 <button id="chordsButton" onclick="toggleNotesChordPage('chords')">Chord Pages</button>
 
-<div id="notesDiv" style="display:"";">
+<div id="notesDiv" style="display:'';">
     <br>
     <a th:href="@{./{songId}/add-notes(songId=${song.id})}">Add Note</a>
         <table id="myTable" class="table table-striped">
