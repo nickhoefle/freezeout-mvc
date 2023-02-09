@@ -116,7 +116,7 @@ public class UploadController {
 
         // return success response
         attributes.addFlashAttribute("message", "You successfully uploaded " + fileName + '!');
-        return "redirect:/";
+        return "redirect:/admin/songs";
     }
 
     @GetMapping("/audio-file")
