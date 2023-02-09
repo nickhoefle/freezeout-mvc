@@ -21,7 +21,7 @@ import java.nio.file.StandardCopyOption;
 import java.util.*;
 
 @Controller
-@RequestMapping("admin/upload")
+@RequestMapping("/admin/upload")
 public class UploadController {
 
     private final String UPLOAD_DIR = "src/main/resources/static/uploads/";
@@ -43,11 +43,10 @@ public class UploadController {
         return allSongsList;
     }
 
-
     public final List<Song> findSongsWithoutSheetMusic() {
         List<Song> songsWithoutSheetMusic = new ArrayList<>();
         Iterable<Song> allSongs = songRepository.findAll();
-        for (Song song : allSongs){
+        for (Song song : allSongs) {
             if (song.getSongSheetMusic() == null) {
                 songsWithoutSheetMusic.add(song);
             }
@@ -55,7 +54,6 @@ public class UploadController {
         Collections.reverse(songsWithoutSheetMusic);
         return songsWithoutSheetMusic;
     }
-
 
     @PostMapping("sheet-music")
     public String uploadSheetMusic(@RequestParam("file") MultipartFile file, RedirectAttributes attributes, @RequestParam int sheetId, Model model) {
@@ -85,17 +83,14 @@ public class UploadController {
         return "redirect:/admin/upload/audio-file";
     }
 
-
     @GetMapping("sheet-music")
     public String sheetMusicUpload (Model model) {
         model.addAttribute("songsForDropdown", findSongsWithoutSheetMusic());
         return "admin/upload/sheet-music/index";
     }
 
-
     @PostMapping("audio-file")
     public String audioFileUploadHandler (@RequestParam("file") MultipartFile file, RedirectAttributes attributes, @RequestParam int songId, Model model) {
-
         // check if file is empty
         if (file.isEmpty()) {
             attributes.addFlashAttribute("message", "Please select a file to upload.");
@@ -120,7 +115,6 @@ public class UploadController {
         attributes.addFlashAttribute("message", "You successfully uploaded " + fileName + '!');
         return "redirect:/";
     }
-
 
     @GetMapping("audio-file")
     public String audioFileUpload(Model model) {
