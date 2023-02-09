@@ -76,28 +76,24 @@ public class SongController {
         if (optSong.isPresent()) {
             Song song = (Song) optSong.get();
             song.getSongDetails().setYoutubeURL(youtubeUrl);
-            songRepository.save(song);  // save the modified song object
+            songRepository.save(song);
         }
         return "redirect:/admin/songs/notes/{songId}";
     }
 
-    @GetMapping("notes/{songId}")
+    @GetMapping("/notes/{songId}")
     public String displayNotesAndChords (Model model, @PathVariable int songId) {
-        model.addAttribute(new SongNote());
-        model.addAttribute(new SongChords());
         Optional optSong = songRepository.findById(songId);
         if (optSong.isPresent()) {
             Song song = (Song) optSong.get();
             model.addAttribute("song", song);
+
             String youtubeEmbedHTML = song.getSongDetails().getYoutubeURL();
             model.addAttribute("youtubeEmbedHTML", youtubeEmbedHTML);
+
             List<SongNote> songNoteList = song.getSongNotes();
             model.addAttribute("songNotesCollection", songNoteList);
-        }
 
-        if (optSong.isPresent()) {
-            Song song = (Song) optSong.get();
-            model.addAttribute("song", song);
             List<SongChords> songChordsList = song.getSongChords();
             Collections.reverse(songChordsList);
             model.addAttribute("songChordsCollection", songChordsList);
