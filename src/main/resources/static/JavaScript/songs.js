@@ -52,3 +52,22 @@ function sortTable(n) {
         }
     }
 }
+
+
+function showSaveButton() {
+    const songIdInput = document.getElementsByClassName('songIdInput');
+    const songIdInputArray = Array.from(songIdInput);
+
+    const statusDropdown = document.getElementsByClassName('statusDropdown');
+    const statusDropdownArray = Array.from(statusDropdown);
+
+    const saveButton = document.getElementsByClassName('saveButton');
+    const saveButtonArray = Array.from(saveButton);
+
+    statusDropdownArray.forEach(function(button, index) {
+        button.addEventListener("click", function() {
+            saveButtonArray[index].style.display = '';
+            songIdInputArray[index].value = songIdArray[index].innerHTML;
+        });
+    });
+}

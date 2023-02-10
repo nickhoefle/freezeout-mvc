@@ -28,7 +28,9 @@ public class AdminListenController {
         File directory = new File("src/main/resources/static/uploads/");
         File[] files = directory.listFiles();
         for (File file : files) {
-            allFileNames.add(file.getName());
+            if (file.getName().endsWith("wav")) {
+                allFileNames.add(file.getName());
+            }
         }
         model.addAttribute("allFileNames", allFileNames);
         return "/admin/listen";

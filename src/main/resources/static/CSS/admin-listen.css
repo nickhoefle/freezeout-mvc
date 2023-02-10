@@ -6,6 +6,7 @@
 
 #audioPlayerHeader, #audioPlayerCell {
     width: 50%;
+    cursor: pointer;
     vertical-align: middle;
 }
 
