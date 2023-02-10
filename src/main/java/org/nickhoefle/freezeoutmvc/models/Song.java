@@ -25,6 +25,8 @@ public class Song extends AbstractEntity {
     @JoinColumn(name = "song_id")
     private List<SongChords> songChords;
 
+    private String status;
+
     @OneToOne(cascade = CascadeType.ALL)
     @Valid
     @NotNull
@@ -88,6 +90,14 @@ public class Song extends AbstractEntity {
         this.songNotes.remove(songNote);
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
     @Override
     public String toString() {
         return "Song{" +
@@ -96,6 +106,7 @@ public class Song extends AbstractEntity {
                 ", songSheetMusic='" + songSheetMusic + '\'' +
                 ", songNotes=" + songNotes +
                 ", songChords=" + songChords +
+                ", status='" + status + '\'' +
                 ", songDetails=" + songDetails +
                 '}';
     }

@@ -14,6 +14,7 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
 import java.sql.Timestamp;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
@@ -35,8 +36,22 @@ public class SongController {
 
     @GetMapping("")
     public String displaySongs(Model model) {
+        List<String> options = Arrays.asList("Active", "Inactive", "On Ice", "Song Idea");
+        model.addAttribute("options", options);
         model.addAttribute("songs", songRepository.findAll());
         return "/admin/songs/index";
+    }
+
+    @PostMapping("/status")
+    public String processStatusChange(@RequestParam String status, @RequestParam String id) {
+        Integer idInt = Integer.parseInt(id);
+        Optional<Song> optSong = songRepository.findById(idInt);
+        if (optSong.isPresent()) {
+            Song song = optSong.get();
+            song.setStatus(status);
+            songRepository.save(song);
+        }
+        return "redirect:/admin/songs";
     }
 
     @GetMapping("/new")
