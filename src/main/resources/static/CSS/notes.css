@@ -24,3 +24,9 @@ pre.chordsText {
     cursor: pointer;
 }
 
+#chordsText {
+    height: 450px;
+}
+
+
+

@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
 <header th:replace="fragments :: header-admin"></header>
-<body class="container">
+<body class="container-fluid">
 
 <h3 th:text="${song.songName} + ' - ' + ${song.songDetails.originalArtist} + ' - ' + ' Notes'"></h3>
 
@@ -20,7 +20,7 @@
 
 <h3>Youtube Video:</h3><br>
 
-<div th:utext="${youtubeEmbedHTML}"></div>
+<div id="youtubeVideoContainer" th:utext="${youtubeEmbedHTML}"></div>
 
 <form method="post" th:action="@{/admin/songs/notes/{songId}/change-url(songId=${song.id})}">
     <label for="youtubeUrl">Enter a new YouTube URL:</label><br>
