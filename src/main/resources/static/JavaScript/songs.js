@@ -1,3 +1,4 @@
+
 function sortTable(n) {
     var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
     table = document.getElementById("myTable");
@@ -55,6 +56,8 @@ function sortTable(n) {
 
 
 function showSaveButton() {
+    console.log("showSaveButton called");
+
     const songIdInput = document.getElementsByClassName('songIdInput');
     const songIdInputArray = Array.from(songIdInput);
 
@@ -64,10 +67,10 @@ function showSaveButton() {
     const saveButton = document.getElementsByClassName('saveButton');
     const saveButtonArray = Array.from(saveButton);
 
-    statusDropdownArray.forEach(function(button, index) {
-        button.addEventListener("click", function() {
+    statusDropdownArray.forEach(function(dropdown, index) {
+        dropdown.addEventListener("change", function() {
             saveButtonArray[index].style.display = '';
-            songIdInputArray[index].value = songIdArray[index].innerHTML;
+                    songIdInputArray[index].value = songIdArray[index].innerHTML;
         });
     });
 }

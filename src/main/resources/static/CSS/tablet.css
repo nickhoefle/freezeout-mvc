@@ -74,6 +74,10 @@
         font-size: 42px;
     }
 
+    .selectedSong {
+        font-size: 20px;
+    }
+
     .viewSheetMusicCell {
         display: none;
     }
