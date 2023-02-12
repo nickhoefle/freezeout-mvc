@@ -34,8 +34,8 @@
                     <select class="statusDropdown" name="status" onclick="showSaveButton()">
                         <option th:each="option : ${options}"  th:value="${option}" th:text="${option}" th:selected="${option == song.status}">
                         </option>
-                    </select>
-                    <button class="saveButton" type="submit" style="display:none;">Save</button>
+                    </select><br>
+                    <button class="saveButton btn btn-success" type="submit" style="display:none;">Save</button>
                 </form>
             </td>
             <td th:text="${song.songName}"></td>

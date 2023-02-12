@@ -56,8 +56,6 @@ function sortTable(n) {
 
 
 function showSaveButton() {
-    console.log("showSaveButton called");
-
     const songIdInput = document.getElementsByClassName('songIdInput');
     const songIdInputArray = Array.from(songIdInput);
 
@@ -67,10 +65,31 @@ function showSaveButton() {
     const saveButton = document.getElementsByClassName('saveButton');
     const saveButtonArray = Array.from(saveButton);
 
-    statusDropdownArray.forEach(function(dropdown, index) {
-        dropdown.addEventListener("change", function() {
+    statusDropdownArray.forEach(function(button, index) {
+        button.addEventListener("change", function() {
             saveButtonArray[index].style.display = '';
-                    songIdInputArray[index].value = songIdArray[index].innerHTML;
+            songIdInputArray[index].value = songIdArray[index].innerHTML;
         });
     });
 }
+
+$(document).ready(function() {
+    $('.saveButton').click(function(e) {
+        e.preventDefault();
+        const form = $(this).closest("form");
+        const url = form.attr("action");
+        const status = form.find("select[name='status']").val();
+        const id = form.find("input[name='id']").val();
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: { status: status, id: id },
+            success: function() {
+                alert("Status changed successfully!");
+            },
+            error: function() {
+                alert("An error occurred. Please try again later.");
+            }
+        });
+    });
+});
