@@ -1,4 +1,3 @@
-
 function sortTable(n) {
     var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
     table = document.getElementById("myTable");
@@ -73,22 +72,19 @@ function showSaveButton() {
     });
 }
 
-$(document).ready(function() {
-    $('.saveButton').click(function(e) {
+jQuery(document).ready(function() {
+    jQuery('.saveButton').click(function(e) {
         e.preventDefault();
-        const form = $(this).closest("form");
+        const form = jQuery(this).closest("form");
         const url = form.attr("action");
         const status = form.find("select[name='status']").val();
         const id = form.find("input[name='id']").val();
-        $.ajax({
+        jQuery.ajax({
             type: "POST",
             url: url,
             data: { status: status, id: id },
             success: function() {
-                alert("Status changed successfully!");
-            },
-            error: function() {
-                alert("An error occurred. Please try again later.");
+                form.find('.saveButton').hide();
             }
         });
     });

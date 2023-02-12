@@ -31,7 +31,7 @@
                 </div>
             </td>
             <td id="changeCell">
-                <button class="updateSectionButton" onclick="toggleUpdateSection()">Update</button>
+                <button class="updateSectionButton">Update</button>
                 <form th:action="@{/admin/listen}" class="updateSection"  th:method="post" style="display:none;">
                     <input type="text" th:name="songName" th:value="${song.songName}" hidden readonly>
                     <select class="selectedSong" th:name="newFileName">
@@ -42,7 +42,7 @@
                         </th:block>
                     </select>
                     <div th:if="${song.songUploadFileName == null}">
-                        <button type="submit">Add</button>
+                        <button class="btn btn-success" type="submit">Add</button>
                         <a class="playBtn">
                             <button onclick="openSelectedInNewTab()" type="button">
                                 Play Selected
@@ -52,7 +52,7 @@
                     <div th:if="${song.songUploadFileName != null}">
                         <button type="submit">Update</button>
                         <a class="playBtn">
-                            <button onclick="openSelectedInNewTab()" type="button">
+                            <button class="btn btn-secondary" onclick="openSelectedInNewTab()" type="button">
                                 Play Selected
                             </button>
                         </a>
