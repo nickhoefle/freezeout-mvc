@@ -17,8 +17,8 @@
             <th class="songTableHeader" onclick="sortTable(0)">Status</th>
             <th class="songTableHeader" onclick="sortTable(1)">Song</th>
             <th class="songTableHeader" onclick="sortTable(2)">Original Artist</th>
-            <th class="songTableHeader" onclick="sortTable(3)">Year</th>
-            <th class="songTableHeader tdCentered" onclick="sortTable(4)">Sheet Music</th>
+            <th class="songTableHeader" id="yearHeader" onclick="sortTable(3)">Year</th>
+            <th class="songTableHeader tdCentered" id="sheetMusicHeader" onclick="sortTable(4)">Sheet Music</th>
             <th class="tdCentered">Practice</th>
         </tr>
     </thead>
@@ -40,9 +40,9 @@
             </td>
             <td th:text="${song.songName}"></td>
             <td th:text="${song.songDetails.originalArtist}"></td>
-            <td th:text="${song.songDetails.year}"></td>
-            <td class="tdCentered" th:if="${song.songSheetMusic == null}"><a th:href="@{/upload/sheet-music}"><button>➕ Add</button></a></td>
-            <td class="tdCentered" th:if="${song.songSheetMusic != null}"><a th:href="@{/uploads/{name}(name=${song.songSheetMusic})}"/>🎼</a></td>
+            <td class="yearCell" th:text="${song.songDetails.year}"></td>
+            <td class="tdCentered addSheetMusicCell" th:if="${song.songSheetMusic == null}"><a th:href="@{/upload/sheet-music}"><button>➕ Add</button></a></td>
+            <td class="tdCentered viewSheetMusicCell" th:if="${song.songSheetMusic != null}"><a th:href="@{/uploads/{name}(name=${song.songSheetMusic})}"/>🎼</a></td>
             <td class="tdCentered"><a style="color:inherit;" th:href="@{/admin/songs/notes/{songId}(songId=${song.id})}"><button>Practice</button></a></td>
         </tr>
     </tbody>
