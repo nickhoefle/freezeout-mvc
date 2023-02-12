@@ -14,31 +14,5 @@ th {
     text-align:center;
 }
 
-@media only screen and (min-width: 768px) and (max-width: 1024px) {
-    /* Your tablet-specific CSS styles go here */
-    td {
-        font-size: 20px;
-    }
 
-    #sheetMusicHeader {
-        display: none;
-    }
-
-    .addSheetMusicCell {
-        display: none;
-    }
-
-    .viewSheetMusicCell {
-        display: none;
-    }
-
-    #yearHeader {
-        display: none;
-    }
-
-    .yearCell {
-        display: none;
-    }
-
-}
 
