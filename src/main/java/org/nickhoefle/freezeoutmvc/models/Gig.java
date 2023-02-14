@@ -7,19 +7,30 @@ import java.util.Date;
 @Entity
 public class Gig extends AbstractEntity {
 
+    private String name;
+
     private Date date;
 
     private String address;
 
     private String image;
 
-    public Gig(Date date, String address, String image) {
+    public Gig(String name, Date date, String address, String image) {
+        this.name = name;
         this.date = date;
         this.address = address;
         this.image = image;
     }
 
     public Gig () { }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public Date getDate() {
         return date;
@@ -48,7 +59,8 @@ public class Gig extends AbstractEntity {
     @Override
     public String toString() {
         return "Gig{" +
-                "date=" + date +
+                "name='" + name + '\'' +
+                ", date=" + date +
                 ", address='" + address + '\'' +
                 ", image='" + image + '\'' +
                 '}';

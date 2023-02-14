@@ -4,8 +4,25 @@
 <header th:replace="fragments :: header-admin"></header>
 <body class="container-fluid">
 
-<h3>Upload Gig Poster: </h3>
-
+<div>
+    <h2>Gig Poster Upload</h2>
+    <p style="font-style:italic;">Allowed File Types:</p>
+    <p th:text="${message}" th:if="${message ne null}" class="alert alert-primary"></p>
+    <form method="post" th:action="@{/admin/gigs/upload-image}" enctype="multipart/form-data">
+        <hr style="border: 0; height: 3px; background-color: black;">
+        <h3>Select Gig:</h3>
+        <select class="form-control" name="gigId" id="gigId">
+            <option th:each="option : ${gigsForDropdown}"  th:text="${option.name}" th:value="${option.id}" ></option>
+        </select>
+        <br>
+        <br>
+        <div class="form-group">
+            <input type="file" name="file" class="form-control-file" style="color:white">
+        </div>
+        <button type="submit" class="btn btn-primary">Upload File</button>
+        <button> <a class="btn secondary" href="/admin/songs">Skip</a> </button>
+    </form>
+</div>
 
 </body>
 </html>

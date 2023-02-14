@@ -18,16 +18,31 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
-import java.util.Optional;
+import java.util.*;
 
 @Controller
 @RequestMapping("/admin/gigs")
 public class AdminGigsController {
 
-    private final String UPLOAD_DIR = "src/main/resources/static/uploads/gig-posters";
+    private final String UPLOAD_DIR = "src/main/resources/static/uploads/gig-posters/";
 
     @Autowired
     private GigRepository gigRepository;
+
+    public final List<Gig> findAllGigs() {
+        List<Gig> allGigsList = new ArrayList<>();
+        Iterable<Gig> allGigs = gigRepository.findAll();
+        for (Gig gig : allGigs){
+            allGigsList.add(gig);
+        }
+//        Collections.sort(allGigsList, new Comparator<Gig>() {
+//            public int compare(Gig gig1, Gig gig2) {
+//                return gig1.getName().compareTo(gig2.getName());
+//            }
+//        });
+        System.out.println(allGigsList);
+        return allGigsList;
+    }
 
     @GetMapping("/new")
     public String renderAddGigPage(Model model) {
@@ -42,8 +57,8 @@ public class AdminGigsController {
     }
 
     @GetMapping("/upload-image")
-    public String renderGigImageUpload() {
-
+    public String renderGigImageUpload(Model model) {
+        model.addAttribute("gigsForDropdown", findAllGigs());
         return "/admin/gigs/upload-image";
     }
 
@@ -73,7 +88,7 @@ public class AdminGigsController {
 
         // return success response
         attributes.addFlashAttribute("message", "You successfully uploaded " + fileName + '!');
-        return "redirect:/admin/gigs";
+        return "redirect:/gigs";
     }
 
 }
