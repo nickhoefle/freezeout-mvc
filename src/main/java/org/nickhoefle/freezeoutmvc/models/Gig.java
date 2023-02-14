@@ -1,7 +1,10 @@
 package org.nickhoefle.freezeoutmvc.models;
 
+import jakarta.persistence.Entity;
+
 import java.util.Date;
 
+@Entity
 public class Gig extends AbstractEntity {
 
     private Date date;

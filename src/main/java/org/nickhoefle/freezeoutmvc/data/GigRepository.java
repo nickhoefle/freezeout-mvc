@@ -1,4 +1,10 @@
 package org.nickhoefle.freezeoutmvc.data;
 
-public interface GigRepository {
+
+import org.nickhoefle.freezeoutmvc.models.Gig;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface GigRepository extends CrudRepository<Gig, Integer> {
 }

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<header th:replace="fragments :: header-admin"></header>
+<body class="container-fluid">
+
+<h3>Add New Gig: </h3>
+
+<form method="post" th:action="@{/admin/gigs/new}">
+    <div class="form-group">
+        <label>Date
+            <input th:field="${gig.date}" type="date" class="form-control">
+        </label>
+        <p class="error" th:errors="${gig.date}"></p>
+    </div>
+    <div class="form-group">
+        <label>Address
+            <input class="form-control" th:field="${gig.address}">
+        </label>
+        <p class="error" th:errors="${gig.address}"></p>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Create" class="btn btn-success">
+    </div>
+</form>
+
+
+</body>
+</html>
