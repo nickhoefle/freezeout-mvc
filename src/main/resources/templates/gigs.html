@@ -4,8 +4,61 @@
 <header th:replace="fragments :: header-reg"></header>
 <body class="container-fluid">
 
-<h3>Upcoming Gigs:</h3>
+<div>
+    <h2>Upcoming Gigs</h2>
+</div>
 
+<div>
+    <th:block th:each="gig : ${allGigs}" th:if="${gig.date > T(java.time.LocalDate).now()}">
+        <div class="mySlides">
+            <img th:src="@{/uploads/gig-posters/{poster}(poster=${gig.image})}">
+            <a th:href="@{http://maps.google.com/?q={address}(address=${gig.address})}">Directions</a>
+        </div>
+    </th:block>
+    <div style="white-space: nowrap;">
+        <button class="w3-button w3-display-left w3-black" onclick="plusDivs(-1)">&#10094;</button>
+        <button class="w3-button w3-display-right w3-black" onclick="plusDivs(1)">&#10095;</button>
+    </div>
+</div>
+
+<div>
+    <h2>Past Gigs</h2>
+</div>
+
+<div>
+    <th:block th:each="gig : ${allGigs}" th:if="${gig.date < T(java.time.LocalDate).now()}">
+        <div class="mySlides">
+            <img th:src="@{/uploads/gig-posters/{poster}(poster=${gig.image})}">
+            <a th:href="@{http://maps.google.com/?q={address}(address=${gig.address})}">Directions</a>
+        </div>
+    </th:block>
+    <div style="white-space: nowrap;">
+        <button class="w3-button w3-display-left w3-black" onclick="plusDivs(-1)">&#10094;</button>
+        <button class="w3-button w3-display-right w3-black" onclick="plusDivs(1)">&#10095;</button>
+    </div>
+</div>
+
+<script>
+var slideIndex = 1;
+showDivs(slideIndex);
+
+function plusDivs(n) {
+  showDivs(slideIndex += n);
+}
+
+function showDivs(n) {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  if (n > x.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = x.length}
+  for (i = 0; i < x.length; i++) {
+     x[i].style.display = "none";
+  }
+  x[slideIndex-1].style.display = "block";
+}
+</script>
 
 </body>
+
+
 </html>
