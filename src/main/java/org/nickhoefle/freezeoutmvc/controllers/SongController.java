@@ -1,6 +1,5 @@
 package org.nickhoefle.freezeoutmvc.controllers;
 
-
 import jakarta.validation.Valid;
 import org.nickhoefle.freezeoutmvc.data.SongChordsRepository;
 import org.nickhoefle.freezeoutmvc.data.SongNoteRepository;
@@ -15,12 +14,13 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
 import java.sql.Timestamp;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
 @Controller
-@RequestMapping("admin/songs")
+@RequestMapping("/admin/songs")
 public class SongController {
 
     private final String UPLOAD_DIR = "src/main/resources/static/uploads/";
@@ -36,73 +36,79 @@ public class SongController {
 
     @GetMapping("")
     public String displaySongs(Model model) {
-        model.addAttribute("title", "All Songs");
+        List<String> options = Arrays.asList("Active", "Inactive", "On Ice", "Song Idea");
+        model.addAttribute("options", options);
         model.addAttribute("songs", songRepository.findAll());
-        return "admin/songs/index";
+        return "/admin/songs/index";
     }
 
-    @GetMapping("new")
-    public String displayCreateSongForm(Model model) {
-        model.addAttribute("title", "Create Song");
+    @PostMapping("/status")
+    public String processStatusChange(@RequestParam String status, @RequestParam String id) {
+        Integer idInt = Integer.parseInt(id);
+        Optional<Song> optSong = songRepository.findById(idInt);
+        if (optSong.isPresent()) {
+            Song song = optSong.get();
+            song.setStatus(status);
+            songRepository.save(song);
+        }
+        return "redirect:/admin/songs";
+    }
+
+    @GetMapping("/new")
+    public String displayNewSongForm(Model model) {
         model.addAttribute(new Song());
-        return "admin/songs/new";
+        return "/admin/songs/new";
     }
 
-    @PostMapping("new")
-    public String processCreateSongForm(@ModelAttribute @Valid Song newSong, Errors errors, Model model) {
+    @PostMapping("/new")
+    public String processNewSongForm(@ModelAttribute @Valid Song newSong, Errors errors, Model model) {
         if (errors.hasErrors()) {
-            model.addAttribute("title", "Create Event");
             return "songs/new";
         }
         songRepository.save(newSong);
         return "redirect:/admin/upload/sheet-music";
     }
 
-    @GetMapping("delete")
-    public String displayDeleteEventForm(Model model) {
-        model.addAttribute("title", "Delete Songs");
+    @GetMapping("/delete")
+    public String displayDeleteSongsForm(Model model) {
         model.addAttribute("songs", songRepository.findAll());
-        return "admin/songs/delete";
+        return "/admin/songs/delete";
     }
 
-    @PostMapping("delete")
+    @PostMapping("/delete")
     public String processDeleteEventsForm(@RequestParam(required = false) int[] songIds) {
-        if (songIds != null) {
+        if (songIds != null && songIds.length > 0) {
             for (int id : songIds) {
                 songRepository.deleteById(id);
             }
         }
-        return "redirect:";
+        return "redirect:/admin/songs/delete";
     }
 
     @PostMapping("/notes/{songId}/change-url")
-    public String changeYoutubeUrl(@PathVariable int songId, @RequestParam("value") String youtubeUrl) {
+    public String changeYoutubeUrl(@PathVariable int songId, @RequestParam("youtubeUrl") String youtubeUrl) {
         Optional optSong = songRepository.findById(songId);
         if (optSong.isPresent()) {
             Song song = (Song) optSong.get();
             song.getSongDetails().setYoutubeURL(youtubeUrl);
-            songRepository.save(song);  // save the modified song object
+            songRepository.save(song);
         }
         return "redirect:/admin/songs/notes/{songId}";
     }
 
-    @GetMapping("notes/{songId}")
+    @GetMapping("/notes/{songId}")
     public String displayNotesAndChords (Model model, @PathVariable int songId) {
-        model.addAttribute(new SongNote());
-        model.addAttribute(new SongChords());
         Optional optSong = songRepository.findById(songId);
         if (optSong.isPresent()) {
             Song song = (Song) optSong.get();
             model.addAttribute("song", song);
+
             String youtubeEmbedHTML = song.getSongDetails().getYoutubeURL();
             model.addAttribute("youtubeEmbedHTML", youtubeEmbedHTML);
+
             List<SongNote> songNoteList = song.getSongNotes();
             model.addAttribute("songNotesCollection", songNoteList);
-        }
 
-        if (optSong.isPresent()) {
-            Song song = (Song) optSong.get();
-            model.addAttribute("song", song);
             List<SongChords> songChordsList = song.getSongChords();
             Collections.reverse(songChordsList);
             model.addAttribute("songChordsCollection", songChordsList);
@@ -110,10 +116,9 @@ public class SongController {
         return "/admin/songs/notes";
     }
 
-    @PostMapping("notes/{songId}/add-notes")
+    @PostMapping("/notes/{songId}/add-notes")
     public String processNotes (@ModelAttribute @Valid SongNote newSongNote, @PathVariable int songId, Errors errors, Model model) {
         if (errors.hasErrors()) {
-            model.addAttribute("title", "Create Note");
             return "songs/notes";
         }
         Optional optSong = songRepository.findById(songId);
@@ -130,34 +135,31 @@ public class SongController {
             newSongNote.setSong(song);
             newSongNote.setTimestamp(new Timestamp(System.currentTimeMillis()));
             songNoteRepository.save(newSongNote);
-            return "redirect:/admin/songs/notes/{songId}";
         }
         return "redirect:/admin/songs/notes/{songId}";
     }
 
-    @PostMapping("notes/{songId}/delete-note")
+    @PostMapping("/notes/{songId}/delete-note")
     public String deleteNote(@PathVariable int songId, @RequestParam int noteId) {
         Optional<SongNote> optSongNote = songNoteRepository.findById(noteId);
         if (optSongNote.isPresent()) {
             SongNote songNote = optSongNote.get();
             songNoteRepository.delete(songNote);
-            return "redirect:/admin/songs/notes/{songId}";
         }
         return "redirect:/admin/songs/notes/{songId}";
     }
 
-    @PostMapping("notes/{songId}/delete-chord-page")
+    @PostMapping("/notes/{songId}/delete-chord-page")
     public String deleteChordPage(@PathVariable int songId, @RequestParam int chordPageId) {
         Optional<SongChords> optSongChords = songChordsRepository.findById(chordPageId);
             if (optSongChords.isPresent()) {
                 SongChords songChords = optSongChords.get();
                 songChordsRepository.delete(songChords);
-                return "redirect:/admin/songs/notes/{songId}";
             }
         return "redirect:/admin/songs/notes/{songId}";
     }
 
-    @GetMapping("notes/{songId}/edit-note/{noteId}")
+    @GetMapping("/notes/{songId}/edit-note/{noteId}")
     public String renderEditNotePage(Model model, @PathVariable int songId, @PathVariable int noteId) {
         model.addAttribute("songId", songId);
         model.addAttribute("noteId", noteId);
@@ -170,19 +172,18 @@ public class SongController {
         return "/admin/songs/edit-note";
     }
 
-    @PostMapping("notes/{songId}/edit-note/{noteId}")
+    @PostMapping("/notes/{songId}/edit-note/{noteId}")
     public String processEditNotePage(Model model, @RequestParam String newSongNoteText, @PathVariable int songId, @PathVariable int noteId) {
         Optional<SongNote> optSongNote = songNoteRepository.findById(noteId);
         if (optSongNote.isPresent()) {
             SongNote songNote = optSongNote.get();
             songNote.setNoteText(newSongNoteText);
             songNoteRepository.save(songNote);
-            return "redirect:/admin/songs/notes/{songId}";
         }
         return "redirect:/admin/songs/notes/{songId}";
     }
 
-    @GetMapping("notes/{songId}/edit-chord-page/{chordPageId}")
+    @GetMapping("/notes/{songId}/edit-chord-page/{chordPageId}")
     public String renderEditChordSheetPage(Model model, @PathVariable int songId, @PathVariable int chordPageId) {
         model.addAttribute("songId", songId);
         model.addAttribute("chordPageId", chordPageId);
@@ -195,22 +196,20 @@ public class SongController {
         return "/admin/songs/edit-chord-page";
     }
 
-    @PostMapping("notes/{songId}/edit-chord-page/{chordPageId}")
+    @PostMapping("/notes/{songId}/edit-chord-page/{chordPageId}")
     public String processEditChordSheetPage(Model model, @RequestParam String newSongChordsText, @PathVariable int songId, @PathVariable int chordPageId) {
         Optional<SongChords> optSongChords = songChordsRepository.findById(chordPageId);
         if (optSongChords.isPresent()) {
             SongChords songChords = optSongChords.get();
             songChords.setChordsText(newSongChordsText);
             songChordsRepository.save(songChords);
-            return "redirect:/admin/songs/notes/{songId}";
         }
         return "redirect:/admin/songs/notes/{songId}";
     }
 
-    @PostMapping("notes/{songId}/add-chords")
+    @PostMapping("/notes/{songId}/add-chords")
     public String processChords (@ModelAttribute @Valid SongChords newSongChords, @PathVariable int songId, Errors errors, Model model) {
         if (errors.hasErrors()) {
-            model.addAttribute("title", "Create Chord Page");
             return "admin/songs/notes";
         }
         Optional optSong = songRepository.findById(songId);
@@ -227,12 +226,11 @@ public class SongController {
             newSongChords.setSong(song);
             newSongChords.setTimestamp(new Timestamp(System.currentTimeMillis()));
             songChordsRepository.save(newSongChords);
-            return "redirect:/admin/songs/notes/{songId}";
         }
         return "redirect:/admin/songs/notes/{songId}";
     }
 
-    @GetMapping("notes/{songId}/add-notes")
+    @GetMapping("/notes/{songId}/add-notes")
     public String displayAddNotesPage (Model model, @PathVariable int songId) {
         model.addAttribute(new SongNote());
         Optional optSong = songRepository.findById(songId);
@@ -240,10 +238,10 @@ public class SongController {
             Song song = (Song) optSong.get();
             model.addAttribute("song", song);
         }
-        return "admin/songs/add-notes";
+        return "/admin/songs/add-notes";
     }
 
-    @GetMapping("notes/{songId}/add-chords")
+    @GetMapping("/notes/{songId}/add-chords")
     public String displayAddChordsPage (Model model, @PathVariable int songId) {
         model.addAttribute(new SongChords());
         Optional optSong = songRepository.findById(songId);
@@ -251,8 +249,7 @@ public class SongController {
             Song song = (Song) optSong.get();
             model.addAttribute("song", song);
         }
-        return "admin/songs/add-chords";
+        return "/admin/songs/add-chords";
     }
-
 
 }

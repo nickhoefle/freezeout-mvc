@@ -2,8 +2,9 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
 <header th:replace="fragments :: header-admin"></header>
+<body class="container-fluid">
 
-<body class="container">
+<h3>Add New Song: </h3>
 
 <form method="post" th:action="@{/admin/songs/new}">
     <div class="form-group">

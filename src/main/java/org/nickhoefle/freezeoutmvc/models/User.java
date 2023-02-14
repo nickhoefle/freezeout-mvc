@@ -4,11 +4,9 @@ import jakarta.persistence.Entity;
 import org.springframework.stereotype.Component;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-
 @Entity
 @Component
 public class User extends AbstractEntity{
-
 
     private String username;
 

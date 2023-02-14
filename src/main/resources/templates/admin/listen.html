@@ -1,20 +1,18 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
-
 <head th:replace="fragments :: head"></head>
 <header th:replace="fragments :: header-admin"></header>
-
-<body class="container">
+<body class="container-fluid">
 
 <h3>Configure 'Listen' Page</h3>
 
 <table class="table" id="myTable">
     <thead>
-    <tr>
-        <th id="songNameHeader" onclick="sortTable(0)">Song</th>
-        <th id="audioPlayerHeader" onclick="sortTable(1)">Current Track</th>
-        <th id="changeHeader"></th>
-    </tr>
+        <tr>
+            <th id="songNameHeader" onclick="sortTable(0)">Song</th>
+            <th id="audioPlayerHeader" onclick="sortTable(1)">Current Track</th>
+            <th id="changeHeader"></th>
+        </tr>
     </thead>
     <tbody>
         <tr th:each="song : ${allSongs}">
@@ -23,9 +21,9 @@
                 <div th:if="${song.songUploadFileName != null && song.songUploadFileName != 'Hidden' && song.songUploadFileName != 'images'}">
                     <label th:text="${song.songUploadFileName}"></label>
                     <div th:if="${song.songUploadFileName != 'Hidden'}">
-                    <audio class="audioPlayerHTML" controls>
-                        <source th:src="@{${'/uploads/' + song.songUploadFileName}}" type="audio/wav">
-                    </audio>
+                        <audio class="audioPlayerInCell" controls>
+                            <source th:src="@{${'/uploads/' + song.songUploadFileName}}" type="audio/wav">
+                        </audio>
                     </div>
                 </div>
                 <div th:if="${song.songUploadFileName == null || song.songUploadFileName == 'Hidden' || song.songUploadFileName == 'images'}">
@@ -33,7 +31,7 @@
                 </div>
             </td>
             <td id="changeCell">
-                <button class="updateSectionButton" onclick="toggleUpdateSection()">Update</button>
+                <button class="updateSectionButton beigeButton">Update</button>
                 <form th:action="@{/admin/listen}" class="updateSection"  th:method="post" style="display:none;">
                     <input type="text" th:name="songName" th:value="${song.songName}" hidden readonly>
                     <select class="selectedSong" th:name="newFileName">
@@ -42,24 +40,16 @@
                         <th:block th:each="file : ${allFileNames}">
                             <option th:text="${file}" th:value="${file}"></option>
                         </th:block>
-                    </select>
-                    <div th:if="${song.songUploadFileName == null}">
-                        <button type="submit">Add</button>
-                        <a class="playBtn">
-                            <button onclick="openSelectedInNewTab()" type="button">
-                                Play Selected
-                            </button>
-                        </a>
-                    </div>
-                    <div th:if="${song.songUploadFileName != null}">
-                        <button type="submit">Update</button>
-                        <a class="playBtn">
-                            <button onclick="openSelectedInNewTab()" type="button">
-                                Play Selected
-                            </button>
-                        </a>
-                    </div>
+                    </select><hr>
 
+                    <div>
+                        <button class="btn btn-primary updateButton" type="submit">Update</button><br><br>
+                        <a class="playBtn">
+                            <button class="btn btn-secondary" onclick="openSelectedInNewTab()" type="button">
+                                Play Selected
+                            </button><hr>
+                        </a>
+                    </div>
                 </form>
             </td>
         </tr>

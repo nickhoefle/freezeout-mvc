@@ -1,31 +1,30 @@
-#songNameHeader {
-    width: 30%;
-    cursor: pointer;
+.audioPlayerInCell {
+    height: 25px;
+    width: 80%;
+    border-radius: 0;
 }
 
-#songNameCell {
-    width: 30%;
+.selectedSong {
+    width: 173px;
+}
+
+#audioPlayerHeader, #audioPlayerCell {
+    width: 50%;
     cursor: pointer;
     vertical-align: middle;
 }
 
-
-#audioPlayerHeader {
-    width: 50%;
-}
-
-#audioPlayerCell {
-    width: 50%;
-    vertical-align: middle;
-}
-
-#changeHeader {
-    width: 20%;
-}
-
-#changeCell {
+#changeHeader, #changeCell {
     width: 20%;
     vertical-align: middle;
     text-align: center;
 }
+
+#songNameHeader, #songNameCell {
+    width: 30%;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+
 

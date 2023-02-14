@@ -1,12 +1,10 @@
 package org.nickhoefle.freezeoutmvc.models;
 
-
 import jakarta.persistence.*;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
-
 import java.util.List;
 
 @Entity
@@ -26,6 +24,8 @@ public class Song extends AbstractEntity {
     @OneToMany
     @JoinColumn(name = "song_id")
     private List<SongChords> songChords;
+
+    private String status;
 
     @OneToOne(cascade = CascadeType.ALL)
     @Valid
@@ -90,6 +90,14 @@ public class Song extends AbstractEntity {
         this.songNotes.remove(songNote);
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
     @Override
     public String toString() {
         return "Song{" +
@@ -98,6 +106,7 @@ public class Song extends AbstractEntity {
                 ", songSheetMusic='" + songSheetMusic + '\'' +
                 ", songNotes=" + songNotes +
                 ", songChords=" + songChords +
+                ", status='" + status + '\'' +
                 ", songDetails=" + songDetails +
                 '}';
     }

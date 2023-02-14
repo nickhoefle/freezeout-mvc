@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
-
 <head th:replace="fragments :: head"></head>
 <header th:replace="fragments :: header-admin"></header>
-
-<body class="container">
+<body class="container-fluid">
 
 <h3>Edit Note Text</h3>
+
 <form method="post" th:action="@{/admin/songs/notes/__${songId}__/edit-note/__${noteId}__}">
     <input name="newSongNoteText" type="text" th:value="${songNoteText}">
     <button type="submit">Confirm</button>

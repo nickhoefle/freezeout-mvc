@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Controller
-@RequestMapping("admin/listen")
+@RequestMapping("/admin/listen")
 public class AdminListenController {
 
     @Autowired
@@ -28,10 +28,12 @@ public class AdminListenController {
         File directory = new File("src/main/resources/static/uploads/");
         File[] files = directory.listFiles();
         for (File file : files) {
-            allFileNames.add(file.getName());
+            if (file.getName().endsWith("wav")) {
+                allFileNames.add(file.getName());
+            }
         }
         model.addAttribute("allFileNames", allFileNames);
-        return "admin/listen";
+        return "/admin/listen";
     }
 
     @PostMapping("")

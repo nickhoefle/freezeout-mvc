@@ -2,8 +2,9 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
 <header th:replace="fragments :: header-admin"></header>
+<body class="container-fluid">
 
-<body class="container">
+<h3>Delete Songs:</h3>
 
 <table class="table table-striped" id="myTable">
     <thead>
@@ -14,22 +15,21 @@
             <th class="songTableHeader" onclick="sortTable(2)">Year</th>
         </tr>
     </thead>
-    <tr th:each="song : ${songs}">
-        <td>
-        <form method="post">
-            <div class="form-group">
-                <label>
-                    <input type="checkbox" name="songIds" th:value="${song.id}" class="form-control">
-                </label>
-            </div>
-            <input type="submit" value="Delete" class="btn btn-danger">
-        </form>
-        </td>
-        <td th:text="${song.songName}"></td>
-        <td th:text="${song.songDetails.originalArtist}"></td>
-        <td th:text="${song.songDetails.year}"></td>
-
-    </tr>
+        <tr th:each="song : ${songs}">
+            <td>
+                <form method="post">
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" name="songIds" th:value="${song.id}" class="form-control">
+                        </label>
+                    </div>
+                <input type="submit" value="Delete" class="btn btn-danger">
+                </form>
+            </td>
+            <td th:text="${song.songName}"></td>
+            <td th:text="${song.songDetails.originalArtist}"></td>
+            <td th:text="${song.songDetails.year}"></td>
+        </tr>
 </table>
 
 </body>
