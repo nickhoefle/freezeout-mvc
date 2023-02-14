@@ -21,7 +21,7 @@
     }
 
     input {
-        height: 34px;
+        height: 38px;
         font-size: 24px;
     }
 
@@ -35,6 +35,7 @@
 
     td {
         font-size: 24px;
+        height: 100px;
     }
 
     th {
@@ -59,6 +60,7 @@
 
     .font-control-file {
         font-size: 22px;
+        height: 38px;
     }
 
     .form-control {
@@ -72,6 +74,10 @@
 
     .titleHeaderFragment {
         font-size: 42px;
+    }
+
+    .selectedSong {
+        font-size: 20px;
     }
 
     .viewSheetMusicCell {

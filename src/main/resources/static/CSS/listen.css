@@ -15,24 +15,24 @@ audio::-webkit-media-controls-play-button {
 }
 
 audio::-webkit-media-controls-current-time-display {
-    font-size: 16pt;
+    font-size: 14px;
     color: black;
     text-shadow: none;
 }
 
 audio::-webkit-media-controls-time-remaining-display {
-    font-size: 16pt;
+    font-size: 14px;
     color: black;
     text-shadow: none;
 }
 
 audio::-webkit-media-controls-mute-button {
     color: white;
-    background-color: #576b52;
+    background-color: white;
 }
 
 audio::-webkit-media-controls-panel {
-    background-color: #576b52;
+    background-color: white;
 }
 
 audio::-webkit-media-controls-enclosure {

@@ -1,6 +1,11 @@
-td {
-    font-size: 16px;
-}
+button {
+  -webkit-appearance: none;
+    -moz-appearance: none;
+    color: black;
+    background-color: white;
+      }
+
+
 
 th {
     font-size: 16px;
@@ -12,6 +17,10 @@ th {
 
 .tdCentered {
     text-align:center;
+}
+
+.table td {
+    vertical-align: middle !important;
 }
 
 

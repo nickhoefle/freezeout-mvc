@@ -65,9 +65,27 @@ function showSaveButton() {
     const saveButtonArray = Array.from(saveButton);
 
     statusDropdownArray.forEach(function(button, index) {
-        button.addEventListener("click", function() {
+        button.addEventListener("change", function() {
             saveButtonArray[index].style.display = '';
             songIdInputArray[index].value = songIdArray[index].innerHTML;
         });
     });
 }
+
+jQuery(document).ready(function() {
+    jQuery('.saveButton').click(function(e) {
+        e.preventDefault();
+        const form = jQuery(this).closest("form");
+        const url = form.attr("action");
+        const status = form.find("select[name='status']").val();
+        const id = form.find("input[name='id']").val();
+        jQuery.ajax({
+            type: "POST",
+            url: url,
+            data: { status: status, id: id },
+            success: function() {
+                form.find('.saveButton').hide();
+            }
+        });
+    });
+});
