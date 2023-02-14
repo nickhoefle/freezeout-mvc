@@ -19,6 +19,11 @@
         </label>
         <p class="error" th:errors="${gig.date}"></p>
     </div>
+    <label>Time
+        <input th:field="${gig.time}" class="form-control">
+    </label>
+    <p class="error" th:errors="${gig.time}"></p>
+    </div>
     <div class="form-group">
         <label>Address
             <input class="form-control" th:field="${gig.address}">

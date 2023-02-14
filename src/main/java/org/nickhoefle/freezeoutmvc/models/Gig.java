@@ -2,22 +2,25 @@ package org.nickhoefle.freezeoutmvc.models;
 
 import jakarta.persistence.Entity;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 @Entity
 public class Gig extends AbstractEntity {
 
     private String name;
 
-    private Date date;
+    private LocalDate date;
+
+    private String time;
 
     private String address;
 
     private String image;
 
-    public Gig(String name, Date date, String address, String image) {
+    public Gig(String name, LocalDate date, String time, String address, String image) {
         this.name = name;
         this.date = date;
+        this.time = time;
         this.address = address;
         this.image = image;
     }
@@ -32,12 +35,20 @@ public class Gig extends AbstractEntity {
         this.name = name;
     }
 
-    public Date getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(LocalDate date) {
         this.date = date;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
     }
 
     public String getAddress() {
@@ -61,6 +72,7 @@ public class Gig extends AbstractEntity {
         return "Gig{" +
                 "name='" + name + '\'' +
                 ", date=" + date +
+                ", time='" + time + '\'' +
                 ", address='" + address + '\'' +
                 ", image='" + image + '\'' +
                 '}';
