@@ -41,6 +41,12 @@ public class AdminGigsController {
         return "redirect:/admin/gigs/upload-image";
     }
 
+    @GetMapping("/upload-image")
+    public String renderGigImageUpload() {
+
+        return "/admin/gigs/upload-image";
+    }
+
     @PostMapping("/upload-image")
     public String processGigImageUpload (@RequestParam("file") MultipartFile file, RedirectAttributes attributes, @RequestParam int gigId, Model model) {
 
