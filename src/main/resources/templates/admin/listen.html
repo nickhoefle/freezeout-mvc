@@ -6,7 +6,7 @@
 
 <h3>Configure 'Listen' Page</h3>
 
-<table class="table">
+<table class="table" id="myTable">
     <thead>
         <tr>
             <th id="songNameHeader" onclick="sortTable(0)">Song</th>
@@ -31,7 +31,7 @@
                 </div>
             </td>
             <td id="changeCell">
-                <button class="updateSectionButton">Update</button>
+                <button class="updateSectionButton beigeButton">Update</button>
                 <form th:action="@{/admin/listen}" class="updateSection"  th:method="post" style="display:none;">
                     <input type="text" th:name="songName" th:value="${song.songName}" hidden readonly>
                     <select class="selectedSong" th:name="newFileName">
@@ -44,13 +44,13 @@
                     <div th:if="${song.songUploadFileName == null}">
                         <button class="btn btn-success" type="submit">Add</button>
                         <a class="playBtn">
-                            <button onclick="openSelectedInNewTab()" type="button">
+                            <button class="btn btn-secondary" onclick="openSelectedInNewTab()" type="button">
                                 Play Selected
                             </button>
                         </a>
                     </div>
                     <div th:if="${song.songUploadFileName != null}">
-                        <button type="submit">Update</button>
+                        <button class="btn btn-primary" type="submit">Update</button>
                         <a class="playBtn">
                             <button class="btn btn-secondary" onclick="openSelectedInNewTab()" type="button">
                                 Play Selected
