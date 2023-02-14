@@ -1,7 +1,6 @@
-#songNameHeader, #songNameCell {
-    width: 30%;
-    cursor: pointer;
-    vertical-align: middle;
+.audioPlayerInCell {
+    height: 20px;
+    font-size: 12px;
 }
 
 #audioPlayerHeader, #audioPlayerCell {
@@ -15,5 +14,12 @@
     vertical-align: middle;
     text-align: center;
 }
+
+#songNameHeader, #songNameCell {
+    width: 30%;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
 
 

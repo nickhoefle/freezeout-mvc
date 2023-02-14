@@ -1,12 +1,4 @@
-* { }
 
-body {
-    background: linear-gradient(to bottom, #527caa, ##2e4660);
-}
-
-#titleHeaderFragment {
-    font-size: 20pt;
-}
 
 .carousel-inner img {
     -webkit-filter: grayscale(90%);
@@ -19,16 +11,15 @@ body {
     border: 2px solid black;
 }
 
-.container-fluid {
-    padding-top: 20px;
-    padding-bottom: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
-}
+
 
 .instrumentsAndNames {
     text-align: center;
     width: 60%;
+}
+
+.instrumentPhoto {
+    width: 15%;
 }
 
 .instrumentsAndNamesContainer {
@@ -37,6 +28,11 @@ body {
     padding: 10px;
 }
 
-.instrumentPhoto {
-    width: 15%;
+.titleHeaderFragment:hover {
+    color: white;
+}
+
+#titleHeaderFragment {
+    font-family: 'Snowtop Caps', sans-serif !important;
+    font-size: 20pt;
 }

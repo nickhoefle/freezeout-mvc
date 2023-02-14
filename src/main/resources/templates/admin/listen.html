@@ -6,7 +6,7 @@
 
 <h3>Configure 'Listen' Page</h3>
 
-<table class="table" id="myTable">
+<table class="table">
     <thead>
         <tr>
             <th id="songNameHeader" onclick="sortTable(0)">Song</th>
@@ -21,7 +21,7 @@
                 <div th:if="${song.songUploadFileName != null && song.songUploadFileName != 'Hidden' && song.songUploadFileName != 'images'}">
                     <label th:text="${song.songUploadFileName}"></label>
                     <div th:if="${song.songUploadFileName != 'Hidden'}">
-                        <audio class="audioPlayerHTML" controls>
+                        <audio class="audioPlayerInCell" controls>
                             <source th:src="@{${'/uploads/' + song.songUploadFileName}}" type="audio/wav">
                         </audio>
                     </div>
