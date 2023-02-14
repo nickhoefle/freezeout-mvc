@@ -4,6 +4,10 @@
     border-radius: 0;
 }
 
+.selectedSong {
+    width: 173px;
+}
+
 #audioPlayerHeader, #audioPlayerCell {
     width: 50%;
     cursor: pointer;

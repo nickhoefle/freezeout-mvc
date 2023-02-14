@@ -11,8 +11,6 @@
     border: 2px solid black;
 }
 
-
-
 .instrumentsAndNames {
     text-align: center;
     width: 60%;
@@ -30,6 +28,10 @@
 
 .titleHeaderFragment:hover {
     color: white;
+}
+
+.updateButton {
+    width: 173px;
 }
 
 #titleHeaderFragment {

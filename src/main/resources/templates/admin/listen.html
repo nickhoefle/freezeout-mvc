@@ -40,21 +40,14 @@
                         <th:block th:each="file : ${allFileNames}">
                             <option th:text="${file}" th:value="${file}"></option>
                         </th:block>
-                    </select>
-                    <div th:if="${song.songUploadFileName == null}">
-                        <button class="btn btn-success" type="submit">Add</button>
+                    </select><hr>
+
+                    <div>
+                        <button class="btn btn-primary updateButton" type="submit">Update</button><br><br>
                         <a class="playBtn">
                             <button class="btn btn-secondary" onclick="openSelectedInNewTab()" type="button">
                                 Play Selected
-                            </button>
-                        </a>
-                    </div>
-                    <div th:if="${song.songUploadFileName != null}">
-                        <button class="btn btn-primary" type="submit">Update</button>
-                        <a class="playBtn">
-                            <button class="btn btn-secondary" onclick="openSelectedInNewTab()" type="button">
-                                Play Selected
-                            </button>
+                            </button><hr>
                         </a>
                     </div>
                 </form>
