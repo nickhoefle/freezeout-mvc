@@ -15,7 +15,7 @@ public class ListenController {
     private SongRepository songRepository;
 
     @GetMapping
-    public String index(Model model) {
+    public String renderListenPage(Model model) {
         model.addAttribute("allSongs", songRepository.findAll());
         return "listen";
     }

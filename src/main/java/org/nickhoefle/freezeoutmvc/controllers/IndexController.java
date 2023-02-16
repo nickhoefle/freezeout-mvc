@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class IndexController {
 
     @GetMapping
-    public String displayIndex () {
+    public String renderWebsiteIndex () {
         return "index";
     }
 
