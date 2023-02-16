@@ -12,7 +12,7 @@ public class SongChords extends AbstractEntity {
     @ManyToOne
     private Song song;
 
-    @Column(length = 9999)
+    @Column(length = 99999)
     private String chordsText;
 
     private Timestamp timestamp;
