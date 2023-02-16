@@ -3,7 +3,6 @@ package org.nickhoefle.freezeoutmvc.controllers;
 import jakarta.validation.Valid;
 import org.nickhoefle.freezeoutmvc.data.GigRepository;
 import org.nickhoefle.freezeoutmvc.models.Gig;
-import org.nickhoefle.freezeoutmvc.models.Song;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -35,12 +34,6 @@ public class AdminGigsController {
         for (Gig gig : allGigs){
             allGigsList.add(gig);
         }
-//        Collections.sort(allGigsList, new Comparator<Gig>() {
-//            public int compare(Gig gig1, Gig gig2) {
-//                return gig1.getName().compareTo(gig2.getName());
-//            }
-//        });
-        System.out.println(allGigsList);
         return allGigsList;
     }
 
@@ -51,7 +44,7 @@ public class AdminGigsController {
     }
 
     @PostMapping("/new")
-    public String processAddGig(@ModelAttribute @Valid Gig newGig, Errors errors, Model model) {
+    public String processAddGig(@ModelAttribute @Valid Gig newGig, Errors errors) {
         gigRepository.save(newGig);
         return "redirect:/admin/gigs/upload-image";
     }
@@ -63,16 +56,17 @@ public class AdminGigsController {
     }
 
     @PostMapping("/upload-image")
-    public String processGigImageUpload (@RequestParam("file") MultipartFile file, RedirectAttributes attributes, @RequestParam int gigId, Model model) {
+    public String processGigImageUpload (@RequestParam("file") MultipartFile file, RedirectAttributes attributes, @RequestParam int gigId) {
 
         // check if file is empty
         if (file.isEmpty()) {
             attributes.addFlashAttribute("message", "Please select a file to upload.");
-            return "redirect:/admin/upload/audio-file";
+            return "redirect:/admin/gigs/upload-image";
         }
 
         // normalize the file path
         String fileName = StringUtils.cleanPath(file.getOriginalFilename());
+
         Optional<Gig> optGig = gigRepository.findById(gigId);
         Gig gig = (Gig) optGig.get();
         gig.setImage(fileName);
@@ -85,10 +79,6 @@ public class AdminGigsController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-        // return success response
-        attributes.addFlashAttribute("message", "You successfully uploaded " + fileName + '!');
         return "redirect:/gigs";
     }
-
 }
