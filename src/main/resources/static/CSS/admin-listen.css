@@ -8,19 +8,19 @@
     width: 173px;
 }
 
-#audioPlayerHeader, #audioPlayerCell {
+#audioPlayerHeader, .audioPlayerCell {
     width: 50%;
     cursor: pointer;
     vertical-align: middle;
 }
 
-#changeHeader, #changeCell {
+#changeHeader, .changeCell {
     width: 20%;
     vertical-align: middle;
     text-align: center;
 }
 
-#songNameHeader, #songNameCell {
+#songNameHeader, .songNameCell {
     width: 30%;
     cursor: pointer;
     vertical-align: middle;
