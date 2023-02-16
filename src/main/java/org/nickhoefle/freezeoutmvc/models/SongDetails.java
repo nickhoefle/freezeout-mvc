@@ -15,9 +15,7 @@ public class SongDetails extends AbstractEntity {
 
     private String songKey;
 
-    private String songPath;
-
-    @Column(length = 2000)
+    @Size(max = 2000)
     private String youtubeURL;
 
     public SongDetails() {}
@@ -53,19 +51,14 @@ public class SongDetails extends AbstractEntity {
         this.songKey = songKey;
     }
 
-    public String getSongPath() {
-        return songPath;
-    }
-
-    public void setSongPath(String songPath) {
-        this.songPath = songPath;
-    }
-
     public String getYoutubeURL() {
         return youtubeURL;
     }
 
     public void setYoutubeURL(String youtubeURL) {
+        if (youtubeURL == "") {
+            this.youtubeURL = null;
+        }
         String[] splitEquals = youtubeURL.split("=");
         String[] splitAndSign = splitEquals[1].split("&");
         String videoID = splitAndSign[0];
