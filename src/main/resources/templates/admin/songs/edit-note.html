@@ -7,7 +7,7 @@
 <h3>Edit Note Text</h3>
 
 <form method="post" th:action="@{/admin/songs/practice/__${songId}__/edit-note/__${noteId}__}">
-    <input name="newSongNoteText" type="text" th:value="${songNoteText}">
+    <input name="newSongNoteText" th:value="${songNoteText}">
     <button type="submit">Confirm</button>
 </form>
 

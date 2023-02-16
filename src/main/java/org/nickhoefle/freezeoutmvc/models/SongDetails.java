@@ -1,5 +1,6 @@
 package org.nickhoefle.freezeoutmvc.models;
 
+import jakarta.annotation.Nullable;
 import jakarta.persistence.Entity;
 import jakarta.validation.constraints.Size;
 
@@ -14,7 +15,7 @@ public class SongDetails extends AbstractEntity {
 
     private String songKey;
 
-    @Size(max = 2000)
+    @Nullable
     private String youtubeURL;
 
     public SongDetails () { }
@@ -57,6 +58,7 @@ public class SongDetails extends AbstractEntity {
     public void setYoutubeURL(String youtubeURL) {
         if (youtubeURL == "") {
             this.youtubeURL = null;
+            return;
         }
         String[] splitEquals = youtubeURL.split("=");
         String[] splitAndSign = splitEquals[1].split("&");

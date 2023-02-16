@@ -8,15 +8,14 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" th:href="@{/CSS/admin-listen.css}">
+    <link rel="stylesheet" th:href="@{/CSS/edit-chord-page.css}">
     <link rel="stylesheet" th:href="@{/CSS/fragments.css}">
     <link rel="stylesheet" th:href="@{/CSS/index.css}">
     <link rel="stylesheet" th:href="@{/CSS/listen.css}">
     <link rel="stylesheet" th:href="@{/CSS/practice.css}">
-    <link rel="stylesheet" th:href="@{/CSS/notes.css}">
-    <link rel="stylesheet" th:href="@{/CSS/songs.css}">
-    <link rel="stylesheet" th:href="@{/CSS/tablet.css}">
+    <link rel="stylesheet" th:href="@{/CSS/songs-index.css}">
     <link rel="stylesheet" th:href="@{/CSS/type-selectors.css}">
-    <link rel="stylesheet" th:href="@{/Images}">
+    <link rel="stylesheet" th:href="@{/CSS/upload.css}">
     <script type="text/javascript" th:src="@{/JavaScript/delete.js}"></script>
     <script type="text/javascript" th:src="@{/JavaScript/gigs.js}"></script>
     <script type="text/javascript" th:src="@{/JavaScript/listen.js}"></script>
@@ -26,7 +25,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </head>
 
-<body>
 
 <header th:fragment="header-reg">
     <a class="titleHeaderFragment" href="/" style="font-size: 32pt">Freezeout Band</a>
@@ -50,6 +48,17 @@
     </ul>
 </header>
 
-</body>
+
+<footer th:fragment="socialsFooter">
+    <footer>
+        <center>
+            <h2>Connect</h2>
+            <a href="mailto:freezeoutband@protonmail.com"><img th:src="@{/uploads/images/email.png}" style="height:45px"></a>
+            <a href="https://www.facebook.com/groups/2038487942848670/"><img th:src="@{/uploads/images/fb.png}" style="height:35px"></a>
+            <a href="https://soundcloud.com/user-942929295"><img th:src="@{/uploads/images/soundcloud.png}"></a>
+            <br>
+        </center>
+    </footer>
+</footer>
 
 </html>

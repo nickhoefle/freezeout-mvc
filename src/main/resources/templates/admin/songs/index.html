@@ -3,6 +3,7 @@
 <head th:replace="fragments :: head"></head>
 <header th:replace="fragments :: header-admin"></header>
 <body class="container-fluid">
+
 <script>
     window.onload = function () {
         sortTable(1);
@@ -26,9 +27,9 @@
         <tr th:each="song : ${songs}">
             <td>
                 <form method="post" th:action="@{/admin/songs/status}">
-                    <div style="display:none;">
+                    <div class="songIdDiv">
                         <p th:text="${song.status}"></p>
-                        <p class="songId" th:text="${song.id}"></p>
+                        <p th:text="${song.id}"></p>
                         <input class="songIdInput" name="id" type="text" th:value="${song.id}">
                     </div>
                     <select class="statusDropdown" name="status" onclick="showSaveButton()">

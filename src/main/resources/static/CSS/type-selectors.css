@@ -1,11 +1,20 @@
-* { }
-
 a {
     color: black;
 }
 
 body {
     background: linear-gradient(to right, #527caa, #2e4660);
+}
+
+button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    color: black;
+    background-color: white;
+}
+
+.form-control-file {
+    color:white
 }
 
 h1, h2, h3, h4 {
@@ -16,9 +25,81 @@ label, p, td, th {
     color: black;
 }
 
+th {
+    font-size: 16px;
+}
+
 .container-fluid {
     padding-top: 25px;
     padding-bottom: 50px;
     padding-left: 10%;
     padding-right: 10%;
+}
+
+/* Tablet */
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+
+    a {
+        font-size: 24px;
+    }
+
+    button {
+        font-size: 24px;
+    }
+
+    h2 {
+        font-size: 32px
+    }
+
+    h3 {
+        font-size: 30px;
+    }
+
+    h4 {
+        font-size: 28px;
+    }
+
+    input {
+        height: 38px;
+        font-size: 24px;
+    }
+
+    label {
+        font-size: 24px;
+    }
+
+    p {
+        font-size: 22px;
+    }
+
+    td {
+        font-size: 24px;
+        height: 100px;
+    }
+
+    th {
+        font-size: 24px;
+    }
+
+    .btn {
+        font-size: 24px;
+        height: 48px;
+    }
+
+    .container-fluid {
+        padding-right: 45px;
+        padding-left: 45px;
+        padding-top: 30px;
+        padding-bottom: 15px;
+    }
+
+    .form-control-file {
+        font-size: 22px;
+        height: 38px;
+    }
+
+    .form-control {
+        font-size: 24px;
+        height: 48px;
+    }
 }

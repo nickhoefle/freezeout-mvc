@@ -1,3 +1,8 @@
+#chordsText {
+    height: 450px;
+    font-family: monospace;
+}
+
 #practiceNoteTextHeader, .practiceNoteTextCell {
     max-width: 350px;
     word-wrap: break-word;
@@ -19,3 +24,14 @@
     width: 12.5%;
 }
 
+#practiceNoteTextHeader {
+    cursor: pointer;
+}
+
+#practiceNoteFromHeader {
+    cursor: pointer;
+}
+
+#practiceNoteDateHeader {
+    cursor: pointer;
+}

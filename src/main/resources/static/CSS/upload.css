@@ -1,0 +1,7 @@
+#allowedFileTypesText {
+    font-style:italic;
+}
+
+.largeHr {
+    border: 0; height: 3px; background-color: black;
+}

@@ -73,11 +73,11 @@
 <div id="chordsDiv" style="display:none;">
     <br>
     <a th:href="@{./{songId}/add-chords(songId=${song.id})}">Add Chords</a>
-    <table id="chordsTable">️
+    <table>️
         <tr th:each="songChords : ${songChordsCollection}">
             <td>️
                 <h3 th:text="'Added by ' + ${songChords.addedBy} + ' on ' + ${#dates.format(songChords.timestamp, 'yyyy-MM-dd')}"></h3>
-                <input class="printButton" onclick="printText(this)" type="button" value="Print"/>
+                <input onclick="printText(this)" type="button" value="Print"/>
                 <form method="post" th:action="@{/admin/songs/practice/{songId}/delete-chord-page(songId=${song.id})}">
                     <input name="chordPageId" th:value="${songChords.id}" hidden>
                     <input type="submit" value="Delete" class="btn-danger">
