@@ -32,7 +32,7 @@
             </td>
             <td class="changeCell">
                 <button class="updateSectionButton">Update</button>
-                <form class="updateSection" th:action="@{/admin/listen}" th:method="post" style="display:none;">
+                <form class="updateSection" th:action="@{/admin/listen}" th:method="post" style="display:none">
                     <input th:value="${song.songName}" th:name="songName" hidden readonly>
                     <select class="selectedSong" th:name="newFileName">
                         <option value="Hidden">Choose File:</option>

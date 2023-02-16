@@ -8,6 +8,10 @@
     width: 173px;
 }
 
+.updateButton {
+    width: 173px;
+}
+
 #audioPlayerHeader, .audioPlayerCell {
     width: 50%;
     cursor: pointer;
@@ -26,5 +30,9 @@
     vertical-align: middle;
 }
 
-
-
+/* Tablet */
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+    .selectedSong {
+            font-size: 20px;
+        }
+}
