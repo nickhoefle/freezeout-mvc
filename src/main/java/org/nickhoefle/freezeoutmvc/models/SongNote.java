@@ -2,21 +2,24 @@ package org.nickhoefle.freezeoutmvc.models;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
+import jakarta.validation.constraints.Size;
+
 import java.sql.Timestamp;
 
 @Entity
 public class SongNote extends AbstractEntity {
 
-    private String noteText;
-
     @ManyToOne
     private Song song;
+
+    @Size(min = 2, max = 999)
+    private String noteText;
 
     private Timestamp timestamp;
 
     private String addedBy;
 
-    public SongNote() {}
+    public SongNote() { }
 
     public SongNote(String noteText, Timestamp timestamp) {
         this.noteText = noteText;

@@ -1,0 +1,25 @@
+#noteColumnHeader, .noteTextCell {
+    width: 50% !important;
+    word-wrap: break-word !important;
+}
+
+#fromColumnHeader, .noteFromCell {
+    width: 12.5%;
+}
+
+#dateColumnHeader, .noteDateCell {
+    width: 12.5%;
+}
+
+#editColumnHeader, .editNoteCell {
+    width: 12.5%;
+}
+
+#deleteColumnHeader, .deleteNoteCell {
+    width: 12.5%;
+}
+
+td.noteTextCell {
+    max-width: 25%;
+    width: 100%;
+}

@@ -4,7 +4,7 @@
 <header th:replace="fragments :: header-admin"></header>
 <body class="container-fluid">
 
-<h3 th:text="${song.songName} + ' - ' + ${song.songDetails.originalArtist} + ' - ' + ' Notes'"></h3>
+<h3 th:text=" 'Practice Page - ' + ${song.songName} + ' - ' + ${song.songDetails.originalArtist}"></h3>
 
 <th:block th:if="${song.songSheetMusic != null}">
     <a th:href="@{/uploads/{name}(name=${song.songSheetMusic})}"/>
@@ -12,7 +12,7 @@
     </a><hr>
 </th:block>
 
-<th:block th:if="${song.songSheetMusic == null}">
+<th:block th:unless="${song.songSheetMusic != null}">
     <a th:href="@{/admin/upload/sheet-music}"/>
         <button>📁 Upload Sheet Music PDF</button>
     </a><hr>
@@ -22,9 +22,9 @@
 
 <div id="youtubeVideoContainer" th:utext="${youtubeEmbedHTML}"></div>
 
-<form method="post" th:action="@{/admin/songs/notes/{songId}/change-url(songId=${song.id})}">
+<form method="post" th:action="@{/admin/songs/practice/{songId}/change-url(songId=${song.id})}">
     <label for="youtubeUrl">Enter a new YouTube URL:</label><br>
-    <input type="text" id="youtubeUrl" name="youtubeUrl">
+    <input id="youtubeUrl" name="youtubeUrl">
     <button type="submit">Submit</button>
 </form>
 
@@ -34,7 +34,7 @@
 <button id="notesButton" onclick="toggleNotesChordPage('notes')" style="border:5px solid black;">Notes</button>
 <button id="chordsButton" onclick="toggleNotesChordPage('chords')">Chord Pages</button>
 
-<div id="notesDiv" style="display:'';">
+<div id="notesDiv" style="display:;">
     <br>
     <a th:href="@{./{songId}/add-notes(songId=${song.id})}">Add Note</a>
         <table id="myTable" class="table table-striped">
@@ -43,24 +43,24 @@
                     <th id="noteColumnHeader" onclick="sortTable(0)">Note</th>
                     <th id="fromColumnHeader" onclick="sortTable(1)">From</th>
                     <th id="dateColumnHeader" onclick="sortTable(2)">Date</th>
-                    <th></th>
-                    <th></th>
+                    <th id="editColumnHeader"></th>
+                    <th id="deleteColumnHeader"></th>
                 </tr>
             </thead>
             <tbody>
                 <tr th:each="note : ${songNotesCollection}">
-                    <td th:text="${note.noteText}"></td>
-                    <td th:text="${note.addedBy}"></td>
-                    <td th:text="${#dates.format(note.timestamp, 'yyyy-MM-dd')}"></td>
-                    <td>
-                        <a th:href="@{'/admin/songs/notes/' + ${song.id} + '/edit-note/' + ${note.id} }">
+                    <td class="noteTextCell" th:text="${note.noteText}"></td>
+                    <td class="noteFromCell" th:text="${note.addedBy}"></td>
+                    <td class="noteDateCell" th:text="${#dates.format(note.timestamp, 'yyyy-MM-dd')}"></td>
+                    <td class="editNoteCell">
+                        <a th:href="@{'/admin/songs/practice/' + ${song.id} + '/edit-note/' + ${note.id} }">
                             <button>
                                 Edit Note
                             </button>
                         </a>
                     </td>
-                    <td>
-                        <form method="post" th:action="@{/admin/songs/notes/{songId}/delete-note(songId=${song.id})}">
+                    <td class="deleteNoteCell">
+                        <form method="post" th:action="@{/admin/songs/practice/{songId}/delete-note(songId=${song.id})}">
                             <input name="noteId" th:value="${note.id}" hidden>
                             <input type="submit" value="Delete" class="btn btn-danger">
                         </form>
@@ -78,11 +78,11 @@
             <td>️
                 <h3 th:text="'Added by ' + ${songChords.addedBy} + ' on ' + ${#dates.format(songChords.timestamp, 'yyyy-MM-dd')}"></h3>
                 <input class="printButton" onclick="printText(this)" type="button" value="Print"/>
-                <form method="post" th:action="@{/admin/songs/notes/{songId}/delete-chord-page(songId=${song.id})}">
+                <form method="post" th:action="@{/admin/songs/practice/{songId}/delete-chord-page(songId=${song.id})}">
                     <input name="chordPageId" th:value="${songChords.id}" hidden>
                     <input type="submit" value="Delete" class="btn-danger">
                 </form>
-                <a th:href="@{'/admin/songs/notes/' + ${song.id} + '/edit-chord-page/' + ${songChords.id} }">
+                <a th:href="@{'/admin/songs/practice/' + ${song.id} + '/edit-chord-page/' + ${songChords.id} }">
                     <button>
                         Edit Note
                     </button>
