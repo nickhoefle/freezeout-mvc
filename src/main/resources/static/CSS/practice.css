@@ -1,25 +1,21 @@
-#noteColumnHeader, .noteTextCell {
-    width: 50% !important;
-    word-wrap: break-word !important;
+#practiceNoteTextHeader, .practiceNoteTextCell {
+    max-width: 350px;
+    word-wrap: break-word;
 }
 
-#fromColumnHeader, .noteFromCell {
+#practiceNoteFromHeader, .practiceNoteFromCell {
     width: 12.5%;
 }
 
-#dateColumnHeader, .noteDateCell {
+#practiceNoteDateHeader, .practiceNoteTimestampCell {
     width: 12.5%;
 }
 
-#editColumnHeader, .editNoteCell {
+#practiceNoteEditButtonHeader, .practiceNoteEditButton {
     width: 12.5%;
 }
 
-#deleteColumnHeader, .deleteNoteCell {
+#practiceNoteDeleteButtonHeader, .practiceNoteDeleteButton {
     width: 12.5%;
 }
 
-td.noteTextCell {
-    max-width: 25%;
-    width: 100%;
-}
