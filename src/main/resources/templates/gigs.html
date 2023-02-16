@@ -4,8 +4,75 @@
 <header th:replace="fragments :: header-reg"></header>
 <body class="container-fluid">
 
-<h3>Upcoming Gigs:</h3>
+<div style="text-align:center;">
+    <h2>Upcoming Gigs</h2>
+    <th:block th:each="gig : ${allGigs}" th:if="${gig.date > T(java.time.LocalDate).now()}">
+        <div class="upcomingGigSlides">
+            <img th:src="@{/uploads/gig-posters/{poster}(poster=${gig.image})}"><br>
+        </div>
+    </th:block>
+    <div style="white-space: nowrap;">
+        <button class="w3-button w3-display-left w3-black" onclick="plusUpcomingGigDivs(-1)">&#10094;</button>
+        <button class="w3-button w3-display-right w3-black" onclick="plusUpcomingGigDivs(1)">&#10095;</button>
+    </div>
+</div>
+
+<div style="text-align:center;">
+    <h2>Past Gigs</h2>
+    <th:block th:each="gig : ${allGigs}" th:if="${gig.date < T(java.time.LocalDate).now()}">
+        <div class="pastGigSlides">
+            <img th:src="@{/uploads/gig-posters/{poster}(poster=${gig.image})}"><br>
+        </div>
+    </th:block>
+    <div style="white-space: nowrap;">
+        <button class="w3-button w3-display-left w3-black" onclick="plusPastGigDivs(-1)">&#10094;</button>
+        <button class="w3-button w3-display-right w3-black" onclick="plusPastGigDivs(1)">&#10095;</button>
+    </div>
+</div>
+
+<script>
+var upcomingGigSlideIndex = 1;
+showUpcomingGigDivs(upcomingGigSlideIndex);
+
+function plusUpcomingGigDivs(n) {
+  showUpcomingGigDivs(upcomingGigSlideIndex += n);
+}
+
+function showUpcomingGigDivs(n) {
+  var i;
+  var x = document.getElementsByClassName("upcomingGigSlides");
+  if (n > x.length) {upcomingGigSlideIndex = 1}
+  if (n < 1) {upcomingGigSlideIndex = x.length}
+  for (i = 0; i < x.length; i++) {
+     x[i].style.display = "none";
+  }
+  x[upcomingGigSlideIndex-1].style.display = "block";
+}
+</script>
+
+<script>
+var pastGigSlideIndex = 1;
+showPastGigDivs(pastGigSlideIndex);
+
+function plusPastGigDivs(n) {
+    showPastGigDivs(pastGigSlideIndex += n);
+}
+
+function showPastGigDivs(n) {
+    var i;
+    var x = document.getElementsByClassName("pastGigSlides");
+    if (n > x.length) {pastGigSlideIndex = 1}
+    if (n < 1) {pastGigSlideIndex = x.length}
+    for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";
+    }
+    x[pastGigSlideIndex-1].style.display = "block";
+}
+</script>
+
 
 
 </body>
+
+
 </html>
