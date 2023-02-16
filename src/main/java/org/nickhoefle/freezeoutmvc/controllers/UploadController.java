@@ -57,9 +57,14 @@ public class UploadController {
         return allSheetMusicList;
     }
 
+    @GetMapping("/sheet-music")
+    public String sheetMusicUpload (Model model) {
+        model.addAttribute("songsForDropdown", findAllSheetMusic());
+        return "admin/upload/sheet-music/index";
+    }
 
     @PostMapping("/sheet-music")
-    public String uploadSheetMusic(@RequestParam("file") MultipartFile file, RedirectAttributes attributes, @RequestParam int sheetId, Model model) {
+    public String uploadSheetMusic(@RequestParam("file") MultipartFile file, RedirectAttributes attributes, @RequestParam int sheetId) {
 
         // check if file is empty
         if (file.isEmpty()) {
@@ -73,6 +78,7 @@ public class UploadController {
         Song song = (Song) optSong.get();
         song.setSongSheetMusic(fileName);
         songRepository.save(song);
+
         // save the file on the local file system
         try {
             Path path = Paths.get(UPLOAD_DIR + fileName);
@@ -80,20 +86,18 @@ public class UploadController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-        // return success response
-        attributes.addFlashAttribute("message", "You successfully uploaded " + fileName + '!');
         return "redirect:/admin/upload/audio-file";
     }
 
-    @GetMapping("/sheet-music")
-    public String sheetMusicUpload (Model model) {
-        model.addAttribute("songsForDropdown", findAllSheetMusic());
-        return "admin/upload/sheet-music/index";
+    @GetMapping("/audio-file")
+    public String audioFileUpload(Model model) {
+        model.addAttribute("songsForDropdown", findAllSongs());
+        return "/admin/upload/audio-file/index";
     }
 
     @PostMapping("/audio-file")
-    public String audioFileUploadHandler (@RequestParam("file") MultipartFile file, RedirectAttributes attributes, @RequestParam int songId, Model model) {
+    public String audioFileUploadHandler (@RequestParam("file") MultipartFile file, RedirectAttributes attributes, @RequestParam int songId) {
+
         // check if file is empty
         if (file.isEmpty()) {
             attributes.addFlashAttribute("message", "Please select a file to upload.");
@@ -106,6 +110,7 @@ public class UploadController {
         Song song = (Song) optSong.get();
         song.setSongUploadFileName(fileName);
         songRepository.save(song);
+
         // save the file on the local file system
         try {
             Path path = Paths.get(UPLOAD_DIR + fileName);
@@ -113,16 +118,7 @@ public class UploadController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-        // return success response
-        attributes.addFlashAttribute("message", "You successfully uploaded " + fileName + '!');
         return "redirect:/admin/songs";
-    }
-
-    @GetMapping("/audio-file")
-    public String audioFileUpload(Model model) {
-        model.addAttribute("songsForDropdown", findAllSongs());
-        return "/admin/upload/audio-file/index";
     }
 
 }
