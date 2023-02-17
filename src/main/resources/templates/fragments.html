@@ -13,6 +13,7 @@
     <link rel="stylesheet" th:href="@{/CSS/index.css}">
     <link rel="stylesheet" th:href="@{/CSS/listen.css}">
     <link rel="stylesheet" th:href="@{/CSS/practice.css}">
+    <link rel="stylesheet" th:href="@{/CSS/photos.css}">
     <link rel="stylesheet" th:href="@{/CSS/songs-index.css}">
     <link rel="stylesheet" th:href="@{/CSS/type-selectors.css}">
     <link rel="stylesheet" th:href="@{/CSS/upload.css}">
@@ -20,6 +21,7 @@
     <script type="text/javascript" th:src="@{/JavaScript/gigs.js}"></script>
     <script type="text/javascript" th:src="@{/JavaScript/listen.js}"></script>
     <script type="text/javascript" th:src="@{/JavaScript/notes.js}"></script>
+    <script type="text/javascript" th:src="@{/JavaScript/photos.js}"></script>
     <script type="text/javascript" th:src="@{/JavaScript/songs.js}"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
@@ -31,9 +33,11 @@
     <ul class="nav">
         <li style="font-size:18px" class="nav-item"><a class="nav-link" href="/listen">Listen</a></li>
         <li style="font-size:18px" class="nav-item"><a class="nav-link" href="/gigs">Gigs</a></li>
+        <li style="font-size:18px" class="nav-item"><a class="nav-link" href="/photos">Photos</a></li>
         <li style="font-size:18px" class="nav-item"><a class="nav-link" href="/login">Login</a></li>
     </ul>
 </header>
+
 
 <header th:fragment="header-admin">
     <a class="titleHeaderFragment" href="/" style="font-size: 32pt">Freezeout Band</a>
@@ -60,5 +64,6 @@
         </center>
     </footer>
 </footer>
+
 
 </html>
