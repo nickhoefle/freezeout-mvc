@@ -2,32 +2,33 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
 <header th:replace="fragments :: header-reg"></header>
-<body class="container-fluid">
+<body class="container-fluid gigs-view">
 
 <div style="text-align:center;">
     <h2>Upcoming Gigs</h2>
-    <th:block th:each="gig : ${allGigs}" th:if="${gig.date > T(java.time.LocalDate).now()}">
-        <div class="upcomingGigSlides">
-            <img th:src="@{/uploads/gig-posters/{poster}(poster=${gig.image})}"><br>
-        </div>
-    </th:block>
     <div style="white-space: nowrap;">
         <button class="w3-button w3-display-left w3-black" onclick="plusUpcomingGigDivs(-1)">&#10094;</button>
         <button class="w3-button w3-display-right w3-black" onclick="plusUpcomingGigDivs(1)">&#10095;</button>
     </div>
+    <th:block th:each="gig : ${allGigs}" th:if="${gig.date > T(java.time.LocalDate).now()}">
+        <div class="upcomingGigSlides">
+            <img class="gigPoster" th:src="@{/uploads/gig-posters/{poster}(poster=${gig.image})}"><br>
+        </div>
+    </th:block>
 </div>
 
 <div style="text-align:center;">
     <h2>Past Gigs</h2>
-    <th:block th:each="gig : ${allGigs}" th:if="${gig.date < T(java.time.LocalDate).now()}">
-        <div class="pastGigSlides">
-            <img th:src="@{/uploads/gig-posters/{poster}(poster=${gig.image})}"><br>
-        </div>
-    </th:block>
     <div style="white-space: nowrap;">
         <button class="w3-button w3-display-left w3-black" onclick="plusPastGigDivs(-1)">&#10094;</button>
         <button class="w3-button w3-display-right w3-black" onclick="plusPastGigDivs(1)">&#10095;</button>
     </div>
+    <th:block th:each="gig : ${allGigs}" th:if="${gig.date < T(java.time.LocalDate).now()}">
+        <div class="pastGigSlides">
+            <img class="gigPoster" th:src="@{/uploads/gig-posters/{poster}(poster=${gig.image})}"><br>
+        </div>
+    </th:block>
+
 </div><br><br>
 
 <script>
