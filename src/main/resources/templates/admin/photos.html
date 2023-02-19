@@ -28,7 +28,9 @@
                </tr>
             </tbody>
          </table>
-         <button class="btn btn-danger wide-danger" type="submit">Delete</button>
+         <div class="deleteButtonDiv">
+            <button class="btn btn-danger" type="submit">Delete</button>
+         </div>
       </form>
    </div>
 
@@ -49,6 +51,8 @@
             <img th:src="@{'/uploads/photos/' + ${photoFile} }" alt="Slide">
          </div>
       </div><br>
+      </form>
+   </div>
 </div>
 
 </body>
