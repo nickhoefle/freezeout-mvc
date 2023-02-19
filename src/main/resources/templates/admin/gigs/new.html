@@ -5,6 +5,7 @@
 <body class="container-fluid">
 
 <h3>Add New Gig: </h3>
+<p>Please have a JPG or PNG file poster for the gig ready to upload.</p>
 
 <form method="post" th:action="@{/admin/gigs/new}">
     <div class="form-group">
@@ -19,13 +20,13 @@
         </label>
         <p class="error" th:errors="${gig.date}"></p>
     </div>
-    <label>Time
+    <label>Time (Optional)
         <input th:field="${gig.time}" class="form-control">
     </label>
     <p class="error" th:errors="${gig.time}"></p>
     </div>
     <div class="form-group">
-        <label>Address
+        <label>Address (Optional)
             <input class="form-control" th:field="${gig.address}">
         </label>
         <p class="error" th:errors="${gig.address}"></p>

@@ -45,6 +45,9 @@ public class AdminGigsController {
 
     @PostMapping("/new")
     public String processAddGig(@ModelAttribute @Valid Gig newGig, Errors errors) {
+        if (errors.hasErrors()) {
+            return "/admin/gigs/new";
+        }
         gigRepository.save(newGig);
         return "redirect:/admin/gigs/upload-image";
     }

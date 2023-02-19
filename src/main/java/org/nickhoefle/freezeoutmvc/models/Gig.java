@@ -1,14 +1,18 @@
 package org.nickhoefle.freezeoutmvc.models;
 
 import jakarta.persistence.Entity;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 import java.time.LocalDate;
 
 @Entity
 public class Gig extends AbstractEntity {
 
+    @Size(min = 5, message = "Please enter a name for this gig!")
     private String name;
 
+    @NotNull(message = "Please select a date for this gig!")
     private LocalDate date;
 
     private String time;
