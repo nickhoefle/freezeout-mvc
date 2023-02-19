@@ -37,6 +37,22 @@ public class AdminGigsController {
         return allGigsList;
     }
 
+    @GetMapping("/delete")
+    public String renderDeleteGigPage(Model model){
+        model.addAttribute("gigs", gigRepository.findAll());
+        return "/admin/gigs/delete";
+    }
+
+    @PostMapping("/delete")
+    public String processDeleteGig(@RequestParam(required = false) int[] gigIds) {
+        if (gigIds != null && gigIds.length > 0) {
+            for (int id : gigIds) {
+                gigRepository.deleteById(id);
+            }
+        }
+        return "redirect:/admin/gigs/delete";
+    }
+
     @GetMapping("/new")
     public String renderAddGigPage(Model model) {
         model.addAttribute(new Gig());
