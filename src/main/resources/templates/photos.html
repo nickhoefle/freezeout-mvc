@@ -2,14 +2,13 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
 <header th:replace="fragments :: header-reg"></header>
-<body class="container-fluid">
+<body class="container-fluid photos">
 
 <h2 style="text-align:center">Photos</h2>
 
 <br>
 
 <div class="slideshow-container">
-
     <div th:each="photoFile : ${allPhotoFileNames}" class="photoGallerySlide">
         <img th:src="@{'/uploads/photos/' + ${photoFile} }" alt="Slide">
     </div>
