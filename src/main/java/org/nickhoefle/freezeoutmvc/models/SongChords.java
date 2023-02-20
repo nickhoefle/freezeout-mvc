@@ -9,11 +9,11 @@ import java.sql.Timestamp;
 @Entity
 public class SongChords extends AbstractEntity {
 
-    @Column(length = 9999)
-    private String chordsText;
-
     @ManyToOne
     private Song song;
+
+    @Column(length = 99999)
+    private String chordsText;
 
     private Timestamp timestamp;
 

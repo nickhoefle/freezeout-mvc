@@ -1,6 +1,6 @@
 package org.nickhoefle.freezeoutmvc.models;
 
-import jakarta.persistence.Column;
+import jakarta.annotation.Nullable;
 import jakarta.persistence.Entity;
 import jakarta.validation.constraints.Size;
 
@@ -15,12 +15,10 @@ public class SongDetails extends AbstractEntity {
 
     private String songKey;
 
-    private String songPath;
-
-    @Column(length = 2000)
+    @Nullable
     private String youtubeURL;
 
-    public SongDetails() {}
+    public SongDetails () { }
 
     public SongDetails(String originalArtist, String year, String songKey, String youtubeURL) {
         this.originalArtist = originalArtist;
@@ -53,22 +51,19 @@ public class SongDetails extends AbstractEntity {
         this.songKey = songKey;
     }
 
-    public String getSongPath() {
-        return songPath;
-    }
-
-    public void setSongPath(String songPath) {
-        this.songPath = songPath;
-    }
-
     public String getYoutubeURL() {
         return youtubeURL;
     }
 
     public void setYoutubeURL(String youtubeURL) {
+        if (youtubeURL == "") {
+            this.youtubeURL = null;
+            return;
+        }
         String[] splitEquals = youtubeURL.split("=");
         String[] splitAndSign = splitEquals[1].split("&");
         String videoID = splitAndSign[0];
         this.youtubeURL = "<iframe width=\"560\" height=\"175\" src=\"https://www.youtube.com/embed/" + videoID.concat("\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe>");
     }
+
 }

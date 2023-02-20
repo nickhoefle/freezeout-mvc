@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
 <header th:replace="fragments :: header-admin"></header>
-<body class="container-fluid">
+<body class="container-fluid admin-listen">
 
 <h3>Configure 'Listen' Page</h3>
 
@@ -16,8 +16,8 @@
     </thead>
     <tbody>
         <tr th:each="song : ${allSongs}">
-            <td id="songNameCell" th:text="${song.songName}"></td>
-            <td id="audioPlayerCell">
+            <td class="songNameCell" th:text="${song.songName}"></td>
+            <td class="audioPlayerCell">
                 <div th:if="${song.songUploadFileName != null && song.songUploadFileName != 'Hidden' && song.songUploadFileName != 'images'}">
                     <label th:text="${song.songUploadFileName}"></label>
                     <div th:if="${song.songUploadFileName != 'Hidden'}">
@@ -30,15 +30,15 @@
                     Not On Listen Page
                 </div>
             </td>
-            <td id="changeCell">
-                <button class="updateSectionButton beigeButton">Update</button>
-                <form th:action="@{/admin/listen}" class="updateSection"  th:method="post" style="display:none;">
-                    <input type="text" th:name="songName" th:value="${song.songName}" hidden readonly>
+            <td class="changeCell">
+                <button class="updateSectionButton">Update</button>
+                <form class="updateSection" th:action="@{/admin/listen}" th:method="post" style="display:none">
+                    <input th:value="${song.songName}" th:name="songName" hidden readonly>
                     <select class="selectedSong" th:name="newFileName">
                         <option value="Hidden">Choose File:</option>
                         <option value="Hidden">Hide This Song from 'Listen' Page</option>
-                        <th:block th:each="file : ${allFileNames}">
-                            <option th:text="${file}" th:value="${file}"></option>
+                        <th:block th:each="audioFileName : ${allAudioFileNames}">
+                            <option th:text="${audioFileName}" th:value="${audioFileName}"></option>
                         </th:block>
                     </select><hr>
 

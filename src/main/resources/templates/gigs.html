@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<header th:replace="fragments :: header-reg"></header>
+<body class="container-fluid gigs-view">
+
+<div style="text-align:center;">
+    <h2>Upcoming Gigs</h2>
+    <div style="white-space: nowrap;">
+        <button class="w3-button w3-display-left w3-black" onclick="plusUpcomingGigDivs(-1)">&#10094;</button>
+        <button class="w3-button w3-display-right w3-black" onclick="plusUpcomingGigDivs(1)">&#10095;</button>
+    </div>
+    <th:block th:each="gig : ${allGigs}" th:if="${gig.date > T(java.time.LocalDate).now()}">
+        <div class="upcomingGigSlides">
+            <img class="gigPoster" th:src="@{/uploads/gig-posters/{poster}(poster=${gig.image})}"><br>
+        </div>
+    </th:block>
+</div>
+
+<div style="text-align:center;">
+    <h2>Past Gigs</h2>
+    <div style="white-space: nowrap;">
+        <button class="w3-button w3-display-left w3-black" onclick="plusPastGigDivs(-1)">&#10094;</button>
+        <button class="w3-button w3-display-right w3-black" onclick="plusPastGigDivs(1)">&#10095;</button>
+    </div>
+    <th:block th:each="gig : ${allGigs}" th:if="${gig.date < T(java.time.LocalDate).now()}">
+        <div class="pastGigSlides">
+            <img class="gigPoster" th:src="@{/uploads/gig-posters/{poster}(poster=${gig.image})}"><br>
+        </div>
+    </th:block>
+
+</div><br><br>
+
+<script>
+var upcomingGigSlideIndex = 1;
+showUpcomingGigDivs(upcomingGigSlideIndex);
+
+function plusUpcomingGigDivs(n) {
+  showUpcomingGigDivs(upcomingGigSlideIndex += n);
+}
+
+function showUpcomingGigDivs(n) {
+  var i;
+  var x = document.getElementsByClassName("upcomingGigSlides");
+  if (n > x.length) {upcomingGigSlideIndex = 1}
+  if (n < 1) {upcomingGigSlideIndex = x.length}
+  for (i = 0; i < x.length; i++) {
+     x[i].style.display = "none";
+  }
+  x[upcomingGigSlideIndex-1].style.display = "block";
+}
+</script>
+
+<script>
+var pastGigSlideIndex = 1;
+showPastGigDivs(pastGigSlideIndex);
+
+function plusPastGigDivs(n) {
+    showPastGigDivs(pastGigSlideIndex += n);
+}
+
+function showPastGigDivs(n) {
+    var i;
+    var x = document.getElementsByClassName("pastGigSlides");
+    if (n > x.length) {pastGigSlideIndex = 1}
+    if (n < 1) {pastGigSlideIndex = x.length}
+    for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";
+    }
+    x[pastGigSlideIndex-1].style.display = "block";
+}
+</script>
+
+<footer th:replace="fragments :: socialsFooter"></footer>
+
+</body>
+
+
+</html>

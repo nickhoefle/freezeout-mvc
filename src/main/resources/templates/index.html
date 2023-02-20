@@ -1,10 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
-
 <head th:replace="fragments :: head"></head>
 <header th:replace="fragments :: header-reg"></header>
-
-<body class="container-fluid">
+<body class="container-fluid index">
 
 <div id="photoCarousel" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
@@ -87,15 +85,7 @@
 
 <br>
 
-<footer>
-    <center>
-        <h2>Connect</h2>
-        <a href="mailto:freezeoutband@protonmail.com"><img th:src="@{/uploads/images/email.png}" style="height:45px"></a>
-        <a href="https://www.facebook.com/groups/2038487942848670/"><img th:src="@{/uploads/images/fb.png}" style="height:35px"></a>
-        <a href="https://soundcloud.com/user-942929295"><img th:src="@{/uploads/images/soundcloud.png}"></a>
-        <br>
-    </center>
-</footer>
+<footer th:replace="fragments :: socialsFooter"></footer>
 
 </body>
 

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<header th:replace="fragments :: header-admin"></header>
+<body class="container-fluid admin-delete-gig">
+
+<h3>Delete Gigs:</h3>
+
+<form method="post" th:action="@{/admin/gigs/delete}">
+    <table class="table" id="myTable">
+        <thead>
+            <tr>
+                <th>Delete</th>
+                <th class="songTableHeader" onclick="sortTable(0)">Gig</th>
+                <th class="songTableHeader" onclick="sortTable(1)">Date</th>
+                <th class="songTableHeader" onclick="sortTable(2)">Poster</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="gig : ${gigs}">
+                <td>
+                    <div class="form-group">
+                        <label>
+                            <input class="form-control bigCheckbox" type="checkbox" name="gigIds" th:value="${gig.id}">
+                        </label>
+                    </div>
+                </td>
+                <td th:text="${gig.name}"></td>
+                <td th:text="${gig.date}"></td>
+                <td>
+                    <img class="gig-poster-in-table" onclick="window.open(this.src)" th:src="'/uploads/gig-posters/' + ${gig.image}">
+                </td>
+            </tr>
+        </tbody>
+</table>
+    <input type="submit" value="Delete" class="btn btn-danger">
+</form>
+
+</body>
+</html>

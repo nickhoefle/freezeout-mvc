@@ -27,13 +27,13 @@ public class AuthenticationController {
     private static final String userSessionKey = "user";
 
     public User getUserFromSession(HttpSession session) {
+
         Integer userId = (Integer) session.getAttribute(userSessionKey);
         if (userId == null) {
             return null;
         }
 
         Optional<User> user = userRepository.findById(userId);
-
         if (user.isEmpty()) {
             return null;
         }
@@ -60,7 +60,6 @@ public class AuthenticationController {
         }
 
         User existingUser = userRepository.findByUsername(registerFormDTO.getUsername());
-
         if (existingUser != null) {
             errors.rejectValue("username", "username.alreadyexists", "A user with that username already exists");
             model.addAttribute("title", "Register");
@@ -78,10 +77,8 @@ public class AuthenticationController {
         User newUser = new User(registerFormDTO.getUsername(), registerFormDTO.getPassword());
         userRepository.save(newUser);
         setUserInSession(request.getSession(), newUser);
-
         return "redirect:";
     }
-
 
     @GetMapping("/login")
     public String displayLoginForm(Model model) {
@@ -99,7 +96,6 @@ public class AuthenticationController {
         }
 
         User theUser = userRepository.findByUsername(loginFormDTO.getUsername());
-
         if (theUser == null) {
             errors.rejectValue("username", "user.invalid", "The given username does not exist");
             model.addAttribute("title", "Log In");
@@ -107,7 +103,6 @@ public class AuthenticationController {
         }
 
         String password = loginFormDTO.getPassword();
-
         if (!theUser.isMatchingPassword(password)) {
             errors.rejectValue("password", "password.invalid", "Invalid password");
             model.addAttribute("title", "Log In");
@@ -116,7 +111,6 @@ public class AuthenticationController {
         
         model.addAttribute("userId", theUser.getId());
         setUserInSession(request.getSession(), theUser);
-
         return "redirect:/admin/songs";
     }
 
