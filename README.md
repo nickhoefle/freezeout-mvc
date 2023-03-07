@@ -1,7 +1,10 @@
-Tech Stack: 
+**Tech Stack:** 
+
 Spring Boot / MySQL / HTML / CSS / JavaScript
 
-Admin Functionality:
+
+
+**Admin Functionality:**
 * Add New Song: [GIF](https://imgur.com/a/4EkJWHu)
 * Upload Audio File for 'Listen' Page: [GIF](https://imgur.com/a/VTM3N2F)
 
@@ -19,5 +22,7 @@ Admin Functionality:
 * Update Embedded YouTube Video on a Song's Practice Page: [GIF](https://imgur.com/a/LO1fIrX)
 
 ICONS: https://www.flaticon.com/free-icons/
+
 TRELLO: https://trello.com/b/VXCUSeEj/project-management
-WWW.FREEZEOUTBAND.COM
+
+URL: WWW.FREEZEOUTBAND.COM
