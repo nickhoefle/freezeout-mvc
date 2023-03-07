@@ -4,9 +4,9 @@ Spring Boot / MySQL / HTML / CSS / JavaScript
 Admin Functionality:
 * Add New Song: [GIF](https://imgur.com/a/4EkJWHu)
 * Upload Audio File for 'Listen' Page: [GIF](https://imgur.com/a/VTM3N2F)
-* Hide Songs on the 'Listen' Page: [GIF](https://imgur.com/a/y0eoVTA)
 
       File types accepted: WAV or MP3
+* Hide Songs on the 'Listen' Page: [GIF](https://imgur.com/a/y0eoVTA)
 * Add New Gig: [GIF](https://imgur.com/a/ukoTHhC) 
       
       Gigs are moved from Upcoming to Past after its date passes
