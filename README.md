@@ -7,6 +7,7 @@ Spring Boot / MySQL / HTML / CSS / JavaScript
 
 Admin Functionality:
 * Add New Song: [GIF](https://imgur.com/a/4EkJWHu)
+* Upload Audio File for 'Listen' Page: [GIF](https://imgur.com/a/VTM3N2F)
 
 
 
