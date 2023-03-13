@@ -9,6 +9,9 @@
 <th:block th:if="${song.songSheetMusic != null}">
     <a th:href="@{/uploads/{name}(name=${song.songSheetMusic})}"/>
         <button>🎼 View Sheet Music PDF</button>
+    </a>
+    <a th:href="@{/uploads/{name}(name=${song.songSheetMusic})}" target="_blank"/>
+        <button>🎼 View Sheet Music PDF in New Tab</button>
     </a><hr>
 </th:block>
 
