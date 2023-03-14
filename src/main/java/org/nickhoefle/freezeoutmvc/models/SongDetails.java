@@ -2,20 +2,19 @@ package org.nickhoefle.freezeoutmvc.models;
 
 import jakarta.annotation.Nullable;
 import jakarta.persistence.Entity;
+import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
 
 @Entity
 public class SongDetails extends AbstractEntity {
 
-    @Size(min = 3, message = "Original Artist Box is Blank")
+    @NotEmpty(message = "Original Artist is required!")
     private String originalArtist;
 
-    @Size(max = 4, message = "Enter a valid year")
     private String year;
 
     private String songKey;
 
-    @Nullable
     private String youtubeURL;
 
     public SongDetails () { }
