@@ -153,7 +153,7 @@ th {
 .admin-photos .thumbnail {
     width: 175px;
     height: 125px;
-    cursor:pointer;
+    cursor: pointer;
 }
 
 .admin-photos .thumbnail-cell {
@@ -164,6 +164,10 @@ th {
 .admin-songs-delete .bigCheckbox {
     height: 25px;
     width: 25px;
+}
+
+.admin-songs-delete .songTableHeader {
+    cursor: pointer;
 }
 
 .edit-chord-page  #songChordsText {
