@@ -72,6 +72,13 @@ public class UploadController {
             return "redirect:/admin/upload/sheet-music";
         }
 
+        // validation for file type (PDF only)
+        String fileType = file.getContentType();
+        if (!fileType.equals("application/pdf")) {
+            attributes.addFlashAttribute("message", "This file must be a PDF.");
+            return "redirect:/admin/upload/sheet-music";
+        }
+
         // normalize the file path
         String fileName = StringUtils.cleanPath(file.getOriginalFilename());
         Optional optSong = songRepository.findById(sheetId);
@@ -101,6 +108,13 @@ public class UploadController {
         // check if file is empty
         if (file.isEmpty()) {
             attributes.addFlashAttribute("message", "Please select a file to upload.");
+            return "redirect:/admin/upload/audio-file";
+        }
+
+        // validate file type (.WAV & .MP3 only)
+        String fileType = file.getContentType();
+        if (!fileType.equals("application/wav") && !fileType.equals("application/mpeg")) {
+            attributes.addFlashAttribute("message", "This file must be an MP3 or WAV.");
             return "redirect:/admin/upload/audio-file";
         }
 
