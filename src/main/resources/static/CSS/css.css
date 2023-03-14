@@ -51,6 +51,10 @@ th {
     width: 25px;
 }
 
+.admin-delete-gig .songTableHeader {
+    cursor: pointer;
+}
+
 .admin-listen  .audioPlayerInCell {
     height: 25px;
     width: 80%;
