@@ -113,7 +113,7 @@ public class UploadController {
 
         // validate file type (.WAV & .MP3 only)
         String fileType = file.getContentType();
-        if (!fileType.equals("application/wav") && !fileType.equals("application/mpeg")) {
+        if (!fileType.equals("audio/wav") && !fileType.equals("audio/mpeg")) {
             attributes.addFlashAttribute("message", "This file must be an MP3 or WAV.");
             return "redirect:/admin/upload/audio-file";
         }
