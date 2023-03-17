@@ -20,9 +20,9 @@
     </div>
 </div>
 
-<div class="gigsDiv">
+<div class="gigsDiv" th:if="${#lists.size(allGigs.?[date < T(java.time.LocalDate).now()]) > 0}">
     <h2>Past Gigs</h2>
-    <div class="arrowButtons">
+    <div class="arrowButtons" th:if="${#lists.size(allGigs.?[date < T(java.time.LocalDate).now()]) > 1}">
         <button class="w3-button w3-display-left w3-black" onclick="plusPastGigDivs(-1)">&#10094;</button>
         <button class="w3-button w3-display-right w3-black" onclick="plusPastGigDivs(1)">&#10095;</button>
     </div>
