@@ -4,9 +4,9 @@
 <header th:replace="fragments :: header-reg"></header>
 <body class="container-fluid gigs-view">
 
-<div style="text-align:center;">
+<div class="gigsDiv">
     <h2>Upcoming Gigs</h2>
-    <div style="white-space: nowrap;">
+    <div class="arrowButtons">
         <button class="w3-button w3-display-left w3-black" onclick="plusUpcomingGigDivs(-1)">&#10094;</button>
         <button class="w3-button w3-display-right w3-black" onclick="plusUpcomingGigDivs(1)">&#10095;</button>
     </div>
@@ -17,9 +17,9 @@
     </th:block>
 </div>
 
-<div style="text-align:center;">
+<div class="gigsDiv">
     <h2>Past Gigs</h2>
-    <div style="white-space: nowrap;">
+    <div class="arrowButtons">
         <button class="w3-button w3-display-left w3-black" onclick="plusPastGigDivs(-1)">&#10094;</button>
         <button class="w3-button w3-display-right w3-black" onclick="plusPastGigDivs(1)">&#10095;</button>
     </div>

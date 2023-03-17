@@ -182,8 +182,16 @@ th {
     font-family: monospace;
 }
 
+.gigs-view .arrowButtons {
+    white-space: nowrap;
+}
+
 .gigs-view .gigPoster {
     width: 80%
+}
+
+.gigs-view .gigsDiv {
+    text-align: center;
 }
 
 .index  .carousel-inner img {
