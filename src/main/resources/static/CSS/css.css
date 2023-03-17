@@ -194,6 +194,11 @@ th {
     text-align: center;
 }
 
+.gigs-view #noUpcomingGigsText {
+    color: black;
+    font-size: 16px;
+}
+
 .index  .carousel-inner img {
     -webkit-filter: grayscale(90%);
     filter: grayscale(90%); /* make all photos black and white */
