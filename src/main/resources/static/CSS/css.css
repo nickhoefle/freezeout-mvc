@@ -220,6 +220,10 @@ th {
     font-size: 20pt;
 }
 
+.listen .audioPlayerHTML {
+    width: 100%;
+}
+
 .new-song .error {
     color: #7f2828;
     font-weight: bold;
