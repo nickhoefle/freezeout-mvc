@@ -4,6 +4,7 @@ import jakarta.validation.Valid;
 import org.nickhoefle.freezeoutmvc.data.GigRepository;
 import org.nickhoefle.freezeoutmvc.models.Gig;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
@@ -22,6 +23,9 @@ import java.util.*;
 @Controller
 @RequestMapping("/admin/gigs")
 public class AdminGigsController {
+
+    @Value("${freezeoutband.base-url}")
+    private String baseUrl;
 
     private final String UPLOAD_DIR = "src/main/resources/static/uploads/gig-posters/";
 
@@ -50,7 +54,7 @@ public class AdminGigsController {
                 gigRepository.deleteById(id);
             }
         }
-        return "redirect:/admin/gigs/delete";
+        return "redirect:" + baseUrl + "/admin/gigs/delete";
     }
 
     @GetMapping("/new")
@@ -65,7 +69,7 @@ public class AdminGigsController {
             return "/admin/gigs/new";
         }
         gigRepository.save(newGig);
-        return "redirect:/admin/gigs/upload-image";
+        return "redirect:" + baseUrl + "/admin/gigs/upload-image";
     }
 
     @GetMapping("/upload-image")
@@ -80,7 +84,7 @@ public class AdminGigsController {
         // check if file is empty
         if (file.isEmpty()) {
             attributes.addFlashAttribute("message", "Please select a file to upload.");
-            return "redirect:/admin/gigs/upload-image";
+            return "redirect:" + baseUrl + "/admin/gigs/upload-image";
         }
 
         // normalize the file path
@@ -98,6 +102,6 @@ public class AdminGigsController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return "redirect:/gigs";
+        return "redirect:" + baseUrl + "/gigs";
     }
 }

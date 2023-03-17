@@ -6,6 +6,7 @@ import org.nickhoefle.freezeoutmvc.data.SongNoteRepository;
 import org.nickhoefle.freezeoutmvc.data.SongRepository;
 import org.nickhoefle.freezeoutmvc.models.Song;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -18,6 +19,9 @@ import java.util.Optional;
 @Controller
 @RequestMapping("/admin/songs")
 public class AdminSongsController {
+
+    @Value("${freezeoutband.base-url}")
+    private String baseUrl;
 
     private final String UPLOAD_DIR = "src/main/resources/static/uploads/";
 
@@ -49,7 +53,7 @@ public class AdminSongsController {
                 songRepository.deleteById(id);
             }
         }
-        return "redirect:/admin/songs/delete";
+        return "redirect:" + baseUrl + "/admin/songs/delete";
     }
 
     @GetMapping("/new")
@@ -64,7 +68,7 @@ public class AdminSongsController {
             return "/admin/songs/new";
         }
         songRepository.save(newSong);
-        return "redirect:/admin/upload/sheet-music";
+        return "redirect:" + baseUrl + "/admin/upload/sheet-music";
     }
 
     @PostMapping("/status")
@@ -76,7 +80,7 @@ public class AdminSongsController {
             song.setStatus(status);
             songRepository.save(song);
         }
-        return "redirect:/admin/songs";
+        return "redirect:" + baseUrl + "/admin/songs";
     }
 
 }

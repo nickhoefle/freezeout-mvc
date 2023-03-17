@@ -1,6 +1,7 @@
 package org.nickhoefle.freezeoutmvc.controllers;
 
 import org.nickhoefle.freezeoutmvc.models.Song;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
@@ -25,6 +26,9 @@ import java.util.Optional;
 @RequestMapping("/admin/photos")
 public class AdminPhotos {
 
+    @Value("${freezeoutband.base-url}")
+    private String baseUrl;
+
     private final String UPLOAD_DIR = "src/main/resources/static/uploads/photos/";
 
     @GetMapping("")
@@ -45,7 +49,7 @@ public class AdminPhotos {
             File file = new File("src/main/resources/static/uploads/photos/" + photoFile);
             file.delete();
         }
-        return "redirect:/admin/photos";
+        return "redirect:" + baseUrl + "/admin/photos";
     }
 
     @PostMapping("/upload-photo")
@@ -54,7 +58,7 @@ public class AdminPhotos {
         // check if file is empty
         if (file.isEmpty()) {
             attributes.addFlashAttribute("message", "Please select a file to upload.");
-            return "redirect:/admin/photos";
+            return "redirect:" + baseUrl + "/admin/photos";
         }
 
         // normalize the file path
@@ -67,7 +71,7 @@ public class AdminPhotos {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return "redirect:/admin/photos";
+        return "redirect:" + baseUrl + "/admin/photos";
     }
 
 }

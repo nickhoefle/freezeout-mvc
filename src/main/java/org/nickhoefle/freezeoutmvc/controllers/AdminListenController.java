@@ -3,6 +3,7 @@ package org.nickhoefle.freezeoutmvc.controllers;
 import org.nickhoefle.freezeoutmvc.data.SongRepository;
 import org.nickhoefle.freezeoutmvc.models.Song;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,6 +18,9 @@ import java.util.Optional;
 @Controller
 @RequestMapping("/admin/listen")
 public class AdminListenController {
+
+    @Value("${freezeoutband.base-url}")
+    private String baseUrl;
 
     @Autowired
     private SongRepository songRepository;
@@ -44,7 +48,7 @@ public class AdminListenController {
             song.setSongUploadFileName(newFileName);
             songRepository.save(song);
         }
-        return "redirect:/admin/listen";
+        return "redirect:" + baseUrl + "/admin/listen";
     }
 
 }
