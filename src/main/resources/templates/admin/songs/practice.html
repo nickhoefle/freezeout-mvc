@@ -7,10 +7,10 @@
 <h3 th:text=" 'Practice Page - ' + ${song.songName} + ' - ' + ${song.songDetails.originalArtist}"></h3>
 
 <th:block th:if="${song.songSheetMusic != null}">
-    <a th:href="@{/uploads/{name}(name=${song.songSheetMusic})}"/>
+    <a th:href="@{/uploads/sheet-music/{name}(name=${song.songSheetMusic})}"/>
         <button>🎼 View Sheet Music PDF</button>
     </a>
-    <a th:href="@{/uploads/{name}(name=${song.songSheetMusic})}" target="_blank"/>
+    <a th:href="@{/uploads/sheet-music/{name}(name=${song.songSheetMusic})}" target="_blank"/>
         <button>🎼 View Sheet Music PDF in New Tab</button>
     </a><hr>
 </th:block>
