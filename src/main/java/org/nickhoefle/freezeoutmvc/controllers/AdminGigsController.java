@@ -90,9 +90,11 @@ public class AdminGigsController {
         String fileName = StringUtils.cleanPath(file.getOriginalFilename());
 
         Optional<Gig> optGig = gigRepository.findById(gigId);
-        Gig gig = (Gig) optGig.get();
-        gig.setImage(fileName);
-        gigRepository.save(gig);
+        if (optGig.isPresent()) {
+            Gig gig = optGig.get();
+            gig.setImage(fileName);
+            gigRepository.save(gig);
+        }
 
         // save the file on the local file system
         try {
