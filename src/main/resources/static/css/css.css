@@ -178,6 +178,14 @@ th {
     cursor: pointer;
 }
 
+.admin-upload-gig-image  #allowedFileTypes {
+    font-style: italic;
+}
+
+.admin-upload-gig-image  #fileText {
+    color: white;
+}
+
 .edit-chord-page  #songChordsText {
     width: 100%;
     height: 500px;
