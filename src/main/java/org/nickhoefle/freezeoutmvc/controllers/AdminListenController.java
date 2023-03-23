@@ -29,7 +29,7 @@ public class AdminListenController {
     public String renderAdminListen(Model model) {
         model.addAttribute("allSongs", songRepository.findAll());
         List<String> allAudioFileNames = new ArrayList<>();
-        File directory = new File("src/main/resources/static/uploads/");
+        File directory = new File("src/main/resources/static/uploads/audio-files/");
         File[] files = directory.listFiles();
         for (File file : files) {
             if (file.getName().endsWith("wav") || file.getName().endsWith("mp3")) {

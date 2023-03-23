@@ -29,7 +29,7 @@ public class UploadController {
     @Value("${freezeoutband.base-url}")
     private String baseUrl;
 
-    private final String UPLOAD_DIR = "src/main/resources/static/uploads/";
+    private final String AUDIO_FILES_UPLOAD_DIR = "src/main/resources/static/uploads/audio-files/";
     private final String SHEET_MUSIC_UPLOAD_DIR = "src/main/resources/static/uploads/sheet-music/";
     @Autowired
     private SongRepository songRepository;
@@ -116,7 +116,7 @@ public class UploadController {
         }
         // save the file on the local file system
         try {
-            Path path = Paths.get(UPLOAD_DIR + fileName);
+            Path path = Paths.get(AUDIO_FILES_UPLOAD_DIR + fileName);
             Files.copy(file.getInputStream(), path, StandardCopyOption.REPLACE_EXISTING);
         } catch (IOException e) {
             e.printStackTrace();
