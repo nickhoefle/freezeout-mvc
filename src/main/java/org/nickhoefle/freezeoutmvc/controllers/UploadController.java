@@ -111,7 +111,7 @@ public class UploadController {
         Optional<Song> optSong = songRepository.findById(songId);
         if (optSong.isPresent()) {
             Song song = optSong.get();
-            song.setSongUploadFileName(fileName);
+            song.setFileName(fileName);
             songRepository.save(song);
         }
         // save the file on the local file system

@@ -45,7 +45,7 @@ public class AdminListenController {
         Optional<Song> optSong = songRepository.findBySongName(songName);
         if (optSong.isPresent()) {
             Song song = optSong.get();
-            song.setSongUploadFileName(newFileName);
+            song.setFileName(newFileName);
             songRepository.save(song);
         }
         return "redirect:" + baseUrl + "/admin/listen";
