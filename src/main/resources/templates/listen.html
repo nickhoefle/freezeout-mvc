@@ -12,7 +12,7 @@
             </div>
             <div th:if="${song.fileName != null && song.fileName != 'Hidden' && song.fileName != 'images' }">
                 <audio class="audioPlayerHTML" controls>
-                    <source th:src="@{${'/uploads/' + song.fileName}}" type="audio/wav">
+                    <source th:src="@{${'/uploads/audio-files/' + song.fileName}}" type="audio/wav">
                 </audio>
             </div>
         </th:block>

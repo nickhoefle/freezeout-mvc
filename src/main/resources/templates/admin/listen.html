@@ -22,7 +22,7 @@
                     <label th:text="${song.fileName}"></label>
                     <div th:if="${song.fileName != 'Hidden'}">
                         <audio class="audioPlayerInCell" controls>
-                            <source th:src="@{${'/uploads/' + song.fileName}}" type="audio/wav">
+                            <source th:src="@{${'/uploads/audio-files/' + song.fileName}}" type="audio/wav">
                         </audio>
                     </div>
                 </div>
