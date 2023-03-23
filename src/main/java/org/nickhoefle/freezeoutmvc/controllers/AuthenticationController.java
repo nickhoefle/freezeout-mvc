@@ -8,6 +8,7 @@ import org.nickhoefle.freezeoutmvc.models.User;
 import org.nickhoefle.freezeoutmvc.models.dto.LoginFormDTO;
 import org.nickhoefle.freezeoutmvc.models.dto.RegisterFormDTO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -20,6 +21,9 @@ import java.util.Optional;
 @Controller
 @RequestMapping
 public class AuthenticationController {
+
+    @Value("${freezeoutband.base-url}")
+    private String baseUrl;
 
     @Autowired
     UserRepository userRepository;
@@ -77,7 +81,7 @@ public class AuthenticationController {
         User newUser = new User(registerFormDTO.getUsername(), registerFormDTO.getPassword());
         userRepository.save(newUser);
         setUserInSession(request.getSession(), newUser);
-        return "redirect:";
+        return "redirect:" + baseUrl;
     }
 
     @GetMapping("/login")
@@ -111,13 +115,13 @@ public class AuthenticationController {
         
         model.addAttribute("userId", theUser.getId());
         setUserInSession(request.getSession(), theUser);
-        return "redirect:/admin/songs";
+        return "redirect:" + baseUrl + "/admin/songs";
     }
 
     @GetMapping("/logout")
     public String logout(HttpServletRequest request){
         request.getSession().invalidate();
-        return "redirect:/login";
+        return "redirect:" + baseUrl + "/login";
     }
 
 }

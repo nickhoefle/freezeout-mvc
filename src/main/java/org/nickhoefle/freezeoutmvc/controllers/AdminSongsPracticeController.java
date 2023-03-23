@@ -8,6 +8,7 @@ import org.nickhoefle.freezeoutmvc.models.Song;
 import org.nickhoefle.freezeoutmvc.models.SongChords;
 import org.nickhoefle.freezeoutmvc.models.SongNote;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -21,6 +22,9 @@ import java.util.Optional;
 @Controller
 @RequestMapping("/admin/songs")
 public class AdminSongsPracticeController {
+
+    @Value("${freezeoutband.base-url}")
+    private String baseUrl;
 
     @Autowired
     private SongRepository songRepository;
@@ -57,7 +61,7 @@ public class AdminSongsPracticeController {
             song.getSongDetails().setYoutubeURL(youtubeUrl);
             songRepository.save(song);
         }
-        return "redirect:/admin/songs/practice/{songId}";
+        return "redirect:" + baseUrl + "/admin/songs/practice/{songId}";
     }
 
     @GetMapping("/practice/{songId}/add-notes")
@@ -91,7 +95,7 @@ public class AdminSongsPracticeController {
             newSongNote.setTimestamp(new Timestamp(System.currentTimeMillis()));
             songNoteRepository.save(newSongNote);
         }
-        return "redirect:/admin/songs/practice/{songId}";
+        return "redirect:" + baseUrl + "/admin/songs/practice/{songId}";
     }
 
     @PostMapping("/practice/{songId}/delete-note")
@@ -101,7 +105,7 @@ public class AdminSongsPracticeController {
             SongNote songNote = optSongNote.get();
             songNoteRepository.delete(songNote);
         }
-        return "redirect:/admin/songs/practice/{songId}";
+        return "redirect:" + baseUrl + "/admin/songs/practice/{songId}";
     }
 
     @GetMapping("/practice/{songId}/edit-note/{noteId}")
@@ -125,7 +129,7 @@ public class AdminSongsPracticeController {
             songNote.setNoteText(newSongNoteText);
             songNoteRepository.save(songNote);
         }
-        return "redirect:/admin/songs/practice/{songId}";
+        return "redirect:" + baseUrl + "/admin/songs/practice/{songId}";
     }
 
     @GetMapping("/practice/{songId}/add-chords")
@@ -159,7 +163,7 @@ public class AdminSongsPracticeController {
             newSongChords.setTimestamp(new Timestamp(System.currentTimeMillis()));
             songChordsRepository.save(newSongChords);
         }
-        return "redirect:/admin/songs/practice/{songId}";
+        return "redirect:" + baseUrl + "/admin/songs/practice/{songId}";
     }
 
     @PostMapping("/practice/{songId}/delete-chord-page")
@@ -169,7 +173,7 @@ public class AdminSongsPracticeController {
             SongChords songChords = optSongChords.get();
             songChordsRepository.delete(songChords);
         }
-        return "redirect:/admin/songs/practice/{songId}";
+        return "redirect:" + baseUrl + "/admin/songs/practice/{songId}";
     }
 
     @GetMapping("/practice/{songId}/edit-chord-page/{chordPageId}")
@@ -193,7 +197,7 @@ public class AdminSongsPracticeController {
             songChords.setChordsText(newSongChordsText);
             songChordsRepository.save(songChords);
         }
-        return "redirect:/admin/songs/practice/{songId}";
+        return "redirect:" + baseUrl + "/admin/songs/practice/{songId}";
     }
 
 }

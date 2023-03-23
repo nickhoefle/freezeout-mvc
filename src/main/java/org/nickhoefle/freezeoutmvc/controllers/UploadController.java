@@ -3,6 +3,7 @@ package org.nickhoefle.freezeoutmvc.controllers;
 import org.nickhoefle.freezeoutmvc.data.SongRepository;
 import org.nickhoefle.freezeoutmvc.models.Song;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
@@ -23,6 +24,9 @@ import java.util.*;
 @Controller
 @RequestMapping("/admin/upload")
 public class UploadController {
+
+    @Value("${freezeoutband.base-url}")
+    private String baseUrl;
 
     private final String UPLOAD_DIR = "src/main/resources/static/uploads/";
 
@@ -69,14 +73,14 @@ public class UploadController {
         // check if file is empty
         if (file.isEmpty()) {
             attributes.addFlashAttribute("message", "Please select a file to upload.");
-            return "redirect:/admin/upload/sheet-music";
+            return "redirect:" + baseUrl + "/admin/upload/sheet-music";
         }
 
         // validation for file type (PDF only)
         String fileType = file.getContentType();
         if (!fileType.equals("application/pdf")) {
             attributes.addFlashAttribute("message", "This file must be a PDF.");
-            return "redirect:/admin/upload/sheet-music";
+            return "redirect:" + baseUrl + "/admin/upload/sheet-music";
         }
 
         // normalize the file path
@@ -93,7 +97,7 @@ public class UploadController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return "redirect:/admin/upload/audio-file";
+        return "redirect:" + baseUrl + "/admin/upload/audio-file";
     }
 
     @GetMapping("/audio-file")
@@ -108,14 +112,14 @@ public class UploadController {
         // check if file is empty
         if (file.isEmpty()) {
             attributes.addFlashAttribute("message", "Please select a file to upload.");
-            return "redirect:/admin/upload/audio-file";
+            return "redirect:" + baseUrl + "/admin/upload/audio-file";
         }
 
         // validate file type (.WAV & .MP3 only)
         String fileType = file.getContentType();
         if (!fileType.equals("audio/wav") && !fileType.equals("audio/mpeg")) {
             attributes.addFlashAttribute("message", "This file must be an MP3 or WAV.");
-            return "redirect:/admin/upload/audio-file";
+            return "redirect:" + baseUrl + "/admin/upload/audio-file";
         }
 
         // normalize the file path
@@ -132,7 +136,7 @@ public class UploadController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return "redirect:/admin/songs";
+        return "redirect:" + baseUrl + "/admin/songs";
     }
 
 }
