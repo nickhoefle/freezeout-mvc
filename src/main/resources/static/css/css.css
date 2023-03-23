@@ -43,32 +43,20 @@ th {
     padding-right: 10%;
 }
 
-.admin-delete-gig .gig-poster-in-table {
-    width: 250px;
-    height: 375px;
-}
+/* Body Classes */
 
-.admin-delete-gig .bigCheckbox {
+.admin-delete-gig  .bigCheckbox {
     height: 25px;
     width: 25px;
 }
 
-.admin-delete-gig .songTableHeader {
+.admin-delete-gig  .gig-poster-in-table {
+    width: 250px;
+    height: 375px;
+}
+
+.admin-delete-gig  .songTableHeader {
     cursor: pointer;
-}
-
-.admin-listen  .audioPlayerInCell {
-    height: 25px;
-    width: 80%;
-    border-radius: 0;
-}
-
-.admin-listen  .selectedSong {
-    width: 173px;
-}
-
-.admin-listen  .updateButton {
-    width: 173px;
 }
 
 .admin-listen  #audioPlayerHeader, .audioPlayerCell {
@@ -77,10 +65,20 @@ th {
     vertical-align: middle;
 }
 
+.admin-listen  .audioPlayerInCell {
+    height: 25px;
+    width: 80%;
+    border-radius: 0;
+}
+
 .admin-listen  #changeHeader, .changeCell {
     width: 20%;
     vertical-align: middle;
     text-align: center;
+}
+
+.admin-listen  .selectedSong {
+    width: 173px;
 }
 
 .admin-listen  #songNameHeader, .songNameCell {
@@ -89,13 +87,37 @@ th {
     vertical-align: middle;
 }
 
-.admin-photos  .slideshow-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 700px;
-    position: relative;
+.admin-listen  .updateButton {
+    width: 173px;
+}
+
+.admin-photos  .big-checkbox {
+    width: 25px;
+    height: 25px;
+}
+
+.admin-photos  .checkbox-cell {
+    text-align: center;
+    vertical-align: center;
+}
+
+.admin-photos  .column {
+    flex: 50%;
+    padding: 10px;
+}
+
+.admin-photos  .deleteButtonDiv {
+    width: 33%;
+    text-align: center;
+}
+
+.admin-photos  .deleteColumnHeader {
+    width: 25%;
+    text-align: center;
+}
+
+.admin-photos .photoColumnHeader {
+    width: 50%;
 }
 
 .admin-photos  .photoGallerySlide {
@@ -123,56 +145,36 @@ th {
     outline: 5px solid black;
 }
 
-.admin-photos .row {
+.admin-photos  .row {
     display: flex;
 }
 
-.admin-photos .big-checkbox {
-    width: 25px;
-    height: 25px;
+.admin-photos  .slideshow-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 700px;
+    position: relative;
 }
 
-.admin-photos .checkbox-cell {
-    text-align: center;
-    vertical-align: center;
-}
-
-.admin-photos .deleteButtonDiv {
-    width: 33%;
-    text-align: center;
-}
-
-.admin-photos .column {
-    flex: 50%;
-    padding: 10px;
-}
-
-.admin-photos .deleteColumnHeader {
-    width: 25%;
-    text-align: center;
-}
-
-.admin-photos .photoColumnHeader {
-    width: 50%;
-}
-
-.admin-photos .thumbnail {
+.admin-photos  .thumbnail {
     width: 175px;
     height: 125px;
     cursor: pointer;
 }
 
-.admin-photos .thumbnail-cell {
+.admin-photos  .thumbnail-cell {
     width: 175px;
     height: 125px;
 }
 
-.admin-songs-delete .bigCheckbox {
+.admin-songs-delete  .bigCheckbox {
     height: 25px;
     width: 25px;
 }
 
-.admin-songs-delete .songTableHeader {
+.admin-songs-delete  .songTableHeader {
     cursor: pointer;
 }
 
@@ -182,19 +184,19 @@ th {
     font-family: monospace;
 }
 
-.gigs-view .arrowButtons {
+.gigs-view  .arrowButtons {
     white-space: nowrap;
 }
 
-.gigs-view .gigPoster {
+.gigs-view  .gigPoster {
     width: 80%
 }
 
-.gigs-view .gigsDiv {
+.gigs-view  .gigsDiv {
     text-align: center;
 }
 
-.gigs-view #noUpcomingGigsText {
+.gigs-view  #noUpcomingGigsText {
     color: black;
     font-size: 16px;
 }
@@ -210,13 +212,13 @@ th {
     border: 2px solid black;
 }
 
+.index  .instrumentPhoto {
+    width: 15%;
+}
+
 .index  .instrumentsAndNames {
     text-align: center;
     width: 60%;
-}
-
-.index  .instrumentPhoto {
-    width: 15%;
 }
 
 .index  .instrumentsAndNamesContainer {
@@ -225,30 +227,21 @@ th {
     padding: 10px;
 }
 
-.index  .titleHeaderFragment:hover {
-    color: white;
-}
-
 .index  #titleHeaderFragment {
     font-size: 20pt;
 }
 
-.listen .audioPlayerHTML {
+.index  .titleHeaderFragment:hover {
+    color: white;
+}
+
+.listen  .audioPlayerHTML {
     width: 100%;
 }
 
-.new-song .error {
+.new-song  .error {
     color: #7f2828;
     font-weight: bold;
-}
-
-.photos  .slideshow-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 700px;
-    position: relative;
 }
 
 .photos  .photoGallerySlide {
@@ -276,25 +269,25 @@ th {
     outline: 5px solid black;
 }
 
+.photos  .slideshow-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 700px;
+    position: relative;
+}
+
 .practice  #chordsText {
     height: 450px;
     font-family: monospace;
 }
 
-.practice  #practiceNoteTextHeader, .practiceNoteTextCell {
-    max-width: 350px;
-    word-wrap: break-word;
-}
-
-.practice  #practiceNoteFromHeader, .practiceNoteFromCell {
-    width: 12.5%;
+.practice  #practiceNoteDateHeader {
+    cursor: pointer;
 }
 
 .practice  #practiceNoteDateHeader, .practiceNoteTimestampCell {
-    width: 12.5%;
-}
-
-.practice  #practiceNoteEditButtonHeader, .practiceNoteEditButton {
     width: 12.5%;
 }
 
@@ -302,16 +295,25 @@ th {
     width: 12.5%;
 }
 
-.practice  #practiceNoteTextHeader {
-    cursor: pointer;
+.practice  #practiceNoteEditButtonHeader, .practiceNoteEditButton {
+    width: 12.5%;
 }
 
 .practice  #practiceNoteFromHeader {
     cursor: pointer;
 }
 
-.practice  #practiceNoteDateHeader {
+.practice  #practiceNoteFromHeader, .practiceNoteFromCell {
+    width: 12.5%;
+}
+
+.practice  #practiceNoteTextHeader {
     cursor: pointer;
+}
+
+.practice  #practiceNoteTextHeader, .practiceNoteTextCell {
+    max-width: 350px;
+    word-wrap: break-word;
 }
 
 .songs-index  .songIdDiv {
@@ -322,12 +324,12 @@ th {
     cursor: pointer;
 }
 
-.songs-index  .tdCentered {
-    text-align:center;
-}
-
 .songs-index  .table td {
     vertical-align: middle !important;
+}
+
+.songs-index  .tdCentered {
+    text-align: center;
 }
 
 .upload  #allowedFileTypesText {
@@ -340,6 +342,8 @@ th {
 
 /* Tablet */
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
+
+    /* Type Selectors */
 
     a {
         font-size: 24px;
@@ -395,19 +399,21 @@ th {
         padding-bottom: 15px;
     }
 
-    .form-control-file {
-        font-size: 22px;
-        height: 38px;
-    }
-
     .form-control {
         font-size: 24px;
         height: 48px;
     }
 
+    .form-control-file {
+        font-size: 22px;
+        height: 38px;
+    }
+
     .titleHeaderFragment {
         font-size: 42px;
     }
+
+    /* Body Classes */
 
     .admin-listen  .selectedSong {
         font-size: 20px;
@@ -430,6 +436,10 @@ th {
         display: none;
     }
 
+    .songs-index  #sheetMusicHeader {
+        display: none;
+    }
+
     .songs-index  .viewSheetMusicCell {
         display: none;
     }
@@ -439,10 +449,6 @@ th {
     }
 
     .songs-index  #yearHeader {
-        display: none;
-    }
-
-    .songs-index  #sheetMusicHeader {
         display: none;
     }
 
