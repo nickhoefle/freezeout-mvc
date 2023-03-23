@@ -21,7 +21,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/admin/photos")
-public class AdminPhotos {
+public class AdminPhotosController {
 
     @Value("${freezeoutband.base-url}")
     private String baseUrl;
