@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
 <header th:replace="fragments :: header-admin"></header>
-<body class="container-fluid songs-index">
+<body class="container-fluid admin-songs-index">
 
 <script>
     window.onload = function () {
@@ -33,18 +33,28 @@
                         <input class="songIdInput" name="id" type="text" th:value="${song.id}">
                     </div>
                     <select class="statusDropdown" name="status" onclick="showSaveButton()">
-                        <option th:each="option : ${options}"  th:value="${option}" th:text="${option}" th:selected="${option == song.status}">
-                        </option>
-                    </select><br>
+                        <option th:each="option : ${options}"  th:value="${option}" th:text="${option}" th:selected="${option == song.status}"></option>
+                    </select>
+                    <br>
                     <button class="saveButton btn btn-success"type="submit" style="display:none;">Save</button>
                 </form>
             </td>
             <td th:text="${song.songName}"></td>
             <td th:text="${song.songDetails.originalArtist}"></td>
             <td class="yearCell" th:text="${song.songDetails.year}"></td>
-            <td class="tdCentered addSheetMusicCell" th:if="${song.songSheetMusic == null}"><a th:href="@{/upload/sheet-music}"><button>➕ Add</button></a></td>
-            <td class="tdCentered viewSheetMusicCell" th:if="${song.songSheetMusic != null}"><a th:href="@{/uploads/{name}(name=${song.songSheetMusic})}"/>🎼</a></td>
-            <td class="tdCentered"><a style="color:inherit;" th:href="@{/admin/songs/practice/{songId}(songId=${song.id})}"><button>Practice</button></a></td>
+            <td class="tdCentered addSheetMusicCell" th:if="${song.songSheetMusic == null}">
+                <a th:href="@{/upload/sheet-music}">
+                    <button>➕ Add</button>
+                </a>
+            </td>
+            <td class="tdCentered viewSheetMusicCell" th:if="${song.songSheetMusic != null}">
+                <a th:href="@{/uploads/{name}(name=${song.songSheetMusic})}"/>🎼</a>
+            </td>
+            <td class="tdCentered">
+                <a id="practiceButtonLink" th:href="@{/admin/songs/practice/{songId}(songId=${song.id})}">
+                    <button>Practice</button>
+                </a>
+            </td>
         </tr>
     </tbody>
 </table>

@@ -21,6 +21,8 @@ public class Gig extends AbstractEntity {
 
     private String image;
 
+    public Gig () { }
+
     public Gig(String name, LocalDate date, String time, String address, String image) {
         this.name = name;
         this.date = date;
@@ -28,8 +30,6 @@ public class Gig extends AbstractEntity {
         this.address = address;
         this.image = image;
     }
-
-    public Gig () { }
 
     public String getName() {
         return name;

@@ -35,14 +35,14 @@ public class AdminGigsController {
     public final List<Gig> findAllGigs() {
         List<Gig> allGigsList = new ArrayList<>();
         Iterable<Gig> allGigs = gigRepository.findAll();
-        for (Gig gig : allGigs){
+        for (Gig gig : allGigs) {
             allGigsList.add(gig);
         }
         return allGigsList;
     }
 
     @GetMapping("/delete")
-    public String renderDeleteGigPage(Model model){
+    public String renderDeleteGigPage(Model model) {
         model.addAttribute("gigs", gigRepository.findAll());
         return "/admin/gigs/delete";
     }
@@ -80,20 +80,21 @@ public class AdminGigsController {
 
     @PostMapping("/upload-image")
     public String processGigImageUpload (@RequestParam("file") MultipartFile file, RedirectAttributes attributes, @RequestParam int gigId) {
-
         // check if file is empty
         if (file.isEmpty()) {
             attributes.addFlashAttribute("message", "Please select a file to upload.");
             return "redirect:" + baseUrl + "/admin/gigs/upload-image";
         }
 
-        // normalize the file path
+        // normalize the file path - preventing a malicious user from gaining access to files outside of the intended directory by manipulating the path
         String fileName = StringUtils.cleanPath(file.getOriginalFilename());
 
         Optional<Gig> optGig = gigRepository.findById(gigId);
-        Gig gig = (Gig) optGig.get();
-        gig.setImage(fileName);
-        gigRepository.save(gig);
+        if (optGig.isPresent()) {
+            Gig gig = optGig.get();
+            gig.setImage(fileName);
+            gigRepository.save(gig);
+        }
 
         // save the file on the local file system
         try {

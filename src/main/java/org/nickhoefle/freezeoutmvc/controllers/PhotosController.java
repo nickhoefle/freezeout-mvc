@@ -24,4 +24,5 @@ public class PhotosController {
         model.addAttribute("allPhotoFileNames", allPhotoFileNames);
         return "/photos";
     }
+
 }

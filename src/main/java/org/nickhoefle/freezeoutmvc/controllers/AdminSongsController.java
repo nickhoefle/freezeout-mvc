@@ -23,8 +23,6 @@ public class AdminSongsController {
     @Value("${freezeoutband.base-url}")
     private String baseUrl;
 
-    private final String UPLOAD_DIR = "src/main/resources/static/uploads/";
-
     @Autowired
     private SongRepository songRepository;
     @Autowired
@@ -47,7 +45,7 @@ public class AdminSongsController {
     }
 
     @PostMapping("/delete")
-    public String processDeleteSong(@RequestParam(required = false) int[] songIds) {
+    public String processDeleteSongs(@RequestParam(required = false) int[] songIds) {
         if (songIds != null && songIds.length > 0) {
             for (int id : songIds) {
                 songRepository.deleteById(id);
@@ -73,8 +71,8 @@ public class AdminSongsController {
 
     @PostMapping("/status")
     public String processStatusChange(@RequestParam String status, @RequestParam String id) {
-        Integer idInt = Integer.parseInt(id);
-        Optional<Song> optSong = songRepository.findById(idInt);
+        Integer songId = Integer.parseInt(id);
+        Optional<Song> optSong = songRepository.findById(songId);
         if (optSong.isPresent()) {
             Song song = optSong.get();
             song.setStatus(status);

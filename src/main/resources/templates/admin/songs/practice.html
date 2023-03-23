@@ -34,7 +34,7 @@
 <br>
 <hr>
 
-<button id="notesButton" onclick="toggleNotesChordPage('notes')" style="border:5px solid black;">Notes</button>
+<button id="notesButton" onclick="toggleNotesChordPage('notes')">Notes</button>
 <button id="chordsButton" onclick="toggleNotesChordPage('chords')">Chord Pages</button>
 
 <div id="notesDiv" style="display:;">
@@ -90,7 +90,7 @@
                         Edit Chord Page
                     </button>
                 </a>
-                <pre class="chordsText" th:utext="${songChords.chordsText}" ></pre>
+                <pre class="chordsText" th:utext="${songChords.chordsText}"></pre>
                 <br>
             </td>
         </tr>

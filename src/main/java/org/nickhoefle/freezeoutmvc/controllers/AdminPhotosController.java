@@ -1,6 +1,5 @@
 package org.nickhoefle.freezeoutmvc.controllers;
 
-import org.nickhoefle.freezeoutmvc.models.Song;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -20,11 +18,10 @@ import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Controller
 @RequestMapping("/admin/photos")
-public class AdminPhotos {
+public class AdminPhotosController {
 
     @Value("${freezeoutband.base-url}")
     private String baseUrl;
@@ -32,7 +29,7 @@ public class AdminPhotos {
     private final String UPLOAD_DIR = "src/main/resources/static/uploads/photos/";
 
     @GetMapping("")
-    public String renderPhotoPage(Model model) {
+    public String renderAdminPhotoPage(Model model) {
         List<String> allPhotoFileNames = new ArrayList<>();
         File directory = new File("src/main/resources/static/uploads/photos/");
         File[] files = directory.listFiles();
@@ -44,7 +41,7 @@ public class AdminPhotos {
     }
 
     @PostMapping("/deletePhotos")
-    public String deletePhotos(@RequestParam("photoFile") List<String> photoFiles) {
+    public String processDeletePhotos(@RequestParam("photoFile") List<String> photoFiles) {
         for (String photoFile : photoFiles) {
             File file = new File("src/main/resources/static/uploads/photos/" + photoFile);
             file.delete();
@@ -54,14 +51,13 @@ public class AdminPhotos {
 
     @PostMapping("/upload-photo")
     public String processUploadPhoto(@RequestParam("file") MultipartFile file, RedirectAttributes attributes) {
-
         // check if file is empty
         if (file.isEmpty()) {
             attributes.addFlashAttribute("message", "Please select a file to upload.");
             return "redirect:" + baseUrl + "/admin/photos";
         }
 
-        // normalize the file path
+        // normalize the file path - preventing a malicious user from gaining access to files outside of the intended directory by manipulating the path
         String fileName = StringUtils.cleanPath(file.getOriginalFilename());
 
         // save the file on the local file system

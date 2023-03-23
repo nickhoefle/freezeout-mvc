@@ -18,15 +18,15 @@
         <tr th:each="song : ${allSongs}">
             <td class="songNameCell" th:text="${song.songName}"></td>
             <td class="audioPlayerCell">
-                <div th:if="${song.songUploadFileName != null && song.songUploadFileName != 'Hidden' && song.songUploadFileName != 'images'}">
-                    <label th:text="${song.songUploadFileName}"></label>
-                    <div th:if="${song.songUploadFileName != 'Hidden'}">
+                <div th:if="${song.fileName != null && song.fileName != 'Hidden' && song.fileName != 'images'}">
+                    <label th:text="${song.fileName}"></label>
+                    <div th:if="${song.fileName != 'Hidden'}">
                         <audio class="audioPlayerInCell" controls>
-                            <source th:src="@{${'/uploads/' + song.songUploadFileName}}" type="audio/wav">
+                            <source th:src="@{${'/uploads/' + song.fileName}}" type="audio/wav">
                         </audio>
                     </div>
                 </div>
-                <div th:if="${song.songUploadFileName == null || song.songUploadFileName == 'Hidden' || song.songUploadFileName == 'images'}">
+                <div th:if="${song.fileName == null || song.fileName == 'Hidden' || song.fileName == 'images'}">
                     Not On Listen Page
                 </div>
             </td>

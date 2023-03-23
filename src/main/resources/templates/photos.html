@@ -4,15 +4,17 @@
 <header th:replace="fragments :: header-reg"></header>
 <body class="container-fluid photos">
 
-<h2 style="text-align:center">Photos</h2>
+<h2 id="photosText">Photos</h2>
 
 <br>
 
 <div class="slideshow-container">
     <div th:each="photoFile : ${allPhotoFileNames}" class="photoGallerySlide">
-        <img th:src="@{'/uploads/photos/' + ${photoFile} }" alt="Slide">
+        <img th:src="@{'/uploads/photos/' + ${photoFile} }">
     </div>
-</div><br>
+</div
+
+><br>
 
 <footer th:replace="fragments :: socialsFooter"></footer>
 
