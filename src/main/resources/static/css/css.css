@@ -116,6 +116,11 @@ th {
     text-align: center;
 }
 
+.admin-photos  #adminPhotosHr {
+    border: 1.5px solid rgb(221, 221, 221);
+    margin-top: 26px;
+}
+
 .admin-photos .photoColumnHeader {
     width: 50%;
 }
@@ -178,11 +183,35 @@ th {
     cursor: pointer;
 }
 
+.admin-songs-index  #practiceButtonLink {
+    color: inherit;
+}
+
+.admin-songs-index  .songIdDiv {
+    display:none
+}
+
+.admin-songs-index  .songTableHeader {
+    cursor: pointer;
+}
+
+.admin-songs-index  .table td {
+    vertical-align: middle !important;
+}
+
+.admin-songs-index  .tdCentered {
+    text-align: center;
+}
+
 .admin-upload-gig-image  #allowedFileTypes {
     font-style: italic;
 }
 
 .admin-upload-gig-image  #fileText {
+    color: white;
+}
+
+.admin-upload-sheet-music  #fileText {
     color: white;
 }
 
@@ -207,6 +236,10 @@ th {
 .gigs-view  #noUpcomingGigsText {
     color: black;
     font-size: 16px;
+}
+
+.index  #bandText {
+    text-align: center;
 }
 
 .index  .carousel-inner img {
@@ -277,6 +310,10 @@ th {
     outline: 5px solid black;
 }
 
+.photos  #photosText {
+    text-align: center;
+}
+
 .photos  .slideshow-container {
     display: flex;
     align-items: center;
@@ -289,6 +326,10 @@ th {
 .practice  #chordsText {
     height: 450px;
     font-family: monospace;
+}
+
+.practice  #notesButton {
+    border: 5px solid black;
 }
 
 .practice  #practiceNoteDateHeader {
@@ -322,22 +363,6 @@ th {
 .practice  #practiceNoteTextHeader, .practiceNoteTextCell {
     max-width: 350px;
     word-wrap: break-word;
-}
-
-.songs-index  .songIdDiv {
-    display:none
-}
-
-.songs-index  .songTableHeader {
-    cursor: pointer;
-}
-
-.songs-index  .table td {
-    vertical-align: middle !important;
-}
-
-.songs-index  .tdCentered {
-    text-align: center;
 }
 
 .upload  #allowedFileTypesText {
