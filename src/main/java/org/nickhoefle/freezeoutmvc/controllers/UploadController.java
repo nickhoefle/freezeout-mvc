@@ -20,6 +20,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.*;
+import java.util.stream.StreamSupport;
 
 @Controller
 @RequestMapping("/admin/upload")
@@ -34,31 +35,15 @@ public class UploadController {
     private SongRepository songRepository;
 
     public final List<Song> findAllSongs() {
-        List<Song> allSongsList = new ArrayList<>();
-        Iterable<Song> allSongs = songRepository.findAll();
-        for (Song song : allSongs){
-            allSongsList.add(song);
-        }
-        Collections.sort(allSongsList, new Comparator<Song>() {
-            public int compare(Song song1, Song song2) {
-                return song1.getSongName().compareTo(song2.getSongName());
-            }
-        });
-        return allSongsList;
+        return StreamSupport.stream(songRepository.findAll().spliterator(), false)
+            .sorted(Comparator.comparing(Song::getSongName))
+            .toList();
     }
 
     public final List<Song> findAllSheetMusic() {
-        List<Song> allSheetMusicList = new ArrayList<>();
-        Iterable<Song> allSongs = songRepository.findAll();
-        for (Song song : allSongs) {
-            allSheetMusicList.add(song);
-        }
-        Collections.sort(allSheetMusicList, new Comparator<Song>() {
-            public int compare(Song song1, Song song2) {
-                return song1.getSongName().compareTo(song2.getSongName());
-            }
-        });
-        return allSheetMusicList;
+        return StreamSupport.stream(songRepository.findAll().spliterator(), false)
+            .sorted(Comparator.comparing(Song::getSongName))
+            .toList();
     }
 
     @GetMapping("/sheet-music")
@@ -69,7 +54,6 @@ public class UploadController {
 
     @PostMapping("/sheet-music")
     public String uploadSheetMusic(@RequestParam("file") MultipartFile file, RedirectAttributes attributes, @RequestParam int sheetId) {
-
         // check if file is empty
         if (file.isEmpty()) {
             attributes.addFlashAttribute("message", "Please select a file to upload.");
@@ -85,11 +69,12 @@ public class UploadController {
 
         // normalize the file path
         String fileName = StringUtils.cleanPath(file.getOriginalFilename());
-        Optional optSong = songRepository.findById(sheetId);
-        Song song = (Song) optSong.get();
-        song.setSongSheetMusic(fileName);
-        songRepository.save(song);
-
+        Optional<Song> optSong = songRepository.findById(sheetId);
+        if (optSong.isPresent()) {
+            Song song = optSong.get();
+            song.setSongSheetMusic(fileName);
+            songRepository.save(song);
+        }
         // save the file on the local file system
         try {
             Path path = Paths.get(UPLOAD_DIR + fileName);
@@ -108,7 +93,6 @@ public class UploadController {
 
     @PostMapping("/audio-file")
     public String audioFileUploadHandler (@RequestParam("file") MultipartFile file, RedirectAttributes attributes, @RequestParam int songId) {
-
         // check if file is empty
         if (file.isEmpty()) {
             attributes.addFlashAttribute("message", "Please select a file to upload.");
@@ -124,11 +108,12 @@ public class UploadController {
 
         // normalize the file path
         String fileName = StringUtils.cleanPath(file.getOriginalFilename());
-        Optional optSong = songRepository.findById(songId);
-        Song song = (Song) optSong.get();
-        song.setSongUploadFileName(fileName);
-        songRepository.save(song);
-
+        Optional<Song> optSong = songRepository.findById(songId);
+        if (optSong.isPresent()) {
+            Song song = optSong.get();
+            song.setSongUploadFileName(fileName);
+            songRepository.save(song);
+        }
         // save the file on the local file system
         try {
             Path path = Paths.get(UPLOAD_DIR + fileName);
