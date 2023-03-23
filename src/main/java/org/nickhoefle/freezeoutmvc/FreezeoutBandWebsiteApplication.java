@@ -1,6 +1,5 @@
 package org.nickhoefle.freezeoutmvc;
 
-import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -17,22 +16,6 @@ public class FreezeoutBandWebsiteApplication {
 
 	public static void main(String[] args) {
 		context = SpringApplication.run(FreezeoutBandWebsiteApplication.class, args);
-	}
-
-	public static void restart() {
-		System.out.println("Restarting spring boot app in 3 seconds !!! ");
-		try {
-			Thread.sleep(3000L);
-		} catch (Exception e) {
-		}
-
-		ApplicationArguments args = context.getBean(ApplicationArguments.class);
-		Thread thread = new Thread(() -> {
-			context.close();
-			context = SpringApplication.run(FreezeoutBandWebsiteApplication.class, args.getSourceArgs());
-		});
-		thread.setDaemon(false);
-		System.out.println("Restart done.");
 	}
 
 	@Bean

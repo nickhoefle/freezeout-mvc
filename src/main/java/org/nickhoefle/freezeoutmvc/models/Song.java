@@ -29,6 +29,8 @@ public class Song extends AbstractEntity {
     @NotNull
     private SongDetails songDetails;
 
+    public Song() {}
+
     public Song(String songName, String fileName, String songSheetMusic, List<SongNote> songNotes, List<SongChords> songChords, String status, SongDetails songDetails) {
         this.songName = songName;
         this.fileName = fileName;
@@ -37,12 +39,6 @@ public class Song extends AbstractEntity {
         this.songChords = songChords;
         this.status = status;
         this.songDetails = songDetails;
-    }
-
-    public Song() {}
-
-    public Song(String songName) {
-        this.songName = songName;
     }
 
     public String getSongName() {
