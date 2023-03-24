@@ -285,42 +285,78 @@ th {
     font-weight: bold;
 }
 
-.photos  .photoGallerySlide {
-    position: absolute;
-    top: 0;
-    left: 0;
+.photos  swiper-container {
     width: 100%;
     height: 100%;
-    text-align: center;
-    filter: blur(10px);
-    transition: filter 1.0s ease-in-out;
-    opacity: 0;
+    --swiper-navigation-color: black;
+    --swiper-pagination-color: black
 }
 
-.photos  .photoGallerySlide.active {
-    visibility: visible;
-    filter: blur(0);
+.photos  swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.photos  swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.photos  swiper-button-next {
+    color: black
+}
+
+.photos  swiper-container {
+    width: 100%;
+    height: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.photos  swiper-slide {
+    background-size: cover;
+    background-position: center;
+}
+
+.photos  .mySwiper {
+    height: 80%;
+    width: 100%;
+    outline: 5px solid black
+}
+
+.photos  .mySwiper2 {
+    height: 20%;
+    box-sizing: border-box;
+    padding: 10px 0;
+}
+
+.photos  .mySwiper2 swiper-slide {
+    width: 25%;
+    height: 100%;
+    opacity: 0.3;
+}
+
+.photos  .mySwiper2 .swiper-slide-thumb-active {
     opacity: 1;
 }
 
-.photos  .photoGallerySlide img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-    outline: 5px solid black;
-}
-
-.photos  #photosText {
-    text-align: center;
-}
-
-.photos  .slideshow-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.photos  #photoGalleryDiv {
+    height: calc(100vh - 250px);
     width: 100%;
-    height: 700px;
-    position: relative;
+    margin: auto
+}
+
+.photos  swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .practice  #chordsText {
