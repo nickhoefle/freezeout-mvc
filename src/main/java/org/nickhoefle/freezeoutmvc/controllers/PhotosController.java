@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Controller
@@ -21,6 +22,7 @@ public class PhotosController {
         for (File file : files) {
             allPhotoFileNames.add(file.getName());
         }
+        Collections.reverse(allPhotoFileNames); // Reverse the order of the list
         model.addAttribute("allPhotoFileNames", allPhotoFileNames);
         return "/photos";
     }

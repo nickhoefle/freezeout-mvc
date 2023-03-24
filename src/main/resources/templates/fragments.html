@@ -4,6 +4,7 @@
 <head th:fragment="head">
     <meta charset="UTF-8"/>
     <title>Freezeout Band</title>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-element-bundle.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <link rel="shortcut icon" type="image/png" th:href="@{/Images/freezeout-icon.png}" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
@@ -46,16 +47,14 @@
     </ul>
 </header>
 
-<footer th:fragment="socialsFooter" class="footer mt-auto" >
-    <footer style="position: absolute; bottom: 0; left: 0; right: 0; margin: auto;">
-        <center>
-            <h2>Connect</h2>
-            <a href="mailto:freezeoutband@protonmail.com"><img th:src="@{/uploads/images/email.png}" style="height:45px"></a>
-            <a href="https://www.facebook.com/groups/2038487942848670/"><img th:src="@{/uploads/images/fb.png}" style="height:35px"></a>
-            <a href="https://soundcloud.com/user-942929295"><img th:src="@{/uploads/images/soundcloud.png}"></a>
-            <br>
-        </center>
-    </footer>
+<footer th:fragment="socialsFooter" class="footer mt-auto" style="position: absolute; bottom: 0; left: 0; right: 0">
+    <center>
+        <h2>Connect</h2>
+        <a href="mailto:freezeoutband@protonmail.com"><img th:src="@{/uploads/images/email.png}" style="height:45px"></a>
+        <a href="https://www.facebook.com/groups/2038487942848670/"><img th:src="@{/uploads/images/fb.png}" style="height:35px"></a>
+        <a href="https://soundcloud.com/user-942929295"><img th:src="@{/uploads/images/soundcloud.png}"></a>
+        <br>
+    </center>
 </footer>
 
 
