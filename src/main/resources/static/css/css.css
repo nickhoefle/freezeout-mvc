@@ -71,6 +71,10 @@ th {
     border-radius: 0;
 }
 
+.admin-listen  .blackHr {
+    border-color: black;
+}
+
 .admin-listen  #changeHeader, .changeCell {
     width: 20%;
     vertical-align: middle;
@@ -89,6 +93,11 @@ th {
 
 .admin-listen  .updateButton {
     width: 173px;
+}
+
+.admin-listen  .uploadedSongPlayer {
+    width: 100%;
+    height: 35px;
 }
 
 .admin-photos  .big-checkbox {
