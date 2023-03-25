@@ -6,6 +6,19 @@
 
 <h3>Configure 'Listen' Page</h3>
 
+<hr>
+<button id="showUploadedSongs" class="btn btn-primary">Show Uploaded Files</button>
+<div id="uploadedSongsDiv" style="display:none;">
+    <br>
+    <span th:each="file : ${allAudioFileNames}">
+        <p th:text="${file}"></p>
+        <audio class="uploadedSongPlayer" controls>
+            <source th:src="@{${'/uploads/audio-files/' + file}}" type="audio/wav">
+        </audio>
+    </span>
+</div>
+<hr><br>
+
 <table class="table table-hover" id="myTable">
     <thead>
         <tr>
@@ -40,14 +53,14 @@
                         <th:block th:each="audioFileName : ${allAudioFileNames}">
                             <option th:text="${audioFileName}" th:value="${audioFileName}"></option>
                         </th:block>
-                    </select><hr>
+                    </select><hr class="blackHr">
 
                     <div>
                         <button class="btn btn-primary updateButton" type="submit">Update</button><br><br>
                         <a class="playBtn">
                             <button class="btn btn-secondary" onclick="openSelectedInNewTab()" type="button">
                                 Play Selected
-                            </button><hr>
+                            </button><hr class="blackHr">
                         </a>
                     </div>
                 </form>
