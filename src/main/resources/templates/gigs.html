@@ -4,36 +4,40 @@
 <header th:replace="fragments :: header-reg"></header>
 <body class="container-fluid gigs-view">
 
-<div class="gigsDiv">
+<div class="upcomingGigsDiv">
     <h2>Upcoming Gigs</h2>
-    <div class="arrowButtons" th:if="${#lists.size(allGigs.?[date > T(java.time.LocalDate).now()]) > 1}">
-        <button class="w3-button w3-display-left w3-black" onclick="plusUpcomingGigDivs(-1)">&#10094;</button>
-        <button class="w3-button w3-display-right w3-black" onclick="plusUpcomingGigDivs(1)">&#10095;</button>
+    <div class="upcomingGigs" th:if="${#lists.size(allGigs.?[date > T(java.time.LocalDate).now()]) > 1}">
+        <swiper-container class="mySwiper" pagination="true" pagination-clickable="true" navigation="true" space-between="30" loop="true">
+            <th:block th:if="${gig.date > T(java.time.LocalDate).now()}" th:each="gig : ${allGigs}">
+                <swiper-slide>
+                    <img class="gigPoster" th:src="@{/uploads/gig-posters/{poster}(poster=${gig.image})}">
+                </swiper-slide>
+            </th:block>
+        </swiper-container>
     </div>
-    <th:block th:each="gig : ${allGigs}" th:if="${gig.date > T(java.time.LocalDate).now()}">
-        <div class="upcomingGigSlides">
-            <img class="gigPoster" th:src="@{/uploads/gig-posters/{poster}(poster=${gig.image})}"><br>
-        </div>
-    </th:block>
+    <div th:if="${#lists.size(allGigs.?[date > T(java.time.LocalDate).now()]) == 1}" th:each="gig : ${allGigs}">
+        <img class="gigPoster" th:src="@{/uploads/gig-posters/{poster}(poster=${gig.image})}">
+    </div>
     <div th:if="${#lists.size(allGigs.?[date > T(java.time.LocalDate).now()]) == 0}">
         <i id="noUpcomingGigsText">None right now. Stay tuned!</i>
     </div>
 </div>
 
-<div class="gigsDiv" th:if="${#lists.size(allGigs.?[date < T(java.time.LocalDate).now()]) > 0}">
+<div class="pastGigsDiv" th:if="${#lists.size(allGigs.?[date < T(java.time.LocalDate).now()]) > 0}">
     <h2>Past Gigs</h2>
-    <div class="arrowButtons" th:if="${#lists.size(allGigs.?[date < T(java.time.LocalDate).now()]) > 1}">
-        <button class="w3-button w3-display-left w3-black" onclick="plusPastGigDivs(-1)">&#10094;</button>
-        <button class="w3-button w3-display-right w3-black" onclick="plusPastGigDivs(1)">&#10095;</button>
+    <div class="pastGigSlides" th:if="${#lists.size(allGigs.?[date < T(java.time.LocalDate).now()]) > 1}">
+        <swiper-container class="mySwiper" pagination="true" pagination-clickable="true" navigation="true" space-between="30" loop="true">
+            <th:block th:if="${gig.date < T(java.time.LocalDate).now()}" th:each="gig : ${allGigs}">
+                <swiper-slide>
+                    <img class="gigPoster" th:src="@{/uploads/gig-posters/{poster}(poster=${gig.image})}">
+                </swiper-slide>
+            </th:block>
+        </swiper-container>
     </div>
-    <th:block th:each="gig : ${allGigs}" th:if="${gig.date < T(java.time.LocalDate).now()}">
-        <div class="pastGigSlides">
-            <img class="gigPoster" th:src="@{/uploads/gig-posters/{poster}(poster=${gig.image})}"><br>
-        </div>
-    </th:block>
+    <div class="pastGigSlides" th:if="${#lists.size(allGigs.?[date < T(java.time.LocalDate).now()]) == 1}" th:each="gig : ${allGigs}">
+        <img class="gigPoster" th:src="@{/uploads/gig-posters/{poster}(poster=${gig.image})}">
+    </div>
 </div>
-<br>
-<br>
 
 <footer th:replace="fragments :: socialsFooter"></footer>
 

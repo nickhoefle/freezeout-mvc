@@ -221,21 +221,42 @@ th {
     font-family: monospace;
 }
 
+.gigs-view {
+    --swiper-navigation-color: black;
+    --swiper-pagination-color: black
+}
+
 .gigs-view  .arrowButtons {
     white-space: nowrap;
 }
 
 .gigs-view  .gigPoster {
-    width: 80%
-}
-
-.gigs-view  .gigsDiv {
-    text-align: center;
+    height: 85vh;
+    object-fit: contain;
+    width: 100%;
 }
 
 .gigs-view  #noUpcomingGigsText {
     color: black;
     font-size: 16px;
+}
+
+.gigs-view .pastGigSlides {
+    padding-bottom: 100px;
+}
+
+.gigs-view  .pastGigsDiv {
+    text-align: center;
+    padding-bottom: 50px;
+}
+
+.gigs-view  swiper-container {
+    width: 75%;
+}
+
+.gigs-view  .upcomingGigsDiv {
+    text-align: center;
+    padding-bottom: 25px;
 }
 
 .index  #bandText {
@@ -486,6 +507,16 @@ th {
 
     .admin-listen  .selectedSong {
         font-size: 20px;
+    }
+
+    .gigs-view  .gigPoster {
+        height: 80vh;
+        object-fit: contain;
+        width: 100%;
+    }
+
+    .gigs-view  swiper-container {
+        width: 100%;
     }
 
     .index  .instrumentPhoto {
