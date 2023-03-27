@@ -53,7 +53,6 @@ function sortTable(n) {
     }
 }
 
-
 function showSaveButton() {
     const songIdInput = document.getElementsByClassName('songIdInput');
     const songIdInputArray = Array.from(songIdInput);
