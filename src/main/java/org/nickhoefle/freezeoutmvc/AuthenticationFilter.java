@@ -22,13 +22,13 @@ public class AuthenticationFilter implements HandlerInterceptor {
     @Autowired
     private AuthenticationController authenticationController;
 
-    private static final List<String> whitelist = Arrays.asList("/admin");
+    private static final List<String> blacklist = Arrays.asList("/admin");
 
     // Override prehandle method to see if a user is logged in and in a session before allowing get/post requests
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws IOException {
         // is the uri part of the whitelist?
-        if (isWhitelisted(request.getRequestURI())) {
+        if (isBlacklisted(request.getRequestURI())) {
             return true;
         }
         HttpSession session = request.getSession();
@@ -43,8 +43,8 @@ public class AuthenticationFilter implements HandlerInterceptor {
     }
 
     //Check if the address Starts with /pathRoot
-    private static boolean isWhitelisted(String path) {
-        for (String pathRoot : whitelist) {
+    private static boolean isBlacklisted(String path) {
+        for (String pathRoot : blacklist) {
             if (!path.startsWith(pathRoot)) {
                 return true;
             }

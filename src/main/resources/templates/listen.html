@@ -1,20 +1,18 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
-
 <head th:replace="fragments :: head"></head>
 <header th:replace="fragments :: header-reg"></header>
-
 <body class="container-fluid listen">
 
 <div class="table table-striped">
     <div>
         <th:block  th:each="song : ${allSongs}">
-            <div th:if="${song.songUploadFileName != null && song.songUploadFileName != 'Hidden' && song.songUploadFileName != 'images'}">
+            <div th:if="${song.fileName != null && song.fileName != 'Hidden' && song.fileName != 'images'}">
                 <h3 id="songTitle" th:text="${song.songName} + ' - ' + ${song.songDetails.originalArtist}"></h3>
             </div>
-            <div th:if="${song.songUploadFileName != null && song.songUploadFileName != 'Hidden' && song.songUploadFileName != 'images' }">
+            <div th:if="${song.fileName != null && song.fileName != 'Hidden' && song.fileName != 'images' }">
                 <audio class="audioPlayerHTML" controls>
-                    <source th:src="@{${'/uploads/' + song.songUploadFileName}}" type="audio/wav">
+                    <source th:src="@{${'/uploads/audio-files/' + song.fileName}}" type="audio/wav">
                 </audio>
             </div>
         </th:block>

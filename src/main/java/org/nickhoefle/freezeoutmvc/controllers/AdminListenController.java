@@ -3,6 +3,7 @@ package org.nickhoefle.freezeoutmvc.controllers;
 import org.nickhoefle.freezeoutmvc.data.SongRepository;
 import org.nickhoefle.freezeoutmvc.models.Song;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,6 +19,9 @@ import java.util.Optional;
 @RequestMapping("/admin/listen")
 public class AdminListenController {
 
+    @Value("${freezeoutband.base-url}")
+    private String baseUrl;
+
     @Autowired
     private SongRepository songRepository;
 
@@ -25,7 +29,7 @@ public class AdminListenController {
     public String renderAdminListen(Model model) {
         model.addAttribute("allSongs", songRepository.findAll());
         List<String> allAudioFileNames = new ArrayList<>();
-        File directory = new File("src/main/resources/static/uploads/");
+        File directory = new File("src/main/resources/static/uploads/audio-files/");
         File[] files = directory.listFiles();
         for (File file : files) {
             if (file.getName().endsWith("wav") || file.getName().endsWith("mp3")) {
@@ -41,10 +45,10 @@ public class AdminListenController {
         Optional<Song> optSong = songRepository.findBySongName(songName);
         if (optSong.isPresent()) {
             Song song = optSong.get();
-            song.setSongUploadFileName(newFileName);
+            song.setFileName(newFileName);
             songRepository.save(song);
         }
-        return "redirect:/admin/listen";
+        return "redirect:" + baseUrl + "/admin/listen";
     }
 
 }

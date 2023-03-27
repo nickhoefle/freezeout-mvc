@@ -5,7 +5,6 @@
 <body class="container-fluid admin-photos">
 
 <div class="row">
-
    <div class="column">
       <h2>Delete Photos</h2>
       <p>Photos currently in the slideshow:</p>
@@ -38,7 +37,7 @@
       <h2>Upload New Photos</h2>
       <p>Allowed File Types: JPG, PNG and GIF</p>
       <form method="post" th:action="@{/admin/photos/upload-photo}" enctype="multipart/form-data">
-         <hr style="border: 1.5px solid rgb(221, 221, 221);; margin-top:26px">
+         <hr id="adminPhotosHr">
          <div class="form-group">
             <input type="file" name="file" class="form-control-file">
          </div>
@@ -50,7 +49,7 @@
          <div th:each="photoFile : ${allPhotoFileNames}" class="photoGallerySlide">
             <img th:src="@{'/uploads/photos/' + ${photoFile} }" alt="Slide">
          </div>
-      </div><br>
+      </div><br><br>
       </form>
    </div>
 </div>

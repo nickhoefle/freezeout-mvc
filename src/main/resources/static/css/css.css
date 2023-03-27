@@ -1,0 +1,601 @@
+/* Type Selectors */
+a {
+    color: black;
+}
+
+body {
+    background: linear-gradient(to right, #527caa, #2e4660);
+    min-height: 100vh;
+    position: relative;
+}
+
+button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    color: black;
+    background-color: white;
+}
+
+.form-control-file {
+    color:white
+}
+
+h1, h2, h3, h4 {
+    color: black;
+}
+
+label, p, td, th {
+    color: black;
+}
+
+textarea {
+    font-family: monospace;
+}
+
+th {
+    font-size: 16px;
+}
+
+.container-fluid {
+    padding-top: 25px;
+    padding-bottom: 50px;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+/* Body Classes */
+
+.admin-delete-gig  .bigCheckbox {
+    height: 25px;
+    width: 25px;
+}
+
+.admin-delete-gig  .gig-poster-in-table {
+    width: 250px;
+    height: 375px;
+}
+
+.admin-delete-gig  .songTableHeader {
+    cursor: pointer;
+}
+
+.admin-listen  #audioPlayerHeader, .audioPlayerCell {
+    width: 50%;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+.admin-listen  .audioPlayerInCell {
+    height: 25px;
+    width: 80%;
+    border-radius: 0;
+}
+
+.admin-listen  .blackHr {
+    border-color: black;
+}
+
+.admin-listen  #changeHeader, .changeCell {
+    width: 20%;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.admin-listen  .selectedSong {
+    width: 173px;
+}
+
+.admin-listen  #songNameHeader, .songNameCell {
+    width: 30%;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+.admin-listen  .updateButton {
+    width: 173px;
+}
+
+.admin-listen  .uploadedSongPlayer {
+    width: 100%;
+    height: 35px;
+}
+
+.admin-photos  .big-checkbox {
+    width: 25px;
+    height: 25px;
+}
+
+.admin-photos  .checkbox-cell {
+    text-align: center;
+    vertical-align: center;
+}
+
+.admin-photos  .column {
+    flex: 50%;
+    padding: 10px;
+}
+
+.admin-photos  .deleteButtonDiv {
+    width: 33%;
+    text-align: center;
+}
+
+.admin-photos  .deleteColumnHeader {
+    width: 25%;
+    text-align: center;
+}
+
+.admin-photos  #adminPhotosHr {
+    border: 1.5px solid rgb(221, 221, 221);
+    margin-top: 26px;
+}
+
+.admin-photos .photoColumnHeader {
+    width: 50%;
+}
+
+.admin-photos  .photoGallerySlide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    filter: blur(10px);
+    transition: filter 1.0s ease-in-out;
+    opacity: 0;
+}
+
+.admin-photos  .photoGallerySlide.active {
+    visibility: visible;
+    filter: blur(0);
+    opacity: 1;
+}
+
+.admin-photos  .photoGallerySlide img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    outline: 5px solid black;
+}
+
+.admin-photos  .row {
+    display: flex;
+}
+
+.admin-photos  .slideshow-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 700px;
+    position: relative;
+}
+
+.admin-photos  .thumbnail {
+    width: 175px;
+    height: 125px;
+    cursor: pointer;
+}
+
+.admin-photos  .thumbnail-cell {
+    width: 175px;
+    height: 125px;
+}
+
+.admin-songs-delete  .bigCheckbox {
+    height: 25px;
+    width: 25px;
+}
+
+.admin-songs-delete  .songTableHeader {
+    cursor: pointer;
+}
+
+.admin-songs-index  #practiceButtonLink {
+    color: inherit;
+}
+
+.admin-songs-index  .songIdDiv {
+    display:none
+}
+
+.admin-songs-index  .songTableHeader {
+    cursor: pointer;
+}
+
+.admin-songs-index  .table td {
+    vertical-align: middle !important;
+}
+
+.admin-songs-index  .tdCentered {
+    text-align: center;
+}
+
+.admin-upload-gig-image  #allowedFileTypes {
+    font-style: italic;
+}
+
+.admin-upload-gig-image  #fileText {
+    color: white;
+}
+
+.admin-upload-sheet-music  #fileText {
+    color: white;
+}
+
+.edit-chord-page  #songChordsText {
+    width: 100%;
+    height: 500px;
+    font-family: monospace;
+}
+
+.gigs-view {
+    --swiper-navigation-color: black;
+    --swiper-pagination-color: black
+}
+
+.gigs-view  .arrowButtons {
+    white-space: nowrap;
+}
+
+.gigs-view  .gigPoster {
+    height: 85vh;
+    object-fit: contain;
+    width: 100%;
+}
+
+.gigs-view  #noUpcomingGigsText {
+    color: black;
+    font-size: 16px;
+}
+
+.gigs-view .pastGigSlides {
+    padding-bottom: 100px;
+}
+
+.gigs-view  .pastGigsDiv {
+    text-align: center;
+    padding-bottom: 50px;
+}
+
+.gigs-view  swiper-container {
+    width: 75%;
+}
+
+.gigs-view  .upcomingGigsDiv {
+    text-align: center;
+    padding-bottom: 25px;
+}
+
+.index  #bandText {
+    text-align: center;
+}
+
+.index  .carousel-inner img {
+    -webkit-filter: grayscale(90%);
+    filter: grayscale(90%); /* make all photos black and white */
+    width: 100%;
+    margin: auto;
+}
+
+.index  .carouselPhoto {
+    border: 2px solid black;
+}
+
+.index  .instrumentPhoto {
+    width: 15%;
+}
+
+.index  .instrumentsAndNames {
+    text-align: center;
+    width: 60%;
+}
+
+.index  .instrumentsAndNamesContainer {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+}
+
+.index  #titleHeaderFragment {
+    font-size: 20pt;
+}
+
+.index  .titleHeaderFragment:hover {
+    color: white;
+}
+
+.listen  .audioPlayerHTML {
+    width: 100%;
+}
+
+.new-song  .error {
+    color: #7f2828;
+    font-weight: bold;
+}
+
+.photos  swiper-container {
+    width: 100%;
+    height: 100%;
+    --swiper-navigation-color: black;
+    --swiper-pagination-color: black
+}
+
+.photos  swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.photos  swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.photos  swiper-button-next {
+    color: black
+}
+
+.photos  swiper-container {
+    width: 100%;
+    height: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.photos  swiper-slide {
+    background-size: cover;
+    background-position: center;
+}
+
+.photos  .mySwiper {
+    height: 80%;
+    width: 100%;
+    outline: 5px solid black
+}
+
+.photos  .mySwiper2 {
+    height: 20%;
+    box-sizing: border-box;
+    padding: 10px 0;
+}
+
+.photos  .mySwiper2 swiper-slide {
+    width: 25%;
+    height: 100%;
+    opacity: 0.3;
+}
+
+.photos  .mySwiper2 .swiper-slide-thumb-active {
+    opacity: 1;
+}
+
+.photos  #photoGalleryDiv {
+    height: calc(100vh - 250px);
+    width: 100%;
+    margin: auto
+}
+
+.photos  swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.practice  #chordsText {
+    height: 450px;
+    font-family: monospace;
+}
+
+.practice  #notesButton {
+    border: 5px solid black;
+}
+
+.practice  #practiceNoteDateHeader {
+    cursor: pointer;
+}
+
+.practice  #practiceNoteDateHeader, .practiceNoteTimestampCell {
+    width: 12.5%;
+}
+
+.practice  #practiceNoteDeleteButtonHeader, .practiceNoteDeleteButton {
+    width: 12.5%;
+}
+
+.practice  #practiceNoteEditButtonHeader, .practiceNoteEditButton {
+    width: 12.5%;
+}
+
+.practice  #practiceNoteFromHeader {
+    cursor: pointer;
+}
+
+.practice  #practiceNoteFromHeader, .practiceNoteFromCell {
+    width: 12.5%;
+}
+
+.practice  #practiceNoteTextHeader {
+    cursor: pointer;
+}
+
+.practice  #practiceNoteTextHeader, .practiceNoteTextCell {
+    max-width: 350px;
+    word-wrap: break-word;
+}
+
+.upload  #allowedFileTypesText {
+    font-style:italic;
+}
+
+.upload  .largeHr {
+    border: 0; height: 3px; background-color: black;
+}
+
+/* Tablet */
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+
+    /* Type Selectors */
+
+    a {
+        font-size: 24px;
+    }
+
+    button {
+        font-size: 24px;
+    }
+
+    h2 {
+        font-size: 32px
+    }
+
+    h3 {
+        font-size: 30px;
+    }
+
+    h4 {
+        font-size: 28px;
+    }
+
+    input {
+        height: 38px;
+        font-size: 24px;
+    }
+
+    label {
+        font-size: 24px;
+    }
+
+    p {
+        font-size: 22px;
+    }
+
+    td {
+        font-size: 24px;
+        height: 100px;
+    }
+
+    th {
+        font-size: 24px;
+    }
+
+    .btn {
+        font-size: 24px;
+        height: 48px;
+    }
+
+    .container-fluid {
+        padding-right: 45px;
+        padding-left: 45px;
+        padding-top: 30px;
+        padding-bottom: 15px;
+    }
+
+    .form-control {
+        font-size: 24px;
+        height: 48px;
+    }
+
+    .form-control-file {
+        font-size: 22px;
+        height: 38px;
+    }
+
+    .titleHeaderFragment {
+        font-size: 42px;
+    }
+
+    /* Body Classes */
+
+    .admin-listen  .selectedSong {
+        font-size: 20px;
+    }
+
+    .gigs-view  .gigPoster {
+        height: 80vh;
+        object-fit: contain;
+        width: 100%;
+    }
+
+    .gigs-view  swiper-container {
+        width: 100%;
+    }
+
+    .index  .instrumentPhoto {
+        width: 40%;
+    }
+
+    .listen  .audioPlayerHTML {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 40px;
+        padding: 0px;
+    }
+
+    .songs-index  .addSheetMusicCell {
+        display: none;
+    }
+
+    .songs-index  #sheetMusicHeader {
+        display: none;
+    }
+
+    .songs-index  .viewSheetMusicCell {
+        display: none;
+    }
+
+    .songs-index  .yearCell {
+        display: none;
+    }
+
+    .songs-index  #yearHeader {
+        display: none;
+    }
+
+}
+
+/* Custom Audio Player CSS */
+audio::-webkit-media-controls-play-button {
+    border: 3px solid black;
+    text-shadow: none;
+}
+
+audio::-webkit-media-controls-current-time-display {
+    font-size: 14px;
+    color: black;
+    text-shadow: none;
+}
+
+audio::-webkit-media-controls-time-remaining-display {
+    font-size: 14px;
+    color: black;
+    text-shadow: none;
+}
+
+audio::-webkit-media-controls-mute-button {
+    color: white;
+    background-color: white;
+}
+
+audio::-webkit-media-controls-panel {
+    background-color: white;
+}
+
+audio::-webkit-media-controls-enclosure {
+    background-color: rgb(51,122,183);
+    border: 3px solid black;
+    color: white;
+}
+
+audio::-webkit-media-controls-timeline {
+    color: black;
+}

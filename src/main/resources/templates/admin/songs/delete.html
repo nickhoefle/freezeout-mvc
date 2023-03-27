@@ -7,32 +7,29 @@
 <h3>Delete Songs:</h3>
 
 <form method="post">
-<table class="table table-striped" id="myTable">
+<table class="table table-hover" id="myTable">
     <thead>
         <tr>
             <th>Delete</th>
-            <th class="songTableHeader" onclick="sortTable(0)">Song</th>
-            <th class="songTableHeader" onclick="sortTable(1)">Original Artist</th>
-            <th class="songTableHeader" onclick="sortTable(2)">Year</th>
+            <th class="songTableHeader" onclick="sortTable(1)">Song</th>
+            <th class="songTableHeader" onclick="sortTable(2)">Original Artist</th>
+            <th class="songTableHeader" onclick="sortTable(3)">Year</th>
         </tr>
     </thead>
+    <tbody>
         <tr th:each="song : ${songs}">
             <td>
-
-                    <div class="form-group">
-                        <label>
-                            <input type="checkbox" name="songIds" th:value="${song.id}" class="form-control bigCheckbox">
-                        </label>
-                    </div>
-
-
+                <div class="form-group">
+                    <input type="checkbox" name="songIds" th:value="${song.id}" class="form-control align-middle bigCheckbox">
+                </div>
             </td>
-            <td th:text="${song.songName}"></td>
-            <td th:text="${song.songDetails.originalArtist}"></td>
-            <td th:text="${song.songDetails.year}"></td>
+            <td class="align-middle" th:text="${song.songName}"></td>
+            <td class="align-middle" th:text="${song.songDetails.originalArtist}"></td>
+            <td class="align-middle" th:text="${song.songDetails.year}"></td>
         </tr>
+    </tbody>
 </table>
-    <input type="submit" value="Delete" class="btn btn-danger">
+<input type="submit" value="Delete" class="btn btn-danger">
 </form>
 
 </body>

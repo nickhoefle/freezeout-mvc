@@ -12,7 +12,7 @@
 		<hr class="largeHr">
 		<h3>Select Song:</h3>
 		<select class="form-control" name="songId" id="songId">
-			<option th:each="option : ${songsForDropdown}"  th:text="${option.songName}" th:value="${option.id}" ></option>
+			<option th:each="option : ${songsForDropdown}"  th:text="${option.songName}" th:value="${option.id}"></option>
 		</select>
 		<br>
 		<br>
@@ -23,9 +23,6 @@
 		<button> <a class="btn secondary" href="/admin/songs">Skip</a> </button>
 	</form>
 </div>
-
-
-
 
 </body>
 </html>

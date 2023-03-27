@@ -4,15 +4,23 @@
 <header th:replace="fragments :: header-reg"></header>
 <body class="container-fluid photos">
 
-<h2 style="text-align:center">Photos</h2>
-
-<br>
-
-<div class="slideshow-container">
-    <div th:each="photoFile : ${allPhotoFileNames}" class="photoGallerySlide">
-        <img th:src="@{'/uploads/photos/' + ${photoFile} }" alt="Slide">
-    </div>
-</div><br>
+<div id="photoGalleryDiv">
+    <swiper-container class="mySwiper" thumbs-swiper=".mySwiper2" space-between="10" navigation="true">
+        <th:block th:each="photoFile : ${allPhotoFileNames}" >
+            <swiper-slide>
+                <img th:src="@{'/uploads/photos/' + ${photoFile} }" />
+            </swiper-slide>
+        </th:block>
+    </swiper-container>
+    <br>
+    <swiper-container class="mySwiper2" space-between="10" slides-per-view="5" free-mode="true" watch-slides-progress="true">
+        <th:block th:each="photoFile : ${allPhotoFileNames}">
+            <swiper-slide>
+                <img th:src="@{'/uploads/photos/' + ${photoFile} }" />
+            </swiper-slide>
+        </th:block>
+    </swiper-container>
+</div>
 
 <footer th:replace="fragments :: socialsFooter"></footer>
 

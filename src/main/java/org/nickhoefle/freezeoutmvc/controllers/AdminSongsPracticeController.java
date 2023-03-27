@@ -8,9 +8,9 @@ import org.nickhoefle.freezeoutmvc.models.Song;
 import org.nickhoefle.freezeoutmvc.models.SongChords;
 import org.nickhoefle.freezeoutmvc.models.SongNote;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
 import java.sql.Timestamp;
@@ -22,6 +22,9 @@ import java.util.Optional;
 @RequestMapping("/admin/songs")
 public class AdminSongsPracticeController {
 
+    @Value("${freezeoutband.base-url}")
+    private String baseUrl;
+
     @Autowired
     private SongRepository songRepository;
     @Autowired
@@ -30,10 +33,10 @@ public class AdminSongsPracticeController {
     private SongChordsRepository songChordsRepository;
 
     @GetMapping("/practice/{songId}")
-    public String renderPracticePage (Model model, @PathVariable int songId) {
-        Optional optSong = songRepository.findById(songId);
+    public String renderPracticePage(Model model, @PathVariable int songId) {
+        Optional<Song> optSong = songRepository.findById(songId);
         if (optSong.isPresent()) {
-            Song song = (Song) optSong.get();
+            Song song = optSong.get();
             model.addAttribute("song", song);
 
             String youtubeEmbedHTML = song.getSongDetails().getYoutubeURL();
@@ -51,34 +54,31 @@ public class AdminSongsPracticeController {
 
     @PostMapping("/practice/{songId}/change-url")
     public String processYoutubeUrlUpdate(@PathVariable int songId, @RequestParam("youtubeUrl") String youtubeUrl) {
-        Optional optSong = songRepository.findById(songId);
+        Optional<Song> optSong = songRepository.findById(songId);
         if (optSong.isPresent()) {
-            Song song = (Song) optSong.get();
+            Song song = optSong.get();
             song.getSongDetails().setYoutubeURL(youtubeUrl);
             songRepository.save(song);
         }
-        return "redirect:/admin/songs/practice/{songId}";
+        return "redirect:" + baseUrl + "/admin/songs/practice/{songId}";
     }
 
     @GetMapping("/practice/{songId}/add-notes")
-    public String renderAddNotesPage (Model model, @PathVariable int songId) {
+    public String renderAddNotesPage(Model model, @PathVariable int songId) {
         model.addAttribute(new SongNote());
-        Optional optSong = songRepository.findById(songId);
+        Optional<Song> optSong = songRepository.findById(songId);
         if (optSong.isPresent()) {
-            Song song = (Song) optSong.get();
+            Song song = optSong.get();
             model.addAttribute("song", song);
         }
         return "/admin/songs/add-notes";
     }
 
     @PostMapping("/practice/{songId}/add-notes")
-    public String processAddNote (@ModelAttribute @Valid SongNote newSongNote, @PathVariable int songId, Errors errors, Model model) {
-        if (errors.hasErrors()) {
-            return "songs/practice";
-        }
-        Optional optSong = songRepository.findById(songId);
+    public String processAddNote(@ModelAttribute SongNote newSongNote, @PathVariable int songId, Model model) {
+        Optional<Song> optSong = songRepository.findById(songId);
         if (optSong.isPresent()) {
-            Song song = (Song) optSong.get();
+            Song song = optSong.get();
             model.addAttribute("song", song);
             List<SongNote> songNotesCollection = song.getSongNotes();
             for (SongNote songNote : songNotesCollection) {
@@ -91,7 +91,7 @@ public class AdminSongsPracticeController {
             newSongNote.setTimestamp(new Timestamp(System.currentTimeMillis()));
             songNoteRepository.save(newSongNote);
         }
-        return "redirect:/admin/songs/practice/{songId}";
+        return "redirect:" + baseUrl + "/admin/songs/practice/{songId}";
     }
 
     @PostMapping("/practice/{songId}/delete-note")
@@ -101,7 +101,7 @@ public class AdminSongsPracticeController {
             SongNote songNote = optSongNote.get();
             songNoteRepository.delete(songNote);
         }
-        return "redirect:/admin/songs/practice/{songId}";
+        return "redirect:" + baseUrl + "/admin/songs/practice/{songId}";
     }
 
     @GetMapping("/practice/{songId}/edit-note/{noteId}")
@@ -118,35 +118,32 @@ public class AdminSongsPracticeController {
     }
 
     @PostMapping("/practice/{songId}/edit-note/{noteId}")
-    public String processEditNotePage(@RequestParam String newSongNoteText, @PathVariable int songId, @PathVariable int noteId) {
+    public String processEditNote(@RequestParam String newSongNoteText, @PathVariable int songId, @PathVariable int noteId) {
         Optional<SongNote> optSongNote = songNoteRepository.findById(noteId);
         if (optSongNote.isPresent()) {
             SongNote songNote = optSongNote.get();
             songNote.setNoteText(newSongNoteText);
             songNoteRepository.save(songNote);
         }
-        return "redirect:/admin/songs/practice/{songId}";
+        return "redirect:" + baseUrl + "/admin/songs/practice/{songId}";
     }
 
     @GetMapping("/practice/{songId}/add-chords")
-    public String renderAddChordsPage (Model model, @PathVariable int songId) {
+    public String renderAddChordsPage(Model model, @PathVariable int songId) {
         model.addAttribute(new SongChords());
-        Optional optSong = songRepository.findById(songId);
+        Optional<Song> optSong = songRepository.findById(songId);
         if (optSong.isPresent()) {
-            Song song = (Song) optSong.get();
+            Song song = optSong.get();
             model.addAttribute("song", song);
         }
         return "/admin/songs/add-chords";
     }
 
     @PostMapping("/practice/{songId}/add-chords")
-    public String processAddChordPage (@ModelAttribute @Valid SongChords newSongChords, @PathVariable int songId, Errors errors, Model model) {
-        if (errors.hasErrors()) {
-            return "admin/songs/practice";
-        }
-        Optional optSong = songRepository.findById(songId);
+    public String processAddChordPage(@ModelAttribute SongChords newSongChords, @PathVariable int songId, Model model) {
+        Optional<Song> optSong = songRepository.findById(songId);
         if (optSong.isPresent()) {
-            Song song = (Song) optSong.get();
+            Song song = optSong.get();
             model.addAttribute("song", song);
             List<SongChords> songChordsCollection = song.getSongChords();
             for (SongChords songChords : songChordsCollection) {
@@ -159,7 +156,7 @@ public class AdminSongsPracticeController {
             newSongChords.setTimestamp(new Timestamp(System.currentTimeMillis()));
             songChordsRepository.save(newSongChords);
         }
-        return "redirect:/admin/songs/practice/{songId}";
+        return "redirect:" + baseUrl + "/admin/songs/practice/{songId}";
     }
 
     @PostMapping("/practice/{songId}/delete-chord-page")
@@ -169,7 +166,7 @@ public class AdminSongsPracticeController {
             SongChords songChords = optSongChords.get();
             songChordsRepository.delete(songChords);
         }
-        return "redirect:/admin/songs/practice/{songId}";
+        return "redirect:" + baseUrl + "/admin/songs/practice/{songId}";
     }
 
     @GetMapping("/practice/{songId}/edit-chord-page/{chordPageId}")
@@ -193,7 +190,7 @@ public class AdminSongsPracticeController {
             songChords.setChordsText(newSongChordsText);
             songChordsRepository.save(songChords);
         }
-        return "redirect:/admin/songs/practice/{songId}";
+        return "redirect:" + baseUrl + "/admin/songs/practice/{songId}";
     }
 
 }

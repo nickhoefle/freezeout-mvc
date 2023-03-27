@@ -4,25 +4,22 @@ import jakarta.persistence.*;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
 import java.util.List;
 
 @Entity
 public class Song extends AbstractEntity {
 
-    @NotBlank(message = "Name is required")
-    @Size(min = 3, max = 50, message = "Name must be between 3 and 50 characters")
+    @NotBlank(message = "Song name is required!")
     private String songName;
 
-    private String songUploadFileName;
+    private String fileName;
 
     private String songSheetMusic;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "song")
     private List<SongNote> songNotes;
 
-    @OneToMany
-    @JoinColumn(name = "song_id")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "song")
     private List<SongChords> songChords;
 
     private String status;
@@ -34,8 +31,14 @@ public class Song extends AbstractEntity {
 
     public Song() {}
 
-    public Song(String songName) {
+    public Song(String songName, String fileName, String songSheetMusic, List<SongNote> songNotes, List<SongChords> songChords, String status, SongDetails songDetails) {
         this.songName = songName;
+        this.fileName = fileName;
+        this.songSheetMusic = songSheetMusic;
+        this.songNotes = songNotes;
+        this.songChords = songChords;
+        this.status = status;
+        this.songDetails = songDetails;
     }
 
     public String getSongName() {
@@ -46,12 +49,12 @@ public class Song extends AbstractEntity {
         this.songName = songName;
     }
 
-    public String getSongUploadFileName() {
-        return songUploadFileName;
+    public String getFileName() {
+        return fileName;
     }
 
-    public void setSongUploadFileName(String songUploadFileName) {
-        this.songUploadFileName = songUploadFileName;
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
     }
 
     public SongDetails getSongDetails() {
@@ -102,7 +105,7 @@ public class Song extends AbstractEntity {
     public String toString() {
         return "Song{" +
                 "songName='" + songName + '\'' +
-                ", songUploadFileName='" + songUploadFileName + '\'' +
+                ", fileName='" + fileName + '\'' +
                 ", songSheetMusic='" + songSheetMusic + '\'' +
                 ", songNotes=" + songNotes +
                 ", songChords=" + songChords +

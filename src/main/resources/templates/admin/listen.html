@@ -6,7 +6,20 @@
 
 <h3>Configure 'Listen' Page</h3>
 
-<table class="table" id="myTable">
+<hr>
+<button id="showUploadedSongs" class="btn btn-primary">Show Uploaded Files</button>
+<div id="uploadedSongsDiv" style="display:none;">
+    <br>
+    <span th:each="file : ${allAudioFileNames}">
+        <p th:text="${file}"></p>
+        <audio class="uploadedSongPlayer" controls>
+            <source th:src="@{${'/uploads/audio-files/' + file}}" type="audio/wav">
+        </audio>
+    </span>
+</div>
+<hr><br>
+
+<table class="table table-hover" id="myTable">
     <thead>
         <tr>
             <th id="songNameHeader" onclick="sortTable(0)">Song</th>
@@ -18,15 +31,15 @@
         <tr th:each="song : ${allSongs}">
             <td class="songNameCell" th:text="${song.songName}"></td>
             <td class="audioPlayerCell">
-                <div th:if="${song.songUploadFileName != null && song.songUploadFileName != 'Hidden' && song.songUploadFileName != 'images'}">
-                    <label th:text="${song.songUploadFileName}"></label>
-                    <div th:if="${song.songUploadFileName != 'Hidden'}">
+                <div th:if="${song.fileName != null && song.fileName != 'Hidden' && song.fileName != 'images'}">
+                    <label th:text="${song.fileName}"></label>
+                    <div th:if="${song.fileName != 'Hidden'}">
                         <audio class="audioPlayerInCell" controls>
-                            <source th:src="@{${'/uploads/' + song.songUploadFileName}}" type="audio/wav">
+                            <source th:src="@{${'/uploads/audio-files/' + song.fileName}}" type="audio/wav">
                         </audio>
                     </div>
                 </div>
-                <div th:if="${song.songUploadFileName == null || song.songUploadFileName == 'Hidden' || song.songUploadFileName == 'images'}">
+                <div th:if="${song.fileName == null || song.fileName == 'Hidden' || song.fileName == 'images'}">
                     Not On Listen Page
                 </div>
             </td>
@@ -40,14 +53,14 @@
                         <th:block th:each="audioFileName : ${allAudioFileNames}">
                             <option th:text="${audioFileName}" th:value="${audioFileName}"></option>
                         </th:block>
-                    </select><hr>
+                    </select><hr class="blackHr">
 
                     <div>
                         <button class="btn btn-primary updateButton" type="submit">Update</button><br><br>
                         <a class="playBtn">
                             <button class="btn btn-secondary" onclick="openSelectedInNewTab()" type="button">
                                 Play Selected
-                            </button><hr>
+                            </button><hr class="blackHr">
                         </a>
                     </div>
                 </form>
