@@ -1,6 +1,7 @@
 package org.nickhoefle.freezeoutmvc.controllers;
 
 import org.apache.pdfbox.multipdf.PDFMergerUtility;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
@@ -14,6 +15,9 @@ import java.util.List;
 @Controller
 @RequestMapping("/admin")
 public class PdfController {
+
+    @Value("${freezeoutband.base-url}")
+    private String baseUrl;
 
     private static final String PDF_FOLDER_PATH = "src/main/resources/static/uploads/sheet-music/";
     private static final String OUTPUT_FOLDER_PATH = "src/main/resources/static/uploads/setlists/";
@@ -51,7 +55,7 @@ public class PdfController {
         } catch (IOException e) {
             // Handle PDF merging error
         }
-        return "redirect:/admin/setlists";
+        return "redirect:" + baseUrl + "/admin/setlists";
     }
 
     private List<String> getPdfFileNames() {
