@@ -156,7 +156,7 @@ th {
     max-width: 100%;
     max-height: 100%;
     object-fit: contain;
-    outline: 5px solid black;
+    outline: 3px solid black;
 }
 
 .admin-photos  .row {
@@ -332,10 +332,8 @@ th {
 }
 
 .photos  swiper-slide img {
-    display: block;
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto;
 }
 
 .photos  swiper-button-next {
@@ -344,9 +342,6 @@ th {
 
 .photos  swiper-container {
     width: 100%;
-    height: 300px;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 .photos  swiper-slide {
@@ -355,9 +350,7 @@ th {
 }
 
 .photos  .mySwiper {
-    height: 80%;
-    width: 100%;
-    outline: 5px solid black
+
 }
 
 .photos  .mySwiper2 {
@@ -377,9 +370,13 @@ th {
 }
 
 .photos  #photoGalleryDiv {
-    height: calc(100vh - 250px);
-    width: 100%;
-    margin: auto
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+    height: 800px; /* set a fixed height for the gallery container */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .photos  swiper-slide img {
@@ -429,6 +426,10 @@ th {
 .practice  #practiceNoteTextHeader, .practiceNoteTextCell {
     max-width: 350px;
     word-wrap: break-word;
+}
+
+.setlists .setlistLink:visited {
+    color: black;
 }
 
 .upload  #allowedFileTypesText {

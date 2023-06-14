@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<header th:replace="fragments :: header-admin"></header>
+<body class="container-fluid admin-photos">
+
+<h1>Upload Photos!</h1>
+
+<form method="post" th:action="@{/admin/photos/upload-photo}">
+    <div class="form-group">
+        <label>Title
+            <input th:field="${photo.title}" class="form-control">
+        </label>
+    </div>
+    <div class="form-group">
+        <label>Credit (Optional)
+            <input class="form-control" th:field="${photo.credit}">
+        </label>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Create" class="btn btn-success">
+    </div>
+</form>
+
+</body>
+</html>

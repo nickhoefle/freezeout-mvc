@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<header th:replace="fragments :: header-admin"></header>
+<body class="container-fluid new-song">
+
+<div class="column">
+    <h2>Upload New Photos</h2>
+    <p>Allowed File Types: JPG, PNG and GIF</p>
+    <form method="post" th:action="@{/admin/photos/upload-photo-file}" enctype="multipart/form-data">
+        <hr id="adminPhotosHr">
+        <select id="photoId" class="form-control" name="photoId">
+            <option th:each="photo : ${photosForDropdown}" th:text="${photo.title}" th:value="${photo.id}"></option>
+        </select>
+        <div class="form-group">
+            <input type="file" name="file" class="form-control-file">
+        </div>
+        <button type="submit" class="btn btn-primary centered-danger">Upload File</button>
+    </form><br>
+</div>
+
+</body>
+</html>

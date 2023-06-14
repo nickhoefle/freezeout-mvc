@@ -1,5 +1,8 @@
 package org.nickhoefle.freezeoutmvc.controllers;
 
+import org.nickhoefle.freezeoutmvc.data.PhotoRepository;
+import org.nickhoefle.freezeoutmvc.models.Photo;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,17 +17,14 @@ import java.util.List;
 @RequestMapping("/photos")
 public class PhotosController {
 
+    @Autowired
+    private PhotoRepository photoRepository;
+
     @GetMapping("")
     public String renderPhotoPage(Model model) {
-        List<String> allPhotoFileNames = new ArrayList<>();
-        File directory = new File("src/main/resources/static/uploads/photos/");
-        File[] files = directory.listFiles();
-        for (File file : files) {
-            allPhotoFileNames.add(file.getName());
-        }
-        Collections.reverse(allPhotoFileNames); // Reverse the order of the list
-        model.addAttribute("allPhotoFileNames", allPhotoFileNames);
-        return "/photos";
+        List<Photo> photos = photoRepository.findAllByOrderByOrderNumberAsc();
+        model.addAttribute("photos", photos);
+        return "photos";
     }
 
 }

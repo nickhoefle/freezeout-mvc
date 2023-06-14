@@ -6,23 +6,33 @@
 
 <div id="photoGalleryDiv">
     <swiper-container class="mySwiper" thumbs-swiper=".mySwiper2" space-between="10" navigation="true">
-        <th:block th:each="photoFile : ${allPhotoFileNames}" >
-            <swiper-slide>
-                <img th:src="@{'/uploads/photos/' + ${photoFile} }" />
+        <th:block th:each="photo : ${photos}" >
+            <swiper-slide style="position: relative;">
+                <img th:src="@{'/uploads/photos/' + ${photo.url} }" />
+                <p class="credit-text" th:text="${photo.credit}"></p>
             </swiper-slide>
         </th:block>
     </swiper-container>
     <br>
     <swiper-container class="mySwiper2" space-between="10" slides-per-view="5" free-mode="true" watch-slides-progress="true">
-        <th:block th:each="photoFile : ${allPhotoFileNames}">
+        <th:block th:each="photo : ${photos}">
             <swiper-slide>
-                <img th:src="@{'/uploads/photos/' + ${photoFile} }" />
+                <img th:src="@{'/uploads/photos/' + ${photo.url} }" />
             </swiper-slide>
         </th:block>
     </swiper-container>
 </div>
 
-<footer th:replace="fragments :: socialsFooter"></footer>
-
 </body>
+
+<style>
+    .credit-text {
+    color: white;
+    position: absolute;
+    bottom: 0;
+    left: 90%;
+    transform: translateX(-50%);
+    font-size: 11px;
+}
+</style>
 </html>
