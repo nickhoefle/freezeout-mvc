@@ -428,6 +428,10 @@ th {
     word-wrap: break-word;
 }
 
+.setlists .setlistLink:visited {
+    color: black;
+}
+
 .upload  #allowedFileTypesText {
     font-style:italic;
 }

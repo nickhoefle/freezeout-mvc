@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="fragments :: head"></head>
+<header th:replace="fragments :: header-admin"></header>
+<body class="container-fluid setlists">
+
+<h2>Create a Setlist</h2>
+<br>
+<form id="pdfForm" method="post" action="/admin/setlists/merge">
+    <label for="outputFileName">Setlist Name:</label>
+    <input type="text" id="outputFileName" name="outputFileName" required>
+    <br><br>
+    <div id="sections">
+        <div class="section">
+            <label>Song #1:</label>
+            <select name="pdfFiles[]" required>
+                <option value="">Select PDF File</option>
+                <option th:each="pdfFile : ${pdfFiles}" th:value="${pdfFile}" th:text="${pdfFile}"></option>
+            </select>
+        </div>
+    </div>
+    <br>
+    <button class="btn btn-primary" type="button" id="addSectionButton">Add Another Song</button>
+    <button class="btn btn-success" type="submit">Merge PDF</button>
+</form>
+
+<div>
+    <h2>Setlist PDFs</h2>
+    <ul>
+        <li th:each="setlistFile : ${setlistFiles}">
+            <a th:href="@{/uploads/setlists/} + ${setlistFile}" target="_blank" th:text="${setlistFile}" class="setlistLink"></a>
+        </li>
+    </ul>
+</div>
+
+<script type="text/javascript" th:src="@{/javascript/setlists.js}"></script>
+</body>
+</html>
