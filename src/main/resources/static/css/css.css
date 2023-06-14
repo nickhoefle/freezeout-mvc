@@ -564,6 +564,62 @@ th {
 
 }
 
+/* CSS rules for smartphone size */
+@media only screen and (min-width: 0px) and (max-width: 767px) {
+    .container-fluid {
+        display: block;
+        width: auto;
+        padding-right: 5px;
+        padding-left: 5px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .gigs-view swiper-container {
+        width: 90%;
+    }
+
+    .nav {
+        display: flex;
+        justify-content: center;
+    }
+
+    .nav-link {
+        font-size: 24px;
+        text-decoration: underline;
+    }
+
+    .titleHeaderFragment {
+        display: flex;
+        justify-content: center;
+    }
+
+    .index .name {
+        font-size: 26px;
+    }
+
+    .index .instrumentsAndNames {
+        width: 100%;
+    }
+
+    .index .instrumentPhoto {
+        width: 40%;
+    }
+
+    .index #photoCarousel {
+        width: 100%;
+    }
+
+    .photos #photoGalleryDiv {
+        height: 450px;
+    }
+
+    .listen #songTitle {
+        font-size: 20px;
+        text-align: center;
+    }
+}
+
 /* Custom Audio Player CSS */
 audio::-webkit-media-controls-play-button {
     border: 3px solid black;
@@ -600,3 +656,4 @@ audio::-webkit-media-controls-enclosure {
 audio::-webkit-media-controls-timeline {
     color: black;
 }
+
