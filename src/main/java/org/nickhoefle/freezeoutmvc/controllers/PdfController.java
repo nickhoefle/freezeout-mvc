@@ -25,6 +25,7 @@ public class PdfController {
     @GetMapping("/setlists")
     public String showPdfForm(Model model) {
         List<String> pdfFileNames = getPdfFileNames();
+        pdfFileNames.sort(String.CASE_INSENSITIVE_ORDER);
         List<String> setlistFileNames = getSetlistFileNames();
         model.addAttribute("pdfFiles", pdfFileNames);
         model.addAttribute("setlistFiles", setlistFileNames);
