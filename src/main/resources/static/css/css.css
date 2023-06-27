@@ -28,6 +28,11 @@ label, p, td, th {
     color: black;
 }
 
+.nav-link {
+    font-size: 18px;
+    text-decoration: underline;
+}
+
 textarea {
     font-family: monospace;
 }
