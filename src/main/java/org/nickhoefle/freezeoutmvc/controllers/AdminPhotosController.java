@@ -2,7 +2,6 @@ package org.nickhoefle.freezeoutmvc.controllers;
 
 import org.nickhoefle.freezeoutmvc.data.PhotoRepository;
 import org.nickhoefle.freezeoutmvc.models.Photo;
-import org.nickhoefle.freezeoutmvc.models.Song;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -14,13 +13,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 
@@ -38,7 +37,11 @@ public class AdminPhotosController {
 
     @GetMapping("")
     public String renderAdminReorderPhotos(Model model) {
-        model.addAttribute("allPhotos", photoRepository.findAll());
+        Iterable<Photo> iterablePhotos = photoRepository.findAll();
+        List<Photo> allPhotos = new ArrayList<>();
+        iterablePhotos.forEach(allPhotos::add);
+        allPhotos.sort(Comparator.comparingInt(Photo::getOrderNumber));
+        model.addAttribute("allPhotos", allPhotos);
         return "/admin/photos/photos";
     }
 
