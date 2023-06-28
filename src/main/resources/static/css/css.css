@@ -105,76 +105,29 @@ th {
     height: 35px;
 }
 
-.admin-photos  .big-checkbox {
-    width: 25px;
-    height: 25px;
-}
-
-.admin-photos  .checkbox-cell {
-    text-align: center;
-    vertical-align: center;
-}
-
-.admin-photos  .column {
-    flex: 50%;
-    padding: 10px;
-}
-
-.admin-photos  .deleteButtonDiv {
-    width: 33%;
-    text-align: center;
-}
-
-.admin-photos  .deleteColumnHeader {
-    width: 25%;
-    text-align: center;
-}
-
-.admin-photos  #adminPhotosHr {
-    border: 1.5px solid rgb(221, 221, 221);
-    margin-top: 26px;
-}
-
 .admin-photos .photoColumnHeader {
     width: 50%;
 }
 
-.admin-photos  .photoGallerySlide {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+.admin-photos  .photoOrderCell {
+    vertical-align: middle;
     text-align: center;
-    filter: blur(10px);
-    transition: filter 1.0s ease-in-out;
-    opacity: 0;
 }
 
-.admin-photos  .photoGallerySlide.active {
-    visibility: visible;
-    filter: blur(0);
-    opacity: 1;
+.admin-photos  .photoOrderColumnHeader {
+    width: 50%;
+    text-align: center;
+    cursor: pointer;
 }
 
-.admin-photos  .photoGallerySlide img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-    outline: 3px solid black;
+.admin-photos  .photoOrderInput {
+    width: 40px;
+    text-align: center;
 }
 
-.admin-photos  .row {
-    display: flex;
-}
-
-.admin-photos  .slideshow-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 700px;
-    position: relative;
+.admin-photos  .submitButtonDiv {
+    text-align: center;
+    width: 50%;
 }
 
 .admin-photos  .thumbnail {
@@ -183,9 +136,47 @@ th {
     cursor: pointer;
 }
 
-.admin-photos  .thumbnail-cell {
+.admin-photos  .thumbnailContainer {
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+}
+
+.admin-photos-delete  .big-checkbox {
+    width: 25px;
+    height: 25px;
+}
+
+.admin-photos-delete  .checkbox-cell {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.admin-photos-delete  .deleteButtonDiv {
+    width: 33%;
+    text-align: center;
+}
+
+.admin-photos-delete  .deleteColumnHeader {
+    width: 25%;
+    text-align: center;
+}
+
+.admin-photos-delete .photoColumnHeader {
+    width: 50%;
+    text-align: center;
+}
+
+.admin-photos-delete  .thumbnail {
     width: 175px;
     height: 125px;
+    cursor: pointer;
+}
+
+.admin-photos-delete  .thumbnailContainer {
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
 }
 
 .admin-songs-delete  .bigCheckbox {

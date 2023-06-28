@@ -2,37 +2,35 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
 <header th:replace="fragments :: header-admin"></header>
-<body class="container-fluid admin-photos">
+<body class="container-fluid admin-photos-delete">
 
-<div class="row">
-   <div class="column">
-      <h2>Delete Photos</h2>
-      <p>Photos currently in the slideshow:</p>
-      <form th:action="@{/admin/photos/deletePhotos}" method="post">
-         <table class="table table-hover">
-            <thead>
-               <tr>
-                  <th class="deleteColumnHeader"></th>
-                  <th class="photoColumnHeader"></th>
-               </tr>
-            </thead>
-            <tbody>
-               <tr th:each="photo : ${allPhotos}">
-                  <td class="checkbox-cell">
-                     <input class="big-checkbox" name="photoIds" th:value="${photo.id}" type="checkbox">
-                  </td>
-                  <td class="thumbnail-cell">
-                     <img class="thumbnail" th:src="@{'/uploads/photos/' + ${photo.url} }" onclick="window.open(this.src)">
-                  </td>
-               </tr>
-            </tbody>
-         </table>
-         <div class="deleteButtonDiv">
-            <button class="btn btn-danger" type="submit">Delete</button>
-         </div>
-      </form>
+<h2>Delete Photos</h2>
+<p>Photos currently in the slideshow:</p>
+<form th:action="@{/admin/photos/deletePhotos}" method="post">
+   <table class="table">
+      <thead>
+         <tr>
+            <th class="deleteColumnHeader"></th>
+            <th class="photoColumnHeader"></th>
+         </tr>
+      </thead>
+      <tbody>
+         <tr th:each="photo : ${allPhotos}">
+            <td class="checkbox-cell">
+               <input class="big-checkbox" name="photoIds" th:value="${photo.id}" type="checkbox">
+            </td>
+            <td>
+               <div class="thumbnailContainer">
+                  <img class="thumbnail" th:src="@{'/uploads/photos/' + ${photo.url} }" onclick="window.open(this.src)">
+               </div>
+            </td>
+         </tr>
+      </tbody>
+   </table>
+   <div class="deleteButtonDiv">
+      <button class="btn btn-danger" type="submit">Delete</button>
    </div>
-</div>
+</form>
 
 </body>
 
