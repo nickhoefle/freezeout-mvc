@@ -378,7 +378,7 @@ th {
     max-width: 100%;
     margin: 0 auto;
     padding: 0 20px;
-    height: 800px; /* set a fixed height for the gallery container */
+    height: 950px; /* set a fixed height for the gallery container */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -567,6 +567,10 @@ th {
         padding: 0px;
     }
 
+    .photos #photoGalleryDiv {
+        height: 700px;
+    }
+
     .songs-index  .addSheetMusicCell {
         display: none;
     }
@@ -656,7 +660,7 @@ th {
     }
 
     .photos #photoGalleryDiv {
-        height: 450px;
+        height: 400px;
     }
 
     .listen #songTitle {
