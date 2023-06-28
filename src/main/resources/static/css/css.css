@@ -643,6 +643,11 @@ th {
         display: none;
     }
 
+    .gigs-view  .gigPoster {
+        object-fit: scale-down;
+        width: 100%;
+        }
+
     .index .name {
         font-size: 26px;
     }
