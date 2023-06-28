@@ -524,6 +524,26 @@ th {
         font-size: 20px;
     }
 
+    .admin-songs-index .addSheetMusicCell {
+        display: none;
+    }
+
+    .admin-songs-index .viewSheetMusicCell {
+        display: none;
+    }
+
+    .admin-songs-index #sheetMusicHeader {
+        display: none;
+    }
+
+    .admin-songs-index .yearCell {
+        display: none;
+    }
+
+    .admin-songs-index #yearHeader {
+        display: none;
+    }
+
     .gigs-view  .gigPoster {
         height: 80vh;
         object-fit: contain;
@@ -597,6 +617,26 @@ th {
     .titleHeaderFragment {
         display: flex;
         justify-content: center;
+    }
+
+    .admin-songs-index .addSheetMusicCell {
+        display: none;
+    }
+
+    .admin-songs-index .viewSheetMusicCell {
+        display: none;
+    }
+
+    .admin-songs-index #sheetMusicHeader {
+        display: none;
+    }
+
+    .admin-songs-index .yearCell {
+        display: none;
+    }
+
+    .admin-songs-index #yearHeader {
+        display: none;
     }
 
     .index .name {
