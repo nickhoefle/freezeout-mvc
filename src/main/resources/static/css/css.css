@@ -304,6 +304,7 @@ th {
 
 .listen  .audioPlayerHTML {
     width: 100%;
+    margin-bottom: 12px;
 }
 
 .new-song  .error {
