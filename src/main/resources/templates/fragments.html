@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" th:href="@{/css/css.css}">
+    <script type="text/javascript" th:src="@{/javascript/fragments.js}"></script>
     <script type="text/javascript" th:src="@{/javascript/gigs.js}"></script>
     <script type="text/javascript" th:src="@{/javascript/listen.js}"></script>
     <script type="text/javascript" th:src="@{/javascript/admin-listen.js}"></script>
@@ -17,6 +18,7 @@
     <script type="text/javascript" th:src="@{/javascript/admin-songs.js}"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 
@@ -31,22 +33,47 @@
 </header>
 
 
+<!--<header th:fragment="header-admin">-->
+<!--    <a class="titleHeaderFragment" href="/" style="font-size: 32pt">Freezeout Band</a>-->
+<!--    <ul class="nav">-->
+<!--        <li style="font-size:18px" class="nav-item"><a class="nav-link" href="/admin/listen">Listen</a></li>-->
+<!--        <li style="font-size:18px" class="nav-item"><a class="nav-link" href="/admin/photos">Photos</a></li>-->
+<!--        <li style="font-size:18px" class="nav-item"><a class="nav-link" href="/admin/gigs/new">New Gig</a></li>-->
+<!--        <li style="font-size:18px" class="nav-item"><a class="nav-link" href="/admin/gigs/delete">Delete Gigs</a></li>-->
+<!--        <li style="font-size:18px" class="nav-item"><a class="nav-link" href="/admin/songs">All Songs</a></li>-->
+<!--        <li style="font-size:18px" class="nav-item"><a class="nav-link" href="/admin/songs/new">New Song</a></li>-->
+<!--        <li style="font-size:18px" class="nav-item"><a class="nav-link" href="/admin/upload/sheet-music">Upload Files</a></li>-->
+<!--        <li style="font-size:18px" class="nav-item"><a class="nav-link" href="/admin/photos/upload-photo">Upload Photos</a></li>-->
+<!--        <li style="font-size:18px" class="nav-item"><a class="nav-link" href="/admin/songs/delete">Delete Songs</a></li>-->
+<!--        <li style="font-size:18px" class="nav-item"><a class="nav-link" href="/admin/photos/delete-photos">Delete Photos</a></li>-->
+<!--        <li style="font-size:18px" class="nav-item"><a class="nav-link" href="/admin/setlists">Setlists</a></li>-->
+<!--        <li style="font-size:18px" class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>-->
+<!--    </ul>-->
+<!--</header>-->
+
 <header th:fragment="header-admin">
     <a class="titleHeaderFragment" href="/" style="font-size: 32pt">Freezeout Band</a>
-    <ul class="nav">
-        <li style="font-size:18px" class="nav-item"><a class="nav-link" href="/admin/listen">Listen</a></li>
-        <li style="font-size:18px" class="nav-item"><a class="nav-link" href="/admin/photos">Photos</a></li>
-        <li style="font-size:18px" class="nav-item"><a class="nav-link" href="/admin/gigs/new">New Gig</a></li>
-        <li style="font-size:18px" class="nav-item"><a class="nav-link" href="/admin/gigs/delete">Delete Gigs</a></li>
-        <li style="font-size:18px" class="nav-item"><a class="nav-link" href="/admin/songs">All Songs</a></li>
-        <li style="font-size:18px" class="nav-item"><a class="nav-link" href="/admin/songs/new">New Song</a></li>
-        <li style="font-size:18px" class="nav-item"><a class="nav-link" href="/admin/upload/sheet-music">Upload Files</a></li>
-        <li style="font-size:18px" class="nav-item"><a class="nav-link" href="/admin/photos/upload-photo">Upload Photos</a></li>
-        <li style="font-size:18px" class="nav-item"><a class="nav-link" href="/admin/songs/delete">Delete Songs</a></li>
-        <li style="font-size:18px" class="nav-item"><a class="nav-link" href="/admin/photos/delete-photos">Delete Photos</a></li>
-        <li style="font-size:18px" class="nav-item"><a class="nav-link" href="/admin/setlists">Setlists</a></li>
-        <li style="font-size:18px" class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
-    </ul>
+    <p id="hamburgerIcon" style="color:black; font-size:24px; cursor:pointer; padding-top:14px; padding-bottom:6px" onclick="toggleHamburger()">☰ Menu</p>
+    <div id="hamburgerLinks" style="display:none; width:75%; outline: 2px solid black">
+        <a class="nav-link" style="padding-top:20px" href="/admin/songs">View All Songs</a>
+        <a class="nav-link" href="/admin/songs/new">Add New Song</a>
+        <a class="nav-link" href="/admin/songs/delete">Delete Songs</a>
+        <hr style="border:0.5px solid black">
+        <a class="nav-link" href="/admin/listen">Customize Listen Page</a>
+        <hr style="border:0.5px solid black">
+        <a class="nav-link" href="/admin/photos/upload-photo">Upload Photos</a>
+        <a class="nav-link" href="/admin/photos">Arrange Photos</a>
+        <a class="nav-link" href="/admin/photos/delete-photos">Delete Photos</a>
+        <hr style="border:0.5px solid black">
+        <a class="nav-link" href="/admin/gigs/new">Add New Gig</a>
+        <a class="nav-link" href="/admin/gigs/delete">Delete Gigs</a>
+        <hr style="border:0.5px solid black">
+        <a class="nav-link" href="/admin/upload/sheet-music">Upload Sheet Music/Audio File</a>
+        <hr style="border:0.5px solid black">
+        <a class="nav-link" href="/admin/setlists">Create/View Setlists</a>
+        <hr style="border:0.5px solid black">
+        <a class="nav-link" style="padding-bottom:20px" href="/logout">Logout</a>
+    </div>
 </header>
 
 <footer th:fragment="socialsFooter" class="footer mt-auto" style="position: absolute; bottom: 0; left: 0; right: 0">
@@ -58,6 +85,5 @@
         <br>
     </center>
 </footer>
-
 
 </html>

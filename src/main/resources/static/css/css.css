@@ -28,6 +28,11 @@ label, p, td, th {
     color: black;
 }
 
+.nav-link {
+    font-size: 18px;
+    text-decoration: underline;
+}
+
 textarea {
     font-family: monospace;
 }
@@ -100,76 +105,29 @@ th {
     height: 35px;
 }
 
-.admin-photos  .big-checkbox {
-    width: 25px;
-    height: 25px;
-}
-
-.admin-photos  .checkbox-cell {
-    text-align: center;
-    vertical-align: center;
-}
-
-.admin-photos  .column {
-    flex: 50%;
-    padding: 10px;
-}
-
-.admin-photos  .deleteButtonDiv {
-    width: 33%;
-    text-align: center;
-}
-
-.admin-photos  .deleteColumnHeader {
-    width: 25%;
-    text-align: center;
-}
-
-.admin-photos  #adminPhotosHr {
-    border: 1.5px solid rgb(221, 221, 221);
-    margin-top: 26px;
-}
-
 .admin-photos .photoColumnHeader {
     width: 50%;
 }
 
-.admin-photos  .photoGallerySlide {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+.admin-photos  .photoOrderCell {
+    vertical-align: middle;
     text-align: center;
-    filter: blur(10px);
-    transition: filter 1.0s ease-in-out;
-    opacity: 0;
 }
 
-.admin-photos  .photoGallerySlide.active {
-    visibility: visible;
-    filter: blur(0);
-    opacity: 1;
+.admin-photos  .photoOrderColumnHeader {
+    width: 50%;
+    text-align: center;
+    cursor: pointer;
 }
 
-.admin-photos  .photoGallerySlide img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-    outline: 3px solid black;
+.admin-photos  .photoOrderInput {
+    width: 40px;
+    text-align: center;
 }
 
-.admin-photos  .row {
-    display: flex;
-}
-
-.admin-photos  .slideshow-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 700px;
-    position: relative;
+.admin-photos  .submitButtonDiv {
+    text-align: center;
+    width: 50%;
 }
 
 .admin-photos  .thumbnail {
@@ -178,9 +136,47 @@ th {
     cursor: pointer;
 }
 
-.admin-photos  .thumbnail-cell {
+.admin-photos  .thumbnailContainer {
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+}
+
+.admin-photos-delete  .big-checkbox {
+    width: 25px;
+    height: 25px;
+}
+
+.admin-photos-delete  .checkbox-cell {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.admin-photos-delete  .deleteButtonDiv {
+    width: 33%;
+    text-align: center;
+}
+
+.admin-photos-delete  .deleteColumnHeader {
+    width: 25%;
+    text-align: center;
+}
+
+.admin-photos-delete .photoColumnHeader {
+    width: 50%;
+    text-align: center;
+}
+
+.admin-photos-delete  .thumbnail {
     width: 175px;
     height: 125px;
+    cursor: pointer;
+}
+
+.admin-photos-delete  .thumbnailContainer {
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
 }
 
 .admin-songs-delete  .bigCheckbox {
@@ -308,6 +304,7 @@ th {
 
 .listen  .audioPlayerHTML {
     width: 100%;
+    margin-bottom: 12px;
 }
 
 .new-song  .error {
@@ -373,7 +370,7 @@ th {
     max-width: 100%;
     margin: 0 auto;
     padding: 0 20px;
-    height: 800px; /* set a fixed height for the gallery container */
+    height: 950px; /* set a fixed height for the gallery container */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -519,6 +516,26 @@ th {
         font-size: 20px;
     }
 
+    .admin-songs-index .addSheetMusicCell {
+        display: none;
+    }
+
+    .admin-songs-index .viewSheetMusicCell {
+        display: none;
+    }
+
+    .admin-songs-index #sheetMusicHeader {
+        display: none;
+    }
+
+    .admin-songs-index .yearCell {
+        display: none;
+    }
+
+    .admin-songs-index #yearHeader {
+        display: none;
+    }
+
     .gigs-view  .gigPoster {
         height: 80vh;
         object-fit: contain;
@@ -539,7 +556,11 @@ th {
         align-items: center;
         width: 100%;
         height: 40px;
-        padding: 0px;
+        margin-bottom: 12px;
+    }
+
+    .photos #photoGalleryDiv {
+        height: 700px;
     }
 
     .songs-index  .addSheetMusicCell {
@@ -562,6 +583,87 @@ th {
         display: none;
     }
 
+}
+
+/* CSS rules for smartphone size */
+@media only screen and (min-width: 0px) and (max-width: 767px) {
+    .container-fluid {
+        display: block;
+        width: auto;
+        padding-right: 5px;
+        padding-left: 5px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .gigs-view swiper-container {
+        width: 90%;
+    }
+
+    .nav {
+        display: flex;
+        justify-content: center;
+    }
+
+    .nav-link {
+        font-size: 24px;
+        text-decoration: underline;
+    }
+
+    .titleHeaderFragment {
+        display: flex;
+        justify-content: center;
+    }
+
+    .admin-songs-index .addSheetMusicCell {
+        display: none;
+    }
+
+    .admin-songs-index .viewSheetMusicCell {
+        display: none;
+    }
+
+    .admin-songs-index #sheetMusicHeader {
+        display: none;
+    }
+
+    .admin-songs-index .yearCell {
+        display: none;
+    }
+
+    .admin-songs-index #yearHeader {
+        display: none;
+    }
+
+    .gigs-view  .gigPoster {
+        object-fit: fill;
+        width: 100%;
+    }
+
+    .index .name {
+        font-size: 26px;
+    }
+
+    .index .instrumentsAndNames {
+        width: 100%;
+    }
+
+    .index .instrumentPhoto {
+        width: 40%;
+    }
+
+    .index #photoCarousel {
+        width: 100%;
+    }
+
+    .photos #photoGalleryDiv {
+        height: 400px;
+    }
+
+    .listen #songTitle {
+        font-size: 20px;
+        text-align: center;
+    }
 }
 
 /* Custom Audio Player CSS */
@@ -600,3 +702,4 @@ audio::-webkit-media-controls-enclosure {
 audio::-webkit-media-controls-timeline {
     color: black;
 }
+
