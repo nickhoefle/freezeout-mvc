@@ -556,7 +556,7 @@ th {
         align-items: center;
         width: 100%;
         height: 40px;
-        padding: 0px;
+        padding-bottom: 12px;
     }
 
     .photos #photoGalleryDiv {
