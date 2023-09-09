@@ -294,6 +294,10 @@ th {
     padding: 10px;
 }
 
+.index  #mixer {
+    margin-right: 12px;
+}
+
 .index  #titleHeaderFragment {
     font-size: 20pt;
 }
