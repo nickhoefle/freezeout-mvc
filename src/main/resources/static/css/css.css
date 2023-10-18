@@ -266,6 +266,9 @@ th {
 
 .index  #bandText {
     text-align: center;
+    font-size: 42px;
+    margin-bottom: 24px;
+    font-family: 'Snowtop Caps', sans-serif;
 }
 
 .index  .carousel-inner img {
@@ -286,6 +289,7 @@ th {
 .index  .instrumentsAndNames {
     text-align: center;
     width: 60%;
+    margin: 0 0 24px 0;
 }
 
 .index  .instrumentsAndNamesContainer {
@@ -639,6 +643,10 @@ th {
         display: none;
     }
 
+    .gigsView h1, h2, h3, h4, h5, h6, p, a, i, u {
+        font-family: 'Snowtop Caps', sans-serif;
+    }
+
     .gigs-view  .gigPoster {
         object-fit: fill;
         width: 100%;
@@ -646,6 +654,8 @@ th {
 
     .index .name {
         font-size: 26px;
+        margin-top: 8px;
+        font-family: 'Snowtop Caps', sans-serif;
     }
 
     .index .instrumentsAndNames {
@@ -663,6 +673,10 @@ th {
     .photos #photoGalleryDiv {
         height: 400px;
     }
+
+    .listen h1, h2, h3, h4, h5, h6, p, a, i, u {
+            font-family: 'Snowtop Caps', sans-serif;
+        }
 
     .listen #songTitle {
         font-size: 20px;

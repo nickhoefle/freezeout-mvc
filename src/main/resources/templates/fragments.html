@@ -7,6 +7,7 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-element-bundle.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <link rel="shortcut icon" type="image/png" th:href="@{/Images/freezeout-icon.png}" />
+    <link href="https://fonts.cdnfonts.com/css/snowtop-caps" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" th:href="@{/css/css.css}">
@@ -23,36 +24,17 @@
 
 
 <header th:fragment="header-reg">
-    <a class="titleHeaderFragment" href="/" style="font-size: 32pt">Freezeout Band</a>
+    <a class="titleHeaderFragment" href="/" style="font-family: 'Snowtop Caps', sans-serif; font-size: 34pt">Freezeout Band</a>
     <ul class="nav">
-        <li style="font-size:18px" class="nav-item"><a class="nav-link" href="/listen">Listen</a></li>
-        <li style="font-size:18px" class="nav-item"><a class="nav-link" href="/gigs">Gigs</a></li>
-        <li style="font-size:18px" class="nav-item"><a class="nav-link" href="/photos">Photos</a></li>
-        <li style="font-size:18px" class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+        <li style="font-family: 'Snowtop Caps', sans-serif; font-size:20px" class="nav-item"><a class="nav-link" href="/listen">Listen</a></li>
+        <li style="font-family: 'Snowtop Caps', sans-serif; font-size:20px" class="nav-item"><a class="nav-link" href="/gigs">Gigs</a></li>
+        <li style="font-family: 'Snowtop Caps', sans-serif; font-size:20px" class="nav-item"><a class="nav-link" href="/photos">Photos</a></li>
+<!--        <li style="font-family: 'Snowtop Caps', sans-serif; font-size:18px" class="nav-item"><a class="nav-link" href="/login">Login</a></li>-->
     </ul>
 </header>
 
-
-<!--<header th:fragment="header-admin">-->
-<!--    <a class="titleHeaderFragment" href="/" style="font-size: 32pt">Freezeout Band</a>-->
-<!--    <ul class="nav">-->
-<!--        <li style="font-size:18px" class="nav-item"><a class="nav-link" href="/admin/listen">Listen</a></li>-->
-<!--        <li style="font-size:18px" class="nav-item"><a class="nav-link" href="/admin/photos">Photos</a></li>-->
-<!--        <li style="font-size:18px" class="nav-item"><a class="nav-link" href="/admin/gigs/new">New Gig</a></li>-->
-<!--        <li style="font-size:18px" class="nav-item"><a class="nav-link" href="/admin/gigs/delete">Delete Gigs</a></li>-->
-<!--        <li style="font-size:18px" class="nav-item"><a class="nav-link" href="/admin/songs">All Songs</a></li>-->
-<!--        <li style="font-size:18px" class="nav-item"><a class="nav-link" href="/admin/songs/new">New Song</a></li>-->
-<!--        <li style="font-size:18px" class="nav-item"><a class="nav-link" href="/admin/upload/sheet-music">Upload Files</a></li>-->
-<!--        <li style="font-size:18px" class="nav-item"><a class="nav-link" href="/admin/photos/upload-photo">Upload Photos</a></li>-->
-<!--        <li style="font-size:18px" class="nav-item"><a class="nav-link" href="/admin/songs/delete">Delete Songs</a></li>-->
-<!--        <li style="font-size:18px" class="nav-item"><a class="nav-link" href="/admin/photos/delete-photos">Delete Photos</a></li>-->
-<!--        <li style="font-size:18px" class="nav-item"><a class="nav-link" href="/admin/setlists">Setlists</a></li>-->
-<!--        <li style="font-size:18px" class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>-->
-<!--    </ul>-->
-<!--</header>-->
-
 <header th:fragment="header-admin">
-    <a class="titleHeaderFragment" href="/" style="font-size: 32pt">Freezeout Band</a>
+    <a class="titleHeaderFragment" href="/" style="font-size: 34pt">Freezeout Band</a>
     <p id="hamburgerIcon" style="color:black; font-size:24px; cursor:pointer; padding-top:14px; padding-bottom:6px" onclick="toggleHamburger()">☰ Menu</p>
     <div id="hamburgerLinks" style="display:none; width:75%; outline: 2px solid black">
         <a class="nav-link" style="padding-top:20px" href="/admin/songs">View All Songs</a>
@@ -78,7 +60,7 @@
 
 <footer th:fragment="socialsFooter" class="footer mt-auto" style="position: absolute; bottom: 0; left: 0; right: 0">
     <center>
-        <h2>Connect</h2>
+        <h2 style="font-family: 'Snowtop Caps', sans-serif;">Connect</h2>
         <a href="mailto:freezeoutband@protonmail.com"><img th:src="@{/uploads/images/email.png}" style="height:45px"></a>
         <a href="https://www.facebook.com/groups/2038487942848670/"><img th:src="@{/uploads/images/fb.png}" style="height:35px"></a>
         <a href="https://soundcloud.com/user-942929295"><img th:src="@{/uploads/images/soundcloud.png}"></a>
