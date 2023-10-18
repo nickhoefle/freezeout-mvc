@@ -4,6 +4,8 @@
 <header th:replace="fragments :: header-reg"></header>
 <body class="container-fluid photos">
 
+<div class="snowfall-container"></div>
+
 <div id="photoGalleryDiv">
     <swiper-container class="mySwiper" thumbs-swiper=".mySwiper2" space-between="10" navigation="true">
         <th:block th:each="photo : ${photos}" >

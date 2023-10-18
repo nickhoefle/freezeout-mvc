@@ -48,6 +48,34 @@ th {
     padding-right: 10%;
 }
 
+/* Snowfall Animation */
+
+.snowfall-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vh;
+    height: 100%;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.snowflake {
+    position: absolute;
+    background-color: #ffffff;
+    border-radius: 50%;
+    z-index: 2;
+}
+
+@keyframes fall {
+    from {
+        transform: translateY(-10px);
+    }
+    to {
+        transform: translateY(calc(100vh + 10px)); /* Fall to the bottom of the viewport */
+    }
+}
+
 /* Body Classes */
 
 .admin-delete-gig  .bigCheckbox {
@@ -226,6 +254,10 @@ th {
     font-family: monospace;
 }
 
+.gigsView h1, h2, h3, h4, h5, h6, p, a, i, u {
+    font-family: 'Snowtop Caps', sans-serif;
+}
+
 .gigs-view {
     --swiper-navigation-color: black;
     --swiper-pagination-color: black
@@ -264,11 +296,14 @@ th {
     padding-bottom: 25px;
 }
 
+.index h1, h2, h3, h4, h5, h6, p, a, i, u {
+    font-family: 'Snowtop Caps', sans-serif;
+}
+
 .index  #bandText {
     text-align: center;
     font-size: 42px;
     margin-bottom: 24px;
-    font-family: 'Snowtop Caps', sans-serif;
 }
 
 .index  .carousel-inner img {
@@ -308,6 +343,10 @@ th {
 
 .index  .titleHeaderFragment:hover {
     color: white;
+}
+
+.listen h1, h2, h3, h4, h5, h6, p, a, i, u {
+    font-family: 'Snowtop Caps', sans-serif;
 }
 
 .listen  .audioPlayerHTML {
@@ -544,6 +583,10 @@ th {
         display: none;
     }
 
+    .gigs-view h1, h2, h3, h4, h5, h6, p, a, i, u {
+        font-family: 'Snowtop Caps', sans-serif;
+    }
+
     .gigs-view  .gigPoster {
         height: 80vh;
         object-fit: contain;
@@ -554,8 +597,16 @@ th {
         width: 100%;
     }
 
+    .index h1, h2, h3, h4, h5, h6, p, a, i, u {
+        font-family: 'Snowtop Caps', sans-serif;
+    }
+
     .index  .instrumentPhoto {
         width: 40%;
+    }
+
+    .listen h1, h2, h3, h4, h5, h6, p, a, i, u {
+        font-family: 'Snowtop Caps', sans-serif;
     }
 
     .listen  .audioPlayerHTML {
@@ -652,10 +703,13 @@ th {
         width: 100%;
     }
 
-    .index .name {
-        font-size: 26px;
-        margin-top: 8px;
+    .index h1, h2, h3, h4, h5, h6, p, a, i, u {
         font-family: 'Snowtop Caps', sans-serif;
+    }
+
+    .index .name {
+    font-size: 26px;
+    margin-top: 8px;
     }
 
     .index .instrumentsAndNames {
@@ -675,8 +729,8 @@ th {
     }
 
     .listen h1, h2, h3, h4, h5, h6, p, a, i, u {
-            font-family: 'Snowtop Caps', sans-serif;
-        }
+        font-family: 'Snowtop Caps', sans-serif;
+    }
 
     .listen #songTitle {
         font-size: 20px;

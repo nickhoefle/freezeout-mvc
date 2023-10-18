@@ -4,6 +4,8 @@
 <header th:replace="fragments :: header-reg"></header>
 <body class="container-fluid gigs-view">
 
+<div class="snowfall-container"></div>
+
 <div class="upcomingGigsDiv">
     <h2>Upcoming Gigs</h2>
     <div class="upcomingGigs" th:if="${#lists.size(allGigs.?[date > T(java.time.LocalDate).now()]) > 1}">
