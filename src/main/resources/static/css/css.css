@@ -16,6 +16,13 @@ button {
     background-color: white;
 }
 
+.container-fluid {
+    padding-top: 25px;
+    padding-bottom: 50px;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
 .form-control-file {
     color:white
 }
@@ -28,9 +35,22 @@ label, p, td, th {
     color: black;
 }
 
+.nav {
+    display: flex;
+    justify-content: center;
+}
+
 .nav-link {
-    font-size: 18px;
     text-decoration: underline;
+    font-family: 'Snowtop Caps', sans-serif;
+    font-size: 32px;
+    padding: 0;
+}
+
+.nav-link:hover {
+    background-color: transparent !important;
+    color: white !important;
+    text-decoration: underline !important;
 }
 
 textarea {
@@ -41,11 +61,15 @@ th {
     font-size: 16px;
 }
 
-.container-fluid {
-    padding-top: 25px;
-    padding-bottom: 50px;
-    padding-left: 10%;
-    padding-right: 10%;
+.titleHeaderFragment {
+    display: flex;
+    justify-content: center;
+    font-size: 64px !important;
+}
+
+.titleHeaderFragment:hover {
+    color: white;
+    text-decoration: none;
 }
 
 /* Snowfall Animation */
@@ -302,8 +326,8 @@ th {
 
 .index  #bandText {
     text-align: center;
-    font-size: 42px;
-    margin-bottom: 24px;
+    font-size: 64px;
+    margin-bottom: 28px;
 }
 
 .index  .carousel-inner img {
@@ -318,13 +342,13 @@ th {
 }
 
 .index  .instrumentPhoto {
-    width: 15%;
+    width: 22.5%;
 }
 
 .index  .instrumentsAndNames {
     text-align: center;
     width: 60%;
-    margin: 0 0 24px 0;
+    margin: 0 0 48px 0;
 }
 
 .index  .instrumentsAndNamesContainer {
@@ -334,15 +358,16 @@ th {
 }
 
 .index  #mixer {
-    margin-right: 12px;
+    margin-right: 16px;
 }
 
-.index  #titleHeaderFragment {
-    font-size: 20pt;
+.index .name {
+    font-size: 36px;
 }
 
-.index  .titleHeaderFragment:hover {
-    color: white;
+.index .nav {
+    margin-top: 6px;
+    margin-bottom: 18px;
 }
 
 .listen h1, h2, h3, h4, h5, h6, p, a, i, u {
@@ -391,10 +416,6 @@ th {
 .photos  swiper-slide {
     background-size: cover;
     background-position: center;
-}
-
-.photos  .mySwiper {
-
 }
 
 .photos  .mySwiper2 {
@@ -567,11 +588,11 @@ th {
         display: none;
     }
 
-    .admin-songs-index .viewSheetMusicCell {
+    .admin-songs-index #sheetMusicHeader {
         display: none;
     }
 
-    .admin-songs-index #sheetMusicHeader {
+    .admin-songs-index .viewSheetMusicCell {
         display: none;
     }
 
@@ -646,6 +667,7 @@ th {
 
 /* CSS rules for smartphone size */
 @media only screen and (min-width: 0px) and (max-width: 767px) {
+
     .container-fluid {
         display: block;
         width: auto;
@@ -655,34 +677,34 @@ th {
         margin-left: auto;
     }
 
-    .gigs-view swiper-container {
-        width: 90%;
-    }
-
     .nav {
         display: flex;
         justify-content: center;
     }
 
     .nav-link {
-        font-size: 24px;
+        font-family: 'Snowtop Caps', sans-serif;
+        font-size: 20px !important;
+        margin-right: 0px !important;
         text-decoration: underline;
+        color: #000 !important;
+        background-color: transparent !important;
+        padding: 6px !important;
     }
 
     .titleHeaderFragment {
-        display: flex;
-        justify-content: center;
+        font-size: 42px !important;
     }
 
     .admin-songs-index .addSheetMusicCell {
         display: none;
     }
 
-    .admin-songs-index .viewSheetMusicCell {
+    .admin-songs-index #sheetMusicHeader {
         display: none;
     }
 
-    .admin-songs-index #sheetMusicHeader {
+    .admin-songs-index .viewSheetMusicCell {
         display: none;
     }
 
@@ -703,29 +725,34 @@ th {
         width: 100%;
     }
 
+    .gigs-view swiper-container {
+        width: 90%;
+    }
+
     .index h1, h2, h3, h4, h5, h6, p, a, i, u {
         font-family: 'Snowtop Caps', sans-serif;
     }
 
-    .index .name {
-    font-size: 26px;
-    margin-top: 8px;
+    .index #bandText {
+        font-size: 36px !important;
     }
 
-    .index .instrumentsAndNames {
-        width: 100%;
+    .index .name {
+        font-size: 26px;
+        margin-top: 8px;
     }
 
     .index .instrumentPhoto {
         width: 40%;
     }
 
-    .index #photoCarousel {
+    .index .instrumentsAndNames {
         width: 100%;
+        margin: 0 0 32px 0 !important;
     }
 
-    .photos #photoGalleryDiv {
-        height: 400px;
+    .index #photoCarousel {
+        width: 100%;
     }
 
     .listen h1, h2, h3, h4, h5, h6, p, a, i, u {
@@ -735,6 +762,10 @@ th {
     .listen #songTitle {
         font-size: 20px;
         text-align: center;
+    }
+
+    .photos #photoGalleryDiv {
+        height: 400px;
     }
 }
 
