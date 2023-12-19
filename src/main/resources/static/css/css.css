@@ -53,6 +53,10 @@ label, p, td, th {
     text-decoration: underline !important;
 }
 
+.regular-font {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
 textarea {
     font-family: monospace;
 }
@@ -247,7 +251,6 @@ th {
     cursor: pointer;
 }
 
-.admin-songs-index a,
 .admin-songs-index button,
 .admin-songs-index h3,
 .admin-songs-index p {
@@ -393,9 +396,39 @@ th {
     margin-bottom: 12px;
 }
 
+.new-song #add-new-song-button {
+    width: 40vw;
+    margin-top: 20px;
+    border: 2px solid black;
+    border-radius: 5px;
+    color: black;
+    font-weight: bold;
+    font-size: 16px;
+}
+
 .new-song  .error {
     color: #7f2828;
     font-weight: bold;
+}
+
+.new-song #new-song-form {
+    border: 2px solid black;
+    padding: 30px;
+    border-radius: 5px;
+}
+
+.new-song .new-song-form-input {
+    border: 2px solid black;
+}
+
+.new-song .new-song-form-label {
+    font-size: 18px;
+    color: black;
+}
+
+.new-song #new-song-form-wrapper {
+    display: flex;
+    justify-content: center;
 }
 
 .photos  swiper-container {
