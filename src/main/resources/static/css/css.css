@@ -245,6 +245,11 @@ th {
 .admin-songs-delete  .bigCheckbox {
     height: 25px;
     width: 25px;
+    margin: 0;
+}
+
+.admin-songs-delete #filterInput {
+    width: 20vw;
 }
 
 .admin-songs-delete  .songTableHeader {

@@ -4,7 +4,12 @@
 <header th:replace="fragments :: header-admin"></header>
 <body class="container-fluid admin-songs-delete">
 
-<h3>Delete Songs:</h3>
+<h3 class="view-header regular-font">Delete Songs</h3>
+
+<div class="form-group">
+    <h4 class="regular-font">Filter Songs:</h4>
+    <input type="text" id="filterInput" class="form-control">
+</div>
 
 <form method="post">
 <table class="table table-hover" id="myTable">
@@ -19,7 +24,7 @@
     <tbody>
         <tr th:each="song : ${songs}">
             <td>
-                <div class="form-group">
+                <div>
                     <input type="checkbox" name="songIds" th:value="${song.id}" class="form-control align-middle bigCheckbox">
                 </div>
             </td>
@@ -33,4 +38,5 @@
 </form>
 
 </body>
+
 </html>
