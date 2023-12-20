@@ -3,6 +3,16 @@ a {
     color: black;
 }
 
+#adminPortalInfoPanel {
+    display: flex;
+    align-items: center;
+}
+
+#adminPortalText {
+    padding-top: 16px;
+    font-size: 20px;
+}
+
 body {
     background: linear-gradient(to right, #527caa, #2e4660);
     min-height: 100vh;
@@ -33,6 +43,14 @@ h1, h2, h3, h4 {
 
 label, p, td, th {
     color: black;
+}
+
+#menuItemsWrapper {
+    display: flex;
+    justify-content: space-between;
+    outline: 2px solid black;
+    padding: 0 5px 0 5px;
+    border-radius: 5px;
 }
 
 .nav {
@@ -81,6 +99,11 @@ th {
     justify-content: center;
     padding-bottom: 8px;
     font-size: 32px;
+}
+
+#wrenchIcon {
+    height: 32px;
+    margin: 0 7px 0 6px;
 }
 
 /* Snowfall Animation */

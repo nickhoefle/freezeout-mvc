@@ -37,7 +37,13 @@
 
 <header th:fragment="header-admin">
     <a class="titleHeaderFragment" href="/" style="font-size: 34pt">Freezeout Band</a>
-    <p id="hamburgerIcon" class="regular-font" style="color:black; font-size:24px; cursor:pointer; padding-top:14px; padding-bottom:6px" onclick="toggleHamburger()">☰ Menu</p>
+    <div id="menuItemsWrapper">
+        <p id="hamburgerIcon" class="regular-font" style="color:black; font-size:24px; cursor:pointer; padding-top:14px; padding-bottom:6px" onclick="toggleHamburger()">☰ Menu</p>
+        <div id="adminPortalInfoPanel">
+            <p id="adminPortalText" class="regular-font">Administrator Portal</p>
+            <img id="wrenchIcon" th:src="@{/uploads/images/wrench.svg}" />
+        </div>
+    </div>
     <div id="hamburgerLinks" style="display:none; width:75%; outline: 2px solid black">
         <a class="nav-link regular-font" style="padding-top:20px" href="/admin/songs">View All Songs</a>
         <a class="nav-link regular-font" href="/admin/songs/new">Add New Song</a>
