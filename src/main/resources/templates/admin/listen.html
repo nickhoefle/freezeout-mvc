@@ -48,20 +48,20 @@
                 <button class="updateSectionButton">Update</button>
                 <form class="updateSection" th:action="@{/admin/listen}" th:method="post" style="display:none">
                     <input th:value="${song.songName}" th:name="songName" hidden readonly>
-                    <select class="selectedSong" th:name="newFileName">
+                    <select id="chooseFileDropdown" class="selectedSong" th:name="newFileName">
                         <option value="Hidden">Choose File:</option>
                         <option value="Hidden">Hide This Song from 'Listen' Page</option>
                         <th:block th:each="audioFileName : ${allAudioFileNames}">
                             <option th:text="${audioFileName}" th:value="${audioFileName}"></option>
                         </th:block>
-                    </select><hr class="blackHr">
+                    </select>
 
                     <div>
-                        <button class="btn btn-primary updateButton" type="submit">Update</button><br><br>
+                        <button class="btn btn-primary updateButton" type="submit">Update</button>
                         <a class="playBtn">
-                            <button class="btn btn-secondary" onclick="openSelectedInNewTab()" type="button">
+                            <button id="playSelectedButton" class="btn btn-secondary regular-font" onclick="openSelectedInNewTab()" type="button">
                                 Play Selected
-                            </button><hr class="blackHr">
+                            </button>
                         </a>
                     </div>
                 </form>

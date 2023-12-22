@@ -179,14 +179,22 @@ th {
     border-radius: 0;
 }
 
-.admin-listen  .blackHr {
-    border-color: black;
-}
-
 .admin-listen  #changeHeader, .changeCell {
     width: 20%;
     vertical-align: middle;
     text-align: center;
+}
+
+#playSelectedButton {
+    width: 200px
+    margin-top: 8px;
+}
+
+.admin-listen #chooseFileDropdown {
+    width: 200px;
+    height: 32px;
+    margin-top: 6px;
+    border-radius: 5px;
 }
 
 .admin-listen  .selectedSong {
@@ -200,7 +208,9 @@ th {
 }
 
 .admin-listen  .updateButton {
-    width: 173px;
+    border-radius: 5px;
+    width: 200px;
+    margin-top: 8px;
 }
 
 .admin-listen  .uploadedSongPlayer {
