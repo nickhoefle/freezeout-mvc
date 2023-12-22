@@ -472,6 +472,14 @@ th {
     justify-content: center;
 }
 
+.new-song #new-song-key {
+    width: 64px;
+}
+
+.new-song #new-song-year {
+    width: 64px;
+}
+
 .photos  swiper-container {
     width: 100%;
     height: 100%;
