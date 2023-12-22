@@ -277,6 +277,37 @@ th {
     padding-top: 20px;
 }
 
+.admin-photos #photoTitleAndCreditButton {
+    width: 100%;
+    margin-top: 20px;
+    border: 2px solid black;
+    border-radius: 5px;
+    color: black;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.admin-photos  #photoTitleAndCreditForm {
+    width: 30vw;
+    outline: 2px solid black;
+    padding: 30px;
+    border: 5px;
+}
+
+.admin-photos  .photoTitleAndCreditInput {
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+.admin-photos  .photoTitleAndCreditLabel {
+    font-size: 18px;
+}
+
+.admin-photos  #photoTitleAndCreditFormWrapper {
+    display: flex;
+    justify-content: center;
+}
+
 .admin-photos-delete  .big-checkbox {
     width: 25px;
     height: 25px;
