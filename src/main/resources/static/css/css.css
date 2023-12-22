@@ -214,7 +214,6 @@ th {
 }
 
 .admin-listen .updateSection {
-    width: 200px;
     height: 115px;
     margin-top: 6px;
     border-radius: 5px;
@@ -224,6 +223,7 @@ th {
     width: 200px;
     border-radius: 5px;
     height: 32px;
+    font-weight: bold;
 }
 
 .admin-listen  .uploadedSongPlayer {

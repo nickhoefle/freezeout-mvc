@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 return;
             }
             updateSectionsArray[index].style.display = ""
-            updateSectionButtonsArray[index].innerHTML = "Cancel"
+            updateSectionButtonsArray[index].innerHTML = "❌Cancel"
         });
     });
 });
