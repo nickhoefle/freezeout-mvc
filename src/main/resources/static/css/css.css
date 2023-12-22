@@ -34,11 +34,24 @@ button {
 }
 
 .form-control-file {
-    color:white
+    color: white
 }
 
 h1, h2, h3, h4 {
     color: black;
+}
+
+#hamburgerLinks {
+    display: block;
+    width: 75%;
+    outline: black solid 2px;
+    margin-top: 5px;
+    border-radius: 5px;
+}
+
+.hamburger-menu-item {
+    font-size: 22px !important;
+    margin-left: 25px;
 }
 
 label, p, td, th {
