@@ -14,9 +14,6 @@ document.addEventListener("DOMContentLoaded", function () {
             }
             updateSectionsArray[index].style.display = ""
             updateSectionButtonsArray[index].innerHTML = "Cancel"
-            updateSectionsArray[index].style.width = "200px";
-            updateSectionsArray[index].style.height = "32px";
-            updateSectionsArray[index].style.marginTop = "6px";
         });
     });
 });

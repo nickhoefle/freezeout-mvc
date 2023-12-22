@@ -185,15 +185,15 @@ th {
     text-align: center;
 }
 
-#playSelectedButton {
-    width: 200px
-    margin-top: 8px;
+.admin-listen .playSelectedButton {
+    width: 200px;
+    margin-top: 6px;
+    border-radius: 5px;
 }
 
 .admin-listen #chooseFileDropdown {
     width: 200px;
     height: 32px;
-    margin-top: 6px;
     border-radius: 5px;
 }
 
@@ -211,6 +211,19 @@ th {
     border-radius: 5px;
     width: 200px;
     margin-top: 8px;
+}
+
+.admin-listen .updateSection {
+    width: 200px;
+    height: 115px;
+    margin-top: 6px;
+    border-radius: 5px;
+}
+
+.admin-listen  .updateSectionButton {
+    width: 200px;
+    border-radius: 5px;
+    height: 32px;
 }
 
 .admin-listen  .uploadedSongPlayer {
