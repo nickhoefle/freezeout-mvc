@@ -33,6 +33,10 @@ button {
     padding-right: 10%;
 }
 
+#filterInput {
+    width: 20vw;
+}
+
 .form-control-file {
     color: white
 }
@@ -282,10 +286,6 @@ th {
     height: 25px;
     width: 25px;
     margin: 0;
-}
-
-.admin-songs-delete #filterInput {
-    width: 20vw;
 }
 
 .admin-songs-delete  .songTableHeader {
