@@ -167,7 +167,8 @@ th {
     cursor: pointer;
 }
 
-.admin-listen  #audioPlayerHeader, .audioPlayerCell {
+.admin-listen  #audioPlayerHeader,
+.admin-listen  .audioPlayerCell {
     width: 50%;
     cursor: pointer;
     vertical-align: middle;
@@ -179,7 +180,8 @@ th {
     border-radius: 0;
 }
 
-.admin-listen  #changeHeader, .changeCell {
+.admin-listen  #changeHeader,
+.admin-listen  .changeCell {
     width: 20%;
     vertical-align: middle;
     text-align: center;
@@ -201,7 +203,8 @@ th {
     width: 173px;
 }
 
-.admin-listen  #songNameHeader, .songNameCell {
+.admin-listen  #songNameHeader,
+.admin-listen  .songNameCell {
     width: 30%;
     cursor: pointer;
     vertical-align: middle;
