@@ -229,9 +229,15 @@ th {
     font-weight: bold;
 }
 
+.admin-listen .uploadedSongName {
+    margin-bottom: 0;
+    font-size: 16px;
+}
+
 .admin-listen  .uploadedSongPlayer {
     width: 100%;
     height: 35px;
+    margin-bottom: 8px;
 }
 
 .admin-photos .photoColumnHeader {

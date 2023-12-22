@@ -12,7 +12,7 @@
 <div id="uploadedSongsDiv" style="display:none;">
     <br>
     <span th:each="file : ${allAudioFileNames}">
-        <p th:text="${file}"></p>
+        <p class="uploadedSongName regular-font" th:text="${file}"></p>
         <audio class="uploadedSongPlayer" controls>
             <source th:src="@{${'/uploads/audio-files/' + file}}" type="audio/wav">
         </audio>
