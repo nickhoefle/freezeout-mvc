@@ -664,6 +664,52 @@ th {
     border: 0; height: 3px; background-color: black;
 }
 
+.upload-photo #allowedFileTypeText {
+    font-size: 14px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.upload-photo #chooseFileButton {
+    border-radius: 5px;
+}
+
+.upload-photo #photoId {
+    outline: 2px solid black;
+}
+
+.upload-photo #uploadPhotoFileButton {
+    width: 100%;
+    outline: 2px solid black;
+    margin-top: 24px;
+    font-weight: bold;
+    font-size: 16px;
+    color: black;
+}
+
+.upload-photo #uploadPhotoFileContainer {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.upload-photo #uploadPhotoFileForm {
+    width: 40vw;
+    outline: 2px solid black;
+    padding: 30px;
+    border-radius: 5px;
+}
+
+.upload-photo #uploadPhotoFileLabel {
+    font-size: 18px;
+    margin: 0;
+}
+
+.upload-photo #uploadPhotoFileWrapper {
+    display: flex;
+    justify-content: center;
+}
+
 /* Tablet */
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
 

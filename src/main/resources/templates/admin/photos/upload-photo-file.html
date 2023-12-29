@@ -2,21 +2,22 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
 <header th:replace="fragments :: header-admin"></header>
-<body class="container-fluid new-song">
+<body class="container-fluid upload-photo">
 
-<div class="column">
-    <h2>Upload New Photos</h2>
-    <p>Allowed File Types: JPG, PNG and GIF</p>
-    <form method="post" th:action="@{/admin/photos/upload-photo-file}" enctype="multipart/form-data">
-        <hr id="adminPhotosHr">
+<div id="uploadPhotoFileContainer">
+    <h1 class="view-header regular-font">Upload Photo File</h1>
+    <p id="allowedFileTypeText" class="regular-font">Allowed File Types: JPG, PNG and GIF</p>
+</div>
+
+<div id="uploadPhotoFileWrapper" class="column">
+    <form method="post" id="uploadPhotoFileForm" th:action="@{/admin/photos/upload-photo-file}" enctype="multipart/form-data">
+        <label id="uploadPhotoFileLabel">Photo Title:</label>
         <select id="photoId" class="form-control" name="photoId">
             <option th:each="photo : ${photosForDropdown}" th:text="${photo.title}" th:value="${photo.id}"></option>
         </select>
-        <div class="form-group">
-            <input type="file" name="file" class="form-control-file">
-        </div>
-        <button type="submit" class="btn btn-primary centered-danger">Upload File</button>
-    </form><br>
+        <input id="chooseFileButton" type="file" name="file" class="form-control-file">
+        <button type="submit" id="uploadPhotoFileButton" class="btn btn-success">Upload File</button>
+    </form>
 </div>
 
 </body>
