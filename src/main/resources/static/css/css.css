@@ -265,6 +265,13 @@ th {
     text-align: center;
 }
 
+.admin-photos #rearrangePhotosButton {
+    outline: 2px solid black;
+    font-size: 15px;
+    color: black;
+    font-weight: bold;
+}
+
 .admin-photos  .submitButtonDiv {
     text-align: center;
     width: 50%;
@@ -331,6 +338,13 @@ th {
 .admin-photos-delete  .deleteColumnHeader {
     width: 25%;
     text-align: center;
+}
+
+.admin-photos-delete #deletePhotosButton {
+    outline: 2px solid black;
+    font-size: 15px;
+    color: black;
+    font-weight: bold;
 }
 
 .admin-photos-delete #deletePhotosExplainerText {
