@@ -4,8 +4,8 @@
 <header th:replace="fragments :: header-admin"></header>
 <body class="container-fluid admin-photos">
 
-<h2>Arrange Photos</h2>
-<p>Photos currently on the website Photos page</p>
+<h1 class="view-header regular-font">Arrange Photos</h1>
+<p id="arrangePhotosExplainerText" class="regular-font">Photos currently on the website Photos page</p>
 <form th:action="@{/admin/photos/arrangePhotos}" method="post">
     <table class="table" id="myTable">
         <thead>
@@ -29,7 +29,7 @@
         </tbody>
     </table>
     <div class="submitButtonDiv">
-        <button class="btn btn-primary" type="submit">Rearrange</button>
+        <button class="btn btn-success" type="submit">Rearrange</button>
     </div>
 </form>
 
