@@ -525,6 +525,45 @@ th {
     margin-bottom: 12px;
 }
 
+.new-gig label {
+    font-size: 18px;
+}
+
+.new-gig #createGigButton {
+    width: 100%;
+    margin-top: 20px;
+    border: 2px solid black;
+    border-radius: 5px;
+    color: black;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.new-gig #fileTypeExplainer {
+    text-align: center;
+    font-size: 16px;
+}
+
+.new-gig #gigDateInput {
+    width: 40%;
+}
+
+.new-gig #gigTimeInput {
+    width: 40%;
+}
+
+.new-gig #newGigForm {
+    width: 30vw;
+    outline: 2px solid black;
+    padding: 30px;
+    border: 5px;
+}
+
+.new-gig #newGigFormWrapper {
+    display: flex;
+    justify-content: center;
+}
+
 .new-song #add-new-song-button {
     width: 40vw;
     margin-top: 20px;
