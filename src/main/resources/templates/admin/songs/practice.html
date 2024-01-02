@@ -4,43 +4,47 @@
 <header th:replace="fragments :: header-admin"></header>
 <body class="container-fluid practice">
 
-<h3 th:text=" 'Practice Page - ' + ${song.songName} + ' - ' + ${song.songDetails.originalArtist}"></h3>
+<h1 id="practicePageHeader" class="view-header regular-font">Practice Page</h1>
+<h2 id="artistAndTitleText" class="regular-font" th:text="${song.songName} + ' - ' + ${song.songDetails.originalArtist}"></h2>
 
 <th:block th:if="${song.songSheetMusic != null}">
     <a th:href="@{/uploads/sheet-music/{name}(name=${song.songSheetMusic})}"/>
-        <button>🎼 View Sheet Music PDF</button>
+        <button class="viewSheetMusicButton regular-font">🎼 View Sheet Music</button>
     </a>
     <a th:href="@{/uploads/sheet-music/{name}(name=${song.songSheetMusic})}" target="_blank"/>
-        <button>🎼 View Sheet Music PDF in New Tab</button>
+        <button class="viewSheetMusicButton regular-font">🎼 View Sheet Music in New Tab</button>
     </a><hr>
 </th:block>
 
 <th:block th:unless="${song.songSheetMusic != null}">
     <a th:href="@{/admin/upload/sheet-music}"/>
-        <button>📁 Upload Sheet Music PDF</button>
+        <button id="uploadSheetMusicButton" class="regular-font">📁 Upload Sheet Music PDF</button>
     </a><hr>
 </th:block>
 
-<h3>Youtube Video:</h3><br>
+<h3 class="regular-font">YouTube Video:</h3>
 
 <div id="youtubeVideoContainer" th:utext="${youtubeEmbedHTML}"></div>
 
 <form method="post" th:action="@{/admin/songs/practice/{songId}/change-url(songId=${song.id})}">
-    <label for="youtubeUrl">Enter a new YouTube URL:</label><br>
-    <input id="youtubeUrl" name="youtubeUrl">
-    <button type="submit">Submit</button>
+    <label id="youtubeUrlLabel" for="youtubeUrl">Link:</label>
+    <div id="youtubeUrlWrapper">
+        <input id="youtubeUrl" class="form-control" placeholder="E.g. https://www.youtube.com/watch?v=lI-BMDnti4c" name="youtubeUrl">
+        <button id="youtubeUrlButton" class="btn btn-success" type="submit">Submit</button>
+    </div>
 </form>
 
-<br>
 <hr>
 
 <button id="notesButton" onclick="toggleNotesChordPage('notes')">Notes</button>
-<button id="chordsButton" onclick="toggleNotesChordPage('chords')">Chord Pages</button>
+<button id="chordsButton" onclick="toggleNotesChordPage('chords')">Chords & Tabs</button>
 
 <div id="notesDiv" style="display:;">
-    <br>
-    <a th:href="@{./{songId}/add-notes(songId=${song.id})}">Add Note</a>
-        <table id="myTable" class="table table-striped">
+    <button id="addNoteButton" class="btn btn-success">
+        <a id="addNoteLink" class="regular-font " th:href="@{./{songId}/add-notes(songId=${song.id})}">Add Note</a>
+    </button>
+    <th:block th:if="${songNotesCollection.size() > 0}">
+        <table id="myTable" class="table">
             <thead>
                 <tr>
                     <th id="practiceNoteTextHeader" onclick="sortTable(0)">Note</th>
@@ -57,39 +61,41 @@
                     <td class="practiceNoteTimestampCell" th:text="${#dates.format(note.timestamp, 'yyyy-MM-dd')}"></td>
                     <td class="practiceNoteEditButton">
                         <a th:href="@{'/admin/songs/practice/' + ${song.id} + '/edit-note/' + ${note.id} }">
-                            <button>
-                                Edit Note
-                            </button>
+                            <button id="editButton" class="regular-font">Edit</button>
                         </a>
                     </td>
                     <td class="practiceNoteDeleteButton">
                         <form method="post" th:action="@{/admin/songs/practice/{songId}/delete-note(songId=${song.id})}">
                             <input name="noteId" th:value="${note.id}" hidden>
-                            <input type="submit" value="Delete" class="btn btn-danger">
+                            <input id="deleteButton" type="submit" value="Delete">
                         </form>
                     </td>
                 </tr>
             </tbody>
         </table>
+    </th:block>
 </div>
 
 <div id="chordsDiv" style="display:none;">
-    <br>
-    <a th:href="@{./{songId}/add-chords(songId=${song.id})}">Add Chords</a>
+
+    <a class="regular-font" th:href="@{./{songId}/add-chords(songId=${song.id})}">
+        <button id="addChordsButton" class="btn btn-success">Add Chords</button>
+    </a>
+
     <table>️
         <tr th:each="songChords : ${songChordsCollection}">
             <td>️
-                <h3 th:text="'Added by ' + ${songChords.addedBy} + ' on ' + ${#dates.format(songChords.timestamp, 'yyyy-MM-dd')}"></h3>
-                <input onclick="printText(this)" type="button" value="Print"/>
-                <form method="post" th:action="@{/admin/songs/practice/{songId}/delete-chord-page(songId=${song.id})}">
-                    <input name="chordPageId" th:value="${songChords.id}" hidden>
-                    <input type="submit" value="Delete" class="btn-danger">
-                </form>
-                <a th:href="@{'/admin/songs/practice/' + ${song.id} + '/edit-chord-page/' + ${songChords.id} }">
-                    <button>
-                        Edit Chord Page
-                    </button>
-                </a>
+                <h3 class="addedByText regular-font" th:text="'Added by ' + ${songChords.addedBy} + ' on ' + ${#dates.format(songChords.timestamp, 'yyyy-MM-dd')}"></h3>
+                <div class="chordsButtonsWrapper">
+                    <input class="print-button" onclick="printText(this)" type="button" value="Print"/>
+                    <form method="post" th:action="@{/admin/songs/practice/{songId}/delete-chord-page(songId=${song.id})}">
+                        <input name="chordPageId" th:value="${songChords.id}" hidden>
+                        <span>
+                        <a th:href="@{'/admin/songs/practice/' + ${song.id} + '/edit-chord-page/' + ${songChords.id} }">Edit</a>
+                        </span>
+                        <input class="deleteChordPageButton" type="submit" value="Delete">
+                    </form>
+                </div>
                 <pre class="chordsText" th:utext="${songChords.chordsText}"></pre>
                 <br>
             </td>
