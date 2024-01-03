@@ -87,12 +87,12 @@
             <td>️
                 <h3 class="addedByText regular-font" th:text="'Added by ' + ${songChords.addedBy} + ' on ' + ${#dates.format(songChords.timestamp, 'yyyy-MM-dd')}"></h3>
                 <div class="chordsButtonsWrapper">
-                    <input class="print-button" onclick="printText(this)" type="button" value="Print"/>
+                    <input class="print-button" onclick="printText(this)" type="button" value="Print" />
+                    <a th:href="@{'/admin/songs/practice/' + ${song.id} + '/edit-chord-page/' + ${songChords.id} }">
+                        <button class="editChordPageButton regular-font">Edit</button>
+                    </a>
                     <form method="post" th:action="@{/admin/songs/practice/{songId}/delete-chord-page(songId=${song.id})}">
                         <input name="chordPageId" th:value="${songChords.id}" hidden>
-                        <span>
-                        <a th:href="@{'/admin/songs/practice/' + ${song.id} + '/edit-chord-page/' + ${songChords.id} }">Edit</a>
-                        </span>
                         <input class="deleteChordPageButton" type="submit" value="Delete">
                     </form>
                 </div>
