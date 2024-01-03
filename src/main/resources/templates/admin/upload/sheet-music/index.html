@@ -5,23 +5,22 @@
 <body class="container-fluid admin-upload-sheet-music">
 
 <div>
-  <h2>Sheet Music Upload</h2>
-  <p id="allowedFileTypesText">Allowed File Type: .PDF</p>
-  <p th:text="${message}" th:if="${message ne null}" class="alert alert-primary"></p>
-  <form method="post" th:action="@{/admin/upload/sheet-music}" enctype="multipart/form-data">
-    <hr class="largeHr">
-    <h3>Select Song:</h3>
-    <select id="sheetId" class="form-control" name="sheetId">
-      <option th:each="option : ${songsForDropdown}" th:text="${option.songName}" th:value="${option.id}"></option>
-    </select>
-    <br>
-    <br>
-    <div class="form-group">
-      <input id="fileText" type="file" name="file" class="form-control-file">
-    </div>
-    <button type="submit" class="btn btn-primary">Upload File</button>
-    <button> <a class="btn secondary" href="/admin/upload/audio-file">Skip</a> </button>
-  </form>
+  <h1 id="sheetMusicUploadHeader" class="view-header regular-font">Sheet Music Upload</h1>
+  <h2 id="allowedFileTypesText" class="regular-font">Allowed File Type: PDF</h2>
+  <p th:text="${message}" th:if="${message ne null}" class="alert alert-primary regular-font"></p>
+  <div id="uploadSheetMusicFormWrapper">
+    <form id="uploadSheetMusicForm" method="post" th:action="@{/admin/upload/sheet-music}" enctype="multipart/form-data">
+      <label id="selectSongLabel" class="regular-font">Select Song:</label>
+      <select id="sheetId" class="form-control" name="sheetId">
+        <option th:each="option : ${songsForDropdown}" th:text="${option.songName}" th:value="${option.id}"></option>
+      </select>
+      <div class="form-group">
+        <input id="fileText" type="file" name="file" class="form-control-file">
+      </div>
+      <button id="uploadFileButton" type="submit" class="btn btn-success">Upload File</button>
+      <a id="skipLink" class="btn regular-font" href="/admin/upload/audio-file">Skip</a>
+    </form>
+  </div>
 </div>
 
 </body>

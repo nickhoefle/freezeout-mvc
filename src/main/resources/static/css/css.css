@@ -414,8 +414,56 @@ th {
     color: white;
 }
 
+.admin-upload-sheet-music #allowedFileTypesText {
+    font-size: 16px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
 .admin-upload-sheet-music  #fileText {
     color: white;
+}
+
+.admin-upload-sheet-music #selectSongLabel {
+    font-size: 18px;
+    margin: 0;
+}
+
+.admin-upload-sheet-music #sheetId {
+    outline: 2px solid black;
+}
+
+.admin-upload-sheet-music #sheetMusicUploadHeader {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.admin-upload-sheet-music #skipLink {
+    text-decoration: underline;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+}
+
+.admin-upload-sheet-music #uploadFileButton {
+    width: 86%;
+    border-radius: 5px;
+    border: 2px solid black;
+    font-size: 15px;
+    font-weight: bold;
+    color: black;
+}
+
+.admin-upload-sheet-music #uploadSheetMusicForm {
+    width: 40vw;
+    outline: 2px solid black;
+    padding: 30px;
+    border-radius: 5px;
+}
+
+.admin-upload-sheet-music #uploadSheetMusicFormWrapper {
+    display: flex;
+    justify-content: center;
 }
 
 .edit-chord-page  #songChordsText {
