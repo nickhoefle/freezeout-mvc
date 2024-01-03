@@ -7,13 +7,19 @@ function toggleNotesChordPage() {
     }
 }
 
-function printText(input) {
-    let i = Number(`${input.parentNode.parentNode.rowIndex}`);
-    const chordsText = document.getElementsByClassName("chordsText");
-    const w = window.open();
-    w.document.write('<div style="white-space: pre-wrap">' + chordsText[i].innerHTML + '</div>');
-    w.print();
-    w.close();
+function printText(button) {
+    var chordsTextElement = button.parentElement.nextElementSibling;
+    var chordsText = chordsTextElement.innerText || chordsTextElement.textContent;
+
+    // Create a new window for printing
+    var printWindow = window.open('', '_blank');
+    printWindow.document.write('<html><head><title>Chords Text</title></head><body>');
+    printWindow.document.write('<pre>' + chordsText + '</pre>');
+    printWindow.document.write('</body></html>');
+    printWindow.document.close();
+
+    // Trigger the print dialog
+    printWindow.print();
 }
 
 function toggleNotesChordPage(clicked) {

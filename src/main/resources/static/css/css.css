@@ -674,13 +674,114 @@ th {
     object-fit: cover;
 }
 
+.practice .addedByText {
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 0;
+}
+
+.practice #addChordsButton {
+    margin-top: 18px;
+    outline: 2px solid black;
+    border-radius: 5px;
+    color: black;
+    font-weight: bold;
+}
+
+.practice #addNoteButton {
+    margin-top: 18px;
+    margin-bottom: 18px;
+    outline: 2px solid black;
+    border-radius: 5px;
+    color: black;
+    font-weight: bold;
+    width: 108px;
+}
+
+.practice #addNoteLink {
+    text-decoration: none;
+    color: inherit;
+}
+
+.practice #artistAndTitleText {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    padding-bottom: 24px;
+}
+
+.practice #chordsButton {
+    border-radius: 5px;
+    width: 125px;
+    height: 34px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.practice .chordsButtonsWrapper {
+    display: flex;
+    margin-bottom: 4px;
+}
+
 .practice  #chordsText {
     height: 450px;
     font-family: monospace;
 }
 
-.practice  #notesButton {
+.practice #deleteButton {
+    position: relative;
+    height: 30px;
+    font-size: 15px;
+    border: 2px solid black;
+    font-weight: bold;
+    border-radius: 5px;
+    background-color: #ff5555;
+}
+
+.practice .deleteChordPageButton {
+    width: 80px;
+    margin-right: 4px;
+    border-radius: 5px;
+    color: black;
+    font-weight: bold;
+    font-size: 13px;
+    height: 25px;
+    background-color: #ff4b4b
+}
+
+.practice #editButton {
+    position: relative;
+    height: 30px;
+    width: 50px;
+    border-radius: 5px;
+    font-size: 15px;
+    border: 2px solid black;
+    font-weight: bold;
+}
+
+.practice .editChordPageButton {
+    width: 80px;
+    margin-right: 4px;
+    border-radius: 5px;
+    color: black;
+    font-weight: bold;
+    font-size: 13px;
+    height: 25px;
+}
+
+.practice #myTable {
+    background-color: #a2abb6;
+    border: 3px solid white;
+    color: black;
+}
+
+.practice #notesButton {
     border: 5px solid black;
+    border-radius: 5px;
+    width: 108px;
+    height: 34px;
+    font-size: 14px;
+    font-weight: bold;
 }
 
 .practice  #practiceNoteDateHeader {
@@ -688,32 +789,87 @@ th {
 }
 
 .practice  #practiceNoteDateHeader, .practiceNoteTimestampCell {
-    width: 12.5%;
+    width: 12%;
+    padding-bottom: 4px;
 }
 
 .practice  #practiceNoteDeleteButtonHeader, .practiceNoteDeleteButton {
-    width: 12.5%;
+    width: 8%;
 }
 
 .practice  #practiceNoteEditButtonHeader, .practiceNoteEditButton {
-    width: 12.5%;
+    width: 6%;
 }
 
 .practice  #practiceNoteFromHeader {
     cursor: pointer;
+    padding-bottom: 4px;
 }
 
 .practice  #practiceNoteFromHeader, .practiceNoteFromCell {
-    width: 12.5%;
+    width: 9%;
 }
 
 .practice  #practiceNoteTextHeader {
     cursor: pointer;
+    padding-bottom: 4px;
 }
 
 .practice  #practiceNoteTextHeader, .practiceNoteTextCell {
     max-width: 350px;
     word-wrap: break-word;
+}
+
+.practice #practicePageHeader {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.practice .print-button {
+    width: 80px;
+    margin-right: 4px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 13px;
+    height: 25px;
+}
+
+.practice .table td {
+    vertical-align: middle;
+}
+
+.practice #uploadSheetMusicButton {
+    border-radius: 5px;
+    border: 2px solid black;
+}
+
+.practice .viewSheetMusicButton {
+    border-radius: 5px;
+    border: 2px solid black;
+}
+
+.practice #youtubeUrl {
+    width: 350px;
+    outline: 2px solid black;
+    border-radius: 5px;
+    margin-top: 1px;
+    margin-right: 6px;
+}
+
+.practice #youtubeUrlButton {
+    border: 2px solid black;
+    border-radius: 5px;
+    color: black;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.practice #youtubeUrlLabel {
+    font-size: 18px;
+}
+
+.practice #youtubeUrlWrapper {
+    display: flex;
 }
 
 .setlists .setlistLink:visited {
