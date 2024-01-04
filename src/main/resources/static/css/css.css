@@ -406,6 +406,50 @@ th {
     text-align: center;
 }
 
+.admin-upload-audio-file #audioFileUploadHeader {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.admin-upload-audio-file #allowedFileTypesText {
+    font-size: 16px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.admin-upload-audio-file #selectSongLabel {
+    font-size: 18px;
+    margin: 0;
+}
+
+.admin-upload-audio-file #skipLink {
+    text-decoration: underline;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+}
+
+.admin-upload-audio-file #uploadFileButton {
+    width: 86%;
+    border-radius: 5px;
+    border: 2px solid black;
+    font-size: 15px;
+    font-weight: bold;
+    color: black;
+}
+
+.admin-upload-audio-file #uploadAudioFileForm {
+    width: 40vw;
+    outline: 2px solid black;
+    padding: 30px;
+    border-radius: 5px;
+}
+
+.admin-upload-audio-file #uploadAudioFileWrapper {
+    display: flex;
+    justify-content: center;
+}
+
 .admin-upload-gig-image  #allowedFileTypes {
     font-style: italic;
 }
