@@ -10,13 +10,14 @@
 <hr>
 <button id="showUploadedSongs" class="btn btn-primary">Show Uploaded Files</button>
 <div id="uploadedSongsDiv" class="two-column-view" style="display:none;">
-    <br>
-    <span th:each="file : ${allAudioFileNames}">
-        <p class="uploadedSongName regular-font" th:text="${file}"></p>
-        <audio class="uploadedSongPlayer" controls>
-            <source th:src="@{${'/uploads/audio-files/' + file}}" type="audio/wav">
-        </audio>
-    </span>
+    <div th:each="file : ${allAudioFileNames}">
+        <div class="song-container">
+            <p class="uploadedSongName regular-font" th:text="${file}"></p>
+            <audio class="uploadedSongPlayer" controls>
+                <source th:src="@{${'/uploads/audio-files/' + file}}" type="audio/wav">
+            </audio>
+        </div>
+    </div>
 </div>
 <hr><br>
 
@@ -25,6 +26,11 @@
     .two-column-view {
         column-count: 2;
         column-gap: 20px; /* Adjust the gap as needed */
+    }
+
+    .song-container {
+        break-inside: avoid; /* Prevent breaking across columns */
+        margin-bottom: 20px; /* Adjust the margin as needed */
     }
 
     /* Style for pagination links (optional) */
