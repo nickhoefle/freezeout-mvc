@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -36,6 +37,7 @@ public class AdminListenController {
                 allAudioFileNames.add(file.getName());
             }
         }
+        Collections.sort(allAudioFileNames);
         model.addAttribute("allAudioFileNames", allAudioFileNames);
         return "/admin/listen";
     }
