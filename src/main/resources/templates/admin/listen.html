@@ -9,7 +9,7 @@
 
 <hr>
 <button id="showUploadedSongs" class="btn btn-primary">Show Uploaded Files</button>
-<div id="uploadedSongsDiv" style="display:none;">
+<div id="uploadedSongsDiv" class="two-column-view" style="display:none;">
     <br>
     <span th:each="file : ${allAudioFileNames}">
         <p class="uploadedSongName regular-font" th:text="${file}"></p>
@@ -19,6 +19,24 @@
     </span>
 </div>
 <hr><br>
+
+<style>
+    /* Add this to your CSS or style section */
+    .two-column-view {
+        column-count: 2;
+        column-gap: 20px; /* Adjust the gap as needed */
+    }
+
+    /* Style for pagination links (optional) */
+    .pagination {
+        display: flex;
+        list-style: none;
+    }
+
+    .pagination li {
+        margin-right: 10px;
+    }
+</style>
 
 <table class="table table-hover" id="myTable">
     <thead>
