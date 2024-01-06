@@ -5,9 +5,9 @@
 <script type="text/javascript" th:src="@{/javascript/gigs.js}"></script>
 
 <body class="container-fluid admin-listen">
-    <h3 class="view-header regular-font">Show/Hide Songs on the Public "Listen" Page</h3>
+    <h3 class="view-header regular-font">Customize Public "Listen" Page</h3>
     <hr>
-    <button id="showUploadedSongs" class="btn btn-success">Show Uploaded Song Files</button>
+    <button id="showUploadedSongsButton" class="btn btn-success">Show Uploaded Song Files</button>
     <div id="uploadedSongsDiv" class="two-column-view" style="display:none;">
         <div th:each="file : ${allAudioFileNames}">
             <div class="song-container">
@@ -15,61 +15,56 @@
                 <audio class="uploadedSongPlayer" controls>
                     <source th:src="@{${'/uploads/audio-files/' + file}}" type="audio/wav">
                 </audio>
+            </div>
         </div>
     </div>
-</div>
-<hr>
-
-<table id="allSongsTable" class="table table-hover">
-    <thead>
-        <tr>
-            <th id="songNameHeader" onclick="sortTable(0, 'allSongsTable')">Song</th>
-            <th id="audioPlayerHeader" class="cursor-pointer" onclick="sortTable(1, 'allSongsTable')">Current Track</th>
-            <th id="changeHeader"></th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr th:each="song : ${allSongs}">
-            <td class="songNameCell" th:text="${song.songName}"></td>
-            <td class="audioPlayerCell">
-                <div th:if="${song.fileName != null && song.fileName != 'Hidden' && song.fileName != 'images'}">
-                    <label th:text="${song.fileName}"></label>
-                    <div th:if="${song.fileName != 'Hidden'}">
-                        <audio class="audioPlayerInCell" controls>
-                            <source th:src="@{${'/uploads/audio-files/' + song.fileName}}" type="audio/wav">
-                        </audio>
+    <hr>
+    <table id="allSongsTable" class="table table-hover">
+        <thead>
+            <tr>
+                <th id="songNameHeader" onclick="sortTable(0, 'allSongsTable')">Song</th>
+                <th id="audioPlayerHeader" class="cursor-pointer" onclick="sortTable(1, 'allSongsTable')">Current Track</th>
+                <th id="changeHeader"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="song : ${allSongs}">
+                <td class="songNameCell" th:text="${song.songName}"></td>
+                <td class="audioPlayerCell">
+                    <div th:if="${song.fileName != null && song.fileName != 'Hidden' && song.fileName != 'images'}">
+                        <label th:text="${song.fileName}"></label>
+                        <div th:if="${song.fileName != 'Hidden'}">
+                            <audio class="audioPlayerInCell" controls>
+                                <source th:src="@{${'/uploads/audio-files/' + song.fileName}}" type="audio/wav">
+                            </audio>
+                        </div>
                     </div>
-                </div>
-                <div th:if="${song.fileName == null || song.fileName == 'Hidden' || song.fileName == 'images'}">
-                    Not On Listen Page
-                </div>
-            </td>
-            <td class="changeCell">
-                <button class="updateSectionButton">Update</button>
-                <form class="updateSection" th:action="@{/admin/listen}" th:method="post" style="display:none">
-                    <input th:value="${song.songName}" th:name="songName" hidden readonly>
-                    <select id="chooseFileDropdown" class="selectedSong" th:name="newFileName">
-                        <option value="Hidden">Choose File:</option>
-                        <option value="Hidden">Hide This Song from 'Listen' Page</option>
-                        <th:block th:each="audioFileName : ${allAudioFileNames}">
-                            <option th:text="${audioFileName}" th:value="${audioFileName}"></option>
-                        </th:block>
-                    </select>
-
-                    <div>
-                        <button class="btn btn-primary updateButton" type="submit">Update</button>
-                        <a class="playBtn">
-                            <button class="btn btn-secondary regular-font playSelectedButton" onclick="openSelectedInNewTab()" type="button">
-                                Play Selected
-                            </button>
-                        </a>
-                    </div>
-                </form>
-            </td>
-        </tr>
-    </tbody>
-</table>
-
+                    <div th:else>Not On Listen Page</div>
+                </td>
+                <td class="changeCell">
+                    <button class="updateSectionButton">Update</button>
+                    <form class="updateSection" th:action="@{/admin/listen}" th:method="post" style="display:none">
+                        <input th:value="${song.songName}" th:name="songName" hidden readonly>
+                        <select id="chooseFileDropdown" class="selectedSong" th:name="newFileName">
+                            <option value="Hidden">Choose File:</option>
+                            <option value="Hidden">Hide This Song from 'Listen' Page</option>
+                            <th:block th:each="audioFileName : ${allAudioFileNames}">
+                                <option th:text="${audioFileName}" th:value="${audioFileName}"></option>
+                            </th:block>
+                        </select>
+                        <div>
+                            <button class="btn btn-primary updateButton" type="submit">Update</button>
+                            <a class="playBtn">
+                                <button class="btn btn-secondary regular-font playSelectedButton" onclick="openSelectedInNewTab()" type="button">
+                                    Play Selected
+                                </button>
+                            </a>
+                        </div>
+                    </form>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </body>
 
 </html>
