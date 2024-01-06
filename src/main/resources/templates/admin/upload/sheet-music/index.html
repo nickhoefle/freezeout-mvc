@@ -5,8 +5,8 @@
 <body class="container-fluid admin-upload-sheet-music">
 
 <div>
-  <h1 id="sheetMusicUploadHeader" class="view-header regular-font">Sheet Music Upload</h1>
-  <h2 id="allowedFileTypesText" class="regular-font">Allowed File Type: PDF</h2>
+  <h1 id="sheetMusicUploadHeader" class="view-header no-space-after regular-font">Sheet Music Upload</h1>
+  <h2 class="regular-font subheader-text">Allowed File Type: PDF</h2>
   <p th:text="${message}" th:if="${message ne null}" class="alert alert-primary regular-font"></p>
   <div class="flex-center">
     <form id="uploadSheetMusicForm" method="post" th:action="@{/admin/upload/sheet-music}" enctype="multipart/form-data">

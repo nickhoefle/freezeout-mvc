@@ -4,7 +4,7 @@
 <header th:replace="fragments :: header-admin"></header>
 <body class="container-fluid practice">
 
-<h1 id="practicePageHeader" class="view-header regular-font">Practice Page</h1>
+<h1 id="practicePageHeader" class="view-header no-space-after regular-font">Practice Page</h1>
 <h2 id="artistAndTitleText" class="regular-font" th:text="${song.songName} + ' - ' + ${song.songDetails.originalArtist}"></h2>
 
 <th:block th:if="${song.songSheetMusic != null}">

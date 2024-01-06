@@ -92,8 +92,19 @@ label, p, td, th {
     text-decoration: underline !important;
 }
 
+.no-space-after {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
 .regular-font {
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.subheader-text {
+    font-size: 16px;
+    margin-bottom: 20px;
+    text-align: center;
 }
 
 textarea {
@@ -351,12 +362,6 @@ th {
     font-weight: bold;
 }
 
-.admin-photos-delete #deletePhotosExplainerText {
-    font-size: 16px;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
 .admin-photos-delete .photoColumnHeader {
     width: 50%;
     text-align: center;
@@ -396,17 +401,6 @@ th {
     text-align: center;
 }
 
-.admin-upload-audio-file #audioFileUploadHeader {
-    margin-bottom: 0;
-    padding-bottom: 0;
-}
-
-.admin-upload-audio-file #allowedFileTypesText {
-    font-size: 16px;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
 .admin-upload-audio-file #selectSongLabel {
     font-size: 18px;
     margin: 0;
@@ -443,12 +437,6 @@ th {
     color: white;
 }
 
-.admin-upload-sheet-music #allowedFileTypesText {
-    font-size: 16px;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
 .admin-upload-sheet-music  #fileText {
     color: white;
 }
@@ -460,11 +448,6 @@ th {
 
 .admin-upload-sheet-music #sheetId {
     outline: 2px solid black;
-}
-
-.admin-upload-sheet-music #sheetMusicUploadHeader {
-    margin-bottom: 0;
-    padding-bottom: 0;
 }
 
 .admin-upload-sheet-music #skipLink {
@@ -880,11 +863,6 @@ th {
 .practice  #practiceNoteTextHeader, .practiceNoteTextCell {
     max-width: 350px;
     word-wrap: break-word;
-}
-
-.practice #practicePageHeader {
-    margin-bottom: 0;
-    padding-bottom: 0;
 }
 
 .practice .print-button {
