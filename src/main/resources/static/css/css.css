@@ -33,6 +33,10 @@ button {
     padding-right: 10%;
 }
 
+.cursor-pointer {
+    cursor: pointer;
+}
+
 #filterInput {
     width: 20vw;
 }
@@ -161,10 +165,6 @@ th {
 .admin-delete-gig  .gig-poster-in-table {
     width: 250px;
     height: 375px;
-}
-
-.admin-delete-gig  .songTableHeader {
-    cursor: pointer;
 }
 
 .admin-listen  #audioPlayerHeader,
@@ -381,10 +381,6 @@ th {
     margin: 0;
 }
 
-.admin-songs-delete  .songTableHeader {
-    cursor: pointer;
-}
-
 .admin-songs-index button,
 .admin-songs-index h3,
 .admin-songs-index p {
@@ -397,10 +393,6 @@ th {
 
 .admin-songs-index  .songIdDiv {
     display:none
-}
-
-.admin-songs-index  .songTableHeader {
-    cursor: pointer;
 }
 
 .admin-songs-index  .table td {
