@@ -37,6 +37,11 @@ button {
     width: 20vw;
 }
 
+.flex-center {
+    display: flex;
+    justify-content: center;
+}
+
 .form-control-file {
     color: white
 }
@@ -68,11 +73,6 @@ label, p, td, th {
     outline: 2px solid black;
     padding: 0 5px 0 5px;
     border-radius: 5px;
-}
-
-.nav {
-    display: flex;
-    justify-content: center;
 }
 
 .nav-link {
@@ -325,11 +325,6 @@ th {
     font-size: 18px;
 }
 
-.admin-photos  #photoTitleAndCreditFormWrapper {
-    display: flex;
-    justify-content: center;
-}
-
 .admin-photos-delete  .big-checkbox {
     width: 25px;
     height: 25px;
@@ -455,11 +450,6 @@ th {
     border-radius: 5px;
 }
 
-.admin-upload-audio-file #uploadAudioFileWrapper {
-    display: flex;
-    justify-content: center;
-}
-
 .admin-upload-gig-image  #allowedFileTypes {
     font-style: italic;
 }
@@ -513,11 +503,6 @@ th {
     outline: 2px solid black;
     padding: 30px;
     border-radius: 5px;
-}
-
-.admin-upload-sheet-music #uploadSheetMusicFormWrapper {
-    display: flex;
-    justify-content: center;
 }
 
 .edit-chord-page  #songChordsText {
@@ -661,11 +646,6 @@ th {
     border: 5px;
 }
 
-.new-gig #newGigFormWrapper {
-    display: flex;
-    justify-content: center;
-}
-
 .new-song #add-new-song-button {
     width: 40vw;
     margin-top: 20px;
@@ -694,11 +674,6 @@ th {
 .new-song .new-song-form-label {
     font-size: 18px;
     color: black;
-}
-
-.new-song #new-song-form-wrapper {
-    display: flex;
-    justify-content: center;
 }
 
 .new-song #new-song-key {
@@ -1025,11 +1000,6 @@ th {
 .upload-photo #uploadPhotoFileLabel {
     font-size: 18px;
     margin: 0;
-}
-
-.upload-photo #uploadPhotoFileWrapper {
-    display: flex;
-    justify-content: center;
 }
 
 /* Tablet */
