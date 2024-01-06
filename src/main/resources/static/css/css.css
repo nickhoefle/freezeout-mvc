@@ -170,7 +170,6 @@ th {
 .admin-listen  #audioPlayerHeader,
 .admin-listen  .audioPlayerCell {
     width: 50%;
-    cursor: pointer;
     vertical-align: middle;
 }
 
@@ -187,15 +186,15 @@ th {
     text-align: center;
 }
 
-.admin-listen .playSelectedButton {
-    width: 200px;
-    margin-top: 6px;
-    border-radius: 5px;
-}
-
 .admin-listen #chooseFileDropdown {
     width: 200px;
     height: 32px;
+    border-radius: 5px;
+}
+
+.admin-listen .playSelectedButton {
+    width: 200px;
+    margin-top: 6px;
     border-radius: 5px;
 }
 
@@ -379,12 +378,6 @@ th {
     height: 25px;
     width: 25px;
     margin: 0;
-}
-
-.admin-songs-index button,
-.admin-songs-index h3,
-.admin-songs-index p {
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 .admin-songs-index  #practiceButtonLink {
