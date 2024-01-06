@@ -1,40 +1,36 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
+
 <head th:replace="fragments :: head"></head>
 <header th:replace="fragments :: header-admin"></header>
+
 <body class="container-fluid admin-delete-gig">
+    <h1 class="view-header">Delete Gigs</h1>
 
-<h3>Delete Gigs:</h3>
-
-<form method="post" th:action="@{/admin/gigs/delete}">
-    <table class="table table-hover" id="myTable">
-        <thead>
-            <tr>
-                <th>Delete</th>
-                <th class="cursor-pointer" onclick="sortTable(0)">Gig</th>
-                <th class="cursor-pointer" onclick="sortTable(1)">Date</th>
-                <th onclick="sortTable(2)">Poster</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr th:each="gig : ${gigs}">
-                <td>
-                    <div class="form-group">
-                        <label>
-                            <input class="form-control bigCheckbox" type="checkbox" name="gigIds" th:value="${gig.id}">
-                        </label>
-                    </div>
-                </td>
-                <td th:text="${gig.name}"></td>
-                <td th:text="${gig.date}"></td>
-                <td>
-                    <img class="gig-poster-in-table" onclick="window.open(this.src)" th:src="'/uploads/gig-posters/' + ${gig.image}">
-                </td>
-            </tr>
-        </tbody>
-</table>
-    <input type="submit" value="Delete" class="btn btn-danger">
-</form>
-
+    <form method="post" th:action="@{/admin/gigs/delete}">
+        <table id="gigsTable" class="table table-hover">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th class="cursor-pointer" onclick="sortTable(0, 'gigsTable')">Gig</th>
+                    <th class="cursor-pointer" onclick="sortTable(1, 'gigsTable')">Date</th>
+                    <th onclick="sortTable(2)">Poster</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="gig : ${gigs}">
+                    <td>
+                        <input class="form-control bigCheckbox" th:value="${gig.id}" type="checkbox" name="gigIds">
+                    </td>
+                    <td th:text="${gig.name}"></td>
+                    <td th:text="${gig.date}"></td>
+                    <td>
+                        <img class="gig-poster-in-table" onclick="window.open(this.src)" th:src="'/uploads/gig-posters/' + ${gig.image}">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <input class="btn btn-danger" type="submit" value="Delete">
+    </form>
 </body>
 </html>
