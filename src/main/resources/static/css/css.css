@@ -200,6 +200,8 @@ th {
 }
 
 .admin-delete-gig .table th {
+    position: relative;
+    top: 10px;
     text-align: center;
     font-size: 22px;
 }
@@ -237,6 +239,13 @@ th {
 
 .admin-listen  .selectedSong {
     width: 173px;
+}
+
+.admin-listen #showUploadedSongsButton {
+    color: black;
+    outline: 2px solid black;
+    font-weight: bold;
+    border-radius: 5px;
 }
 
 .admin-listen .song-container {
@@ -282,8 +291,13 @@ th {
 
 .admin-listen  .uploadedSongPlayer {
     width: 100%;
-    height: 35px;
-    margin-bottom: 8px;
+    height: 30px;
+    margin-bottom: 0px;
+}
+
+.admin-listen #uploadedSongsDiv {
+    display: block;
+    margin-top: 16px;
 }
 
 .admin-photos #arrangePhotosExplainerText {

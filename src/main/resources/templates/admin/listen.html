@@ -3,29 +3,28 @@
 <head th:replace="fragments :: head"></head>
 <header th:replace="fragments :: header-admin"></header>
 <script type="text/javascript" th:src="@{/javascript/gigs.js}"></script>
+
 <body class="container-fluid admin-listen">
-
-<h3 class="view-header regular-font">Configure 'Listen' Page</h3>
-
-<hr>
-<button id="showUploadedSongs" class="btn btn-primary">Show Uploaded Files</button>
-<div id="uploadedSongsDiv" class="two-column-view" style="display:none;">
-    <div th:each="file : ${allAudioFileNames}">
-        <div class="song-container">
-            <p class="uploadedSongName regular-font" th:text="${file}"></p>
-            <audio class="uploadedSongPlayer" controls>
-                <source th:src="@{${'/uploads/audio-files/' + file}}" type="audio/wav">
-            </audio>
+    <h3 class="view-header regular-font">Show/Hide Songs on the Public "Listen" Page</h3>
+    <hr>
+    <button id="showUploadedSongs" class="btn btn-success">Show Uploaded Song Files</button>
+    <div id="uploadedSongsDiv" class="two-column-view" style="display:none;">
+        <div th:each="file : ${allAudioFileNames}">
+            <div class="song-container">
+                <p class="uploadedSongName regular-font" th:text="${file}"></p>
+                <audio class="uploadedSongPlayer" controls>
+                    <source th:src="@{${'/uploads/audio-files/' + file}}" type="audio/wav">
+                </audio>
         </div>
     </div>
 </div>
-<hr><br>
+<hr>
 
-<table class="table table-hover" id="myTable">
+<table id="allSongsTable" class="table table-hover">
     <thead>
         <tr>
-            <th id="songNameHeader" onclick="sortTable(0)">Song</th>
-            <th id="audioPlayerHeader" class="cursor-pointer" onclick="sortTable(1)">Current Track</th>
+            <th id="songNameHeader" onclick="sortTable(0, 'allSongsTable')">Song</th>
+            <th id="audioPlayerHeader" class="cursor-pointer" onclick="sortTable(1, 'allSongsTable')">Current Track</th>
             <th id="changeHeader"></th>
         </tr>
     </thead>
