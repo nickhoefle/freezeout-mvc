@@ -62,7 +62,7 @@ public class SongDetails extends AbstractEntity {
         String[] splitEquals = youtubeURL.split("=");
         String[] splitAndSign = splitEquals[1].split("&");
         String videoID = splitAndSign[0];
-        this.youtubeURL = "<iframe width=\"560\" height=\"175\" src=\"https://www.youtube.com/embed/" + videoID.concat("\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe>");
+        this.youtubeURL = "<iframe width=\"100%\" height=\"225\" src=\"https://www.youtube.com/embed/" + videoID.concat("\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe>");
     }
 
 }
