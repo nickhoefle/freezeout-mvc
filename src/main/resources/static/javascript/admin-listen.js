@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const showBtn = document.getElementById("showUploadedSongs");
+    const showBtn = document.getElementById("showUploadedSongsButton");
     const songsDiv = document.getElementById("uploadedSongsDiv");
 
     showBtn.addEventListener("click", function() {
