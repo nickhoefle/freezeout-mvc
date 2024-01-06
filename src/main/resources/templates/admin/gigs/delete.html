@@ -22,7 +22,7 @@
                     <td>
                         <input class="form-control bigCheckbox" th:value="${gig.id}" type="checkbox" name="gigIds">
                     </td>
-                    <td th:text="${gig.name}"></td>
+                    <td class="gigNameCell" th:text="${gig.name}"></td>
                     <td th:text="${gig.date}"></td>
                     <td>
                         <img class="gig-poster-in-table" onclick="window.open(this.src)" th:src="'/uploads/gig-posters/' + ${gig.image}">
@@ -30,7 +30,7 @@
                 </tr>
             </tbody>
         </table>
-        <input class="btn btn-danger" type="submit" value="Delete">
+        <input id="deleteButton" class="btn" type="submit" value="Delete">
     </form>
 </body>
 </html>
