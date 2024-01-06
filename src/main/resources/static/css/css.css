@@ -203,11 +203,21 @@ th {
     width: 173px;
 }
 
+.admin-listen .song-container {
+    break-inside: avoid;
+    margin-bottom: 20px;
+}
+
 .admin-listen  #songNameHeader,
 .admin-listen  .songNameCell {
     width: 30%;
     cursor: pointer;
     vertical-align: middle;
+}
+
+.admin-listen .two-column-view {
+    column-count: 2;
+    column-gap: 20px;
 }
 
 .admin-listen  .updateButton {
