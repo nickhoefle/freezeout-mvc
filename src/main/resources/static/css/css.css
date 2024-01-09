@@ -541,7 +541,7 @@ th {
 
 .edit-chord-page .chordsText {
     width: 80vw;
-    font-size: 16px;
+    font-size: 18px;
     transition: font-size 0.3s ease;
     overflow: hidden;
 }
