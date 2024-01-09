@@ -539,13 +539,6 @@ th {
     width: 80vw;
 }
 
-.edit-chord-page .chordsText {
-    width: 80vw;
-    font-size: 18px;
-    transition: font-size 0.3s ease;
-    overflow: hidden;
-}
-
 .edit-chord-page #confirmButton {
     width: 200px;
     font-size: 18px;
@@ -845,9 +838,11 @@ th {
     margin-bottom: 4px;
 }
 
-.practice  #chordsText {
-    height: 450px;
-    font-family: monospace;
+.practice  .chordsText {
+    width: 80vw;
+    font-size: 18px;
+    transition: font-size 0.3s ease;
+    overflow: hidden;
 }
 
 .practice #deleteButton {
