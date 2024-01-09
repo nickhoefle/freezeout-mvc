@@ -168,6 +168,28 @@ th {
 
 /* Body Classes */
 
+.add-chords-to-practice #addedBy {
+    font-size: 20px;
+    width: 200px;
+    text-align: left;
+}
+
+.add-chords-to-practice #addedByLabel {
+    font-size: 22px;
+}
+
+.add-chords-to-practice #submitButton {
+    width: 200px;
+    font-size: 18px;
+    color: black;
+    font-weight: bold;
+    outline: 2px solid black;
+}
+
+.add-chords-to-practice #textArea {
+    height: 45vh;
+}
+
 .admin-delete-gig  .bigCheckbox {
     height: 25px;
     width: 25px;

@@ -2,18 +2,16 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
 <header th:replace="fragments :: header-admin"></header>
-<body class="container-fluid">
+<body class="container-fluid add-chords-to-practice">
 
-<h3>Add Chord Page:</h3>
+<h1 class="view-header regular-font">Add Chord Page</h1>
 
 <form method="post">
    <div class="form-group">
-      <label>Chords:
-         <textarea th:field="${songChords.chordsText}"  class="form-control" cols="500"></textarea>
-      </label>
+         <textarea id="textArea" class="form-control" th:field="${songChords.chordsText}"></textarea>
    </div>
    <div class="form-group">
-      <label>Added By:
+      <label id="addedByLabel">Added By:
          <select th:field="${songChords.addedBy}" class="form-control">
             <option th:value="DH">DH</option>
             <option th:value="NH">NH</option>
@@ -25,7 +23,7 @@
          </select>
       </label>
    </div>
-   <input type="submit" class="btn btn-success" onclick="history.back()">
+   <input id="submitButton" class="btn btn-success" type="submit" onclick="history.back()">
 </form>
 
 </body>
