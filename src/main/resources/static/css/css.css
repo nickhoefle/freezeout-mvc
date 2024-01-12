@@ -327,6 +327,15 @@ th {
     font-size: 16px;
 }
 
+.admin-photos .arrowSvg {
+    height: 50px;
+    cursor: pointer;
+    border: 2px solid black;
+    width: 50px;
+    padding: 2px;
+    background-color: white;
+}
+
 .admin-photos .photoColumnHeader {
     width: 50%;
 }
