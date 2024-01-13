@@ -1133,8 +1133,19 @@ th {
             font-size: 20px;
         }
 
+        .admin-songs-index h4 {
+            font-size: 22px;
+        }
+
         .admin-songs-index .addSheetMusicCell {
             display: none;
+        }
+
+        .admin-songs-index #filterInput {
+            width: 40vw;
+            height: 36px;
+            font-size: 15px;
+            margin-bottom: 24px;
         }
 
         .admin-songs-index #sheetMusicHeader {
