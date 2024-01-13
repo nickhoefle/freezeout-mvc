@@ -1199,6 +1199,14 @@ th {
             margin-bottom: 12px;
         }
 
+        .new-song #add-new-song-button {
+            width: 100%;
+        }
+
+        .new-song  #new-song-year {
+            width: 85px
+        }
+
         .photos #photoGalleryDiv {
             height: 700px;
         }
