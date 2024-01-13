@@ -1055,303 +1055,303 @@ th {
 }
 
 /* Tablet */
-@media only screen and (min-width: 768px) and (max-width: 1024px) {
+    @media only screen and (min-width: 768px) and (max-width: 1024px) {
 
-    /* Type Selectors */
+        /* Type Selectors */
 
-    a {
-        font-size: 24px;
+        a {
+            font-size: 24px;
+        }
+
+        button {
+            font-size: 24px;
+        }
+
+        h2 {
+            font-size: 32px
+        }
+
+        h3 {
+            font-size: 30px;
+        }
+
+        h4 {
+            font-size: 28px;
+        }
+
+        input {
+            height: 38px;
+            font-size: 24px;
+        }
+
+        label {
+            font-size: 24px;
+        }
+
+        p {
+            font-size: 22px;
+        }
+
+        td {
+            font-size: 24px;
+            height: 100px;
+        }
+
+        th {
+            font-size: 24px;
+        }
+
+        .btn {
+            font-size: 24px;
+            height: 48px;
+        }
+
+        .container-fluid {
+            padding-right: 45px;
+            padding-left: 45px;
+            padding-top: 30px;
+            padding-bottom: 15px;
+        }
+
+        .form-control {
+            font-size: 24px;
+            height: 48px;
+        }
+
+        .form-control-file {
+            font-size: 22px;
+            height: 38px;
+        }
+
+        .titleHeaderFragment {
+            font-size: 42px;
+        }
+
+        /* Body Classes */
+
+        .admin-listen  .selectedSong {
+            font-size: 20px;
+        }
+
+        .admin-songs-index .addSheetMusicCell {
+            display: none;
+        }
+
+        .admin-songs-index #sheetMusicHeader {
+            display: none;
+        }
+
+        .admin-songs-index .viewSheetMusicCell {
+            display: none;
+        }
+
+        .admin-songs-index .yearCell {
+            display: none;
+        }
+
+        .admin-songs-index #yearHeader {
+            display: none;
+        }
+
+        .gigs-view h1, h2, h3, h4, h5, h6, p, a, i, u {
+            font-family: 'Snowtop Caps', sans-serif;
+        }
+
+        .gigs-view  .gigPoster {
+            height: 80vh;
+            object-fit: contain;
+            width: 100%;
+        }
+
+        .gigs-view  swiper-container {
+            width: 100%;
+        }
+
+        .index h1, h2, h3, h4, h5, h6, p, a, i, u {
+            font-family: 'Snowtop Caps', sans-serif;
+        }
+
+        .index  .instrumentPhoto {
+            width: 40%;
+        }
+
+        .listen h1, h2, h3, h4, h5, h6, p, a, i, u {
+            font-family: 'Snowtop Caps', sans-serif;
+        }
+
+        .listen  .audioPlayerHTML {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 40px;
+            margin-bottom: 12px;
+        }
+
+        .photos #photoGalleryDiv {
+            height: 700px;
+        }
+
+        .songs-index  .addSheetMusicCell {
+            display: none;
+        }
+
+        .songs-index  #sheetMusicHeader {
+            display: none;
+        }
+
+        .songs-index  .viewSheetMusicCell {
+            display: none;
+        }
+
+        .songs-index  .yearCell {
+            display: none;
+        }
+
+        .songs-index  #yearHeader {
+            display: none;
+        }
+
     }
 
-    button {
-        font-size: 24px;
-    }
+            /* CSS rules for smartphone size */
+            @media only screen and (min-width: 0px) and (max-width: 767px) {
 
-    h2 {
-        font-size: 32px
-    }
+                .container-fluid {
+                    display: block;
+                    width: auto;
+                    padding-right: 5px;
+                    padding-left: 5px;
+                    margin-right: auto;
+                    margin-left: auto;
+                }
 
-    h3 {
-        font-size: 30px;
-    }
+                .nav {
+                    display: flex;
+                    justify-content: center;
+                }
 
-    h4 {
-        font-size: 28px;
-    }
+                .nav-link {
+                    font-family: 'Snowtop Caps', sans-serif;
+                    font-size: 20px !important;
+                    margin-right: 0px !important;
+                    text-decoration: underline;
+                    color: #000 !important;
+                    background-color: transparent !important;
+                    padding: 6px !important;
+                }
 
-    input {
-        height: 38px;
-        font-size: 24px;
-    }
+                .titleHeaderFragment {
+                    font-size: 42px !important;
+                }
 
-    label {
-        font-size: 24px;
-    }
+                .admin-songs-index .addSheetMusicCell {
+                    display: none;
+                }
 
-    p {
-        font-size: 22px;
-    }
+                .admin-songs-index #sheetMusicHeader {
+                    display: none;
+                }
 
-    td {
-        font-size: 24px;
-        height: 100px;
-    }
+                .admin-songs-index .viewSheetMusicCell {
+                    display: none;
+                }
 
-    th {
-        font-size: 24px;
-    }
+                .admin-songs-index .yearCell {
+                    display: none;
+                }
 
-    .btn {
-        font-size: 24px;
-        height: 48px;
-    }
+                .admin-songs-index #yearHeader {
+                    display: none;
+                }
 
-    .container-fluid {
-        padding-right: 45px;
-        padding-left: 45px;
-        padding-top: 30px;
-        padding-bottom: 15px;
-    }
+                .gigsView h1, h2, h3, h4, h5, h6, p, a, i, u {
+                    font-family: 'Snowtop Caps', sans-serif;
+                }
 
-    .form-control {
-        font-size: 24px;
-        height: 48px;
-    }
+                .gigs-view  .gigPoster {
+                    object-fit: fill;
+                    width: 100%;
+                }
 
-    .form-control-file {
-        font-size: 22px;
-        height: 38px;
-    }
+                .gigs-view swiper-container {
+                    width: 90%;
+                }
 
-    .titleHeaderFragment {
-        font-size: 42px;
-    }
+                .index h1, h2, h3, h4, h5, h6, p, a, i, u {
+                    font-family: 'Snowtop Caps', sans-serif;
+                }
 
-    /* Body Classes */
+                .index #bandText {
+                    font-size: 36px !important;
+                }
 
-    .admin-listen  .selectedSong {
-        font-size: 20px;
-    }
+                .index .name {
+                    font-size: 26px;
+                    margin-top: 8px;
+                }
 
-    .admin-songs-index .addSheetMusicCell {
-        display: none;
-    }
+                .index .instrumentPhoto {
+                    width: 40%;
+                }
 
-    .admin-songs-index #sheetMusicHeader {
-        display: none;
-    }
+                .index .instrumentsAndNames {
+                    width: 100%;
+                    margin: 0 0 32px 0 !important;
+                }
 
-    .admin-songs-index .viewSheetMusicCell {
-        display: none;
-    }
+                .index #photoCarousel {
+                    width: 100%;
+                }
 
-    .admin-songs-index .yearCell {
-        display: none;
-    }
+                .listen h1, h2, h3, h4, h5, h6, p, a, i, u {
+                    font-family: 'Snowtop Caps', sans-serif;
+                }
 
-    .admin-songs-index #yearHeader {
-        display: none;
-    }
+                .listen #songTitle {
+                    font-size: 20px;
+                    text-align: center;
+                }
 
-    .gigs-view h1, h2, h3, h4, h5, h6, p, a, i, u {
-        font-family: 'Snowtop Caps', sans-serif;
-    }
+                .photos #photoGalleryDiv {
+                    height: 400px;
+                }
+            }
 
-    .gigs-view  .gigPoster {
-        height: 80vh;
-        object-fit: contain;
-        width: 100%;
-    }
+            /* Custom Audio Player CSS */
+            audio::-webkit-media-controls-play-button {
+                border: 3px solid black;
+                text-shadow: none;
+            }
 
-    .gigs-view  swiper-container {
-        width: 100%;
-    }
+            audio::-webkit-media-controls-current-time-display {
+                font-size: 14px;
+                color: black;
+                text-shadow: none;
+            }
 
-    .index h1, h2, h3, h4, h5, h6, p, a, i, u {
-        font-family: 'Snowtop Caps', sans-serif;
-    }
+            audio::-webkit-media-controls-time-remaining-display {
+                font-size: 14px;
+                color: black;
+                text-shadow: none;
+            }
 
-    .index  .instrumentPhoto {
-        width: 40%;
-    }
+            audio::-webkit-media-controls-mute-button {
+                color: white;
+                background-color: white;
+            }
 
-    .listen h1, h2, h3, h4, h5, h6, p, a, i, u {
-        font-family: 'Snowtop Caps', sans-serif;
-    }
+            audio::-webkit-media-controls-panel {
+                background-color: white;
+            }
 
-    .listen  .audioPlayerHTML {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        height: 40px;
-        margin-bottom: 12px;
-    }
+            audio::-webkit-media-controls-enclosure {
+                background-color: rgb(51,122,183);
+                border: 3px solid black;
+                color: white;
+            }
 
-    .photos #photoGalleryDiv {
-        height: 700px;
-    }
-
-    .songs-index  .addSheetMusicCell {
-        display: none;
-    }
-
-    .songs-index  #sheetMusicHeader {
-        display: none;
-    }
-
-    .songs-index  .viewSheetMusicCell {
-        display: none;
-    }
-
-    .songs-index  .yearCell {
-        display: none;
-    }
-
-    .songs-index  #yearHeader {
-        display: none;
-    }
-
-}
-
-/* CSS rules for smartphone size */
-@media only screen and (min-width: 0px) and (max-width: 767px) {
-
-    .container-fluid {
-        display: block;
-        width: auto;
-        padding-right: 5px;
-        padding-left: 5px;
-        margin-right: auto;
-        margin-left: auto;
-    }
-
-    .nav {
-        display: flex;
-        justify-content: center;
-    }
-
-    .nav-link {
-        font-family: 'Snowtop Caps', sans-serif;
-        font-size: 20px !important;
-        margin-right: 0px !important;
-        text-decoration: underline;
-        color: #000 !important;
-        background-color: transparent !important;
-        padding: 6px !important;
-    }
-
-    .titleHeaderFragment {
-        font-size: 42px !important;
-    }
-
-    .admin-songs-index .addSheetMusicCell {
-        display: none;
-    }
-
-    .admin-songs-index #sheetMusicHeader {
-        display: none;
-    }
-
-    .admin-songs-index .viewSheetMusicCell {
-        display: none;
-    }
-
-    .admin-songs-index .yearCell {
-        display: none;
-    }
-
-    .admin-songs-index #yearHeader {
-        display: none;
-    }
-
-    .gigsView h1, h2, h3, h4, h5, h6, p, a, i, u {
-        font-family: 'Snowtop Caps', sans-serif;
-    }
-
-    .gigs-view  .gigPoster {
-        object-fit: fill;
-        width: 100%;
-    }
-
-    .gigs-view swiper-container {
-        width: 90%;
-    }
-
-    .index h1, h2, h3, h4, h5, h6, p, a, i, u {
-        font-family: 'Snowtop Caps', sans-serif;
-    }
-
-    .index #bandText {
-        font-size: 36px !important;
-    }
-
-    .index .name {
-        font-size: 26px;
-        margin-top: 8px;
-    }
-
-    .index .instrumentPhoto {
-        width: 40%;
-    }
-
-    .index .instrumentsAndNames {
-        width: 100%;
-        margin: 0 0 32px 0 !important;
-    }
-
-    .index #photoCarousel {
-        width: 100%;
-    }
-
-    .listen h1, h2, h3, h4, h5, h6, p, a, i, u {
-        font-family: 'Snowtop Caps', sans-serif;
-    }
-
-    .listen #songTitle {
-        font-size: 20px;
-        text-align: center;
-    }
-
-    .photos #photoGalleryDiv {
-        height: 400px;
-    }
-}
-
-/* Custom Audio Player CSS */
-audio::-webkit-media-controls-play-button {
-    border: 3px solid black;
-    text-shadow: none;
-}
-
-audio::-webkit-media-controls-current-time-display {
-    font-size: 14px;
-    color: black;
-    text-shadow: none;
-}
-
-audio::-webkit-media-controls-time-remaining-display {
-    font-size: 14px;
-    color: black;
-    text-shadow: none;
-}
-
-audio::-webkit-media-controls-mute-button {
-    color: white;
-    background-color: white;
-}
-
-audio::-webkit-media-controls-panel {
-    background-color: white;
-}
-
-audio::-webkit-media-controls-enclosure {
-    background-color: rgb(51,122,183);
-    border: 3px solid black;
-    color: white;
-}
-
-audio::-webkit-media-controls-timeline {
-    color: black;
-}
+            audio::-webkit-media-controls-timeline {
+                color: black;
+            }
 
