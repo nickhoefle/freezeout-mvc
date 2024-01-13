@@ -6,7 +6,7 @@
 
 <script>
     window.onload = function () {
-        sortTable(1);
+        sortTable(1, 'allSongsTable');
     }
 </script>
 
@@ -14,12 +14,12 @@
 
 <div th:replace="fragments :: filterBar"></div>
 
-<table class="table table-hover" id="myTable">
+<table class="table table-hover" id="allSongsTable">
     <thead>
         <tr>
-            <th class="cursor-pointer" onclick="sortTable(0)">Status</th>
-            <th class="cursor-pointer" onclick="sortTable(1)">Song</th>
-            <th class="cursor-pointer" onclick="sortTable(2)">Artist</th>
+            <th class="cursor-pointer" onclick="sortTable(0, 'allSongsTable')">Status</th>
+            <th class="cursor-pointer" onclick="sortTable(1, 'allSongsTable')">Song</th>
+            <th class="cursor-pointer" onclick="sortTable(2, 'allSongsTable')">Artist</th>
             <th class="cursor-pointer" id="yearHeader" onclick="sortTable(3)">Year</th>
             <th class="cursor-pointer tdCentered" id="sheetMusicHeader" onclick="sortTable(4)">Sheet Music</th>
             <th class="tdCentered">Practice</th>
@@ -54,7 +54,9 @@
             </td>
             <td class="tdCentered">
                 <a id="practiceButtonLink" th:href="@{/admin/songs/practice/{songId}(songId=${song.id})}" class="regular-font">
-                    <button class="regular-font">Practice</button>
+                    <div class="practiceButtonWrapper">
+                        <button class="practiceButton regular-font">Practice</button>
+                    </div>
                 </a>
             </td>
         </tr>

@@ -9,13 +9,13 @@
 <div th:replace="fragments :: filterBar"></div>
 
 <form method="post">
-<table class="table table-hover" id="myTable">
+<table class="table table-hover" id="allSongsTable">
     <thead>
         <tr>
             <th>Delete</th>
-            <th class="cursor-pointer" onclick="sortTable(1)">Song</th>
-            <th class="cursor-pointer" onclick="sortTable(2)">Original Artist</th>
-            <th class="cursor-pointer" onclick="sortTable(3)">Year</th>
+            <th class="cursor-pointer" onclick="sortTable(1, 'allSongsTable')">Song</th>
+            <th class="cursor-pointer" onclick="sortTable(2, 'allSongsTable')">Original Artist</th>
+            <th class="cursor-pointer" onclick="sortTable(3, 'allSongsTable')">Year</th>
         </tr>
     </thead>
     <tbody>
