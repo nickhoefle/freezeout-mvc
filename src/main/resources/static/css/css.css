@@ -1140,6 +1140,7 @@ th {
         .admin-songs-index td {
             font-size: 17px;
             text-align: left;
+            height: 55px;
         }
 
         .admin-songs-index th {
