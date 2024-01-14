@@ -31,15 +31,17 @@
             <tr th:each="song : ${allSongs}">
                 <td class="songNameCell" th:text="${song.songName}"></td>
                 <td class="audioPlayerCell">
-                    <div th:if="${song.fileName != null && song.fileName != 'Hidden' && song.fileName != 'images'}">
+                    <th:block th:if="${song.fileName != null and song.fileName != 'Hidden' and song.fileName != 'images'}">
                         <label th:text="${song.fileName}"></label>
                         <div th:if="${song.fileName != 'Hidden'}">
                             <audio class="audioPlayerInCell" controls>
                                 <source th:src="@{${'/uploads/audio-files/' + song.fileName}}" type="audio/wav">
                             </audio>
                         </div>
-                    </div>
-                    <div th:else>Not On Listen Page</div>
+                    </th:block>
+                    <th:block th:unless="${song.fileName != null and song.fileName != 'Hidden' and song.fileName != 'images'}">
+                        Not On Listen Page
+                    </th:block>
                 </td>
                 <td class="changeCell">
                     <button class="updateSectionButton">Update</button>

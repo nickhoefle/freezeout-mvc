@@ -1128,8 +1128,31 @@ th {
         }
 
         /* Body Classes */
+        .admin-listen .playSelectedButton {
+            color: black;
+            height: 32px;
+            font-size: 20px;
+            line-height: 0px;
+        }
 
         .admin-listen  .selectedSong {
+            font-size: 20px;
+            height: 32px;
+        }
+
+        .admin-listen tr {
+            height: 230px;
+        }
+
+        .admin-listen .updateButton {
+            color: black;
+            height: 32px;
+            font-size: 20px;
+            line-height: 0px;
+        }
+
+        .admin-listen .updateSectionButton {
+            height: 32px;
             font-size: 20px;
         }
 
