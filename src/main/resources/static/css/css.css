@@ -1128,6 +1128,10 @@ th {
         }
 
         /* Body Classes */
+        .admin-listen .audioPlayerInCell {
+            width: 100%;
+        }
+
         .admin-listen .playSelectedButton {
             color: black;
             height: 32px;
