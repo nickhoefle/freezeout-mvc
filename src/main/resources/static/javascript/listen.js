@@ -30,7 +30,7 @@ function openSelectedInNewTab() {
             if (selectedSongArray[index].value === 'images' || selectedSongArray[index].value === 'Hidden') {
                 return;
             }
-            window.open('/uploads/' + selectedSongArray[index].value)
+            window.open('/uploads/audio-files/' + selectedSongArray[index].value)
         });
     });
 }
