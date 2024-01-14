@@ -1140,6 +1140,10 @@ th {
             height: 32px;
         }
 
+        .admin-listen .song-container {
+            margin-bottom: 12px;
+        }
+
         .admin-listen tr {
             height: 230px;
         }
