@@ -1138,6 +1138,14 @@ th {
             justify-content: center;
         }
 
+        .admin-songs-delete #deleteButton {
+            border: 2px solid black;
+            border-radius: 5px;
+            color: black;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
         .admin-songs-delete #deleteColumnHeader {
             text-align: center;
         }
