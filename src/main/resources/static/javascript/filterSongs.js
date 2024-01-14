@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function() {
         let input, filter, table, tr, td, i, txtValueSong, txtValueArtist;
         input = document.getElementById("filterInput");
         filter = input.value.toUpperCase();
-        table = document.getElementById("myTable");
+        table = document.getElementById("allSongsTable");
         tr = table.getElementsByTagName("tr");
 
         for (i = 0; i < tr.length; i++) {

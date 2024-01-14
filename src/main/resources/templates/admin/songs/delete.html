@@ -1,39 +1,38 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
+
 <head th:replace="fragments :: head"></head>
 <header th:replace="fragments :: header-admin"></header>
+
 <body class="container-fluid admin-songs-delete">
+    <h3 class="view-header regular-font">Delete Songs</h3>
+    <div th:replace="fragments :: filterBar"></div>
 
-<h3 class="view-header regular-font">Delete Songs</h3>
-
-<div th:replace="fragments :: filterBar"></div>
-
-<form method="post">
-<table class="table table-hover" id="allSongsTable">
-    <thead>
-        <tr>
-            <th>Delete</th>
-            <th class="cursor-pointer" onclick="sortTable(1, 'allSongsTable')">Song</th>
-            <th class="cursor-pointer" onclick="sortTable(2, 'allSongsTable')">Original Artist</th>
-            <th class="cursor-pointer" onclick="sortTable(3, 'allSongsTable')">Year</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr th:each="song : ${songs}">
-            <td>
-                <div>
-                    <input type="checkbox" name="songIds" th:value="${song.id}" class="form-control align-middle bigCheckbox">
-                </div>
-            </td>
-            <td class="align-middle" th:text="${song.songName}"></td>
-            <td class="align-middle" th:text="${song.songDetails.originalArtist}"></td>
-            <td class="align-middle" th:text="${song.songDetails.year}"></td>
-        </tr>
-    </tbody>
-</table>
-<input type="submit" value="Delete" class="btn btn-danger">
-</form>
-
+    <form method="post">
+    <table class="table table-hover" id="allSongsTable">
+        <thead>
+            <tr>
+                <th id="deleteColumnHeader">Delete</th>
+                <th class="cursor-pointer" onclick="sortTable(1, 'allSongsTable')">Song</th>
+                <th class="cursor-pointer" onclick="sortTable(2, 'allSongsTable')">Original Artist</th>
+                <th class="cursor-pointer" onclick="sortTable(3, 'allSongsTable')">Year</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="song : ${songs}">
+                <td>
+                    <div class="checkboxWrapper">
+                        <input type="checkbox" name="songIds" th:value="${song.id}" class="form-control align-middle bigCheckbox">
+                    </div>
+                </td>
+                <td class="align-middle" th:text="${song.songName}"></td>
+                <td class="align-middle" th:text="${song.songDetails.originalArtist}"></td>
+                <td class="align-middle" th:text="${song.songDetails.year}"></td>
+            </tr>
+        </tbody>
+    </table>
+    <input type="submit" value="Delete" class="btn btn-danger">
+    </form>
 </body>
 
 </html>

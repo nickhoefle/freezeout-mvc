@@ -1133,8 +1133,35 @@ th {
             font-size: 20px;
         }
 
-        .admin-songs-index h4 {
+        .admin-songs-delete .checkboxWrapper {
+            display: flex;
+            justify-content: center;
+        }
+
+        .admin-songs-delete #deleteColumnHeader {
+            text-align: center;
+        }
+
+        .admin-songs-delete #filterInput {
+            width: 40vw;
+            height: 36px;
+            font-size: 15px;
+            margin-bottom: 24px;
+        }
+
+        .admin-songs-delete label {
             font-size: 22px;
+        }
+
+        .admin-songs-delete td {
+            vertical-align: middle !important;
+            font-size: 17px;
+            text-align: left;
+            height: 55px;
+        }
+
+        .admin-songs-delete th {
+            font-size: 20px;
         }
 
         .admin-songs-index td {
