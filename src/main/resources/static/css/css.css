@@ -1148,10 +1148,6 @@ th {
             margin-bottom: 12px;
         }
 
-        .admin-listen tr {
-            height: 230px;
-        }
-
         .admin-listen .updateButton {
             color: black;
             height: 32px;
