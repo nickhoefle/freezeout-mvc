@@ -1160,6 +1160,10 @@ th {
             font-size: 20px;
         }
 
+        .admin-photos #photoTitleAndCreditForm {
+            width: 60vw;
+        }
+
         .admin-songs-delete .checkboxWrapper {
             display: flex;
             justify-content: center;
