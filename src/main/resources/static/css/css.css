@@ -1285,6 +1285,10 @@ th {
             margin-bottom: 12px;
         }
 
+        .new-gig #newGigForm {
+            width: 75vw;
+        }
+
         .new-song #add-new-song-button {
             width: 100%;
         }
