@@ -8,18 +8,30 @@ function toggleNotesChordPage() {
 }
 
 function printText(button) {
-    var chordsTextElement = button.parentElement.nextElementSibling;
-    var chordsText = chordsTextElement.innerText || chordsTextElement.textContent;
+    var chordsTextElement = button.closest('td').querySelector('.chordsText');
 
-    // Create a new window for printing
-    var printWindow = window.open('', '_blank');
-    printWindow.document.write('<html><head><title>Chords Text</title></head><body>');
-    printWindow.document.write('<pre>' + chordsText + '</pre>');
-    printWindow.document.write('</body></html>');
-    printWindow.document.close();
+    if (chordsTextElement) {
+        var chordsText = chordsTextElement.innerText || chordsTextElement.textContent;
 
-    // Trigger the print dialog
-    printWindow.print();
+        // Create a new window for printing
+        var printWindow = window.open('', '_blank');
+        printWindow.document.write('<html><head><title>Chords Text</title></head><body>');
+        printWindow.document.write('<pre>' + escapeHTML(chordsText) + '</pre>');
+        printWindow.document.write('</body></html>');
+        printWindow.document.close();
+
+        // Trigger the print dialog
+        printWindow.print();
+    } else {
+        console.error('Error: Chords text element not found.');
+    }
+}
+
+// Function to escape HTML characters
+function escapeHTML(html) {
+    var escapeElement = document.createElement('div');
+    escapeElement.textContent = html;
+    return escapeElement.innerHTML;
 }
 
 function toggleNotesChordPage(clicked) {

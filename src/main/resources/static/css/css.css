@@ -1094,7 +1094,6 @@ th {
 
         td {
             font-size: 24px;
-            height: 100px;
         }
 
         th {
@@ -1128,6 +1127,10 @@ th {
         }
 
         /* Body Classes */
+        .add-chords-to-practice #textArea {
+            font-size: 16px;
+        }
+
         .admin-listen .audioPlayerInCell {
             width: 100%;
         }
@@ -1299,6 +1302,57 @@ th {
 
         .photos #photoGalleryDiv {
             height: 700px;
+        }
+
+        .practice #addNoteButton {
+            width: 163px;
+        }
+
+        .practice .chordsButtonsWrapper {
+            display: flex;
+            margin-bottom: 16px;
+            align-items: flex-end;
+        }
+
+        .practice .chordsText {
+            width: 96vw;
+        }
+
+        .practice #deleteButton,
+        .practice #editButton {
+            margin-bottom: 6px;
+        }
+
+        .practice .editChordPageText {
+            font-size: 13px;
+        }
+
+        .practice .practiceNoteTextCell,
+        .practice .practiceNoteFromCell,
+        .practice .practiceNoteTimestampCell {
+            font-size: 16px;
+        }
+
+        .practice #uploadSheetMusicButton {
+            height: 36px;
+            font-size: 15px;
+        }
+
+        .practice .viewSheetMusicButton {
+            height: 36px;
+            font-size: 15px;
+        }
+
+        .practice #youtubeUrl {
+            width: 40vw;
+            height: 36px;
+            font-size: 15px;
+            margin-bottom: 24px;
+        }
+
+        .practice #youtubeUrlButton {
+            height: 40px;
+            font-weight: bold;
         }
 
         .songs-index  .addSheetMusicCell {
