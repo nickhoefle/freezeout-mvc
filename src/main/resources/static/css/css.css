@@ -1316,6 +1316,7 @@ th {
 
         .practice .chordsText {
             width: 96vw;
+            margin-top: 16px;
         }
 
         .practice #deleteButton,
