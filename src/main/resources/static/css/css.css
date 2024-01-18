@@ -1241,6 +1241,11 @@ th {
             display: none;
         }
 
+        .admin-songs-index .statusDropdown {
+            -webkit-appearance: none;
+            appearance: none;
+        }
+
         .admin-songs-index .viewSheetMusicCell {
             display: none;
         }
