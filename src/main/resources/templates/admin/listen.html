@@ -33,7 +33,7 @@
                 <td class="songNameCell" th:text="${song.songName}"></td>
                 <td class="audioPlayerCell">
                     <th:block th:if="${song.fileName != null and song.fileName != 'Hidden' and song.fileName != 'images'}">
-                        <label th:text="${song.fileName}"></label>
+                        <label class="audioFileNameLabel" th:text="${song.fileName}"></label>
                         <div th:if="${song.fileName != 'Hidden'}">
                             <audio class="audioPlayerInCell" controls>
                                 <source th:src="@{${'/uploads/audio-files/' + song.fileName}}" type="audio/wav">

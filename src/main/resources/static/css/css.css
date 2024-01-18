@@ -304,11 +304,12 @@ th {
     border-radius: 5px;
     height: 32px;
     font-weight: bold;
+    outline: 1px solid black;
 }
 
 .admin-listen .uploadedSongName {
     margin-bottom: 0;
-    font-size: 16px;
+    font-size: 15px;
 }
 
 .admin-listen  .uploadedSongPlayer {
@@ -1128,6 +1129,11 @@ th {
 
         /* Body Classes */
         .add-chords-to-practice #textArea {
+            font-size: 16px;
+        }
+
+        .admin-listen .audioFileNameLabel {
+            font-style: italic;
             font-size: 16px;
         }
 
