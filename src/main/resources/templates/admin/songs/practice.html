@@ -76,7 +76,7 @@
 
         <div id="chordsDiv" style="display:none;">
             <button id="addChordsButton" class="btn btn-success">
-                <a class="regular-font" th:href="@{./{songId}/add-chords(songId=${song.id})}">Add Chords</a>
+                <a id="addChordsLink" class="regular-font" th:href="@{./{songId}/add-chords(songId=${song.id})}">Add Chords</a>
             </button>
             <table>️
                 <tr th:each="songChords : ${songChordsCollection}">
