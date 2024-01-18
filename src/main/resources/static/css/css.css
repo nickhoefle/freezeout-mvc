@@ -1241,10 +1241,6 @@ th {
             display: none;
         }
 
-        .admin-songs-index .statusDropdown {
-            -webkit-appearance: none;
-        }
-
         .admin-songs-index .viewSheetMusicCell {
             display: none;
         }
@@ -1290,7 +1286,6 @@ th {
             width: 100%;
             height: 40px;
             margin-bottom: 12px;
-            -webkit-appearance: none;
         }
 
         .new-gig #newGigForm {
