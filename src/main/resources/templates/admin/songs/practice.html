@@ -58,9 +58,9 @@
                             <td class="practiceNoteFromCell" th:text="${note.addedBy}"></td>
                             <td class="practiceNoteTimestampCell" th:text="${#dates.format(note.timestamp, 'yyyy-MM-dd')}"></td>
                             <td class="practiceNoteEditButton">
-                                <a th:href="@{'/admin/songs/practice/' + ${song.id} + '/edit-note/' + ${note.id} }">
-                                    <button id="editButton" class="regular-font">Edit</button>
-                                </a>
+                                <button id="editButton">
+                                    <a class="editButtonLink regular-font" th:href="@{'/admin/songs/practice/' + ${song.id} + '/edit-note/' + ${note.id} }">Edit</a>
+                                </button>
                             </td>
                             <td class="practiceNoteDeleteButton">
                                 <form method="post" th:action="@{/admin/songs/practice/{songId}/delete-note(songId=${song.id})}">
