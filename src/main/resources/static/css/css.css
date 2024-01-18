@@ -837,7 +837,7 @@ th {
 
 .practice #chordsButton {
     border-radius: 5px;
-    width: 125px;
+    width: 135px;
     height: 34px;
     font-size: 14px;
     font-weight: bold;
@@ -905,7 +905,7 @@ th {
 .practice #notesButton {
     border: 5px solid black;
     border-radius: 5px;
-    width: 108px;
+    width: 135px;
     height: 34px;
     font-size: 14px;
     font-weight: bold;
