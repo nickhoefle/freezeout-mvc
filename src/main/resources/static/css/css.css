@@ -1357,6 +1357,10 @@ th {
             margin-bottom: 6px;
         }
 
+        .practice #editButton {
+            width: 85px;
+        }
+
         .practice .editChordPageText {
             font-size: 13px;
         }
