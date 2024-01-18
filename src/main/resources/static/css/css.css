@@ -1242,7 +1242,6 @@ th {
         }
 
         .admin-songs-index .statusDropdown {
-            -webkit-appearance: none;
             appearance: none;
         }
 
