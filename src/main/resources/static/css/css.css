@@ -848,6 +848,14 @@ th {
     margin-bottom: 4px;
 }
 
+.practice .chordSheetButton {
+    height: 65px;
+    background-color: white;
+    border-radius: 5px;
+    padding: 4px;
+    border: 2px solid black;
+}
+
 .practice  .chordsText {
     width: 80vw;
     font-size: 18px;
@@ -999,14 +1007,6 @@ th {
 
 .practice #youtubeUrlWrapper {
     display: flex;
-}
-
-.practice .zoomSvg {
-    height: 65px;
-    background-color: white;
-    border-radius: 5px;
-    padding: 4px;
-    border: 2px solid black;
 }
 
 .setlists .setlistLink:visited {

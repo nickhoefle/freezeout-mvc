@@ -83,17 +83,17 @@
                     <td>️
                         <h3 class="addedByText regular-font" th:text="'Added by ' + ${songChords.addedBy} + ' on ' + ${#dates.format(songChords.timestamp, 'yyyy-MM-dd')}"></h3>
                         <div class="chordsButtonsWrapper">
-                            <input class="print-button" onclick="printText(this)" type="button" value="Print" />
-                                <button class="editChordPageButton">
-                                    <a class="editChordPageButton regular-font" th:href="@{'/admin/songs/practice/' + ${song.id} + '/edit-chord-page/' + ${songChords.id} }">Edit</a>
-                                </button>
+                            <button class="editChordPageButton">
+                                <a class="editChordPageButton regular-font" th:href="@{'/admin/songs/practice/' + ${song.id} + '/edit-chord-page/' + ${songChords.id} }">Edit</a>
+                            </button>
                             <form method="post" th:action="@{/admin/songs/practice/{songId}/delete-chord-page(songId=${song.id})}">
                                 <input name="chordPageId" th:value="${songChords.id}" hidden>
                                 <input class="deleteChordPageButton" type="submit" value="Delete">
                             </form>
                         </div>
-                        <img class="zoomSvg" onclick="zoomInChordPage(this)" th:src="@{/uploads/images/zoom-in.svg}" />
-                        <img class="zoomSvg" onclick="zoomOutChordPage(this)" th:src="@{/uploads/images/zoom-out.svg}" /></img>
+                        <img class="chordSheetButton" onclick="printText(this)" th:src="@{/uploads/images/print.svg}" />
+                        <img class="chordSheetButton" onclick="zoomInChordPage(this)" th:src="@{/uploads/images/zoom-in.svg}" />
+                        <img class="chordSheetButton" onclick="zoomOutChordPage(this)" th:src="@{/uploads/images/zoom-out.svg}" /></img>
                         <pre style="font-size: 12px;" class="chordsText" th:utext="${songChords.chordsText}"></pre>
                         <br>
                     </td>
