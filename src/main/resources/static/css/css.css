@@ -1349,6 +1349,8 @@ th {
 
         .practice .chordsText {
             width: 96vw;
+            height: 100vh;
+            max-height: 100vh;
             margin-top: 16px;
         }
 
