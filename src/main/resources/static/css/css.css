@@ -1363,6 +1363,17 @@ th {
             margin-bottom: 6px;
         }
 
+        .practice .deleteChordPageButton {
+            width: 65px;
+            margin-right: 4px;
+            border-radius: 5px;
+            color: black;
+            font-weight: bold;
+            font-size: 13px;
+            height: 25px;
+            border: 1px solid black;
+        }
+
         .practice #editButton {
             width: 75px;
         }
