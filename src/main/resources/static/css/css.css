@@ -861,6 +861,8 @@ th {
     font-size: 18px;
     transition: font-size 0.3s ease;
     overflow: hidden;
+    background-color: white;
+    color: black;
 }
 
 .practice #deleteButton {
@@ -1352,6 +1354,8 @@ th {
             height: 100vh;
             max-height: 100vh;
             margin-top: 16px;
+            background-color: white;
+            color: black;
         }
 
         .practice #deleteButton,

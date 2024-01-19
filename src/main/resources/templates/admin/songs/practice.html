@@ -94,6 +94,7 @@
                         <img class="chordSheetButton" onclick="printText(this)" th:src="@{/uploads/images/print.svg}" />
                         <img class="chordSheetButton" onclick="zoomInChordPage(this)" th:src="@{/uploads/images/zoom-in.svg}" />
                         <img class="chordSheetButton" onclick="zoomOutChordPage(this)" th:src="@{/uploads/images/zoom-out.svg}" /></img>
+                        <img class="chordSheetButton" onClick="toggleDarkMode(this)" th:src="@{/uploads/images/dark-theme.svg}" />
                         <pre style="font-size: 12px;" class="chordsText" th:utext="${songChords.chordsText}"></pre>
                         <br>
                     </td>
