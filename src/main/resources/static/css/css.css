@@ -1434,6 +1434,10 @@ th {
             width: 80vw;
         }
 
+        .upload-sheet-music #uploadSheetMusicForm {
+            width: 80vw;
+        }
+
     }
 
             /* CSS rules for smartphone size */
