@@ -14,7 +14,7 @@ a {
 }
 
 body {
-    background: linear-gradient(to right, #527caa, #2e4660);
+    background: linear-gradient(to right, #76879a, #527caa)
     min-height: 100vh;
     position: relative;
 }
