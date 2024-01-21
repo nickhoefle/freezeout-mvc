@@ -1252,6 +1252,27 @@ th {
             justify-content: right;
         }
 
+        .admin-songs-index .saveButton {
+            width: 100%;
+            color: black;
+            outline: 2px solid black;
+            height: 36px;
+            font-size: 28px;
+            margin-top: 8px;
+            line-height: 1px;
+        }
+
+        .admin-songs-index #statusColumnHeader {
+            width: 5%;
+        }
+
+        .admin-songs-index .statusForm {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
         .admin-songs-index #sheetMusicHeader {
             display: none;
         }
