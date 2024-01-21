@@ -1268,6 +1268,14 @@ th {
             display: none;
         }
 
+        .admin-upload-audio-file #uploadAudioFileForm {
+            width: 65vw;
+        }
+
+        .admin-upload-sheet-music #uploadSheetMusicForm {
+            width: 65vw;
+        }
+
         .gigs-view h1, h2, h3, h4, h5, h6, p, a, i, u {
             font-family: 'Snowtop Caps', sans-serif;
         }
@@ -1431,10 +1439,6 @@ th {
         }
 
         .upload-photo #uploadPhotoFileForm {
-            width: 80vw;
-        }
-
-        .admin-upload-sheet-music #uploadSheetMusicForm {
             width: 80vw;
         }
 
