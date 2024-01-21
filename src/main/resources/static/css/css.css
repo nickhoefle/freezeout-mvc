@@ -207,8 +207,8 @@ th {
 }
 
 .admin-delete-gig  .gig-poster-in-table {
-    width: 250px;
-    height: 375px;
+    width: auto;
+    height: 300px;
 }
 
 .admin-delete-gig .gigNameCell {

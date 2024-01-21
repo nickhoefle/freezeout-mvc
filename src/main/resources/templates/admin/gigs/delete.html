@@ -6,9 +6,8 @@
 
 <body class="container-fluid admin-delete-gig">
     <h1 class="view-header">Delete Gigs</h1>
-
     <form method="post" th:action="@{/admin/gigs/delete}">
-        <table id="gigsTable" class="table table-hover">
+        <table id="gigsTable" class="table">
             <thead>
                 <tr>
                     <th></th>
@@ -30,7 +29,8 @@
                 </tr>
             </tbody>
         </table>
-        <input id="deleteButton" class="btn" type="submit" value="Delete">
+        <input id="deleteButton" class="btn" type="submit" value="Delete" />
     </form>
 </body>
+
 </html>
