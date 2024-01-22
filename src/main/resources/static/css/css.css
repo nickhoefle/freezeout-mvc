@@ -1206,6 +1206,7 @@ th {
             color: black;
             font-weight: bold;
             font-size: 20px;
+            margin-left: 8px;
         }
 
         .admin-songs-delete #deleteColumnHeader {
