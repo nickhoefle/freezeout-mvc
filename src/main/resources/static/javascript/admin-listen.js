@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         if (songsDiv.style.display === "none") {
             songsDiv.style.display = "block";
-            showBtn.textContent = "Close";
+            showBtn.textContent = "Hide Uploaded Files";
             showBtn.classList.add("btn-danger"); // add the class
         } else {
             songsDiv.style.display = "none";
