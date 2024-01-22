@@ -1161,11 +1161,14 @@ th {
             height: 32px;
             font-size: 20px;
             line-height: 0px;
+            outline: 2px solid black;
+            font-weight: bold;
         }
 
-        .admin-listen  .selectedSong {
+        .admin-listen .selectedSong {
             font-size: 20px;
             height: 32px;
+            outline: 2px solid black;
         }
 
         .admin-listen .song-container {
@@ -1177,11 +1180,15 @@ th {
             height: 32px;
             font-size: 20px;
             line-height: 0px;
+            margin-top: 0px;
+            outline: 2px solid black;
+            font-weight: bold;
         }
 
         .admin-listen .updateSectionButton {
             height: 32px;
             font-size: 20px;
+            margin-top: 6px;
         }
 
         .admin-photos #photoTitleAndCreditForm {

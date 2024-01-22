@@ -7,13 +7,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
     updateSectionButtonsArray.forEach(function (button, index) {
         button.addEventListener("click", function () {
-            if (updateSectionButtonsArray[index].innerHTML === "❌Cancel") {
+            if (updateSectionButtonsArray[index].innerHTML === "❌ Cancel") {
                 updateSectionsArray[index].style.display = 'none';
                 updateSectionButtonsArray[index].innerHTML = "Update"
                 return;
             }
             updateSectionsArray[index].style.display = ""
-            updateSectionButtonsArray[index].innerHTML = "❌Cancel"
+            updateSectionButtonsArray[index].innerHTML = "❌ Cancel"
         });
     });
 });
