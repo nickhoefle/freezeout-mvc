@@ -51,11 +51,11 @@
                     <a th:href="@{/uploads/sheet-music/{name}(name=${song.songSheetMusic})}" class="regular-font "/>🎼</a>
                 </td>
                 <td class="tdCentered">
-                    <a id="practiceButtonLink" th:href="@{/admin/songs/practice/{songId}(songId=${song.id})}" class="regular-font">
-                        <div class="practiceButtonWrapper">
-                            <button class="practiceButton regular-font">Practice</button>
-                        </div>
-                    </a>
+                    <div class="practiceButtonWrapper">
+                        <button class="practiceButton regular-font">
+                            <a th:href="@{/admin/songs/practice/{songId}(songId=${song.id})}" class="practiceButtonLink regular-font">Practice</a>
+                        </button>
+                    </div>
                 </td>
             </tr>
         </tbody>

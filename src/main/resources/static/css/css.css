@@ -457,8 +457,9 @@ th {
     margin: 0;
 }
 
-.admin-songs-index  #practiceButtonLink {
+.admin-songs-index  .practiceButtonLink {
     color: inherit;
+    text-decoration: none;
 }
 
 .admin-songs-index  .songIdDiv {
@@ -1204,6 +1205,7 @@ th {
             height: 36px;
             font-size: 15px;
             margin-bottom: 24px;
+            outline: 2px solid black;
         }
 
         .admin-songs-delete label {
@@ -1240,11 +1242,18 @@ th {
             height: 36px;
             font-size: 15px;
             margin-bottom: 24px;
+            outline: 2px solid black;
         }
 
         .admin-songs-index .practiceButton {
             font-size: 18px;
             border-radius: 5px;
+            outline: 1px solid black;
+        }
+
+        .admin-songs-index .practiceButtonLink {
+           font-weight: bold;
+           font-size: 20px;
         }
 
         .admin-songs-index .practiceButtonWrapper {
@@ -1265,6 +1274,10 @@ th {
 
         .admin-songs-index #statusColumnHeader {
             width: 5%;
+        }
+
+        .admin-songs-index .statusDropdown {
+            font-size: 18px;
         }
 
         .admin-songs-index .statusForm {
