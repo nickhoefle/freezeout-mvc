@@ -4,6 +4,12 @@
 <head th:replace="fragments :: head"></head>
 <header th:replace="fragments :: header-admin"></header>
 
+<script>
+    window.onload = function () {
+        sortTable(1, 'allSongsTable');
+    }
+</script>
+
 <body class="container-fluid admin-songs-delete">
     <h3 class="view-header regular-font">Delete Songs</h3>
     <div th:replace="fragments :: filterBar"></div>
