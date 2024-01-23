@@ -1466,6 +1466,41 @@ th {
             font-weight: bold;
         }
 
+        .setlists label {
+            font-size: 20px;
+        }
+
+        .setlists select {
+            font-size: 20px;
+        }
+
+        .setlists #addSectionButton {
+            border: 2px solid black;
+            border-radius: 5px;
+            color: black;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .setlists #mergePdfButton {
+            border: 2px solid black;
+            border-radius: 5px;
+            color: black;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .setlists #outputFileNameInput {
+            width: 50vw;
+            outline: 2px solid black;
+            margin-bottom: 32px;
+        }
+
+        .setlists .setlistLink {
+            font-size: 20px;
+            text-decoration: underline;
+        }
+
         .songs-index  .addSheetMusicCell {
             display: none;
         }
