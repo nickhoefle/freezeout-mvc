@@ -1472,6 +1472,7 @@ th {
 
         .setlists select {
             font-size: 20px;
+            outline: 1px solid black;
         }
 
         .setlists #addSectionButton {
