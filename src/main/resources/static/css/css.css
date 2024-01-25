@@ -251,12 +251,16 @@ th {
     width: 200px;
     height: 32px;
     border-radius: 5px;
+    outline: 1px solid black;
 }
 
 .admin-listen .playSelectedButton {
     width: 200px;
     margin-top: 6px;
     border-radius: 5px;
+    outline: 1px solid black;
+    color: black;
+    font-weight: bold;
 }
 
 .admin-listen  .selectedSong {
@@ -292,6 +296,9 @@ th {
     border-radius: 5px;
     width: 200px;
     margin-top: 8px;
+    outline: 1px solid black;
+    color: black;
+    font-weight: bold;
 }
 
 .admin-listen .updateSection {
@@ -305,7 +312,8 @@ th {
     border-radius: 5px;
     height: 32px;
     font-weight: bold;
-    outline: 1px solid black;
+    outline: 2px solid black;
+    font-size: 18px;
 }
 
 .admin-listen .uploadedSongName {
