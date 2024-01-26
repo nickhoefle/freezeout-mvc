@@ -943,7 +943,7 @@ th {
 }
 
 .practice  #practiceNoteDateHeader, .practiceNoteTimestampCell {
-    width: 12%;
+    width: 15%;
     padding-bottom: 4px;
 }
 
@@ -961,7 +961,7 @@ th {
 }
 
 .practice  #practiceNoteFromHeader, .practiceNoteFromCell {
-    width: 9%;
+    width: 11%;
 }
 
 .practice  #practiceNoteTextHeader {
@@ -1117,7 +1117,7 @@ th {
         }
 
         th {
-            font-size: 24px;
+            font-size: 20px;
         }
 
         .btn {
