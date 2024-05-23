@@ -676,6 +676,33 @@ th {
     margin-bottom: 12px;
 }
 
+.login  label {
+    font-size: 18px;
+}
+
+.login  #bandLoginForm {
+    width: 30vw;
+    outline: 2px solid black;
+    padding: 30px;
+    border-radius: 5px;
+}
+
+.login  #loginButton {
+    width: 100%;
+    margin-top: 20px;
+    border: 2px solid black;
+    border-radius: 5px;
+    color: black;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.login  .usernameInput,
+.login  .passwordInput {
+    border-radius: 5px;
+    border: 2px solid black;
+}
+
 .new-gig label {
     font-size: 18px;
 }
@@ -1371,6 +1398,10 @@ th {
             width: 100%;
             height: 40px;
             margin-bottom: 12px;
+        }
+
+        .login  #bandLoginForm {
+            width: 40vw;
         }
 
         .new-gig #newGigForm {

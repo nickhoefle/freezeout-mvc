@@ -4,25 +4,26 @@
 <head th:replace="fragments :: head"></head>
 <header th:replace="fragments :: header-reg"></header>
 
-<body class="container-fluid">
+<body class="container-fluid login">
 
-<form method="post">
-    <h1>Band Login!</h1>
-    <div class="form-group">
-        <label th:for="username">Username
-            <input class="form-control" th:field="${loginFormDTO.username}">
-        </label>
-        <p class="error" th:errors="${loginFormDTO.username}"></p>
-    </div>
-    <div class="form-group">
-        <label>Password
-            <input class="form-control" th:field="${loginFormDTO.password}" type="password">
-        </label>
-        <p class="error" th:errors="${loginFormDTO.password}"></p>
-    </div>
-    <input type="submit" class="btn btn-primary" value="Log In" />
-</form>
-
+<h1 class="view-header regular-font">Administrator Portal Login</h1>
+<div class="flex-center">
+    <form id="bandLoginForm" method="post">
+        <div class="form-group">
+            <label th:for="username">Username</label>
+            <input class="usernameInput form-control" th:field="${loginFormDTO.username}">
+            <p class="error" th:errors="${loginFormDTO.username}"></p>
+        </div>
+        <div class="form-group">
+            <label>Password</label>
+            <input class="passwordInput form-control" th:field="${loginFormDTO.password}" type="password">
+            <p class="error" th:errors="${loginFormDTO.password}"></p>
+        </div>
+        <div class="form-group">
+            <input id="loginButton" type="submit" class="btn btn-success" value="Log In" />
+        </div>
+    </form>
+</div>
 
 <!--Creates a cookie that persists across all pages. Cookie is null if user is logged out-->
 <!--Use: window.location.href = ""; to set where a successful login redirects a user to-->
