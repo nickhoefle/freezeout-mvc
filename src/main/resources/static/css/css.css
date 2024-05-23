@@ -319,6 +319,10 @@ th {
     font-size: 18px;
 }
 
+.admin-listen  .updateSectionButton:hover {
+    background-color: #b0b0b0;
+}
+
 .admin-listen .uploadedSongName {
     margin-bottom: 0;
     font-size: 15px;
