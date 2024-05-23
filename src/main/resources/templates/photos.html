@@ -11,7 +11,7 @@
         <th:block th:each="photo : ${photos}" >
             <swiper-slide style="position: relative;">
                 <img th:src="@{'/uploads/photos/' + ${photo.url} }" />
-                <p class="credit-text" th:text="${photo.credit}"></p>
+                <p class="regular-font credit-text" th:text="${photo.credit}"></p>
             </swiper-slide>
         </th:block>
     </swiper-container>
