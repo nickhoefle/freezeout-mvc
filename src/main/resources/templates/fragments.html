@@ -29,7 +29,7 @@
 
 
 <header th:fragment="header-reg">
-    <div id="titleHeaderFragmentWrapper">
+    <div class="titleHeaderFragmentWrapper">
         <a class="titleHeaderFragment" href="/" style="font-family: 'Snowtop Caps', sans-serif;">Freezeout Band</a>
     </div>
     <ul class="nav flex-center">
@@ -40,7 +40,9 @@
 </header>
 
 <header th:fragment="header-admin">
-    <a class="titleHeaderFragment" href="/" style="font-size: 34pt">Freezeout Band</a>
+    <div class="titleHeaderFragmentWrapper">
+        <a class="titleHeaderFragment" href="/" style="font-size: 34pt">Freezeout Band</a>
+    </div>
     <div id="menuItemsWrapper">
         <p id="hamburgerIcon" class="regular-font" style="color:black; font-size:24px; cursor:pointer; padding-top:14px; padding-bottom:6px" onclick="toggleHamburger()">☰ Menu</p>
         <div id="adminPortalInfoPanel">

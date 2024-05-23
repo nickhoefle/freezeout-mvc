@@ -119,7 +119,7 @@ th {
     font-size: 64px !important;
 }
 
-#titleHeaderFragmentWrapper {
+.titleHeaderFragmentWrapper {
     display: flex;
     justify-content: center;
 }
