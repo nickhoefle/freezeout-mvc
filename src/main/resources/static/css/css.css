@@ -116,9 +116,12 @@ th {
 }
 
 .titleHeaderFragment {
+    font-size: 64px !important;
+}
+
+#titleHeaderFragmentWrapper {
     display: flex;
     justify-content: center;
-    font-size: 64px !important;
 }
 
 .titleHeaderFragment:hover {
@@ -657,7 +660,6 @@ th {
 }
 
 .index .nav {
-    margin-top: 6px;
     margin-bottom: 18px;
 }
 
