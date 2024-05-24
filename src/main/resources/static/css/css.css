@@ -473,7 +473,7 @@ th {
     padding-top: 20px;
 }
 
-.admin-songs-delete  .allSongsTable {
+.admin-songs-delete  #allSongsTable {
     font-size: 16px;
 }
 
