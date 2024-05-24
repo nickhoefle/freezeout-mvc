@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const snowflake = document.createElement("div");
         snowflake.className = "snowflake";
 
-        const size = Math.random() * 3 + 1; // Random size between 5 and 20 pixels
+        const size = Math.random() * 3 + 1; // Random size
         snowflake.style.width = `${size}px`;
         snowflake.style.height = `${size}px`;
 

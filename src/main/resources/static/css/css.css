@@ -473,13 +473,39 @@ th {
     margin: 0;
 }
 
+.admin-songs-index  option {
+    font-weight: bold;
+}
+
+.admin-songs-index  #allSongsTable {
+    font-size: 16px;
+}
+
+.admin-songs-index  .practiceButton {
+    border-radius: 5px;
+    font-weight: bold;
+    outline: 2px solid black;
+}
+
 .admin-songs-index  .practiceButtonLink {
     color: inherit;
     text-decoration: none;
 }
 
+.admin-songs-index  .sheetMusicIcon {
+    font-size: 24px;
+}
+
 .admin-songs-index  .songIdDiv {
     display:none
+}
+
+.admin-songs-index  .statusDropdown {
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    outline: 2px solid black;
+    padding: 2px;
 }
 
 .admin-songs-index  .table td {
