@@ -52,7 +52,7 @@
                         <input th:value="${song.songName}" th:name="songName" hidden readonly>
                         <select id="chooseFileDropdown" class="selectedSong" th:name="newFileName">
                             <option value="Hidden">Choose File:</option>
-                            <option value="Hidden">Hide This Song from 'Listen' Page</option>
+                            <option value="Hidden">❌ Remove Song from the 'Listen' Page ❌</option>
                             <th:block th:each="audioFileName : ${allAudioFileNames}">
                                 <option th:text="${audioFileName}" th:value="${audioFileName}"></option>
                             </th:block>
