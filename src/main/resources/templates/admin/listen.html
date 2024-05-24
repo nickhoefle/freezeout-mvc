@@ -7,7 +7,9 @@
 <body class="container-fluid admin-listen">
     <h3 class="view-header regular-font">Customize Public "Listen" Page</h3>
     <hr>
-    <button id="showUploadedSongsButton" class="btn btn-success">Show Uploaded Song Files</button>
+    <div id="showUploadedSongsButtonWrapper">
+        <button id="showUploadedSongsButton" class="btn btn-success">Show Uploaded Song Files</button>
+    </div>
     <div id="uploadedSongsDiv" class="two-column-view" style="display:none;">
         <div th:each="file : ${allAudioFileNames}">
             <div class="song-container">

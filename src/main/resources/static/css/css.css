@@ -271,11 +271,17 @@ th {
 }
 
 .admin-listen #showUploadedSongsButton {
-    color: black;
-    outline: 2px solid black;
-    font-weight: bold;
+    width: 200px;
+    border: 2px solid black;
     border-radius: 5px;
-    font-size: 20px;
+    color: black;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.admin-listen #showUploadedSongsButtonWrapper {
+    display: flex;
+    justify-content: center;
 }
 
 .admin-listen .song-container {
