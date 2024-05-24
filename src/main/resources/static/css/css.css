@@ -432,6 +432,7 @@ th {
 .admin-photos-delete  .big-checkbox {
     width: 25px;
     height: 25px;
+    accent-color: red;
 }
 
 .admin-photos-delete  .checkbox-cell {
