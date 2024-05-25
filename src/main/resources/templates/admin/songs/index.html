@@ -43,18 +43,18 @@
                 <td th:text="${song.songDetails.originalArtist}"></td>
                 <td class="yearCell" th:text="${song.songDetails.year}"></td>
                 <td class="tdCentered addSheetMusicCell" th:if="${song.songSheetMusic == null}">
-                    <button class="btn btn-light regular-font">
-                        <a th:href="@{/upload/sheet-music}" class="linkInButton regular-font">➕ Add</a>
-                    </button>
+                    <a th:href="@{/admin/upload/sheet-music}" class="linkInButton regular-font">
+                        <button class="btn btn-light regular-font">➕ Add</button>
+                    </a>
                 </td>
                 <td class="tdCentered viewSheetMusicCell" th:if="${song.songSheetMusic != null}">
                     <a th:href="@{/uploads/sheet-music/{name}(name=${song.songSheetMusic})}" class="regular-font sheetMusicIcon"/>🎼</a>
                 </td>
                 <td class="tdCentered">
                     <div class="practiceButtonWrapper">
-                        <button class="btn btn-light practiceButton regular-font">
-                            <a th:href="@{/admin/songs/practice/{songId}(songId=${song.id})}" class="practiceButtonLink regular-font">Practice</a>
-                        </button>
+                        <a th:href="@{/admin/songs/practice/{songId}(songId=${song.id})}" class="practiceButtonLink regular-font">
+                            <button class="btn btn-light practiceButton regular-font">Practice</button>
+                        </a>
                     </div>
                 </td>
             </tr>
