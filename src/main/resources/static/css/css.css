@@ -46,6 +46,10 @@ button {
     justify-content: center;
 }
 
+.form-control {
+    font-size: 16px;
+}
+
 .form-control-file {
     color: white
 }
@@ -65,10 +69,6 @@ h1, h2, h3, h4 {
 .hamburger-menu-item {
     font-size: 22px !important;
     margin-left: 25px;
-}
-
-input {
-    font-size: 16px;
 }
 
 label, p, td, th {
@@ -427,6 +427,7 @@ th {
 .admin-photos  .photoTitleAndCreditInput {
     border: 2px solid black;
     border-radius: 5px;
+    font-size: 16px;
 }
 
 .admin-photos  .photoTitleAndCreditLabel {
@@ -754,6 +755,7 @@ th {
 .login  .passwordInput {
     border-radius: 5px;
     border: 2px solid black;
+    font-size: 16px;
 }
 
 .new-gig label {
@@ -813,6 +815,7 @@ th {
 
 .new-song .new-song-form-input {
     border: 2px solid black;
+    font-size: 16px;
 }
 
 .new-song .new-song-form-label {
