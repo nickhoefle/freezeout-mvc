@@ -418,7 +418,7 @@ th {
 }
 
 .admin-photos  .thumbnail {
-    width: 175px;
+    width: auto;
     height: 125px;
     cursor: pointer;
 }
