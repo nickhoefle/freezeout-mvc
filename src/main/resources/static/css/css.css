@@ -21,6 +21,7 @@ body {
 
 .btn {
     outline: 2px solid black;
+    border-radius: 5px;
 }
 
 button {
@@ -28,6 +29,7 @@ button {
     -moz-appearance: none;
     color: black;
     background-color: white;
+    border-radius: 5px;
 }
 
 .container-fluid {
@@ -209,7 +211,6 @@ th {
 .admin-delete-gig #deleteButton {
     font-size: 15px;
     font-weight: bold;
-    border-radius: 5px;
     background-color: #ff5555;
     color: black;
     width: 100px;
@@ -266,7 +267,6 @@ th {
 .admin-listen .playSelectedButton {
     width: 200px;
     margin-top: 6px;
-    border-radius: 5px;
     outline: 1px solid black;
     color: black;
     font-weight: bold;
@@ -278,7 +278,6 @@ th {
 
 .admin-listen #showUploadedSongsButton {
     width: 250px;
-    border-radius: 5px;
     color: black;
     font-weight: bold;
     font-size: 16px;
@@ -410,7 +409,6 @@ th {
 .admin-photos #photoTitleAndCreditButton {
     width: 100%;
     margin-top: 20px;
-    border-radius: 5px;
     color: black;
     font-weight: bold;
     font-size: 16px;
@@ -506,7 +504,6 @@ th {
 }
 
 .admin-songs-index  .practiceButton {
-    border-radius: 5px;
     font-weight: bold;
 }
 
@@ -554,7 +551,6 @@ th {
 
 .admin-upload-audio-file #uploadFileButton {
     width: 86%;
-    border-radius: 5px;
     font-size: 15px;
     font-weight: bold;
     color: black;
@@ -598,7 +594,6 @@ th {
 
 .admin-upload-sheet-music #uploadFileButton {
     width: 86%;
-    border-radius: 5px;
     font-size: 15px;
     font-weight: bold;
     color: black;
@@ -738,7 +733,6 @@ th {
 .login  #loginButton {
     width: 100%;
     margin-top: 20px;
-    border-radius: 5px;
     color: black;
     font-weight: bold;
     font-size: 16px;
@@ -757,7 +751,6 @@ th {
 .new-gig #createGigButton {
     width: 100%;
     margin-top: 20px;
-    border-radius: 5px;
     color: black;
     font-weight: bold;
     font-size: 16px;
@@ -786,7 +779,6 @@ th {
 .new-song #add-new-song-button {
     width: 40vw;
     margin-top: 20px;
-    border-radius: 5px;
     color: black;
     font-weight: bold;
     font-size: 16px;
@@ -895,7 +887,6 @@ th {
 
 .practice #addChordsButton {
     margin-top: 18px;
-    border-radius: 5px;
     color: black;
     font-weight: bold;
 }
@@ -903,7 +894,6 @@ th {
 .practice #addNoteButton {
     margin-top: 18px;
     margin-bottom: 18px;
-    border-radius: 5px;
     color: black;
     font-weight: bold;
     width: 108px;
@@ -922,7 +912,6 @@ th {
 }
 
 .practice #chordsButton {
-    border-radius: 5px;
     width: 135px;
     height: 34px;
     font-size: 14px;
@@ -937,7 +926,6 @@ th {
 .practice .chordSheetButton {
     height: 65px;
     background-color: white;
-    border-radius: 5px;
     padding: 4px;
 }
 
@@ -955,14 +943,12 @@ th {
     height: 30px;
     font-size: 15px;
     font-weight: bold;
-    border-radius: 5px;
     background-color: #ff5555;
 }
 
 .practice .deleteChordPageButton {
     width: 80px;
     margin-right: 4px;
-    border-radius: 5px;
     color: black;
     font-weight: bold;
     font-size: 13px;
@@ -974,7 +960,6 @@ th {
     position: relative;
     height: 30px;
     width: 50px;
-    border-radius: 5px;
     font-size: 15px;
     font-weight: bold;
     text-align: center;
@@ -989,7 +974,6 @@ th {
 .practice .editChordPageButton {
     width: 65px;
     margin-right: 4px;
-    border-radius: 5px;
     color: black;
     font-weight: bold;
     font-size: 13px;
@@ -1004,7 +988,6 @@ th {
 
 .practice #notesButton {
     border: 5px solid black;
-    border-radius: 5px;
     width: 135px;
     height: 34px;
     font-size: 14px;
@@ -1050,7 +1033,6 @@ th {
 .practice .print-button {
     width: 65px;
     margin-right: 4px;
-    border-radius: 5px;
     font-weight: bold;
     font-size: 13px;
     height: 25px;
@@ -1058,14 +1040,6 @@ th {
 
 .practice .table td {
     vertical-align: middle;
-}
-
-.practice #uploadSheetMusicButton {
-    border-radius: 5px;
-}
-
-.practice .viewSheetMusicButton {
-    border-radius: 5px;
 }
 
 .practice #youtubeUrl {
@@ -1077,7 +1051,6 @@ th {
 }
 
 .practice #youtubeUrlButton {
-    border-radius: 5px;
     color: black;
     font-weight: bold;
     font-size: 15px;
@@ -1277,7 +1250,6 @@ th {
         }
 
         .admin-songs-delete #deleteButton {
-            border-radius: 5px;
             color: black;
             font-weight: bold;
             font-size: 20px;
@@ -1333,7 +1305,6 @@ th {
 
         .admin-songs-index .practiceButton {
             font-size: 18px;
-            border-radius: 5px;
             outline: 1px solid black;
         }
 
@@ -1354,7 +1325,6 @@ th {
             font-size: 28px;
             margin-top: 8px;
             line-height: 1px;
-            border-radius: 5px;
         }
 
         .admin-songs-index #statusColumnHeader {
@@ -1498,7 +1468,6 @@ th {
         .practice .deleteChordPageButton {
             width: 65px;
             margin-right: 4px;
-            border-radius: 5px;
             color: black;
             font-weight: bold;
             font-size: 13px;
@@ -1552,14 +1521,12 @@ th {
         }
 
         .setlists #addSectionButton {
-            border-radius: 5px;
             color: black;
             font-weight: bold;
             font-size: 16px;
         }
 
         .setlists #mergePdfButton {
-            border-radius: 5px;
             color: black;
             font-weight: bold;
             font-size: 16px;
