@@ -484,8 +484,8 @@ th {
 }
 
 .admin-photos-delete  .thumbnail {
-    width: 175px;
     height: 125px;
+    width: auto;
     cursor: pointer;
 }
 
