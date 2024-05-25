@@ -20,8 +20,13 @@ body {
 }
 
 .btn {
+    color: black;
     outline: 2px solid black;
     border-radius: 5px;
+}
+
+.btn:hover {
+    color: black;
 }
 
 button {
@@ -194,7 +199,6 @@ th {
 .add-chords-to-practice #submitButton {
     width: 200px;
     font-size: 18px;
-    color: black;
     font-weight: bold;
 }
 
@@ -212,7 +216,6 @@ th {
     font-size: 15px;
     font-weight: bold;
     background-color: #ff5555;
-    color: black;
     width: 100px;
 }
 
@@ -268,7 +271,6 @@ th {
     width: 200px;
     margin-top: 6px;
     outline: 1px solid black;
-    color: black;
     font-weight: bold;
 }
 
@@ -278,7 +280,6 @@ th {
 
 .admin-listen #showUploadedSongsButton {
     width: 250px;
-    color: black;
     font-weight: bold;
     font-size: 16px;
 }
@@ -310,7 +311,6 @@ th {
     width: 200px;
     margin-top: 8px;
     outline: 1px solid black;
-    color: black;
     font-weight: bold;
 }
 
@@ -385,7 +385,6 @@ th {
 
 .admin-photos #rearrangePhotosButton {
     font-size: 15px;
-    color: black;
     font-weight: bold;
 }
 
@@ -409,7 +408,6 @@ th {
 .admin-photos #photoTitleAndCreditButton {
     width: 100%;
     margin-top: 20px;
-    color: black;
     font-weight: bold;
     font-size: 16px;
 }
@@ -453,7 +451,6 @@ th {
 
 .admin-photos-delete #deletePhotosButton {
     font-size: 15px;
-    color: black;
     font-weight: bold;
 }
 
@@ -490,7 +487,6 @@ th {
 }
 
 .admin-songs-delete  #deleteButton {
-    color: black;
     font-size: 14px;
     font-weight: bold;
 }
@@ -553,7 +549,6 @@ th {
     width: 86%;
     font-size: 15px;
     font-weight: bold;
-    color: black;
 }
 
 .admin-upload-audio-file #uploadAudioFileForm {
@@ -596,7 +591,6 @@ th {
     width: 86%;
     font-size: 15px;
     font-weight: bold;
-    color: black;
 }
 
 .admin-upload-sheet-music #uploadSheetMusicForm {
@@ -613,7 +607,6 @@ th {
 .edit-chord-page #confirmButton {
     width: 200px;
     font-size: 18px;
-    color: black;
     font-weight: bold;
 }
 
@@ -733,7 +726,6 @@ th {
 .login  #loginButton {
     width: 100%;
     margin-top: 20px;
-    color: black;
     font-weight: bold;
     font-size: 16px;
 }
@@ -751,7 +743,6 @@ th {
 .new-gig #createGigButton {
     width: 100%;
     margin-top: 20px;
-    color: black;
     font-weight: bold;
     font-size: 16px;
 }
@@ -779,7 +770,6 @@ th {
 .new-song #add-new-song-button {
     width: 40vw;
     margin-top: 20px;
-    color: black;
     font-weight: bold;
     font-size: 16px;
 }
@@ -887,14 +877,12 @@ th {
 
 .practice #addChordsButton {
     margin-top: 18px;
-    color: black;
     font-weight: bold;
 }
 
 .practice #addNoteButton {
     margin-top: 18px;
     margin-bottom: 18px;
-    color: black;
     font-weight: bold;
     width: 108px;
 }
@@ -949,7 +937,6 @@ th {
 .practice .deleteChordPageButton {
     width: 80px;
     margin-right: 4px;
-    color: black;
     font-weight: bold;
     font-size: 13px;
     height: 25px;
@@ -974,7 +961,6 @@ th {
 .practice .editChordPageButton {
     width: 65px;
     margin-right: 4px;
-    color: black;
     font-weight: bold;
     font-size: 13px;
     height: 25px;
@@ -1051,7 +1037,6 @@ th {
 }
 
 .practice #youtubeUrlButton {
-    color: black;
     font-weight: bold;
     font-size: 15px;
 }
@@ -1073,7 +1058,8 @@ th {
 }
 
 .upload  .largeHr {
-    border: 0; height: 3px; background-color: black;
+    border: 0; height: 3px;
+    background-color: black;
 }
 
 .upload-photo #allowedFileTypeText {
@@ -1095,7 +1081,6 @@ th {
     margin-top: 24px;
     font-weight: bold;
     font-size: 16px;
-    color: black;
 }
 
 .upload-photo #uploadPhotoFileContainer {
@@ -1207,7 +1192,6 @@ th {
         }
 
         .admin-listen .playSelectedButton {
-            color: black;
             height: 32px;
             font-size: 20px;
             line-height: 0px;
@@ -1225,7 +1209,6 @@ th {
         }
 
         .admin-listen .updateButton {
-            color: black;
             height: 32px;
             font-size: 20px;
             line-height: 0px;
@@ -1250,7 +1233,6 @@ th {
         }
 
         .admin-songs-delete #deleteButton {
-            color: black;
             font-weight: bold;
             font-size: 20px;
             margin-left: 8px;
@@ -1320,7 +1302,6 @@ th {
 
         .admin-songs-index .saveButton {
             width: 95%;
-            color: black;
             height: 36px;
             font-size: 28px;
             margin-top: 8px;
@@ -1468,7 +1449,6 @@ th {
         .practice .deleteChordPageButton {
             width: 65px;
             margin-right: 4px;
-            color: black;
             font-weight: bold;
             font-size: 13px;
             height: 25px;
@@ -1521,13 +1501,11 @@ th {
         }
 
         .setlists #addSectionButton {
-            color: black;
             font-weight: bold;
             font-size: 16px;
         }
 
         .setlists #mergePdfButton {
-            color: black;
             font-weight: bold;
             font-size: 16px;
         }
