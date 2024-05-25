@@ -9,17 +9,19 @@
         <h2 id="artistAndTitleText" class="regular-font" th:text="${song.songName} + ' - ' + ${song.songDetails.originalArtist}"></h2>
 
         <th:block th:if="${song.songSheetMusic != null}">
-            <a th:href="@{/uploads/sheet-music/{name}(name=${song.songSheetMusic})}">
-                <button class="viewSheetMusicButton regular-font">🎼 View Sheet Music</button>
+            <a th:href="@{/uploads/sheet-music/{name}(name=${song.songSheetMusic})}" class="linkInButton regular-font">
+                <button class="btn btn-light viewSheetMusicButton regular-font">🎼 View Sheet Music</button>
             </a>
-            <a th:href="@{/uploads/sheet-music/{name}(name=${song.songSheetMusic})}" target="_blank">
-                <button class="viewSheetMusicButton regular-font">🎼 View Sheet Music in New Tab</button>
-            </a><hr>
+            <a th:href="@{/uploads/sheet-music/{name}(name=${song.songSheetMusic})}" class="linkInButton regular-font" target="_blank">
+                <button class="btn btn-light viewSheetMusicButton regular-font">🎼 View Sheet Music in New Tab</button>
+            </a>
+            <hr>
         </th:block>
         <th:block th:else>
-            <a th:href="@{/admin/upload/sheet-music}">
-                <button id="uploadSheetMusicButton" class="regular-font">📁 Upload Main Sheet Music PDF</button>
-            </a><hr>
+            <a th:href="@{/admin/upload/sheet-music}" class="linkInButton regular-font">
+                <button id="btn btn-light uploadSheetMusicButton" class="btn btn-light regular-font">📁 Upload Main Sheet Music PDF</button>
+            </a>
+            <hr>
         </th:block>
 
         <h3 class="regular-font">YouTube Video:</h3>
@@ -34,22 +36,21 @@
             </div>
         </form><hr>
 
-        <button id="notesButton" onclick="toggleNotesChordPage('notes')">Notes</button>
-        <button id="chordsButton" onclick="toggleNotesChordPage('chords')">Chords & Tabs</button>
+        <button id="notesButton" class="btn btn-light" onclick="toggleNotesChordPage('notes')">Notes</button>
+        <button id="chordsButton" class="btn btn-light" onclick="toggleNotesChordPage('chords')">Chords & Tabs</button>
 
         <div id="notesDiv" style="display:;">
-            <button id="addNoteButton" class="btn btn-success">
-                <a id="addNoteLink" class="regular-font " th:href="@{./{songId}/add-notes(songId=${song.id})}">Add Note</a>
-            </button>
+            <a id="addNoteLink" class="regular-font " th:href="@{./{songId}/add-notes(songId=${song.id})}">
+                <button id="addNoteButton" class="btn btn-success">Add Note</button>
+            </a>
             <th:block th:if="${songNotesCollection.size() > 0}">
                 <table id="myTable" class="table">
                     <thead>
                         <tr>
                             <th id="practiceNoteTextHeader" onclick="sortTable(0)">Note</th>
                             <th id="practiceNoteFromHeader" onclick="sortTable(1)">From</th>
-                            <th id="practiceNoteDateHeader" onclick="sortTable(2)">Date</th>
-                            <th id="practiceNoteEditButtonHeader"></th>
-                            <th id="practiceNoteDeleteButtonHeader"></th>
+                            <th id="practiceNoteTimestampHeader" onclick="sortTable(2)">Date</th>
+                            <th id="practiceNoteButtonsHeader"></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -57,16 +58,16 @@
                             <td class="practiceNoteTextCell" th:text="${note.noteText}"></td>
                             <td class="practiceNoteFromCell" th:text="${note.addedBy}"></td>
                             <td class="practiceNoteTimestampCell" th:text="${#dates.format(note.timestamp, 'yyyy-MM-dd')}"></td>
-                            <td class="practiceNoteEditButton">
-                                <button id="editButton">
-                                    <a class="editButtonLink regular-font" th:href="@{'/admin/songs/practice/' + ${song.id} + '/edit-note/' + ${note.id} }">Edit</a>
-                                </button>
-                            </td>
-                            <td class="practiceNoteDeleteButton">
-                                <form method="post" th:action="@{/admin/songs/practice/{songId}/delete-note(songId=${song.id})}">
-                                    <input name="noteId" th:value="${note.id}" hidden>
-                                    <input id="deleteButton" type="submit" value="Delete">
-                                </form>
+                            <td class="practiceNoteButtonsCell">
+                                <div class="practiceNoteButtonsWrapper">
+                                    <a class="editButtonLink regular-font" th:href="@{'/admin/songs/practice/' + ${song.id} + '/edit-note/' + ${note.id} }">
+                                        <button class="btn btn-light editButton">Edit</button>
+                                    </a>
+                                    <form method="post" th:action="@{/admin/songs/practice/{songId}/delete-note(songId=${song.id})}">
+                                        <input name="noteId" th:value="${note.id}" hidden>
+                                        <button class="btn btn-danger deleteButton" type="submit">Delete</button>
+                                    </form>
+                                </div>
                             </td>
                         </tr>
                     </tbody>
@@ -75,20 +76,20 @@
         </div>
 
         <div id="chordsDiv" style="display:none;">
-            <button id="addChordsButton" class="btn btn-success">
-                <a id="addChordsLink" class="regular-font" th:href="@{./{songId}/add-chords(songId=${song.id})}">Add Chords</a>
-            </button>
+            <a id="addChordsLink" class="linkInButton regular-font" th:href="@{./{songId}/add-chords(songId=${song.id})}">
+                <button id="addChordsButton" class="btn btn-success">Add Chords</button>
+            </a>
             <table>️
                 <tr th:each="songChords : ${songChordsCollection}">
                     <td>️
                         <h3 class="addedByText regular-font" th:text="'Added by ' + ${songChords.addedBy} + ' on ' + ${#dates.format(songChords.timestamp, 'yyyy-MM-dd')}"></h3>
                         <div class="chordsButtonsWrapper">
-                            <button class="editChordPageButton">
-                                <a class="editChordPageButton regular-font" th:href="@{'/admin/songs/practice/' + ${song.id} + '/edit-chord-page/' + ${songChords.id} }">Edit</a>
-                            </button>
+                            <a class="editChordPageButton linkInButton regular-font" th:href="@{'/admin/songs/practice/' + ${song.id} + '/edit-chord-page/' + ${songChords.id} }">
+                                <button class="btn btn-light editChordPageButton">Edit</button>
+                            </a>
                             <form method="post" th:action="@{/admin/songs/practice/{songId}/delete-chord-page(songId=${song.id})}">
                                 <input name="chordPageId" th:value="${songChords.id}" hidden>
-                                <input class="deleteChordPageButton" type="submit" value="Delete">
+                                <button class="btn btn-danger deleteChordPageButton" type="submit">Delete</button>
                             </form>
                         </div>
                         <img class="chordSheetButton" onclick="printText(this)" th:src="@{/uploads/images/print.svg}" />

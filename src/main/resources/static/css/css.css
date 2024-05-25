@@ -23,6 +23,8 @@ body {
     color: black;
     outline: 2px solid black;
     border-radius: 5px;
+    font-weight: bold;
+    font-size: 16px;
 }
 
 .btn:hover {
@@ -84,6 +86,12 @@ h1, h2, h3, h4 {
 
 label, p, td, th {
     color: black;
+}
+
+.linkInButton {
+    text-decoration: none !important;
+    color: inherit !important;
+    font-weight: bold;
 }
 
 #menuItemsWrapper {
@@ -899,22 +907,18 @@ th {
     padding-bottom: 24px;
 }
 
-.practice #chordsButton {
-    width: 135px;
-    height: 34px;
-    font-size: 14px;
-    font-weight: bold;
-}
-
 .practice .chordsButtonsWrapper {
     display: flex;
-    margin-bottom: 4px;
+    margin-bottom: 16px;
+    align-items: flex-end;
 }
 
 .practice .chordSheetButton {
     height: 65px;
     background-color: white;
     padding: 4px;
+    outline: 1px solid black;
+    cursor: pointer;
 }
 
 .practice  .chordsText {
@@ -924,32 +928,12 @@ th {
     overflow: hidden;
     background-color: white;
     color: black;
+    margin-top: 16px;
 }
 
-.practice #deleteButton {
-    position: relative;
-    height: 30px;
-    font-size: 15px;
-    font-weight: bold;
-    background-color: #ff5555;
-}
-
-.practice .deleteChordPageButton {
-    width: 80px;
-    margin-right: 4px;
-    font-weight: bold;
-    font-size: 13px;
-    height: 25px;
-    background-color: #ff4b4b
-}
-
-.practice #editButton {
-    position: relative;
-    height: 30px;
-    width: 50px;
-    font-size: 15px;
-    font-weight: bold;
-    text-align: center;
+.practice  .editButton,
+.practice  .deleteButton {
+    font-size: 14px;
 }
 
 .practice .editButtonLink {
@@ -959,11 +943,7 @@ th {
 }
 
 .practice .editChordPageButton {
-    width: 65px;
     margin-right: 4px;
-    font-weight: bold;
-    font-size: 13px;
-    height: 25px;
 }
 
 .practice #myTable {
@@ -974,45 +954,34 @@ th {
 
 .practice #notesButton {
     border: 5px solid black;
-    width: 135px;
-    height: 34px;
-    font-size: 14px;
-    font-weight: bold;
 }
 
-.practice  #practiceNoteDateHeader {
+.practice  #practiceNoteButtonsHeader {
+    width: 15vw;
+}
+
+.practice  .practiceNoteButtonsWrapper {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.practice  #practiceNoteTimestampHeader {
     cursor: pointer;
-}
-
-.practice  #practiceNoteDateHeader, .practiceNoteTimestampCell {
-    width: 15%;
-    padding-bottom: 4px;
-}
-
-.practice  #practiceNoteDeleteButtonHeader, .practiceNoteDeleteButton {
-    width: 8%;
-}
-
-.practice  #practiceNoteEditButtonHeader, .practiceNoteEditButton {
-    width: 6%;
+    width: 10vw;
 }
 
 .practice  #practiceNoteFromHeader {
     cursor: pointer;
-    padding-bottom: 4px;
-}
-
-.practice  #practiceNoteFromHeader, .practiceNoteFromCell {
-    width: 11%;
+    width: 10vw;
 }
 
 .practice  #practiceNoteTextHeader {
     cursor: pointer;
-    padding-bottom: 4px;
+    width: 65vw;
 }
 
-.practice  #practiceNoteTextHeader, .practiceNoteTextCell {
-    max-width: 350px;
+.practice  .practiceNoteTextCell {
     word-wrap: break-word;
 }
 
@@ -1034,11 +1003,6 @@ th {
     border-radius: 5px;
     margin-top: 1px;
     margin-right: 6px;
-}
-
-.practice #youtubeUrlButton {
-    font-weight: bold;
-    font-size: 15px;
 }
 
 .practice #youtubeUrlLabel {
@@ -1107,11 +1071,11 @@ th {
         /* Type Selectors */
 
         a {
-            font-size: 24px;
+            font-size: 16px;
         }
 
         button {
-            font-size: 24px;
+            font-size: 16px;
         }
 
         h2 {
@@ -1148,8 +1112,7 @@ th {
         }
 
         .btn {
-            font-size: 24px;
-            height: 48px;
+            font-size: 16px;
         }
 
         .container-fluid {
@@ -1402,65 +1365,27 @@ th {
             height: 700px;
         }
 
-        .practice #addChordsButton {
-            width: 163px;
-            height: 34px;
-            font-size: 16px;
-        }
-
-        .practice #addChordsLink {
-            font-size: 16px;
-            text-decoration: none;
-            color: inherit;
-        }
-
+        .practice #addChordsButton,
         .practice #addNoteButton {
-            width: 163px;
-            height: 34px;
-            font-size: 16px;
+            width: 165px;
         }
 
-        .practice #addNoteLink {
-            font-size: 16px;
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .practice .chordsButtonsWrapper {
-            display: flex;
-            margin-bottom: 16px;
-            align-items: flex-end;
+        .practice  #chordsButton:focus {
+            outline: none;
+            border: none;
         }
 
         .practice .chordsText {
             width: 96vw;
-            height: 100vh;
+            height: auto;
             max-height: 100vh;
-            margin-top: 16px;
             background-color: white;
             color: black;
         }
 
-        .practice #deleteButton,
-        .practice #editButton {
-            margin-bottom: 6px;
-        }
-
-        .practice .deleteChordPageButton {
-            width: 65px;
-            margin-right: 4px;
-            font-weight: bold;
-            font-size: 13px;
-            height: 25px;
-            border: 1px solid black;
-        }
-
-        .practice #editButton {
-            width: 75px;
-        }
-
-        .practice .editChordPageText {
-            font-size: 13px;
+        .practice  #notesButton:focus {
+            outline: none;
+            border: none;
         }
 
         .practice .practiceNoteTextCell,
@@ -1469,26 +1394,33 @@ th {
             font-size: 16px;
         }
 
-        .practice #uploadSheetMusicButton {
-            height: 36px;
-            font-size: 15px;
+        .practice  #practiceNoteButtonsHeader {
+            width: 20vw;
+        }
+
+        .practice  #practiceNoteFromHeader {
+            cursor: pointer;
+            width: 10vw;
+        }
+
+        .practice  #practiceNoteTimestampHeader {
+            cursor: pointer;
+            width: 15vw;
+        }
+
+        .practice  #practiceNoteTextHeader {
+            cursor: pointer;
+            width: 55vw;
         }
 
         .practice .viewSheetMusicButton {
             height: 36px;
-            font-size: 15px;
         }
 
         .practice #youtubeUrl {
             width: 40vw;
             height: 36px;
             font-size: 15px;
-            margin-bottom: 24px;
-        }
-
-        .practice #youtubeUrlButton {
-            height: 40px;
-            font-weight: bold;
         }
 
         .setlists label {
