@@ -640,6 +640,10 @@ th {
     font-family: monospace;
 }
 
+.edit-note  #editNoteInput {
+    width: 80vw;
+}
+
 .gigs-view {
     --swiper-navigation-color: black;
     --swiper-pagination-color: black
@@ -1328,6 +1332,10 @@ th {
 
         .admin-upload-sheet-music #uploadSheetMusicForm {
             width: 65vw;
+        }
+
+        .edit-note #editNoteInput {
+            width: 97.5vw;
         }
 
         .gigs-view h1, h2, h3, h4, h5, h6, p, a, i, u {
