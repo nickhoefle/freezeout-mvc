@@ -2,30 +2,27 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
 <header th:replace="fragments :: header-admin"></header>
-<body class="container-fluid">
+<body class="container-fluid add-note">
 
-<h3>Add Note:</h3>
+<h1 class="regular-font view-header">Add Note</h1>
 
 <form method="post">
    <div class="form-group">
-      <label>Note:
-         <input th:field="${songNote.noteText}" class="form-control">
-      </label>
+      <input th:field="${songNote.noteText}" id="newNoteInput" class="form-control">
    </div>
    <div class="form-group">
-      <label>Added By:
-         <select th:field="${songNote.addedBy}" class="form-control">
-            <option th:value="DH">DH</option>
-            <option th:value="NH">NH</option>
-            <option th:value="TK">TK</option>
-            <option th:value="JL">JL</option>
-            <option th:value="AM">AM</option>
-            <option th:value="GM">GM</option>
-            <option th:value="KM">KM</option>
-         </select>
-      </label>
+      <label id="addedByLabel">Added By:</label>
+      <select th:field="${songNote.addedBy}" id="addedBy" class="form-control">
+         <option th:value="DH">DH</option>
+         <option th:value="NH">NH</option>
+         <option th:value="TK">TK</option>
+         <option th:value="JL">JL</option>
+         <option th:value="AM">AM</option>
+         <option th:value="GM">GM</option>
+         <option th:value="KM">KM</option>
+      </select>
    </div>
-   <input type="submit" class="btn btn-success">
+   <input type="submit" id="submitButton" class="btn btn-success">
 </form>
 
 </body>

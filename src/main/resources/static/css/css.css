@@ -214,6 +214,22 @@ th {
     height: 45vh;
 }
 
+.add-note  #addedBy {
+    width: 200px;
+}
+
+.add-note  #addedByLabel {
+    font-size: 22px;
+}
+
+.add-note  #submitButton {
+    width: 200px;
+}
+
+.add-note  #newNoteInput {
+    width: 80vw;
+}
+
 .admin-delete-gig  .bigCheckbox {
     height: 25px;
     width: 25px;
@@ -1139,6 +1155,10 @@ th {
         /* Body Classes */
         .add-chords-to-practice #textArea {
             font-size: 16px;
+        }
+
+        .add-note  #newNoteInput {
+            width: 97.5vw;
         }
 
         .admin-listen td {
