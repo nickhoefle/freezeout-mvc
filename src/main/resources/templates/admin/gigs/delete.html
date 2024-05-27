@@ -6,30 +6,32 @@
 
 <body class="container-fluid admin-delete-gig">
     <h1 class="view-header">Delete Gigs</h1>
-    <form method="post" th:action="@{/admin/gigs/delete}">
+    <form th:action="@{/admin/gigs/delete}" method="post">
         <table id="gigsTable" class="table">
             <thead>
                 <tr>
-                    <th></th>
-                    <th class="cursor-pointer" onclick="sortTable(0, 'gigsTable')">Gig</th>
-                    <th class="cursor-pointer" onclick="sortTable(1, 'gigsTable')">Date</th>
-                    <th onclick="sortTable(2)">Poster</th>
+                    <th id="bigCheckboxHeader"></th>
+                    <th id="gigNameHeader" class="cursor-pointer" onclick="sortTable(0, 'gigsTable')">Gig</th>
+                    <th id="gigDateHeader" class="cursor-pointer" onclick="sortTable(1, 'gigsTable')">Date</th>
+                    <th id="gigPosterHeader">Poster</th>
                 </tr>
             </thead>
             <tbody>
                 <tr th:each="gig : ${gigs}">
                     <td>
-                        <input class="form-control bigCheckbox" th:value="${gig.id}" type="checkbox" name="gigIds">
+                        <div class="bigCheckboxWrapper">
+                            <input th:value="${gig.id}" class="form-control bigCheckbox" type="checkbox" name="gigIds">
+                        </div>
                     </td>
-                    <td class="gigNameCell" th:text="${gig.name}"></td>
+                    <td th:text="${gig.name}"></td>
                     <td th:text="${gig.date}"></td>
                     <td>
-                        <img class="gig-poster-in-table" onclick="window.open(this.src)" th:src="'/uploads/gig-posters/' + ${gig.image}">
+                        <img th:src="'/uploads/gig-posters/' + ${gig.image}" class="gigPoster" onclick="window.open(this.src)">
                     </td>
                 </tr>
             </tbody>
         </table>
-        <input id="deleteButton" class="btn" type="submit" value="Delete" />
+        <input id="deleteButton" class="btn btn-danger" type="submit" value="Delete" />
     </form>
 </body>
 

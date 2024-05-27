@@ -233,36 +233,48 @@ th {
 .admin-delete-gig  .bigCheckbox {
     height: 25px;
     width: 25px;
-    margin-left: 32px;
+    accent-color: red;
+}
+
+.admin-delete-gig  #bigCheckboxHeader {
+    width: 10%;
+}
+
+.admin-delete-gig  .bigCheckboxWrapper {
+    display: flex;
+    justify-content: center;
 }
 
 .admin-delete-gig #deleteButton {
-    font-size: 15px;
-    font-weight: bold;
-    background-color: #ff5555;
-    width: 100px;
+    width: 10%;
 }
 
-.admin-delete-gig  .gig-poster-in-table {
+.admin-delete-gig #gigDateHeader {
+    width: 20%;
+}
+
+.admin-delete-gig #gigNameHeader {
+    width: 40%;
+}
+
+.admin-delete-gig #gigPosterHeader {
+    width: 30%;
+}
+
+.admin-delete-gig  .gigPoster {
     width: auto;
-    height: 300px;
-}
-
-.admin-delete-gig .gigNameCell {
-    width: 25vw;
+    height: 175px;
 }
 
 .admin-delete-gig .table td {
     vertical-align: middle;
     text-align: center;
-    font-size: 20px;
+    font-size: 16px;
 }
 
 .admin-delete-gig .table th {
-    position: relative;
-    top: 10px;
     text-align: center;
-    font-size: 22px;
+    font-size: 16px;
 }
 
 .admin-listen  #audioPlayerHeader,
