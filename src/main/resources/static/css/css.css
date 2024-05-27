@@ -264,7 +264,12 @@ th {
 
 .admin-delete-gig  .gigPoster {
     width: auto;
-    height: 175px;
+    height: 200px;
+}
+
+.admin-delete-gig  .gigPoster:hover {
+    outline: 3px solid black;
+    cursor: pointer;
 }
 
 .admin-delete-gig .table td {
