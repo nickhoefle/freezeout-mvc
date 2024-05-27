@@ -11,7 +11,7 @@
 
 <div class="flex-center column">
     <form method="post" id="uploadPhotoFileForm" th:action="@{/admin/photos/upload-photo-file}" enctype="multipart/form-data">
-        <label id="uploadPhotoFileLabel">Photo Title:</label>
+        <label>Photo Title:</label>
         <select id="photoId" class="form-control" name="photoId">
             <option th:each="photo : ${photosForDropdown}" th:text="${photo.title}" th:value="${photo.id}"></option>
         </select>

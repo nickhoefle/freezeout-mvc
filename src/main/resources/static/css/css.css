@@ -67,7 +67,7 @@ button {
     color: white
 }
 
-h1, h2, h3, h4 {
+h1, h2, h3, h4, i {
     color: black;
 }
 
@@ -86,6 +86,7 @@ h1, h2, h3, h4 {
 
 label, p, td, th {
     color: black;
+    font-size: 18px;
 }
 
 .linkInButton {
@@ -460,10 +461,6 @@ th {
     font-size: 16px;
 }
 
-.admin-photos  .photoTitleAndCreditLabel {
-    font-size: 18px;
-}
-
 .admin-photos-delete  .big-checkbox {
     width: 25px;
     height: 25px;
@@ -568,11 +565,6 @@ th {
     text-align: center;
 }
 
-.admin-upload-audio-file #selectSongLabel {
-    font-size: 18px;
-    margin: 0;
-}
-
 .admin-upload-audio-file #skipLink {
     text-decoration: underline;
     font-size: 16px;
@@ -604,11 +596,6 @@ th {
 
 .admin-upload-sheet-music  #fileText {
     color: white;
-}
-
-.admin-upload-sheet-music #selectSongLabel {
-    font-size: 18px;
-    margin: 0;
 }
 
 .admin-upload-sheet-music #sheetId {
@@ -752,10 +739,6 @@ th {
     margin-bottom: 12px;
 }
 
-.login  label {
-    font-size: 18px;
-}
-
 .login  #bandLoginForm {
     width: 30vw;
     outline: 2px solid black;
@@ -776,10 +759,6 @@ th {
     font-size: 16px;
 }
 
-.new-gig label {
-    font-size: 18px;
-}
-
 .new-gig #createGigButton {
     width: 100%;
     margin-top: 20px;
@@ -789,7 +768,6 @@ th {
 
 .new-gig #fileTypeExplainer {
     text-align: center;
-    font-size: 16px;
 }
 
 .new-gig #gigDateInput {
@@ -827,11 +805,6 @@ th {
 
 .new-song .new-song-form-input {
     font-size: 16px;
-}
-
-.new-song .new-song-form-label {
-    font-size: 18px;
-    color: black;
 }
 
 .new-song #new-song-key {
@@ -1037,10 +1010,6 @@ th {
     margin-right: 6px;
 }
 
-.practice #youtubeUrlLabel {
-    font-size: 18px;
-}
-
 .practice #youtubeUrlWrapper {
     display: flex;
 }
@@ -1090,11 +1059,6 @@ th {
     outline: 2px solid black;
     padding: 30px;
     border-radius: 5px;
-}
-
-.upload-photo #uploadPhotoFileLabel {
-    font-size: 18px;
-    margin: 0;
 }
 
     /* Tablet */

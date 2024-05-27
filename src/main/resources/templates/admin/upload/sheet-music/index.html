@@ -10,7 +10,7 @@
   <p th:text="${message}" th:if="${message ne null}" class="alert alert-primary regular-font"></p>
   <div class="flex-center">
     <form id="uploadSheetMusicForm" method="post" th:action="@{/admin/upload/sheet-music}" enctype="multipart/form-data">
-      <label id="selectSongLabel" class="regular-font">Select Song:</label>
+      <label class="regular-font">Select Song:</label>
       <select id="sheetId" class="form-control" name="sheetId">
         <option th:each="option : ${songsForDropdown}" th:text="${option.songName}" th:value="${option.id}"></option>
       </select>

@@ -9,27 +9,27 @@
 <div class="flex-center">
     <form id="new-song-form" method="post" th:action="@{/admin/songs/new}">
         <div class="form-group">
-            <label class="new-song-form-label">Name</label>
+            <label>Name</label>
             <input th:field="${song.songName}" class="form-control new-song-form-input">
             <p class="error" th:errors="${song.songName}"></p>
         </div>
         <div class="form-group">
-            <label class="new-song-form-label">Original Artist</label>
+            <label>Original Artist</label>
             <input class="form-control new-song-form-input" th:field="${song.songDetails.originalArtist}">
             <p class="error" th:errors="${song.songDetails.originalArtist}"></p>
         </div>
         <div class="form-group">
-            <label class="new-song-form-label">Year (Optional)</label>
+            <label>Year (Optional)</label>
             <input id="new-song-year" class="form-control new-song-form-input" th:field="${song.songDetails.year}">
         </div>
         <div class="form-group">
-            <label class="new-song-form-label">Key (Optional)</label>
+            <label>Key (Optional)</label>
             <input id="new-song-key" class="form-control new-song-form-input" th:field="${song.songDetails.songKey}">
         </div>
         <div class="form-group">
-            <label class="new-song-form-label">YouTube Link (Optional)</label>
+            <label>YouTube Link (Optional)</label>
                 <br>
-                <i class="regular-font new-song-form-label">Example: https://www.youtube.com/watch?v=4zAThXFOy2c</i>
+                <i class="regular-font">Example: https://www.youtube.com/watch?v=4zAThXFOy2c</i>
                 <input class="form-control new-song-form-input" th:field="${song.songDetails.youtubeURL}">
         </div>
         <div class="form-group">
