@@ -6,32 +6,33 @@
 
 <h1 class="view-header regular-font">Arrange Photos</h1>
 <p id="arrangePhotosExplainerText" class="regular-font">Photos currently on the website Photos page</p>
+
 <form th:action="@{/admin/photos/arrangePhotos}" method="post">
-    <table class="table" id="myTable">
+    <table class="table">
         <thead>
             <tr>
-                <th class="photoColumnHeader"></th>
-                <th class="photoOrderColumnHeader" onclick="sortTable(1);">Order</th>
+                <th id="photoThumbnailColumnHeader"></th>
+                <th id="arrangeColumnHeader">Order</th>
             </tr>
         </thead>
         <tbody>
             <tr th:each="photo : ${allPhotos}">
                 <td>
-                    <div class="thumbnailContainer">
-                        <img class="thumbnail" th:src="@{'/uploads/photos/' + ${photo.url} }" onclick="window.open(this.src)">
+                    <div class="photoThumbnailWrapper">
+                        <img class="photoThumbnail" th:src="@{'/uploads/photos/' + ${photo.url} }" onclick="window.open(this.src)">
                     </div>
                 </td>
                 <td class="photoOrderCell">
-                    <img class="moveUpButton arrowSvg" onclick="moveRowUp(event, this)" th:src="@{/uploads/images/up-arrow.svg}"></img>
-                    <img class="moveDownButton arrowSvg" onclick="moveRowDown(event, this)" th:src="@{/uploads/images/down-arrow.svg}"></img>
-                    <input type="number" name="orderNumbers" value="0" class="photoOrderInput" hidden>
-                    <input type="hidden" name="photoIds" th:value="${photo.id}" th:attr="hidden=${true}" />
+                    <img class="arrowSvg" onclick="moveRowUp(event, this)" th:src="@{/uploads/images/up-arrow.svg}" />
+                    <img class="arrowSvg" onclick="moveRowDown(event, this)" th:src="@{/uploads/images/down-arrow.svg}" />
+                    <input type="number" name="orderNumbers" value="0" class="photoOrderInput" hidden />
+                    <input type="hidden" name="photoIds" th:value="${photo.id}" hidden />
                 </td>
             </tr>
         </tbody>
     </table>
-    <div class="submitButtonDiv">
-        <button id="rearrangePhotosButton" class="btn btn-success" type="submit">Rearrange</button>
+    <div id="submitButtonWrapper">
+        <button class="btn btn-success" type="submit">Rearrange</button>
     </div>
 </form>
 

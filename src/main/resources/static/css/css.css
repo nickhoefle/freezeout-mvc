@@ -391,6 +391,11 @@ th {
     margin-top: 16px;
 }
 
+.admin-photos  #arrangeColumnHeader {
+    width: 50%;
+    text-align: center;
+}
+
 .admin-photos #arrangePhotosExplainerText {
     text-align: center;
     font-size: 16px;
@@ -405,46 +410,29 @@ th {
     background-color: white;
 }
 
-.admin-photos .photoColumnHeader {
-    width: 50%;
-}
-
 .admin-photos  .photoOrderCell {
     vertical-align: middle;
     text-align: center;
 }
 
-.admin-photos  .photoOrderColumnHeader {
-    width: 50%;
-    text-align: center;
-    cursor: pointer;
-}
-
-.admin-photos  .photoOrderInput {
-    width: 40px;
-    text-align: center;
-}
-
-.admin-photos #rearrangePhotosButton {
-    font-size: 15px;
-    font-weight: bold;
-}
-
-.admin-photos  .submitButtonDiv {
-    text-align: center;
-    width: 50%;
-}
-
-.admin-photos  .thumbnail {
+.admin-photos  .photoThumbnail {
     width: auto;
     height: 125px;
     cursor: pointer;
 }
 
-.admin-photos  .thumbnailContainer {
+.admin-photos  .photoThumbnail:hover {
+    outline: 3px solid black;
+    cursor: pointer;
+}
+
+.admin-photos #photoThumbnailColumnHeader {
+    width: 50%;
+}
+
+.admin-photos  .photoThumbnailWrapper {
     display: flex;
     justify-content: center;
-    padding-top: 20px;
 }
 
 .admin-photos #photoTitleAndCreditButton {
@@ -464,6 +452,11 @@ th {
 .admin-photos  .photoTitleAndCreditInput {
     border-radius: 5px;
     font-size: 16px;
+}
+
+.admin-photos  #submitButtonWrapper {
+    text-align: center;
+    width: 50%;
 }
 
 .admin-photos-delete  .big-checkbox {
