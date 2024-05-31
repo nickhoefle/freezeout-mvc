@@ -459,47 +459,47 @@ th {
     width: 50%;
 }
 
-.admin-photos-delete  .big-checkbox {
+.admin-photos-delete  .bigCheckbox {
     width: 25px;
     height: 25px;
     accent-color: red;
 }
 
-.admin-photos-delete  .checkbox-cell {
-    text-align: center;
-    vertical-align: middle;
+.admin-photos-delete  #bigCheckboxHeader {
+    width: 50%;
 }
 
-.admin-photos-delete  .deleteButtonDiv {
-    width: 33%;
-    text-align: center;
+.admin-photos-delete  .bigCheckboxWrapper {
+    display: flex;
+    justify-content: center;
 }
 
-.admin-photos-delete  .deleteColumnHeader {
-    width: 25%;
-    text-align: center;
-}
-
-.admin-photos-delete #deletePhotosButton {
-    font-size: 15px;
-    font-weight: bold;
-}
-
-.admin-photos-delete .photoColumnHeader {
+.admin-photos-delete  #deleteButtonWrapper {
     width: 50%;
     text-align: center;
 }
 
-.admin-photos-delete  .thumbnail {
+.admin-photos-delete  .photoThumbnail {
     height: 125px;
     width: auto;
     cursor: pointer;
 }
 
-.admin-photos-delete  .thumbnailContainer {
+.admin-photos-delete  .photoThumbnail:hover {
+    outline: 3px solid black;
+}
+
+.admin-photos-delete #photoThumbnailColumnHeader {
+    width: 50%;
+}
+
+.admin-photos-delete  .photoThumbnailWrapper {
     display: flex;
     justify-content: center;
-    padding-top: 20px;
+}
+
+.admin-photos-delete  .table td {
+    vertical-align: middle;
 }
 
 .admin-songs-delete  #allSongsTable {
