@@ -148,11 +148,6 @@ th {
     font-size: 64px !important;
 }
 
-.titleHeaderFragmentWrapper {
-    display: flex;
-    justify-content: center;
-}
-
 .titleHeaderFragment:hover {
     color: white;
     text-decoration: none;
@@ -246,11 +241,6 @@ th {
     width: 10%;
 }
 
-.admin-delete-gig  .bigCheckboxWrapper {
-    display: flex;
-    justify-content: center;
-}
-
 .admin-delete-gig #deleteButton {
     width: 10%;
 }
@@ -329,11 +319,6 @@ th {
     width: 250px;
     font-weight: bold;
     font-size: 16px;
-}
-
-.admin-listen #showUploadedSongsButtonWrapper {
-    display: flex;
-    justify-content: center;
 }
 
 .admin-listen .song-container {
@@ -435,11 +420,6 @@ th {
     width: 50%;
 }
 
-.admin-photos  .photoThumbnailWrapper {
-    display: flex;
-    justify-content: center;
-}
-
 .admin-photos #photoTitleAndCreditButton {
     width: 100%;
     margin-top: 20px;
@@ -474,11 +454,6 @@ th {
     width: 50%;
 }
 
-.admin-photos-delete  .bigCheckboxWrapper {
-    display: flex;
-    justify-content: center;
-}
-
 .admin-photos-delete  #deleteButtonWrapper {
     width: 50%;
     text-align: center;
@@ -496,11 +471,6 @@ th {
 
 .admin-photos-delete #photoThumbnailColumnHeader {
     width: 50%;
-}
-
-.admin-photos-delete  .photoThumbnailWrapper {
-    display: flex;
-    justify-content: center;
 }
 
 .admin-photos-delete  .table td {

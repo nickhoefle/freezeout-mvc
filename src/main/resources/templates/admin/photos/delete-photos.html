@@ -17,12 +17,12 @@
          <tbody>
             <tr th:each="photo : ${allPhotos}">
                <td>
-                  <div class="bigCheckboxWrapper">
+                  <div class="flex-center">
                      <input class="form-control bigCheckbox" name="photoIds" th:value="${photo.id}" type="checkbox">
                   </div>
                </td>
                <td>
-                  <div class="photoThumbnailWrapper">
+                  <div class="flex-center">
                      <img class="photoThumbnail" th:src="@{'/uploads/photos/' + ${photo.url} }" onclick="window.open(this.src)">
                   </div>
                </td>

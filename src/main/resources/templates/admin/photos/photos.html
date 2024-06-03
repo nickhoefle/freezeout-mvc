@@ -18,7 +18,7 @@
         <tbody>
             <tr th:each="photo : ${allPhotos}">
                 <td>
-                    <div class="photoThumbnailWrapper">
+                    <div class="flex-center">
                         <img class="photoThumbnail" th:src="@{'/uploads/photos/' + ${photo.url} }" onclick="window.open(this.src)">
                     </div>
                 </td>
