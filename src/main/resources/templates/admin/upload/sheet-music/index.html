@@ -15,7 +15,7 @@
         <option th:each="option : ${songsForDropdown}" th:text="${option.songName}" th:value="${option.id}"></option>
       </select>
       <div class="form-group">
-        <input id="fileText" type="file" name="file" class="form-control-file">
+        <input type="file" name="file" class="form-control-file">
       </div>
       <button id="uploadFileButton" type="submit" class="btn btn-success">Upload File</button>
       <a id="skipLink" class="btn regular-font" href="/admin/upload/audio-file">Skip</a>
