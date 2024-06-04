@@ -987,7 +987,56 @@ th {
     display: flex;
 }
 
+.setlists #addAnotherFileButton {
+    margin-top: 24px;
+    margin-right: 8px;
+}
+
+.setlists #archivedSetlistsWrapper {
+    width: 40vw;
+    font-size: 16px;
+}
+
+.setlists hr {
+    border-color: black;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    background-color: black;
+    height: 1px;
+}
+
+.setlists #mergePdfButton {
+    margin-top: 24px;
+}
+
+.setlists #newSetlistForm {
+    border: 2px solid black;
+    padding: 30px;
+    border-radius: 5px;
+    width: 40vw;
+}
+
+.setlists option {
+    font-weight: bold;
+    color: black;
+}
+
+.setlists select {
+    outline: 2px solid black;
+    border-radius: 5px;
+}
+
 .setlists .setlistLink:visited {
+    color: black;
+}
+
+.setlists #setlistNameInput {
+    width: 66%;
+}
+
+.setlists #songFileDropdowns {
+    font-size: 16px;
+    font-weight: bold;
     color: black;
 }
 
@@ -1417,11 +1466,6 @@ th {
         .setlists #mergePdfButton {
             font-weight: bold;
             font-size: 16px;
-        }
-
-        .setlists #outputFileNameInput {
-            width: 50vw;
-            margin-bottom: 32px;
         }
 
         .setlists .setlistLink {
