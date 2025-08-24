@@ -6,30 +6,31 @@
 
 <body class="container-fluid admin-photos-delete">
    <h1 class="view-header regular-font">Delete Photos</h1>
-   <h2 id="deletePhotosExplainerText" class="regular-font subheader-text">Photos currently on the website Photos page.</h2>
    <form th:action="@{/admin/photos/deletePhotos}" method="post">
       <table class="table">
          <thead>
             <tr>
-               <th class="deleteColumnHeader"></th>
-               <th class="photoColumnHeader"></th>
+               <th id="bigCheckboxHeader"></th>
+               <th id="photoThumbnailColumnHeader"></th>
             </tr>
          </thead>
          <tbody>
             <tr th:each="photo : ${allPhotos}">
-               <td class="checkbox-cell">
-                  <input class="big-checkbox" name="photoIds" th:value="${photo.id}" type="checkbox">
+               <td>
+                  <div class="flex-center">
+                     <input class="form-control bigCheckbox" name="photoIds" th:value="${photo.id}" type="checkbox">
+                  </div>
                </td>
                <td>
-                  <div class="thumbnailContainer">
-                     <img class="thumbnail" th:src="@{'/uploads/photos/' + ${photo.url} }" onclick="window.open(this.src)">
+                  <div class="flex-center">
+                     <img class="photoThumbnail" th:src="@{'/uploads/photos/' + ${photo.url} }" onclick="window.open(this.src)">
                   </div>
                </td>
             </tr>
          </tbody>
       </table>
-      <div class="deleteButtonDiv">
-         <button id="deletePhotosButton" class="btn btn-danger" type="submit">Delete</button>
+      <div id="deleteButtonWrapper">
+         <button class="btn btn-danger" type="submit">Delete</button>
       </div>
    </form>
 </body>

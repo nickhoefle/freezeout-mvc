@@ -29,7 +29,7 @@
         <div id="youtubeVideoContainer" th:utext="${youtubeEmbedHTML}"></div>
 
         <form method="post" th:action="@{/admin/songs/practice/{songId}/change-url(songId=${song.id})}">
-            <label id="youtubeUrlLabel" for="youtubeUrl">Link:</label>
+            <label for="youtubeUrl">Link:</label>
             <div id="youtubeUrlWrapper">
                 <input id="youtubeUrl" class="form-control" placeholder="E.g. https://www.youtube.com/watch?v=lI-BMDnti4c" name="youtubeUrl">
                 <button id="youtubeUrlButton" class="btn btn-success" type="submit">Submit</button>

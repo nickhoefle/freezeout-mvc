@@ -27,6 +27,7 @@ public class PdfController {
         List<String> pdfFileNames = getPdfFileNames();
         pdfFileNames.sort(String.CASE_INSENSITIVE_ORDER);
         List<String> setlistFileNames = getSetlistFileNames();
+
         model.addAttribute("pdfFiles", pdfFileNames);
         model.addAttribute("setlistFiles", setlistFileNames);
         return "admin/setlists";
@@ -39,9 +40,9 @@ public class PdfController {
     }
 
     @PostMapping("/setlists/merge")
-    public String mergePdf(@RequestParam("pdfFiles[]") String[] pdfFiles,  @RequestParam("outputFileName") String outputFileName) {
+    public String mergePdf(@RequestParam("pdfFiles[]") String[] pdfFiles,  @RequestParam("setlistName") String setlistName) {
         if (pdfFiles == null || pdfFiles.length <= 1) {
-            return "redirect:/admin/pdfcombiner";
+            return "redirect:/admin/setlists";
         }
         try {
             PDFMergerUtility pdfMerger = new PDFMergerUtility();
@@ -50,11 +51,11 @@ public class PdfController {
                 Path filePath = Path.of(PDF_FOLDER_PATH + fileName);
                 pdfMerger.addSource(filePath.toFile());
             }
-            String mergedPdfPath = OUTPUT_FOLDER_PATH + outputFileName + ".pdf";
+            String mergedPdfPath = OUTPUT_FOLDER_PATH + setlistName + ".pdf";
             pdfMerger.setDestinationFileName(mergedPdfPath);
             pdfMerger.mergeDocuments();
         } catch (IOException e) {
-            // Handle PDF merging error
+            System.out.println("Error Merging PDF: " + e);
         }
         return "redirect:" + baseUrl + "/admin/setlists";
     }

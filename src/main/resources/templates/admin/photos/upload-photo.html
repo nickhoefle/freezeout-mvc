@@ -9,11 +9,11 @@
 <div class="flex-center">
     <form id="photoTitleAndCreditForm" method="post" th:action="@{/admin/photos/upload-photo}">
         <div class="form-group">
-            <label class="photoTitleAndCreditLabel">Title</label>
+            <label>Title</label>
             <input class="photoTitleAndCreditInput form-control" th:field="${photo.title}" />
         </div>
         <div class="form-group">
-            <label class="photoTitleAndCreditLabel">Credit (Optional)</label>
+            <label>Credit (Optional)</label>
             <input class="photoTitleAndCreditInput form-control" th:field="${photo.credit}">
         </div>
         <div class="form-group">

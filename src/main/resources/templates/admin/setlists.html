@@ -7,33 +7,37 @@
 <body class="container-fluid setlists">
     <h1 class="view-header regular-font">Create a Setlist</h1>
     <h2 class="subheader-text regular-font">Create a multi-page PDF from individual sheet music PDFs for songs. This can be used to make a practice or gig setlist.</h2>
-    <form id="pdfForm" method="post" action="/admin/setlists/merge">
-        <label id="outputFileNameLabel">Setlist Name</label>
-        <input id="outputFileNameInput"  class="form-control" type="text" name="outputFileName" required>
-        <div id="sections">
-            <div class="section">
-                <label>Song #1:</label>
-                <select name="pdfFiles[]" required>
-                    <option value="">Select PDF File</option>
-                    <option th:each="pdfFile : ${pdfFiles}" th:value="${pdfFile}" th:text="${pdfFile}"></option>
-                </select>
-            </div>
-        </div>
-        <br>
-        <button id="addSectionButton" class="btn btn-primary" type="button">Add Another Song</button>
-        <button id="mergePdfButton" class="btn btn-success" type="submit">Merge PDF</button>
-    </form>
 
-    <div>
-        <h2 class="view-header regular-font">Archived Setlists</h2>
-        <ul>
-            <li th:each="setlistFile : ${setlistFiles}">
-                <a class="setlistLink regular-font" th:href="@{/uploads/setlists/} + ${setlistFile}" target="_blank" th:text="${setlistFile}"></a>
-            </li>
-        </ul>
+    <div class="flex-center">
+        <form id="newSetlistForm" method="post" action="/admin/setlists/merge">
+            <label>Setlist Name</label>
+            <input id="setlistNameInput"  class="form-control" type="text" name="setlistName" required>
+            <hr>
+            <div id="songFileDropdowns">
+                <div class="songFileDropdownDiv">
+                    <label>Song #1:</label>
+                    <select name="pdfFiles[]" required>
+                        <option value="">Select PDF File</option>
+                        <option th:each="pdfFile : ${pdfFiles}" th:value="${pdfFile}" th:text="${pdfFile}"></option>
+                    </select>
+                </div>
+            </div>
+            <button id="addAnotherFileButton" class="btn btn-primary" type="button">Add Another File</button>
+            <button id="mergePdfButton" class="btn btn-success" type="submit">Merge PDF</button>
+        </form>
     </div>
 
-    <script type="text/javascript" th:src="@{/javascript/setlists.js}"></script>
+    <h2 class="view-header regular-font">Archived Setlists</h2>
+    <div class="flex-center">
+        <div id="archivedSetlistsWrapper">
+            <ul>
+                <li th:each="setlistFile : ${setlistFiles}">
+                    <a class="setlistLink regular-font" th:href="@{/uploads/setlists/} + ${setlistFile}" target="_blank" th:text="${setlistFile}"></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
 </body>
 
 </html>

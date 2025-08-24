@@ -64,10 +64,11 @@ button {
 }
 
 .form-control-file {
-    color: white
+    color: white;
+    outline: none;
 }
 
-h1, h2, h3, h4 {
+h1, h2, h3, h4, i {
     color: black;
 }
 
@@ -84,8 +85,13 @@ h1, h2, h3, h4 {
     margin-left: 25px;
 }
 
+input {
+    outline: 2px solid black;
+}
+
 label, p, td, th {
     color: black;
+    font-size: 18px;
 }
 
 .linkInButton {
@@ -140,11 +146,6 @@ th {
 
 .titleHeaderFragment {
     font-size: 64px !important;
-}
-
-.titleHeaderFragmentWrapper {
-    display: flex;
-    justify-content: center;
 }
 
 .titleHeaderFragment:hover {
@@ -233,36 +234,48 @@ th {
 .admin-delete-gig  .bigCheckbox {
     height: 25px;
     width: 25px;
-    margin-left: 32px;
+    accent-color: red;
+}
+
+.admin-delete-gig  #bigCheckboxHeader {
+    width: 10%;
 }
 
 .admin-delete-gig #deleteButton {
-    font-size: 15px;
-    font-weight: bold;
-    background-color: #ff5555;
-    width: 100px;
+    width: 10%;
 }
 
-.admin-delete-gig  .gig-poster-in-table {
+.admin-delete-gig #gigDateHeader {
+    width: 20%;
+}
+
+.admin-delete-gig #gigNameHeader {
+    width: 40%;
+}
+
+.admin-delete-gig #gigPosterHeader {
+    width: 30%;
+}
+
+.admin-delete-gig  .gigPoster {
     width: auto;
-    height: 300px;
+    height: 200px;
 }
 
-.admin-delete-gig .gigNameCell {
-    width: 25vw;
+.admin-delete-gig  .gigPoster:hover {
+    outline: 3px solid black;
+    cursor: pointer;
 }
 
 .admin-delete-gig .table td {
     vertical-align: middle;
     text-align: center;
-    font-size: 20px;
+    font-size: 16px;
 }
 
 .admin-delete-gig .table th {
-    position: relative;
-    top: 10px;
     text-align: center;
-    font-size: 22px;
+    font-size: 16px;
 }
 
 .admin-listen  #audioPlayerHeader,
@@ -306,11 +319,6 @@ th {
     width: 250px;
     font-weight: bold;
     font-size: 16px;
-}
-
-.admin-listen #showUploadedSongsButtonWrapper {
-    display: flex;
-    justify-content: center;
 }
 
 .admin-listen .song-container {
@@ -373,6 +381,11 @@ th {
     margin-top: 16px;
 }
 
+.admin-photos  #arrangeColumnHeader {
+    width: 50%;
+    text-align: center;
+}
+
 .admin-photos #arrangePhotosExplainerText {
     text-align: center;
     font-size: 16px;
@@ -387,46 +400,24 @@ th {
     background-color: white;
 }
 
-.admin-photos .photoColumnHeader {
-    width: 50%;
-}
-
 .admin-photos  .photoOrderCell {
     vertical-align: middle;
     text-align: center;
 }
 
-.admin-photos  .photoOrderColumnHeader {
-    width: 50%;
-    text-align: center;
-    cursor: pointer;
-}
-
-.admin-photos  .photoOrderInput {
-    width: 40px;
-    text-align: center;
-}
-
-.admin-photos #rearrangePhotosButton {
-    font-size: 15px;
-    font-weight: bold;
-}
-
-.admin-photos  .submitButtonDiv {
-    text-align: center;
-    width: 50%;
-}
-
-.admin-photos  .thumbnail {
+.admin-photos  .photoThumbnail {
     width: auto;
     height: 125px;
     cursor: pointer;
 }
 
-.admin-photos  .thumbnailContainer {
-    display: flex;
-    justify-content: center;
-    padding-top: 20px;
+.admin-photos  .photoThumbnail:hover {
+    outline: 3px solid black;
+    cursor: pointer;
+}
+
+.admin-photos #photoThumbnailColumnHeader {
+    width: 50%;
 }
 
 .admin-photos #photoTitleAndCreditButton {
@@ -448,51 +439,42 @@ th {
     font-size: 16px;
 }
 
-.admin-photos  .photoTitleAndCreditLabel {
-    font-size: 18px;
+.admin-photos  #submitButtonWrapper {
+    text-align: center;
+    width: 50%;
 }
 
-.admin-photos-delete  .big-checkbox {
+.admin-photos-delete  .bigCheckbox {
     width: 25px;
     height: 25px;
     accent-color: red;
 }
 
-.admin-photos-delete  .checkbox-cell {
-    text-align: center;
-    vertical-align: middle;
+.admin-photos-delete  #bigCheckboxHeader {
+    width: 50%;
 }
 
-.admin-photos-delete  .deleteButtonDiv {
-    width: 33%;
-    text-align: center;
-}
-
-.admin-photos-delete  .deleteColumnHeader {
-    width: 25%;
-    text-align: center;
-}
-
-.admin-photos-delete #deletePhotosButton {
-    font-size: 15px;
-    font-weight: bold;
-}
-
-.admin-photos-delete .photoColumnHeader {
+.admin-photos-delete  #deleteButtonWrapper {
     width: 50%;
     text-align: center;
 }
 
-.admin-photos-delete  .thumbnail {
+.admin-photos-delete  .photoThumbnail {
     height: 125px;
     width: auto;
     cursor: pointer;
 }
 
-.admin-photos-delete  .thumbnailContainer {
-    display: flex;
-    justify-content: center;
-    padding-top: 20px;
+.admin-photos-delete  .photoThumbnail:hover {
+    outline: 3px solid black;
+}
+
+.admin-photos-delete #photoThumbnailColumnHeader {
+    width: 50%;
+}
+
+.admin-photos-delete  .table td {
+    vertical-align: middle;
 }
 
 .admin-songs-delete  #allSongsTable {
@@ -556,11 +538,6 @@ th {
     text-align: center;
 }
 
-.admin-upload-audio-file #selectSongLabel {
-    font-size: 18px;
-    margin: 0;
-}
-
 .admin-upload-audio-file #skipLink {
     text-decoration: underline;
     font-size: 16px;
@@ -592,11 +569,6 @@ th {
 
 .admin-upload-sheet-music  #fileText {
     color: white;
-}
-
-.admin-upload-sheet-music #selectSongLabel {
-    font-size: 18px;
-    margin: 0;
 }
 
 .admin-upload-sheet-music #sheetId {
@@ -752,10 +724,6 @@ th {
     margin-bottom: 12px;
 }
 
-.login  label {
-    font-size: 18px;
-}
-
 .login  #bandLoginForm {
     width: 30vw;
     outline: 2px solid black;
@@ -776,10 +744,6 @@ th {
     font-size: 16px;
 }
 
-.new-gig label {
-    font-size: 18px;
-}
-
 .new-gig #createGigButton {
     width: 100%;
     margin-top: 20px;
@@ -789,7 +753,6 @@ th {
 
 .new-gig #fileTypeExplainer {
     text-align: center;
-    font-size: 16px;
 }
 
 .new-gig #gigDateInput {
@@ -827,11 +790,6 @@ th {
 
 .new-song .new-song-form-input {
     font-size: 16px;
-}
-
-.new-song .new-song-form-label {
-    font-size: 18px;
-    color: black;
 }
 
 .new-song #new-song-key {
@@ -1037,15 +995,60 @@ th {
     margin-right: 6px;
 }
 
-.practice #youtubeUrlLabel {
-    font-size: 18px;
-}
-
 .practice #youtubeUrlWrapper {
     display: flex;
 }
 
+.setlists #addAnotherFileButton {
+    margin-top: 24px;
+    margin-right: 8px;
+}
+
+.setlists #archivedSetlistsWrapper {
+    width: 40vw;
+    font-size: 16px;
+}
+
+.setlists hr {
+    border-color: black;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    background-color: black;
+    height: 1px;
+}
+
+.setlists #mergePdfButton {
+    margin-top: 24px;
+}
+
+.setlists #newSetlistForm {
+    border: 2px solid black;
+    padding: 30px;
+    border-radius: 5px;
+    width: 40vw;
+}
+
+.setlists option {
+    font-weight: bold;
+    color: black;
+}
+
+.setlists select {
+    outline: 2px solid black;
+    border-radius: 5px;
+}
+
 .setlists .setlistLink:visited {
+    color: black;
+}
+
+.setlists #setlistNameInput {
+    width: 66%;
+}
+
+.setlists #songFileDropdowns {
+    font-size: 16px;
+    font-weight: bold;
     color: black;
 }
 
@@ -1090,11 +1093,6 @@ th {
     outline: 2px solid black;
     padding: 30px;
     border-radius: 5px;
-}
-
-.upload-photo #uploadPhotoFileLabel {
-    font-size: 18px;
-    margin: 0;
 }
 
     /* Tablet */
@@ -1480,11 +1478,6 @@ th {
         .setlists #mergePdfButton {
             font-weight: bold;
             font-size: 16px;
-        }
-
-        .setlists #outputFileNameInput {
-            width: 50vw;
-            margin-bottom: 32px;
         }
 
         .setlists .setlistLink {

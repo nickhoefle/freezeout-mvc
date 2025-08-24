@@ -1,45 +1,49 @@
-const addSectionButton = document.getElementById('addSectionButton');
-const sections = document.getElementById('sections');
-let sectionCount = 1;
+document.addEventListener("DOMContentLoaded", function () {
 
-addSectionButton.addEventListener('click', () => {
-    sectionCount++;
+    const addAnotherFileButton = document.getElementById('addAnotherFileButton');
+    const songFileDropdowns = document.getElementById('songFileDropdowns');
+    let songFileCount = 1;
 
-    const section = document.createElement('div');
-    section.className = 'section';
+    addAnotherFileButton.addEventListener('click', () => {
+        songFileCount++;
 
-    const label = document.createElement('label');
-    label.textContent = `Song #${sectionCount}:`;
+        const songFileDropdownDiv = document.createElement('div');
+        songFileDropdownDiv.className = 'songFileDropdownDiv';
 
-    const select = document.createElement('select');
-    select.name = 'pdfFiles[]';
-    select.required = true;
+        const label = document.createElement('label');
+        label.textContent = `Song #${songFileCount}:`;
 
-    const defaultOption = document.createElement('option');
-    defaultOption.value = '';
-    defaultOption.textContent = 'Select PDF File';
+        const songFilesDropdown = document.createElement('select');
+        songFilesDropdown.name = 'pdfFiles[]';
+        songFilesDropdown.required = true;
 
-  // Fetch the PDF files from the server and populate the options dynamically
-    fetch('/admin/setlists/get-files')
-    .then(response => response.json())
-    .then(data => {
-        data.sort(); // Sort the PDF files alphabetically
+        const defaultOption = document.createElement('option');
+        defaultOption.value = '';
+        defaultOption.textContent = 'Select PDF File';
 
-        select.appendChild(defaultOption); // Add the default option as the first option
+      // Fetch the PDF files from the server and populate the options dynamically
+        fetch('/admin/setlists/get-files')
+        .then(response => response.json())
+        .then(data => {
+            data.sort(); // Sort the PDF files alphabetically
 
-        data.forEach(file => {
-        const option = document.createElement('option');
-        option.value = file;
-        option.textContent = file;
-        select.appendChild(option);
+            songFilesDropdown.appendChild(defaultOption); // Add the default option as the first option
+
+            data.forEach(file => {
+                const option = document.createElement('option');
+                option.value = file;
+                option.textContent = file;
+                songFilesDropdown.appendChild(option);
+            });
+
+            songFileDropdownDiv.appendChild(label);
+            songFileDropdownDiv.appendChild(document.createTextNode(' ')); // Add a space between the label and the dropdown
+            songFileDropdownDiv.appendChild(songFilesDropdown);
+            songFileDropdowns.appendChild(songFileDropdownDiv);
+        })
+        .catch(error => {
+            console.error('Error fetching PDF files:', error);
         });
-
-        section.appendChild(label);
-        section.appendChild(document.createTextNode(' ')); // Add a space between the label and the dropdown
-        section.appendChild(select);
-        sections.appendChild(section);
-    })
-    .catch(error => {
-        console.error('Error fetching PDF files:', error);
     });
+
 });
