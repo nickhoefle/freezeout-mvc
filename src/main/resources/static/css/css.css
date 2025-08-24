@@ -653,24 +653,36 @@ th {
     white-space: nowrap;
 }
 
+.gigs-view  #directionsHeader {
+    margin-bottom: 0.5rem;
+}
+
 .gigs-view  .gigPoster {
     height: 85vh;
     object-fit: contain;
     width: 100%;
 }
 
+.gigs-view  #iconsContainer {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    align-items: center;
+}
+
+.gigs-view  .mapIcon {
+    width: 40px;
+    height: 40px;
+}
+
+.gigs-view  #noUpcomingGigsContainer {
+    margin-top: 16px;
+}
+
 .gigs-view  #noUpcomingGigsText {
     color: black;
     font-size: 16px;
-}
-
-.gigs-view .pastGigSlides {
-    padding-bottom: 100px;
-}
-
-.gigs-view  .pastGigsDiv {
-    text-align: center;
-    padding-bottom: 50px;
+    margin-top: 16px;
 }
 
 .gigs-view  swiper-container {

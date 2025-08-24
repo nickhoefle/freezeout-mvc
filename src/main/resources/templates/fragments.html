@@ -89,4 +89,23 @@
     </div>
 </th:block>
 
+<div th:fragment="directionsFragment" class="gigMapLinks">
+    <h3 id="directionsHeader">Directions</h3>
+    <div id="iconsContainer">
+        <!-- Apple Maps -->
+        <a th:href="'http://maps.apple.com/?q=' + ${gig.address}" target="_blank" rel="noopener noreferrer">
+            <img th:src="@{/uploads/images/apple-maps-icon.png}" class="mapIcon" style="width:40px; height:40px;">
+        </a>
+
+        <!-- Google Maps -->
+        <a th:href="'https://www.google.com/maps/search/?api=1&query=' + ${gig.address}" target="_blank" rel="noopener noreferrer">
+            <img th:src="@{/uploads/images/google-maps-icon.svg}" class="mapIcon" style="width:40px; height:40px;">
+        </a>
+    </div>
+</div>
+
+<h3 th:fragment="timeFragment" th:if="${gig.time != null}" style="margin-bottom: 0.5rem;">
+    <span th:text="${gig.time}"></span>
+</h3>
+
 </html>

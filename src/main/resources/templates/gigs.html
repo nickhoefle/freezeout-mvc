@@ -6,39 +6,33 @@
 
 <div class="snowfall-container"></div>
 
-<div class="upcomingGigsDiv">
-    <h2>Upcoming Gigs</h2>
-    <div class="upcomingGigs" th:if="${#lists.size(allGigs.?[date > T(java.time.LocalDate).now()]) > 1}">
-        <swiper-container class="mySwiper" pagination="true" pagination-clickable="true" navigation="true" space-between="30" loop="true">
-            <th:block th:if="${gig.date > T(java.time.LocalDate).now()}" th:each="gig : ${allGigs}">
-                <swiper-slide>
-                    <img class="gigPoster" th:src="@{/uploads/gig-posters/{poster}(poster=${gig.image})}">
-                </swiper-slide>
-            </th:block>
-        </swiper-container>
-    </div>
-    <div th:if="${#lists.size(allGigs.?[date > T(java.time.LocalDate).now()]) == 1}" th:each="gig : ${allGigs}">
-        <img class="gigPoster" th:src="@{/uploads/gig-posters/{poster}(poster=${gig.image})}">
-    </div>
-    <div th:if="${#lists.size(allGigs.?[date > T(java.time.LocalDate).now()]) == 0}">
-        <i id="noUpcomingGigsText">None right now. Stay tuned!</i>
-    </div>
-</div>
+<div class="upcomingGigsDiv" th:with="upcomingGigs=${allGigs.?[date > T(java.time.LocalDate).now()]}">
 
-<div class="pastGigsDiv" th:if="${#lists.size(allGigs.?[date < T(java.time.LocalDate).now()]) > 0}">
-    <h2>Past Gigs</h2>
-    <div class="pastGigSlides" th:if="${#lists.size(allGigs.?[date < T(java.time.LocalDate).now()]) > 1}">
-        <swiper-container class="mySwiper" pagination="true" pagination-clickable="true" navigation="true" space-between="30" loop="true">
-            <th:block th:if="${gig.date < T(java.time.LocalDate).now()}" th:each="gig : ${allGigs}">
+    <!-- Swiper only if more than one gig -->
+    <div class="upcomingGigs" th:if="${#lists.size(upcomingGigs) > 1}">
+        <swiper-container class="mySwiper" navigation="true" space-between="30" loop="true">
+            <th:block th:each="gig : ${upcomingGigs}">
                 <swiper-slide>
                     <img class="gigPoster" th:src="@{/uploads/gig-posters/{poster}(poster=${gig.image})}">
+                    <h3 th:replace="fragments :: timeFragment"></h3>
+                    <div th:replace="fragments :: directionsFragment"></div>
                 </swiper-slide>
             </th:block>
         </swiper-container>
     </div>
-    <div class="pastGigSlides" th:if="${#lists.size(allGigs.?[date < T(java.time.LocalDate).now()]) == 1}" th:each="gig : ${allGigs}">
+
+    <!-- Single gig without swiper -->
+    <div th:if="${#lists.size(upcomingGigs) == 1}" th:each="gig : ${upcomingGigs}">
         <img class="gigPoster" th:src="@{/uploads/gig-posters/{poster}(poster=${gig.image})}">
+        <h3 th:replace="fragments :: timeFragment"></h3>
+        <div th:replace="fragments :: directionsFragment"></div>
     </div>
+
+    <!-- No upcoming gigs -->
+    <div th:if="${#lists.size(upcomingGigs) == 0}" id="noUpcomingGigsContainer">
+        <i id="noUpcomingGigsText">No upcoming gigs. Stay tuned!</i>
+    </div>
+
 </div>
 
 </body>
