@@ -1095,6 +1095,25 @@ th {
     border-radius: 5px;
 }
 
+.videos h1, h2, h3, h4, h5, h6, p, a, i, u {
+    font-family: 'Snowtop Caps', sans-serif;
+}
+
+.videos video {
+    width: auto;
+    height: 60vh;
+    outline: 1px solid black;
+}
+
+.videos .videoTitle {
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+.videos #videosDiv {
+    text-align: center;
+}
+
     /* Tablet */
     @media only screen and (min-width: 768px) and (max-width: 1024px) {
 
@@ -1613,6 +1632,16 @@ th {
                 .photos #photoGalleryDiv {
                     height: 400px;
                 }
+
+                .videos video {
+                    width: 95vw;
+                    height: auto;
+                }
+
+                .videos .videoTitle {
+                    font-size: 15px;
+                }
+
             }
 
             /* Custom Audio Player CSS */
