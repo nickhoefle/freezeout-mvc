@@ -1102,7 +1102,6 @@ th {
 .videos video {
     width: auto;
     height: 60vh;
-    outline: 1px solid black;
 }
 
 .videos .videoTitle {
